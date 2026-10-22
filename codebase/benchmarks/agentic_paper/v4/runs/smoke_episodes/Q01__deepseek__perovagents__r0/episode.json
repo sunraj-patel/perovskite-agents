@@ -1,0 +1,216 @@
+{
+ "episode_id": "Q01__deepseek__perovagents__r0",
+ "qid": "Q01",
+ "category": "pdb",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:03:10",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "What is the average reported PCE of n-i-p perovskite solar cells using SnO2 as the ETL?",
+ "finished_at": "2026-10-22T00:04:35",
+ "seconds": 85.4,
+ "termination": "answer",
+ "final_answer": "The average reported PCE of n-i-p devices with an SnO2-containing ETL is **15.31 %**, based on **4,299 devices from 789 distinct papers** in the Perovskite Database (filter: `Cell_architecture = 'nip'`, `ETL_stack_sequence LIKE '%SnO2%'`, non-null PCE > 0). Reported PCE range for this subset was 0.02 % to 35.9 %. Median and standard deviation were not reported.",
+ "tool_calls": [
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT AVG(JV_default_PCE) AS mean_pce, COUNT(*) AS n_devices, MIN(JV_default_PCE) AS min_pce, MAX(JV_default_PCE) AS max_pce, COUNT(DISTINCT Ref_DOI_number) AS n_papers, COUNT(JV_default_PCE) AS n_nonnull FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 0"
+   },
+   "result": "{'columns': ['mean_pce', 'n_devices', 'min_pce', 'max_pce', 'n_papers', 'n_nonnull'], 'n_rows': 1, 'rows': [{'mean_pce': 15.306740241916726, 'n_devices': 4299, 'min_pce': 0.02, 'max_pce': 35.9, 'n_papers': 789, 'n_nonnull': 4299}]}",
+   "result_chars": 231,
+   "seconds": 0.057,
+   "t_offset_s": 78.23,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 8,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 8,
+  "prompt_chars": 97039,
+  "completion_chars": 6063,
+  "real_prompt_tokens": 91790,
+  "real_completion_tokens": 9937,
+  "usage_reported_calls": 8,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 85.3,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "invalid",
+     "glob",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.05,
+    "latency_s": 3.05,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 3350,
+    "text_len": 459,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 2,
+    "t_offset_s": 3.1,
+    "latency_s": 24.87,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16618,
+    "text_len": 1902,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 3,
+    "t_offset_s": 27.98,
+    "latency_s": 33.82,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16763,
+    "text_len": 498,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 4,
+    "t_offset_s": 61.8,
+    "latency_s": 6.06,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4097,
+    "text_len": 456,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 5,
+    "t_offset_s": 67.86,
+    "latency_s": 6.84,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16615,
+    "text_len": 1072,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 6,
+    "t_offset_s": 74.71,
+    "latency_s": 3.53,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16760,
+    "text_len": 379,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 7,
+    "t_offset_s": 78.29,
+    "latency_s": 3.94,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17355,
+    "text_len": 920,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 8,
+    "t_offset_s": 82.23,
+    "latency_s": 3.21,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5481,
+    "text_len": 377,
+    "empty": false,
+    "provider_failure": false
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 8,
+  "replies": 8,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_000310_348d.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 2,
+  "n_format_errors": 0,
+  "escalations": 1
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

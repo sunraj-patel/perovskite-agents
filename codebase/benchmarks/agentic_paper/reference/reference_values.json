@@ -1,0 +1,548 @@
+{
+ "version": 2,
+ "built_at": "2026-10-21T18:07:55",
+ "sources": {
+  "sqlite": {
+   "path": "<PEROVAGENTS_PDB_SQLITE>",
+   "sha256": "2df11a631fd75c4ceede059680047f3b3b103114e5323507e10b86b49bc3e03e"
+  },
+  "scaps_sweep_csv": {
+   "sha256": "7ff600842519fa546342634612cffcfde3b286a988e8adb701809c9fa7441ef5"
+  },
+  "ml_manifest": {
+   "sha256": "38e92c2f46b0d55be9e1dae59d99ca639fe3cf79fd1543f26f9fa873d9a76ce6"
+  },
+  "ml_models": {
+   "bag_NIP_seed123.cbm": "07d81dee7547494092dfac1a0669cce11fecd1850af7f32ea256a25e58f2a0da",
+   "bag_NIP_seed42.cbm": "9034236eb50097ef5d8620442b0b42a8f7741092016321565584585d873d70ae",
+   "bag_NIP_seed7.cbm": "572bea691f2924cd5a4f82a0aad2eb5649d4cb42d76e60dd0cf500936a111b1c",
+   "bag_Overall_seed123.cbm": "426f76426d90c3358ef53579e15e77493215b673d9a61f8dc57a16dca1f4df28",
+   "bag_Overall_seed42.cbm": "fdac899fe8eb5f9e1c8b32cb4272ef93ffd4b782e8bd50b0edc7040df58096ad",
+   "bag_Overall_seed7.cbm": "3361a0d3f307bfa076322313ae9375ee5cfe3bd0a429387d9fe8e722c34584ec",
+   "bag_PIN_seed123.cbm": "51585333a42c90b2fcd95a1cf8af3b8c9db8ca356fb9b5b3e79560603bf9dd4d",
+   "bag_PIN_seed42.cbm": "48fcd613456259fb6af7b7ef171b5793d18aadf301d302db33d130546489f8b6",
+   "bag_PIN_seed7.cbm": "f00556ff525c08a5d721e7e09a040e3d9ae63435758d376a14e90dc3ed7f58bc",
+   "model_NIP.cbm": "f35b2bfd1ab9b0a6f73110f48ff3a4c787214f65f5bf3e333cf9d894c1e4c415",
+   "model_Overall.cbm": "de442fdffdcdcd1dd1eea711a9b2f4f5d0000cee1af4658034fcf2adf55519e5",
+   "model_PIN.cbm": "d58ab8d3d1fb28c0e0598c04ffd5899981e70bc2493bf0fa8ff52e3224e70f76"
+  },
+  "literature_index": {
+   "sha256": "3ad7985277c6a7f1f0df5b360ad81ec6b9c15be0400599ca8ebcf920b11a0aa5"
+  },
+  "gold_v1": {
+   "sha256": "9765c38260d1701077b0e2e2745fe41b4259e5ee5fe7db1f577161d29aad49ee"
+  },
+  "corpus_files": {
+   "10.1002_adfm.201604733.md": "61713c70d3429b0c73b80a8557cfc8def27920bca94714890629f40b943186c7",
+   "10.1002_aenm.201803587.md": "92c990cc356c94b4ae7d5175ddb3653aad9a1252602c664c1de269b39b9b02a5",
+   "10.1007_s10118-017-1891-z.md": "a37d9498c70621f3039d90d4d484a5f95e853b2ff49278737a120632f5628ff6",
+   "10.1016_j.electacta.2017.06.032.md": "3bf56a59382eb24adede04788a2e3d9c38610def96fd0eb6c0117dd296be9fd6",
+   "10.1016_j.electacta.2017.12.108.md": "51edb16d778f7e84f17b8030d5ea55cabb805f7e8eac85f270a9ecbc8c6f6fd3",
+   "10.1016_j.joule.2018.06.009.md": "262010f8202d86babd80525fdafd2d80582833bcbbb527d0a6813b99d794ebca",
+   "10.1016_j.jpowsour.2018.08.070.md": "dbbdc5ebd52f96b3c79f950a172b689e461d19b49e50b3ddba0c8d978e2c38d2",
+   "10.1016_j.nanoen.2018.10.011.md": "9147353cf6b01e789705346be1121b9070d536855c4841bf168c3ea46ee2b37b",
+   "10.1021_acs.jpcc.5b06269.md": "096564041227af63838ae70bad601c154a5303b68caee809025f6d70f010db2f",
+   "10.1021_acs.jpcc.8b01026.md": "fdb47917a8a63a8c047f9ea4867c28a9efb26bcb272661ecbe8b112ae0ac817f",
+   "10.1021_acs.jpclett.5b01716.md": "26f539462b35c316f1ae054567e0c63600cc85e2ca48016750acf4da34975193",
+   "10.1021_jp5126624.md": "fc93a25fda8fc2136aee657e69877f523d59e9e10222030acd3a8adc02117e39",
+   "10.1038_ncomms13503.md": "7def1c6bc05e70dfb9cce46828ffd322ae38560c2900f1f43b0c16bbfc53b9d8",
+   "10.1038_ncomms15330.md": "24861ee0a3f49d77f7001d032c0d36e415388a8b96a177cab76869313f063729",
+   "10.1039_c7se00100b.md": "628e3044f6fed5f7a184d37e0d28c5a1be6c85b9324949e878efd4cca5a7ef36",
+   "10.1039_c8ta07968d.md": "5e08ffebff94879af4b5c648a6bf40779a9a8a2bec99048563d3178536b06bec",
+   "10.1039_c9ta01893j.md": "c0c30118cf4a92f89d80b0ff777ed9ff90bec99c327eb6f249480ad0adf151dd",
+   "10.1063_1.4896779.md": "91fac714823267a212c60e32089635a1e6c7c7edceac3c362a49863249dbef1a",
+   "10.1088_1361-6463_ab1626.md": "44761bc149551df9684842b389557fb2879e70bde95f8f7618b7b9c97cbef8f8",
+   "10.1117_12.2506443.md": "eb74611fb65ebcef6da8ed7fafdaabc01d1849367c8fba47df0b3719f1189b90",
+   "10.1149_08701.0199ecst.md": "12eca7c414ee8406c72799e9d8fb21f7d6b1c3a610f0f15382ea495098277b3d",
+   "10.1246_cl.180616.md": "e573f288c75580eb7b5f0994c9a2c0dfcebc7773182e7872fcbcb09d3eca196f"
+  }
+ },
+ "pdb": {
+  "Q01": {
+   "count": 4300,
+   "mean_pce": 15.303,
+   "sql": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL"
+  },
+  "Q02": {
+   "ranking": [
+    {
+     "htl": "Spiro-MeOTAD",
+     "count": 736
+    },
+    {
+     "htl": "PTAA",
+     "count": 33
+    },
+    {
+     "htl": "PEAI | Spiro-MeOTAD",
+     "count": 18
+    },
+    {
+     "htl": "DM",
+     "count": 7
+    },
+    {
+     "htl": "TPFPB | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "SrCl2 | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "PMMA | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "P(VDF-TrFE) | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "DTP-C6Th",
+     "count": 4
+    },
+    {
+     "htl": "CuSCN",
+     "count": 4
+    }
+   ],
+   "sql": "SELECT HTL_stack_sequence, COUNT(*) FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE > 20 GROUP BY 1 ORDER BY 2 DESC LIMIT 10"
+  },
+  "Q03": {
+   "nip": {
+    "count": 29233,
+    "mean_pce": 12.113,
+    "median_pce": 12.89
+   },
+   "pin": {
+    "count": 13062,
+    "mean_pce": 11.937,
+    "median_pce": 12.6
+   },
+   "sql": "SELECT Cell_architecture, JV_default_PCE FROM devices WHERE Cell_architecture IN ('nip','pin') AND JV_default_PCE IS NOT NULL"
+  },
+  "Q04": {
+   "top_devices": [
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 35.9,
+     "voc": 0.98,
+     "jsc": 0.158,
+     "ff": 0.72
+    },
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 34.8,
+     "voc": 0.95,
+     "jsc": 0.158,
+     "ff": 0.72
+    },
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 33.4,
+     "voc": 0.97,
+     "jsc": 0.077,
+     "ff": 0.7
+    },
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 32.3,
+     "voc": 0.93,
+     "jsc": 0.077,
+     "ff": 0.71
+    },
+    {
+     "doi": "10.1038/s41586-021-03285-w",
+     "htl": "alkylammonium bromide | Spiro-MeOTAD",
+     "etl": "SnO2",
+     "absorber": "nannannan",
+     "pce": 25.2,
+     "voc": 1.194,
+     "jsc": 25.09,
+     "ff": 0.847
+    }
+   ],
+   "sql": "SELECT Ref_DOI_number, HTL_stack_sequence, ETL_stack_sequence, Perovskite_composition_long_form, JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 5"
+  },
+  "Q21": {
+   "count": 7856,
+   "count_alts": [
+    7660,
+    7856,
+    7860
+   ],
+   "mean_pce": 12.216,
+   "mean_pce_eq": 12.15,
+   "sql": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence LIKE '%Spiro-MeOTAD%' AND JV_default_PCE IS NOT NULL",
+   "sql_equal_variant": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence = 'Spiro-MeOTAD' AND JV_default_PCE IS NOT NULL"
+  },
+  "Q22": {
+   "ranking": [
+    {
+     "composition": "FAMAPbBrI",
+     "count": 19
+    },
+    {
+     "composition": "FAMAPbI",
+     "count": 17
+    },
+    {
+     "composition": "CsFAMAPbBrI",
+     "count": 13
+    },
+    {
+     "composition": "MAPbI",
+     "count": 11
+    },
+    {
+     "composition": "FAPbI",
+     "count": 7
+    }
+   ],
+   "top3": [
+    "FAMAPbBrI",
+    "FAMAPbI",
+    "CsFAMAPbBrI"
+   ],
+   "sql": "SELECT Perovskite_composition_short_form, COUNT(*) c FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE > 22 GROUP BY 1 ORDER BY 2 DESC LIMIT 5"
+  },
+  "Q23": {
+   "max_pce": 22.6,
+   "doi": "10.1126/sciadv.aav8925",
+   "runner_up_pce": 22.3,
+   "sql": "SELECT Ref_DOI_number, JV_default_PCE, ETL_stack_sequence FROM devices WHERE Cell_architecture='pin' AND HTL_stack_sequence='PTAA' AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 3"
+  },
+  "Q24": {
+   "count": 0,
+   "sql": "SELECT COUNT(*) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%LaFeO3%'"
+  },
+  "Q42": {
+   "cds_like": 160,
+   "cds_excluding_cdse": 135,
+   "sql": "SELECT COUNT(*) FROM devices WHERE ETL_stack_sequence LIKE '%CdS%'",
+   "sql_excluding_cdse": "SELECT COUNT(*) FROM devices WHERE ETL_stack_sequence LIKE '%CdS%' AND ETL_stack_sequence NOT LIKE '%CdSe%'"
+  }
+ },
+ "ml": {
+  "descriptions": {
+   "nip": "n-i-p cell, SnO2 ETL, Spiro-MeOTAD HTL, MAPbI3 perovskite 500 nm",
+   "pin": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm"
+  },
+  "Q09": {
+   "predicted_pce": 12.34,
+   "interval": [
+    10.91,
+    13.78
+   ],
+   "deterministic": true
+  },
+  "Q10": {
+   "top_features": [
+    "ETL_deposition_method",
+    "Perov_quenching_crystallisation",
+    "Perovskite_deposition_synthesis_atmosphere",
+    "Perovskite",
+    "HTL_additives_compounds",
+    "HTL_deposition_method",
+    "has_LiF_na",
+    "has_ZnO_na"
+   ],
+   "deterministic": true
+  },
+  "Q11": {
+   "predicted_pce": 12.34,
+   "top_local_features": [
+    "Perovskite_deposition_synthesis_atmosphere",
+    "ETL_deposition_method",
+    "HTL_additives_compounds"
+   ],
+   "local_directions": {
+    "Perovskite_deposition_synthesis_atmosphere": "negative",
+    "ETL_deposition_method": "positive",
+    "HTL_additives_compounds": "positive",
+    "gap_diff_HTL_Pvk": "positive",
+    "Perovskite_deposition_solvents": "positive"
+   },
+   "deterministic": true
+  },
+  "Q12": {
+   "baseline_pce": 12.34,
+   "top_recommended_value": "CsMAFA",
+   "top_recommended_parameter": "Perovskite",
+   "top_best_pce": 15.52,
+   "candidate_terms": [
+    "CsMAFA",
+    "ETL",
+    "FAPbI3",
+    "FA_MA",
+    "HTL",
+    "PCBM",
+    "PEDOT:PSS",
+    "Perovskite"
+   ],
+   "candidate_pces": [
+    12.4,
+    12.82,
+    15.52
+   ],
+   "deterministic": true
+  },
+  "Q29": {
+   "predicted_pce": 13.46,
+   "interval": [
+    12.27,
+    14.66
+   ],
+   "deterministic": true
+  },
+  "Q30": {
+   "top_features": [
+    "Perovskite",
+    "HTL_deposition_method",
+    "Substrate_stack_sequence",
+    "Backcontact_stack_sequence",
+    "Perovskite_deposition_solvents"
+   ],
+   "deterministic": true
+  },
+  "Q31": {
+   "pce_300": 12.29,
+   "pce_500": 12.34,
+   "deterministic": true
+  }
+ },
+ "literature": {
+  "Q05": {
+   "doi": "10.1002/aenm.201803587",
+   "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+   "architecture": "n-i-p",
+   "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+   "material": "SnO2 (compact, ETL)",
+   "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+   "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+   "baseline_pce": 19.43,
+   "facl_pce": 20.52,
+   "champion_pce": 21.2,
+   "champion_voc_mv": 1152,
+   "champion_jsc": 23.4,
+   "champion_ff": 78.3,
+   "mpp_stabilized": [
+    19.22,
+    20.32,
+    21.01
+   ],
+   "stability": "12% PCE loss after 700 h continuous illumination",
+   "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+   "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+   "verification_status": "verified-against-corpus-passages"
+  },
+  "Q06": {
+   "doi": "10.1002/aenm.201803587",
+   "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+   "architecture": "n-i-p",
+   "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+   "material": "SnO2 (compact, ETL)",
+   "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+   "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+   "baseline_pce": 19.43,
+   "facl_pce": 20.52,
+   "champion_pce": 21.2,
+   "champion_voc_mv": 1152,
+   "champion_jsc": 23.4,
+   "champion_ff": 78.3,
+   "mpp_stabilized": [
+    19.22,
+    20.32,
+    21.01
+   ],
+   "stability": "12% PCE loss after 700 h continuous illumination",
+   "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+   "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+   "verification_status": "verified-against-corpus-passages"
+  },
+  "Q07": {
+   "doi": "10.1002/aenm.201803587",
+   "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+   "architecture": "n-i-p",
+   "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+   "material": "SnO2 (compact, ETL)",
+   "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+   "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+   "baseline_pce": 19.43,
+   "facl_pce": 20.52,
+   "champion_pce": 21.2,
+   "champion_voc_mv": 1152,
+   "champion_jsc": 23.4,
+   "champion_ff": 78.3,
+   "mpp_stabilized": [
+    19.22,
+    20.32,
+    21.01
+   ],
+   "stability": "12% PCE loss after 700 h continuous illumination",
+   "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+   "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+   "verification_status": "verified-against-corpus-passages"
+  },
+  "Q08": {
+   "doi": "10.1002/aenm.201803587",
+   "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+   "architecture": "n-i-p",
+   "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+   "material": "SnO2 (compact, ETL)",
+   "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+   "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+   "baseline_pce": 19.43,
+   "facl_pce": 20.52,
+   "champion_pce": 21.2,
+   "champion_voc_mv": 1152,
+   "champion_jsc": 23.4,
+   "champion_ff": 78.3,
+   "mpp_stabilized": [
+    19.22,
+    20.32,
+    21.01
+   ],
+   "stability": "12% PCE loss after 700 h continuous illumination",
+   "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+   "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+   "verification_status": "verified-against-corpus-passages"
+  },
+  "Q25": {
+   "doi": "10.1117/12.2506443",
+   "control_pce": 12.11,
+   "modified_pce": 14.63
+  },
+  "Q26": {
+   "doi": "10.1246/cl.180616",
+   "t_cds_pce": 15.0,
+   "t_cds_jsc": 18.7
+  },
+  "Q27": {
+   "doi": "10.1016/j.joule.2018.06.009"
+  },
+  "Q28": {
+   "absent_terms_checked": [
+    "NiOx",
+    "T80",
+    "ISOS",
+    "inkjet"
+   ]
+  }
+ },
+ "scaps": {
+  "Q33": {
+   "pce_200nm": 24.2902,
+   "pce_1000nm": 32.1431,
+   "thickness_nm": [
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    1000
+   ]
+  },
+  "Q34": {
+   "pce_1.35": 32.6226,
+   "pce_1.70": 27.4762,
+   "voc_1.35": 1.1932,
+   "voc_1.70": 1.5315
+  },
+  "Q35": {
+   "span_mue": 0.1759,
+   "span_muh": 1.5431,
+   "span_eg": 5.1464
+  },
+  "Q36": {
+   "ff_1": 90.5772,
+   "ff_0.01": 85.9579,
+   "pce_1": 29.7504,
+   "pce_0.01": 28.2222
+  },
+  "Q37": {
+   "pce_2.0": 16.069,
+   "ff_2.0": 61.8481,
+   "pce_3.0": 29.7504
+  },
+  "Q38": {
+   "collapse_chi": 3.0,
+   "collapse_pce": 0.0092,
+   "nan_chi": [
+    3.4,
+    3.8
+   ]
+  },
+  "Q39": {
+   "reference_cell_pvk_d_nm": 400.0,
+   "pvk_Eg_eV": 1.55,
+   "htl": "Spiro-MeOTAD",
+   "etl": "TiO2",
+   "architecture": "n-i-p"
+  },
+  "Q43": {
+   "scaps_pce_300nm": 27.8758,
+   "scaps_pce_500nm": 30.7853
+  }
+ },
+ "multi_tool": {
+  "Q41": {
+   "db_mean_pce": 15.303,
+   "db_count": 4300,
+   "ml_predicted_pce": 12.34
+  },
+  "Q43": {
+   "scaps_pce_300nm": 27.8758,
+   "scaps_pce_500nm": 30.7853,
+   "ml_pce_300": 12.29,
+   "ml_pce_500": 12.34
+  },
+  "Q44": {
+   "doi": "10.1117/12.2506443",
+   "control_pce": 12.11,
+   "modified_pce": 14.63,
+   "ml_predicted_pce": 13.46
+  },
+  "Q45": {
+   "db_pin_mean_pce": 11.937
+  }
+ },
+ "corpus_titles": {
+  "10.1002/adfm.201604733": "High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**",
+  "10.1002/aenm.201803587": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+  "10.1007/s10118-017-1891-z": "Improved Photovoltaic Performance from High Quality Perovskite Thin Film Grown with the Assistance of PC71BM\\***",
+  "10.1016/j.electacta.2017.06.032": "Electrochimica Acta",
+  "10.1016/j.electacta.2017.12.108": "Electrochimica Acta",
+  "10.1016/j.joule.2018.06.009": "Gas Quenching for Perovskite Thin Film Deposition",
+  "10.1016/j.jpowsour.2018.08.070": "Journal of Power Sources",
+  "10.1016/j.nanoen.2018.10.011": "Contents lists available at ScienceDirect",
+  "10.1021/acs.jpcc.5b06269": "Photodecomposition and Morphology Evolution of Organometal Halide Perovskite Solar Cells",
+  "10.1021/acs.jpcc.8b01026": "Global Control of CH<sub>3</sub>NH<sub>3</sub>Pbl<sub>3</sub> Formation with Multifunctional Ionic **Liquid for Perovskite Hybrid Photovoltaics**",
+  "10.1021/acs.jpclett.5b01716": "Mixed Iodide-Bromide Methylammonium Lead Perovskite-based **Diodes for Light Emission and Photovoltaics**",
+  "10.1021/jp5126624": "Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells",
+  "10.1038/ncomms13503": "ARTICLE",
+  "10.1038/ncomms15330": "ARTICLE",
+  "10.1039/c7se00100b": "Sustainable Energy & Fuels",
+  "10.1039/c8ta07968d": "Journal of Materials Chemistry A",
+  "10.1039/c9ta01893j": "Journal of Materials Chemistry A",
+  "10.1063/1.4896779": "Electrical field profile and doping in planar lead halide perovskite solar cells *\u2299*",
+  "10.1088/1361-6463/ab1626": "PAPER**",
+  "10.1117/12.2506443": "Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**",
+  "10.1149/08701.0199ecst": "Perovskite Solar Cells with Increased Resistance to Moisture",
+  "10.1246/cl.180616": "Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell"
+ }
+}

@@ -1,0 +1,30 @@
+{
+  "tag": "A2",
+  "wine": "/private/tmp/claude-501/-Users-sunraj-Desktop-College-S6-UGP-perovagents/5ee03b20-fdfe-4b40-94d1-868d6b92a17a/scratchpad/ab/f1_wine64_ft.sh",
+  "prefix": "/private/tmp/claude-501/-Users-sunraj-Desktop-College-S6-UGP-perovagents/5ee03b20-fdfe-4b40-94d1-868d6b92a17a/scratchpad/ab/prefix_A2",
+  "status": "iv_written",
+  "elapsed_s": 46.3,
+  "returncode_before_kill": 6,
+  "iv_exists": true,
+  "iv_mtime": "Sun Oct 18 00:21:27 2026",
+  "iv_bytes": 18311,
+  "Voc": 1.305628,
+  "Jsc": 27.12922237,
+  "FF": 90.2801,
+  "PCE": 31.9778,
+  "convergence_failure": false,
+  "leftover_procs": "",
+  "cpu_samples": [
+    [
+      "35092   0.0    00:00 /bin/bash /private/tmp/claude-501/-Users-sunraj-Desktop-College-S6-UGP-perovagents/5ee03b20-fdfe-4b40-94d1-868d6b92a17a/scratchpad/ab/f1_wi"
+    ],
+    [
+      "35092   0.0    00:21 start.exe /exec scaps3309.exe",
+      "35137 105.4    00:18 C:\\Program Files (x86)\\Scaps3309\\scaps3309.exe A2_gold.script"
+    ],
+    [
+      "35092   0.0    00:41 start.exe /exec scaps3309.exe",
+      "35137 100.7    00:38 C:\\Program Files (x86)\\Scaps3309\\scaps3309.exe A2_gold.script"
+    ]
+  ]
+}

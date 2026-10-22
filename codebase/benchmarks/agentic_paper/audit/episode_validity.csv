@@ -1,0 +1,68 @@
+episode_id,qid,category,backbone,condition,rep,manifest_status,termination,validity,evidence,seconds,model_calls,tool_calls,n_asks,escalations,completed,correct,tool_f1
+Q01__gemini__direct__r0,Q01,pdb,gemini,direct,0,completed,timeout,no_model_output,"21 calls, 0 reply chars, 1410s",1409.8,21,0,,,0,0,0.0
+Q01__gemini__perovagents__r0,Q01,pdb,gemini,perovagents,0,completed,answer,valid,,15.3,4,1,1,0,1,1,1.0
+Q02__gemini__direct__r0,Q02,pdb,gemini,direct,0,completed,timeout,valid,,1370.3,23,1,,,0,0,1.0
+Q02__gemini__perovagents__r0,Q02,pdb,gemini,perovagents,0,completed,answer,valid,,193.6,8,5,1,0,1,1,1.0
+Q03__gemini__direct__r0,Q03,pdb,gemini,direct,0,completed,timeout,no_model_output,"18 calls, 0 reply chars, 1371s",1370.7,18,0,,,0,0,0.0
+Q03__gemini__perovagents__r0,Q03,pdb,gemini,perovagents,0,completed,answer,valid,,21.2,4,1,1,0,1,0,1.0
+Q04__gemini__direct__r0,Q04,pdb,gemini,direct,0,completed,timeout,no_model_output,"18 calls, 0 reply chars, 1313s",1313.4,18,0,,,0,0,0.0
+Q04__gemini__perovagents__r0,Q04,pdb,gemini,perovagents,0,completed,answer,valid,,505.2,13,4,3,3,0,0,1.0
+Q05__gemini__direct__r0,Q05,literature,gemini,direct,0,completed,timeout,no_model_output,"27 calls, 0 reply chars, 1449s",1448.9,27,0,,,0,0,0.0
+Q05__gemini__perovagents__r0,Q05,literature,gemini,perovagents,0,completed,answer,valid,,445.4,9,3,2,2,0,0,1.0
+Q06__gemini__direct__r0,Q06,literature,gemini,direct,0,completed,timeout,no_model_output,"24 calls, 0 reply chars, 1214s",1213.9,24,0,,,0,0,0.0
+Q06__gemini__perovagents__r0,Q06,literature,gemini,perovagents,0,completed,answer,valid,,457.6,21,9,5,3,0,0,0.571
+Q07__gemini__direct__r0,Q07,literature,gemini,direct,0,completed,timeout,valid,,1371.3,14,1,,,0,0,0.0
+Q07__gemini__perovagents__r0,Q07,literature,gemini,perovagents,0,completed,answer,valid,,1003.1,27,12,6,3,0,0,0.571
+Q08__gemini__direct__r0,Q08,literature,gemini,direct,0,completed,timeout,no_model_output,"24 calls, 0 reply chars, 1219s",1219.2,24,0,,,0,0,0.0
+Q08__gemini__perovagents__r0,Q08,literature,gemini,perovagents,0,completed,answer,valid,,828.5,19,9,3,3,0,0,1.0
+Q09__gemini__direct__r0,Q09,ml,gemini,direct,0,completed,answer,valid,,395.6,8,1,,,1,1,1.0
+Q09__gemini__perovagents__r0,Q09,ml,gemini,perovagents,0,completed,answer,valid,,107.7,4,1,1,0,1,0,1.0
+Q10__gemini__direct__r0,Q10,ml,gemini,direct,0,completed,answer,valid,,484.4,10,1,,,1,1,1.0
+Q10__gemini__perovagents__r0,Q10,ml,gemini,perovagents,0,completed,answer,valid,,74.6,4,1,1,0,1,1,1.0
+Q11__gemini__direct__r0,Q11,ml,gemini,direct,0,completed,answer,valid,,521.2,15,2,,,1,1,1.0
+Q11__gemini__perovagents__r0,Q11,ml,gemini,perovagents,0,completed,answer,valid,,80.1,5,2,1,0,1,1,1.0
+Q12__gemini__direct__r0,Q12,ml,gemini,direct,0,completed,answer,valid,,375.1,7,1,,,1,1,1.0
+Q12__gemini__perovagents__r0,Q12,ml,gemini,perovagents,0,completed,answer,valid,,193.9,6,2,1,0,1,1,1.0
+Q17__gemini__perovagents__r0,Q17,multi_tool,gemini,perovagents,0,completed,answer,valid,,335.3,11,5,2,1,0,0,0.75
+Q01__minimax__direct__r0,Q01,pdb,minimax,direct,0,completed,answer,valid,,205.9,5,4,,,1,1,1.0
+Q01__minimax__perovagents__r0,Q01,pdb,minimax,perovagents,0,completed,answer,valid,,295.4,8,5,1,0,1,1,1.0
+Q02__minimax__direct__r0,Q02,pdb,minimax,direct,0,completed,answer,valid,,194.8,8,7,,,1,0,1.0
+Q02__minimax__perovagents__r0,Q02,pdb,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,776.3,12,9,2,0,,,
+Q03__minimax__direct__r0,Q03,pdb,minimax,direct,0,completed,answer,valid,,403.7,9,7,,,1,1,1.0
+Q03__minimax__perovagents__r0,Q03,pdb,minimax,perovagents,0,completed,answer,valid,,13.2,1,0,0,0,0,0,0.0
+Q04__minimax__direct__r0,Q04,pdb,minimax,direct,0,completed,turn_budget,valid,,531.3,12,12,,,0,0,1.0
+Q04__minimax__perovagents__r0,Q04,pdb,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,816.6,13,11,2,1,,,
+Q05__minimax__direct__r0,Q05,literature,minimax,direct,0,completed,answer,valid,,179.6,4,3,,,1,1,1.0
+Q05__minimax__perovagents__r0,Q05,literature,minimax,perovagents,0,completed,answer,valid,,18.5,1,0,0,0,0,0,0.0
+Q06__minimax__direct__r0,Q06,literature,minimax,direct,0,completed,answer,valid,,229.8,5,4,,,0,0,1.0
+Q06__minimax__perovagents__r0,Q06,literature,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: provider_error: empty text in serve response,365.4,9,7,2,0,,,
+Q07__minimax__direct__r0,Q07,literature,minimax,direct,0,completed,answer,valid,,356.0,7,5,,,1,0,1.0
+Q07__minimax__perovagents__r0,Q07,literature,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,1057.3,17,13,2,1,,,
+Q08__minimax__direct__r0,Q08,literature,minimax,direct,0,completed,answer,valid,,278.7,7,5,,,1,1,1.0
+Q08__minimax__perovagents__r0,Q08,literature,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,438.1,11,10,2,0,,,
+Q09__minimax__direct__r0,Q09,ml,minimax,direct,0,completed,answer,valid,,67.9,2,1,,,0,0,0.0
+Q09__minimax__perovagents__r0,Q09,ml,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,692.5,14,10,2,0,,,
+Q10__minimax__direct__r0,Q10,ml,minimax,direct,0,completed,answer,valid,,164.7,3,2,,,1,1,0.667
+Q10__minimax__perovagents__r0,Q10,ml,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,992.8,21,14,4,3,,,
+Q11__minimax__direct__r0,Q11,ml,minimax,direct,0,completed,answer,valid,,93.5,5,3,,,1,1,0.8
+Q11__minimax__perovagents__r0,Q11,ml,minimax,perovagents,0,completed,timeout,provider_limited,wall-clock with 1 provider call timeouts,1200.1,26,21,3,1,0,0,0.571
+Q12__minimax__direct__r0,Q12,ml,minimax,direct,0,completed,answer,valid,,139.8,5,4,,,1,1,0.667
+Q12__minimax__perovagents__r0,Q12,ml,minimax,perovagents,0,completed,timeout,provider_limited,wall-clock with 4 provider call timeouts,1200.1,17,14,3,2,0,0,0.667
+Q17__minimax__direct__r0,Q17,multi_tool,minimax,direct,0,completed,turn_budget,valid,,548.8,12,11,,,0,0,0.0
+Q17__minimax__perovagents__r0,Q17,multi_tool,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,626.8,26,20,5,1,,,
+Q18__minimax__direct__r0,Q18,multi_tool,minimax,direct,0,infra_failed,turn_budget,infra_failed,provider: timeout: timed out,465.2,4,4,,,,,
+Q18__minimax__perovagents__r0,Q18,multi_tool,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,376.1,12,8,2,0,,,
+Q19__minimax__direct__r0,Q19,multi_tool,minimax,direct,0,completed,turn_budget,valid,,551.1,12,11,,,0,0,0.571
+Q19__minimax__perovagents__r0,Q19,multi_tool,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,751.3,34,26,5,0,,,
+Q21__minimax__direct__r0,Q21,pdb,minimax,direct,0,completed,turn_budget,valid,,361.8,12,11,,,0,0,1.0
+Q21__minimax__perovagents__r0,Q21,pdb,minimax,perovagents,0,completed,answer,valid,,8.1,1,0,0,0,0,0,0.0
+Q22__minimax__direct__r0,Q22,pdb,minimax,direct,0,completed,answer,valid,,375.6,6,5,,,1,1,1.0
+Q22__minimax__perovagents__r0,Q22,pdb,minimax,perovagents,0,completed,answer,valid,,12.0,1,0,0,0,0,0,0.0
+Q23__minimax__direct__r0,Q23,pdb,minimax,direct,0,completed,turn_budget,valid,,445.6,12,12,,,0,0,1.0
+Q23__minimax__perovagents__r0,Q23,pdb,minimax,perovagents,0,infra_failed,answer,infra_failed,provider: timeout: timed out,1060.2,21,14,4,1,,,
+Q24__minimax__direct__r0,Q24,pdb,minimax,direct,0,completed,answer,valid,,74.3,1,0,,,1,1,1.0
+Q25__minimax__direct__r0,Q25,literature,minimax,direct,0,completed,answer,valid,,58.0,3,2,,,1,0,1.0
+Q25__minimax__perovagents__r0,Q25,literature,minimax,perovagents,0,completed,answer,valid,,580.5,6,3,1,0,1,1,1.0
+Q26__minimax__direct__r0,Q26,literature,minimax,direct,0,completed,answer,valid,,258.3,6,5,,,1,0,1.0
+Q27__minimax__direct__r0,Q27,literature,minimax,direct,0,completed,answer,valid,,46.7,2,1,,,1,1,1.0
+Q28__minimax__direct__r0,Q28,literature,minimax,direct,0,completed,answer,valid,,108.3,5,4,,,1,1,1.0

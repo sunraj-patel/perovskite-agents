@@ -1,0 +1,152 @@
+{
+ "episode_id": "Q30__deepseek__perovagents__r0",
+ "qid": "Q30",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:30:30",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "According to the ML model, which input features matter most for the PCE of p-i-n perovskite solar cells? List the top five.",
+ "finished_at": "2026-10-22T00:31:18",
+ "seconds": 48.5,
+ "termination": "answer",
+ "final_answer": "According to the `model_PIN.cbm` CatBoost PCE model for p-i-n (inverted) cells (global SHAP, PIN subset, 96 designs), the top five features are:\n\n| Rank | Feature | Importance | Direction |\n|---|---|---:|---|\n| 1 | Perovskite | 0.2818 | Negative |\n| 2 | HTL_deposition_method | 0.2144 | Negative |\n| 3 | Substrate_stack_sequence | 0.1957 | Positive |\n| 4 | Backcontact_stack_sequence | 0.1674 | Negative (near-zero mean; sign varies across designs) |\n| 5 | Perovskite_deposition_solvents | 0.1286 | Positive |\n\nPerovskite identity is the most influential input, followed by HTL deposition method and substrate stack sequence. These are global SHAP associations, not causal effects (validation on unseen papers: RMSE 3.98, R\u00b2 0.38), and the report does not identify which specific categorical levels drive each effect.",
+ "tool_calls": [
+  {
+   "agent": "ml",
+   "tool": "explain_global",
+   "args": {
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'PIN', 'n_design_samples': 96, 'features': [{'name': 'Perovskite', 'importance': np.float64(0.2818), 'direction': 'negative', 'shap': np.float64(-0.1828)}, {'name': 'HTL_deposition_method', 'importance': np.float64(0.2144), 'direction': 'negative', 'shap': np.float64(-0.0603)}, {'name': 'Substrate_stack_sequence', 'importance': np.float64(0.1957), 'direction': 'positive', 'shap': np.float64(0.1913)}, {'name': 'Backcontact_stack_sequence', 'importance': np.float64(0.1674), 'direction': 'negative', 'shap': np.float64(-0.0084)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.1286), 'direction': 'positive', 'shap': np.float64(0.1165)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.1257), 'direction': 'positive', 'shap': np.float64(0.112)}, {'name': 'HTL_electron_mobility_na', 'importance': np.float64(0.1162), 'direction': 'positive', 'shap': np.float64(0.0696)}, {'name': 'gap_diff_HTL_Pvk', 'importance': np.float64(0.0994), 'direction': 'positive', 'shap': np.float64(0.0754)}, {'name': 'log_abs_hole_barrier_na', 'importance': np.float64(0.0951), 'direction': 'positive', 'shap': np.float64(0.0505)}, {'name': 'Perovskite_LUMO', 'importance': np.float64(0.0924), 'direction': 'positive', 'shap': np.float64(0.0794)}, {'name': 'ETL_max_atomic_mass', 'importance': np.float64(0.0918), 'direction': 'positive', 'shap': np.float64(0.017)}, {'name': 'has_stability_measurement_na', 'importance': np.float64(0.0917), 'direction': 'positive', 'shap': np.float64(0.0283)}, {'name': 'ETL_LUMO', 'importance': np.float64(0.0907), 'direction': 'positive', 'shap': np.float64(0.0427)}, {'name': 'has_SAM_na', 'importance': np.float64(0.0844), 'direction': 'positive', 'shap': np.float64(0.0299)}, {'name': 'perovskite_tau_descriptor', 'importance': np.float64(0.0827), 'direction': 'positive', 'shap': np.float64(0.0455)}], 'controllable': {'Perovskite': True, 'HTL_deposition_method': True, 'Substrate_stack_sequence': True, 'Backcontact_stack_sequence': True, 'Perovskite_deposition_solvents': True, 'Perov_quenching_crystallisation': True, 'HTL_electron_mobility_na': False, 'gap_diff_HTL_Pvk': True, 'log_abs_hole_barrier_na': False, 'Perovskite_LUMO': True, 'ETL_max_atomic_mass': True, 'has_stability_measurement_na': False, 'ETL_LUMO': True, 'has_SAM_na': False, 'perovskite_tau_descriptor': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_PIN.cbm', 'scope': 'global'}}",
+   "result_chars": 2525,
+   "seconds": 26.766,
+   "t_offset_s": 9.37,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 4,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 4,
+  "prompt_chars": 20558,
+  "completion_chars": 3067,
+  "real_prompt_tokens": 22271,
+  "real_completion_tokens": 1922,
+  "usage_reported_calls": 4,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 20.8,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.95,
+    "latency_s": 3.62,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 3386,
+    "text_len": 336,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 2,
+    "t_offset_s": 4.58,
+    "latency_s": 4.71,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4517,
+    "text_len": 59,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 3,
+    "t_offset_s": 36.06,
+    "latency_s": 8.61,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 7084,
+    "text_len": 1841,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 4,
+    "t_offset_s": 44.67,
+    "latency_s": 3.87,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5571,
+    "text_len": 831,
+    "empty": false,
+    "provider_failure": false
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 4,
+  "replies": 4,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_003031_426c.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 1,
+  "n_format_errors": 0,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

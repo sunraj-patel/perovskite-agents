@@ -1,0 +1,36 @@
+{
+  "_note": "Exact model identifiers and routes. No credentials are stored here. A backbone never falls back to another entry; failures are recorded as infrastructure failures.",
+  "backbones": [
+    {
+      "id": "gemini",
+      "label": "Gemini 3.5 Flash-Lite",
+      "kind": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "route": "google-genai SDK, free-tier API-key pool (keys read from ~/keys.md at run time, rotated, never logged)",
+      "temperature": 0.0
+    },
+    {
+      "id": "deepseek",
+      "label": "DeepSeek V4.1 Flash",
+      "kind": "opencode",
+      "model": "opencode/deepseek-v4.1-flash-free",
+      "route": "opencode serve (OpenCode free model catalogue), locked plan agent, POST /session/:id/message",
+      "temperature": 0
+    },
+    {
+      "id": "minimax",
+      "label": "MiniMax M3.1 Flash",
+      "kind": "opencode",
+      "model": "opencode/minimax-m3.1-flash-free",
+      "route": "opencode serve (OpenCode free model catalogue), locked plan agent, POST /session/:id/message",
+      "temperature": 0
+    }
+  ],
+  "excluded_candidates": {
+    "gemini-3.8-flash": "the manuscript pilot model; its free tier allows only 20 requests per day per project (429 QuotaFailure, quotaValue 20) so it cannot support the benchmark. Partial episodes are archived in runs/archive_gemini-3.8-flash_quota_limited/ and are not scored",
+    "gemini-2.5-flash-lite": "free tier 10 requests/minute/key (observed); gemini-3.5-flash-lite (15/min) preferred",
+    "ollama/qwen3.5:35b": "installed locally but a 35B model; the ollama server is not running and loading it was not authorised/benchmarked",
+    "opencode/nemotron-3-ultra-free": "responded in the probe but not selected (one OpenCode model chosen as third backbone)",
+    "other opencode free models": "timed out or rate limited when probed on 2026-10-21 (see README, Model access)"
+  }
+}

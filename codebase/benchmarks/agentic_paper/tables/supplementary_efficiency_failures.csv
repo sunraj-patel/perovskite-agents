@@ -1,0 +1,5 @@
+backbone,condition,n_episodes,mean_model_calls,mean_tool_calls,median_seconds,mean_seconds,mean_retries,mean_repeated_tool_calls,timeouts,rate_limit_events,provider_error_events,mean_prompt_tokens(real),mean_completion_tokens(real),n_primary_failure:incorrect_tool_selection,n_primary_failure:repeated_actions,n_primary_failure:tool_errors,n_primary_failure:incomplete_answer,n_primary_failure:unsupported_claim,n_primary_failure:incorrect_value,n_primary_failure:incorrect_citation,n_primary_failure:budget_exhaustion
+gemini,direct,12,17.42,0.58,1266.3,1041.15,0.0,0.0,8,0,11,,,0,0,0,0,0,0,0,8
+gemini,perovagents,12,10.33,4.17,193.8,327.18,0.33,0.08,0,0,5,14531.88,1947.62,0,0,0,5,0,2,0,0
+minimax,direct,21,6.57,5.48,229.8,265.04,0.14,0.14,0,0,12,215899.76,14298.57,1,0,0,1,0,4,0,5
+minimax,perovagents,8,7.62,5.38,156.9,415.99,0.25,0.25,2,0,7,204855.88,24380.5,4,0,0,0,0,0,0,2

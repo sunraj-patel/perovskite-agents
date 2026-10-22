@@ -1,0 +1,185 @@
+{
+ "n_runs": 3,
+ "table1_overall": [
+  {
+   "system": "mrs",
+   "n": 3,
+   "completion": 0.333,
+   "contract": 0.333,
+   "tool_f1": 0.61,
+   "scientific": 0.333,
+   "recovery_rate": 0.333,
+   "repeat_rate": 0.095,
+   "mean_tool_calls": 9.0,
+   "mean_llm_calls": 18.667,
+   "mean_tokens": 86789.333,
+   "mean_seconds": 912.867
+  }
+ ],
+ "table2_category": [
+  {
+   "category": "literature",
+   "system": "mrs",
+   "n": 1,
+   "completion": 0.0,
+   "tool_f1": 0.8,
+   "scientific": 0.0
+  },
+  {
+   "category": "multi_tool",
+   "system": "mrs",
+   "n": 1,
+   "completion": 0.0,
+   "tool_f1": 0.364,
+   "scientific": 0.0
+  },
+  {
+   "category": "pdb",
+   "system": "mrs",
+   "n": 1,
+   "completion": 1.0,
+   "tool_f1": 0.667,
+   "scientific": 1.0
+  }
+ ],
+ "table3_recovery": [
+  {
+   "qid": "Q02",
+   "system": "mrs",
+   "failure": "none",
+   "recovered": true,
+   "final_correct": true,
+   "extra_tool_calls": 7
+  },
+  {
+   "qid": "Q06",
+   "system": "mrs",
+   "failure": "incomplete_synthesis",
+   "recovered": false,
+   "final_correct": false,
+   "extra_tool_calls": 6
+  },
+  {
+   "qid": "Q20",
+   "system": "mrs",
+   "failure": "no_progress",
+   "recovered": false,
+   "final_correct": false,
+   "extra_tool_calls": 14
+  }
+ ],
+ "table4_efficiency": [
+  {
+   "system": "mrs",
+   "mean_tool_calls": 9.0,
+   "mean_llm_calls": 18.667,
+   "mean_tokens": 86789.333,
+   "mean_seconds": 912.867
+  }
+ ],
+ "paired": {},
+ "scores": [
+  {
+   "qid": "Q02",
+   "system": "mrs",
+   "A_completion": 1,
+   "B_contract": 1,
+   "C_tool_precision": 0.5,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 0.667,
+   "D_scientific": 1.0,
+   "D_checks": {
+    "top_htl_recall": 0.6,
+    "has_counts": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": true,
+   "F_detail": {
+    "recovery_required": true,
+    "initial_failure_seen": true,
+    "recovered": true,
+    "final_correct": true,
+    "extra_tool_calls": 7
+   },
+   "G_repeat_rate": 0.143,
+   "H_tool_calls": 7,
+   "I_llm_calls": 16,
+   "J_prompt_tokens": 78849,
+   "K_completion_tokens": 12519,
+   "L_cost_usd": null,
+   "M_quality_proxy": 1.0,
+   "termination": "answer",
+   "failure": "none",
+   "lead_declared": false,
+   "seconds": 1075.9
+  },
+  {
+   "qid": "Q06",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.667,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 0.8,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "gold_doi_cited": false
+   },
+   "E_citation_ok": false,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": true,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 6
+   },
+   "G_repeat_rate": 0.0,
+   "H_tool_calls": 6,
+   "I_llm_calls": 14,
+   "J_prompt_tokens": 33041,
+   "K_completion_tokens": 24338,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "answer",
+   "failure": "incomplete_synthesis",
+   "lead_declared": true,
+   "seconds": 458.5
+  },
+  {
+   "qid": "Q20",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.333,
+   "C_tool_recall": 0.4,
+   "C_tool_f1": 0.364,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "has_model_part": false,
+    "has_db_or_sim_part": false,
+    "has_literature_part": false
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": true,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 14
+   },
+   "G_repeat_rate": 0.143,
+   "H_tool_calls": 14,
+   "I_llm_calls": 26,
+   "J_prompt_tokens": 101631,
+   "K_completion_tokens": 9990,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "timeout",
+   "failure": "no_progress",
+   "lead_declared": false,
+   "seconds": 1204.2
+  }
+ ]
+}

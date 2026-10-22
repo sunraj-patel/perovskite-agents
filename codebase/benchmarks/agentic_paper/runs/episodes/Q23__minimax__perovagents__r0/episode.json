@@ -1,0 +1,482 @@
+{
+ "episode_id": "Q23__minimax__perovagents__r0",
+ "qid": "Q23",
+ "category": "pdb",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:12:02",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What is the highest reported PCE among p-i-n devices that use PTAA as the HTL, and which paper (DOI) reports it?",
+ "finished_at": "2026-10-21T20:29:42",
+ "seconds": 1060.2,
+ "termination": "answer",
+ "final_answer": "[PROVIDER FAILURE] backbone unavailable; episode aborted.",
+ "tool_calls": [
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "inverted p-i-n perovskite solar cell PTAA hole transport layer power conversion efficiency",
+    "k": 8
+   },
+   "result": "{'query': 'inverted p-i-n perovskite solar cell PTAA hole transport layer power conversion efficiency', 'method': 'semantic', 'n_hits': 8, 'hits': [{'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2590, 'score': 0.773, 'text': 'Perovskite solar cells (PVSCs) based on the hybrid organic/inorganic structure have shown great prospect to the development of low cost, flexible, lightweight, and simple processability. But there are still exist many problems that limit its further commercial applications, such as the low mobility of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL sho'}, {'doi': '10.1016/j.jpowsour.2018.08.070', 'paper_title': 'Journal of Power Sources', 'section': '1. Introduction', 'passage_id': 705, 'score': 0.748, 'text': 'Organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising photovoltaic technologies because of their high power conversion efficiency (PCE) and low fabrication cost [1-5]. Through the rapid progress of material engineering and processing techniques, the PCE of PSCs has exceeded 22% over the past few years [6]. Due to the advantages of promoting effective hole transport and collection, and reducing charge recombination losses, hole-transporting materials (HTMs) play an important role in PSCs for achieving high overall performance [7]. To date, the state-of'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2592, 'score': 0.747, 'text': 'w significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be explained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, e'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.743, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'REFERENCES', 'passage_id': 2627, 'score': 0.739, 'text': 'naith H.J., \"Electron-hole diffusion lengths exceeding 1 micrometer in an organometal trihalide perovskite absorber\", Science 342, 341-343 (2013). - [3] Yang L., Cai F., Yan Y., Li J., Liu D., Pearson A.J., Wang T., \"Conjugated small molecule for efficient hole transport in high-performance p-i-n type perovskite solar cells\", Adv. Funct. Mater. 27, 1702613 (2017). - [4] Zhou Z., Li X., Cai M., Xie F., Wu Y., Lan Z., Yang X., Qiang Y., Islam A., Han L., \"Stable inverted planar perovskite solar cells with low-temperature-processed hole-transport bilayer\", Adv. Energy Mater. 7, 1700763 (2017). - '}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '1. INTRODUCTION', 'passage_id': 2594, 'score': 0.724, 'text': 'Due to the excellent properties like low cost, simple processing, and high power conversion efficiency, the organicinorganic hybrid perovskite based solar cells (PVSCs) have received significant attention [1-3]. During the past few years, the PVSCs exhibit enhanced power conversion efficiency (PCE) from 3.9% to 22.7 %. Among the various PVSCs, the structure of p-i-n perovskite solar cells had attracted great attention [4-5]. The p-i-n PVSCs have the ability of solution processed organic hole transporting layers to resist etching or complete dissolution during the deposition of the perovskite l'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2686, 'score': 0.72, 'text': 'tion coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture for an efficient PSC with n-i-p configuration can be summarized as follows: transparent conductive oxide (TCO) as the electron-collecting layer/ n-type semiconductor for the electron-transporting layer (ETL)/ perovskite as the intrinsic material/p-type semiconductor for the hole-transporting layer ('}, {'doi': '10.1088/1361-6463/ab1626', 'paper_title': 'PAPER**', 'section': '1. Introduction', 'passage_id': 2417, 'score': 0.714, 'text': ' have been widely used for photovoltaic applications, mainly due to its attractive properties, including a high absorption coefficient, long charge diffusion length, low exciton binding energy, band gap tunability, high charge carrier mobility and its long lifetime [\\\\[14](#page-8-6)\u2013[17](#page-8-7)]. With the development of various thin film fabrication techniques, such as spin coating, vapor assisted deposition, and vacuum deposition etc [[15,](#page-8-8) [18\\\\]](#page-8-9), the power conversion efficiency (PCE) of perovskite solar cells (PSC) has attained a maximum value of 23.7% [\\\\[19](#page'}]}",
+   "result_chars": 6313,
+   "seconds": 10.943,
+   "t_offset_s": 17.27,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "column_values",
+   "args": {
+    "column": "Cell_architecture",
+    "top": 10
+   },
+   "result": "[('nip', 29897), ('pin', 13342), ('Unknown', 103), ('Back contacted', 33), ('Front contacted', 7), ('Schottky', 5), ('Pn-Heterojunction', 1)]",
+   "result_chars": 141,
+   "seconds": 0.06,
+   "t_offset_s": 44.04,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT HTL_stack_sequence AS htl, COUNT(*) AS n FROM devices WHERE HTL_stack_sequence LIKE '%PTAA%' GROUP BY 1 ORDER BY n DESC LIMIT 40"
+   },
+   "result": "{'columns': ['htl', 'n'], 'n_rows': 39, 'rows': [{'htl': 'PTAA', 'n': 2040}, {'htl': 'PTAA | PFN', 'n': 80}, {'htl': 'PTAA | PMMA', 'n': 28}, {'htl': 'NiO-c | PTAA', 'n': 25}, {'htl': 'PTAA | PFN-Br', 'n': 18}, {'htl': 'PTAA | PEDOT:PSS', 'n': 18}, {'htl': 'PEDOT:PSS | PTAA', 'n': 18}, {'htl': 'PTAA | MoS2', 'n': 17}, {'htl': 'p-PFP-O | PTAA', 'n': 16}, {'htl': 'PTAA | PFN-P2', 'n': 13}, {'htl': 'PTAA | LiF', 'n': 10}, {'htl': 'PTAA | Spiro-MeOTAD', 'n': 9}, {'htl': 'rGO | PTAA', 'n': 8}, {'htl': 'PTAA; Spiro-MeOTAD', 'n': 7}, {'htl': 'PTAA; TPFB', 'n': 6}, {'htl': 'NiO-np | PTAA', 'n': 6}, {'htl': 'PTAA | NiO-c', 'n': 5}, {'htl': 'NPB; PTAA', 'n': 5}, {'htl': 'PTQ10 | PTAA', 'n': 3}, {'htl': 'PFN-Br | PTAA', 'n': 3}, {'htl': 'SWCNTs | PTAA', 'n': 2}, {'htl': 'PTAA | CuSCN', 'n': 2}, {'htl': 'Graphene oxide | PTAA', 'n': 2}, {'htl': 'CI-GO | PTAA', 'n': 2}, {'htl': 'Theophylline | PTAA', 'n': 1}, {'htl': 'Py-COF | PTAA', 'n': 1}, {'htl': 'PTAA-2F', 'n': 1}, {'htl': 'PTAA-1F', 'n': 1}, {'htl': 'PTAA | TPFB', 'n': 1}, {'htl': 'PTAA | TFPPy-ETTA', 'n': 1}]}",
+   "result_chars": 1070,
+   "seconds": 0.056,
+   "t_offset_s": 122.93,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "PTAA hole transport layer inverted p-i-n perovskite solar cell certified efficiency 21% open circuit voltage fill factor",
+    "k": 10
+   },
+   "result": "{'query': 'PTAA hole transport layer inverted p-i-n perovskite solar cell certified efficiency 21% open circuit voltage fill factor', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2592, 'score': 0.774, 'text': 'w significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be explained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, e'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2590, 'score': 0.762, 'text': 'Perovskite solar cells (PVSCs) based on the hybrid organic/inorganic structure have shown great prospect to the development of low cost, flexible, lightweight, and simple processability. But there are still exist many problems that limit its further commercial applications, such as the low mobility of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL sho'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '1. INTRODUCTION', 'passage_id': 2595, 'score': 0.737, 'text': 'from 3.9% to 22.7 %. Among the various PVSCs, the structure of p-i-n perovskite solar cells had attracted great attention [4-5]. The p-i-n PVSCs have the ability of solution processed organic hole transporting layers to resist etching or complete dissolution during the deposition of the perovskite layer [6]. The major bottlenecks to restrict the PCE improvement of p-i-n PVSCs are the undesirable contact between perovskite layer and hole transporting layer (HTL), which leads to limited charge transport and collection ability [7-8]. The recent interest in PVSCs was using suitable materials to ch'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.735, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'REFERENCES', 'passage_id': 2627, 'score': 0.724, 'text': 'naith H.J., \"Electron-hole diffusion lengths exceeding 1 micrometer in an organometal trihalide perovskite absorber\", Science 342, 341-343 (2013). - [3] Yang L., Cai F., Yan Y., Li J., Liu D., Pearson A.J., Wang T., \"Conjugated small molecule for efficient hole transport in high-performance p-i-n type perovskite solar cells\", Adv. Funct. Mater. 27, 1702613 (2017). - [4] Zhou Z., Li X., Cai M., Xie F., Wu Y., Lan Z., Yang X., Qiang Y., Islam A., Han L., \"Stable inverted planar perovskite solar cells with low-temperature-processed hole-transport bilayer\", Adv. Energy Mater. 7, 1700763 (2017). - '}, {'doi': '10.1016/j.jpowsour.2018.08.070', 'paper_title': 'Journal of Power Sources', 'section': '1. Introduction', 'passage_id': 705, 'score': 0.723, 'text': 'Organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising photovoltaic technologies because of their high power conversion efficiency (PCE) and low fabrication cost [1-5]. Through the rapid progress of material engineering and processing techniques, the PCE of PSCs has exceeded 22% over the past few years [6]. Due to the advantages of promoting effective hole transport and collection, and reducing charge recombination losses, hole-transporting materials (HTMs) play an important role in PSCs for achieving high overall performance [7]. To date, the state-of'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'REFERENCES', 'passage_id': 2632, 'score': 0.711, 'text': 'r cells\", Nanoscale DIO: 10.1039/C8NR01763H (2018). - [9] Ko Y., Kim Y., Lee C., Kim Y., Jun Y., \"Investigation of hole-transporting poly(triarylamine) on aggregation and charge transport for hysteresisless scalable planar perovskite solar cells\", Adv. Funct. Mater. 10, 11633- 11641 (2018). - [10]Yu Z., Sun L., \"Inorganic Hole-transporting materials for perovskite solar cells\", Small Methods 2, 1700280 (2018). - [11]Wang Z.J., Li Z., Zhou D.L., Yu J.S., \"Low turn-on voltage perovskite light-emitting diodes with methanol treated PEDOT:PSS as hole transport layer\", Appl. Phys. Lett. 111, 233304 '}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '1. Introduction', 'passage_id': 18, 'score': 0.701, 'text': 'r detailed characterization of the various layered perovskites. Solar cells with and without hole conductor were fabricated using the layered perovskite demonstrating high *V*oc with high efficiency. Higher *V*oc was demonstrated for the quasi 2D perovskite compared to the 3D perovskite. The density functional theory (DFT) method and the Wannier-function based postprocessing for solving the Boltzmann-type equations were used to show the change in conductivity when changing the dimensionality of the perovskite. Finally, charge extraction measurements were applied to understand the PV behavior o'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells', 'passage_id': 2, 'score': 0.698, 'text': 'ease in the band gap. The photovoltaic performance shows higher open circuit voltage (***V***oc) for the quasi 2D perovskite (i.e.,** *n* **= 40, 50, 60) compared to the 3D perovskite.** *V***oc of 1.3 V without hole transport material (HTM) and** *V***oc of 1.46 V using HTM have been demonstrated, with corresponding efficiency of 6.3% and 8.5%, among the highest reported. The lower mobility and transport in the quasi 2D perovskites have been proved effective to gain high** *V***oc with high efficiency, further supported by ab initio calculations and charge extraction measurements. Bromide is '}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2686, 'score': 0.696, 'text': 'tion coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture for an efficient PSC with n-i-p configuration can be summarized as follows: transparent conductive oxide (TCO) as the electron-collecting layer/ n-type semiconductor for the electron-transporting layer (ETL)/ perovskite as the intrinsic material/p-type semiconductor for the hole-transporting layer ('}]}",
+   "result_chars": 8120,
+   "seconds": 0.097,
+   "t_offset_s": 131.28,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) AS n_devices, COUNT(DISTINCT Ref_DOI_number) AS n_papers, COUNT(JV_default_PCE) AS n_pce_nonnull, MAX(JV_default_PCE) AS max_pce_all, MAX(CASE WHEN JV_default_PCE > 0 THEN JV_default_PCE END) AS max_pce_pos, MIN(CASE WHEN JV_default_PCE > 0 THEN JV_default_PCE END) AS min_pce_pos FROM devices WHERE Cell_architecture = 'pin' AND HTL_stack_sequence LIKE '%PTAA%'"
+   },
+   "result": "{'columns': ['n_devices', 'n_papers', 'n_pce_nonnull', 'max_pce_all', 'max_pce_pos', 'min_pce_pos'], 'n_rows': 1, 'rows': [{'n_devices': 1313, 'n_papers': 248, 'n_pce_nonnull': 1277, 'max_pce_all': 22.6, 'max_pce_pos': 22.6, 'min_pce_pos': 0.01}]}",
+   "result_chars": 247,
+   "seconds": 0.037,
+   "t_offset_s": 139.71,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1117/12.2506443",
+    "query": "device structure ITO PTAA perovskite C60 ETL inverted p-i-n Voc Jsc FF PCE best"
+   },
+   "result": "{'doi': '10.1117/12.2506443', 'title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'n_passages_total': 46, 'n_passages_returned': 8, 'passages': [{'section': 'ABSTRACT', 'text': 'of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL show significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be ex'}, {'section': 'ABSTRACT', 'text': 'w significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be explained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, e'}, {'section': '1. INTRODUCTION', 'text': 'ange this situation. An alternative polymeric HTM of poly(triarylamine) (PTAA) has been proposed due to its matched highest occupied molecular orbital (HOMO) energy level (-5.2 eV) with perovskite [9]. Many researches focus on PTAA as HTL in PVSCs have already reached high performance. However, less study has put attention regarding the effect of another polymer doping into PTAA and its influence to PVSCs. Therefore, evaluating the performance of the polymer modified PTAA as composite HTL is important to the progress of PVSCs [10]. In this work, poly-TPD is added into PTAA as the composite HTL'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ayer was deposited onto the substrates at a rate of 2 \u00c5/s at a pressure of 2 \u00d7 10-4 Pa in vacuum, with the deposition of Ag anode at a rate of about 6 \u00c5/s under a pressure of 3 \u00d7 10-3 Pa in a vacuum chamber. The typical area of PSCs is 0.02 cm2 . The PVSCs were fabricated with the structure ITO/HTL/CH3NH3PbI3 perovskite layer/PC61BM/Bphen/Ag (Fig. 1a), and the molecular structures of the materials used in this study were also shown in Fig. 1b. Firstly, the conductivities of poly-TPD doped and undoped HTLs are tested and exhibited in Fig. 1c. The device structure we used to test is ITO/PTAA wit'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'CH3NH3PbI3 perovskite layer/PC61BM/Bphen/Ag (Fig. 1a), and the molecular structures of the materials used in this study were also shown in Fig. 1b. Firstly, the conductivities of poly-TPD doped and undoped HTLs are tested and exhibited in Fig. 1c. The device structure we used to test is ITO/PTAA with or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, highe'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'h or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, higher concentration of poly-TPD will degrade the conductively of composite HTL. ![](_page_1_Figure_3.jpeg) **Fig. 1.** (a) Device structure of the perovskite solar cells; (b) chemical structures of PTAA and poly-TPD; (c) conductivities of HTLs with the structure of ITO/HTLs /Ag. It has long been known t'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'r concentration of poly-TPD will degrade the conductively of composite HTL. ![](_page_1_Figure_3.jpeg) **Fig. 1.** (a) Device structure of the perovskite solar cells; (b) chemical structures of PTAA and poly-TPD; (c) conductivities of HTLs with the structure of ITO/HTLs /Ag. It has long been known that the quality of perovskite layer upon HTL can be dramatically affected. As shown in the corresponding SEM images of the perovskite films upon pure and poly-TPD modified PTAA HTLs are shown in Fig. 2. In Fig. 2a, perovskite film upon pure PTAA has bigger roughness size and smaller grain, by contra'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ly-TPD into the PTAA layer led to significant enhancements in the $J_{SC}$ and FF values compared to the control device. The PCE of the perovskite solar cells rose by about 20 % and reached 14.63 %. The films with poly-TPD in the PTAA layer resulted in the higher $J_{SC}$ of 21.89 mA cm<sup>-2</sup>, $V_{OC}$ of 0.87 V and higher FF of 76.72 %. This enhancement of photovoltaic performance ( $J_{SC}$ and FF) could be attributed to the modified charge carrier transport, and the morphology control of the composite HTL [12]. However, the unchanged $V_{OC}$ means that the doping poly-TPD cannot cha'}]}",
+   "result_chars": 5454,
+   "seconds": 0.065,
+   "t_offset_s": 161.0,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1038/ncomms13503",
+    "query": "PTAA poly(triarylamine) hole transport layer inverted p-i-n structure power conversion efficiency Voc Jsc fill factor certified"
+   },
+   "result": "{'doi': '10.1038/ncomms13503', 'title': 'ARTICLE', 'n_passages_total': 209, 'n_passages_returned': 8, 'passages': [{'section': 'Nonstoichiometric acid\u2013base reaction as reliable synthetic route to highly stable CH3NH3PbI3 perovskite film', 'text': 'lto:kyyan@ee.cuhk.edu.hk)). olution processed perovskite solar cells (PSC) using AMX<sub>3</sub> $(A = Cs^{+}, CH_{3}NH_{3}^{+} (MA^{+}) \\\\text{ or } NH = HCNH_{3}^{+} (FA^{+});$ $M = Sn^{2+}$ , $Pb^{2+}$ , $Ge^{2+}$ ; $X = Cl^{-}$ , $Br^{-}$ , $I^{-}$ ) as light absorber have received broad interest in photovoltaics and light-emitting application in the past 5 years due to their ease of fabrication, cost-effectiveness and high efficiency. In terms of photovoltaic performance, it exceeds 22% power conversion efficiency in a short time, which is competitive with long-term developed thin-film-bas'}, {'section': 'Nonstoichiometric acid\u2013base reaction as reliable synthetic route to highly stable CH3NH3PbI3 perovskite film', 'text': ' in photovoltaics and light-emitting application in the past 5 years due to their ease of fabrication, cost-effectiveness and high efficiency. In terms of photovoltaic performance, it exceeds 22% power conversion efficiency in a short time, which is competitive with long-term developed thin-film-based solar cells (such as CIGS, polycrystalline Si solar cell)<sup>1-10</sup>. As confirmed, perovskite has a 100-1,000 nm diffusion length in polycrystalline films and over 100 microns diffusion length in single crystals, affording 100% internal quantum efficiency in thin-film-based PSC<sup>11-14</su'}, {'section': 'Results', 'text': '(65% moisture with ambient light soaking). Error bars represent s.d. calculated from five thin films prepared at the same conditions. Supplementary Tables 1\u20134). Without nucleation agent, the solar cell displayed low performance due to the poor coverage. The humidity-exposed films had much better power conversion efficiency (14.0%) than freshly prepared film (11.1%) in this system, which meant the robust stability of NABR produced perovskite. In detail, the freshly prepared film produced $V_{\\\\rm oc}=0.90\\\\,\\\\rm V$ , $J_{\\\\rm sc}=19.6\\\\,\\\\rm mA\\\\,cm^{-2}$ , FF=0.520 and overall PCE=9.1% in forward sca'}, {'section': 'Methods', 'text': ' at 2,500 r.p.m. and annealed at 100 \u00b0C for 30 min. With device optimization, we also used other concentration HPbl $_3$ in association with excess MA and introduced nucleation agent (toluene, 1 ml) during the spin-coating at 10 s for full coverage. The spiro-OMeTAD was prepared by dissolving 75 mg spiro-OMeTAD with 25 \u00b5l LiTFSI solution (520 mg in 1 ml acetonitrile) and 35 \u00b5l 4-tert-butylpyridine in 1 ml chlorobenzene. Hole transport layer was deposited on the annealed perovskite film by spin-coating at 5,000 r.p.m. for 40 s to get the optimized efficiency. The devices were placed in a moistu'}, {'section': 'Methods', 'text': 'spiro-OMeTAD with 25 \u00b5l LiTFSI solution (520 mg in 1 ml acetonitrile) and 35 \u00b5l 4-tert-butylpyridine in 1 ml chlorobenzene. Hole transport layer was deposited on the annealed perovskite film by spin-coating at 5,000 r.p.m. for 40 s to get the optimized efficiency. The devices were placed in a moisture-controlled cabinet overnight for oxidization of spiro-OMeTAD. Finally, 80 nm Au electrode was deposited by thermal evaporation with shadow mask area of 0.1 cm $^2$ . All device fabrication procedures were carried out in $\\\\rm N_2$ -purged glovebox. **Stability experiments.** For all the humidity s'}, {'section': 'References', 'text': ' 476\u2013480 (2015). - Xing, G. C. et al. Long-range balanced electron- and hole-transport lengths in organic-inorganic CH<sub>3</sub>NH<sub>3</sub>PbI<sub>3</sub>. Science 342, 344\u2013347 (2013). - <span id=\"page-10-0\"></span>12. Dong, Q. F. et al. Electron-hole diffusion lengths 4175 mm in solution-grown CH3NH3PbI3 single crystals. Science 347, 967\u2013970 (2015). - 13. Shi, D. et al. Low trap-state density and long carrier diffusion in organolead trihalide perovskite single crystals. Science 347, 519\u2013522 (2015). - 14. Stranks, S. D. et al. Electron-hole diffusion lengths exceeding 1 micrometer in an o'}, {'section': 'References', 'text': 'stry and coordination engineering behind device processing for high efficiency. J. Am. Chem. Soc. 137, 4460\u20134468 (2015). - 26. Habisreutinger, S. N. et al. Carbon nanotube/polymer composites as a highly stable hole collection layer in perovskite solar cells. Nano Lett. 14, 5561\u20135568 (2014). - 27. Zhou, Z. M. et al. Methylamine-gas-induced defect-healing behavior of CH3NH3PbI3 thin films for perovskite solar cells. Angew. Chem. Int. Ed. 54, 9705\u20139709 (2015). - 28. Hao, F. et al. Controllable perovskite crystallization at a gas-solid onterface for hole conductor-free solar cells with steady powe'}, {'section': 'References', 'text': 'ou, Z. M. et al. Methylamine-gas-induced defect-healing behavior of CH3NH3PbI3 thin films for perovskite solar cells. Angew. Chem. Int. Ed. 54, 9705\u20139709 (2015). - 28. Hao, F. et al. Controllable perovskite crystallization at a gas-solid onterface for hole conductor-free solar cells with steady power conversion efficiency over 10%. J. Am. Chem. Soc. 136, 16411\u201316419 (2014). - 29. Zhu, H. et al. Lead halide perovskite nanowire lasers with low lasing thresholds and high quality factors. Nat. Mater. 14, 636\u2013642 (2015). - 30. Leguy, A. M. A. et al. Reversible hydration of CH3NH3PbI3 in films, sing'}]}",
+   "result_chars": 5423,
+   "seconds": 0.007,
+   "t_offset_s": 179.64,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "PTAA p-i-n perovskite solar cell efficiency",
+    "k": 10
+   },
+   "result": "{'query': 'PTAA p-i-n perovskite solar cell efficiency', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2590, 'score': 0.779, 'text': 'Perovskite solar cells (PVSCs) based on the hybrid organic/inorganic structure have shown great prospect to the development of low cost, flexible, lightweight, and simple processability. But there are still exist many problems that limit its further commercial applications, such as the low mobility of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL sho'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '1. INTRODUCTION', 'passage_id': 2594, 'score': 0.778, 'text': 'Due to the excellent properties like low cost, simple processing, and high power conversion efficiency, the organicinorganic hybrid perovskite based solar cells (PVSCs) have received significant attention [1-3]. During the past few years, the PVSCs exhibit enhanced power conversion efficiency (PCE) from 3.9% to 22.7 %. Among the various PVSCs, the structure of p-i-n perovskite solar cells had attracted great attention [4-5]. The p-i-n PVSCs have the ability of solution processed organic hole transporting layers to resist etching or complete dissolution during the deposition of the perovskite l'}, {'doi': '10.1088/1361-6463/ab1626', 'paper_title': 'PAPER**', 'section': '1. Introduction', 'passage_id': 2417, 'score': 0.773, 'text': ' have been widely used for photovoltaic applications, mainly due to its attractive properties, including a high absorption coefficient, long charge diffusion length, low exciton binding energy, band gap tunability, high charge carrier mobility and its long lifetime [\\\\[14](#page-8-6)\u2013[17](#page-8-7)]. With the development of various thin film fabrication techniques, such as spin coating, vapor assisted deposition, and vacuum deposition etc [[15,](#page-8-8) [18\\\\]](#page-8-9), the power conversion efficiency (PCE) of perovskite solar cells (PSC) has attained a maximum value of 23.7% [\\\\[19](#page'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '2.1. Effect of annealed perovskite film on device degradation', 'passage_id': 857, 'score': 0.771, 'text': 'We conducted the study using the triple cation perovskite Cs0.05(MA0.17FA0.83)0.95Pb(I0.83Br0.17)3 and the p-i-n solar cell devices with ITO/PEDOT: PSS/perovskite/PCBM/Ag architecture ([Fig. 1](#page-1-0)b). To rule out the possible degradation caused by the upper stacked layers of electron transporting layer and metallic cathode, the heating processes were only applied on semi-finished cells of ITO/PEDOT:PSS/perovskite films. [Fig. 1](#page-1-0)c shows the J-V characteristics of the devices with freshly prepared as well as annealed (85 \u00b0C) perovskite films for different durations. The pristin'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '1. Introduction', 'passage_id': 856, 'score': 0.77, 'text': 'n perovskite solar cells to access macroscopic physical device changes. The findings provide insights into the physical and chemical change of such triple-cation perovskite layers and address that more efforts should be invested to enhance its thermal stability for the future device commercialization.'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.768, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 339, 'score': 0.768, 'text': 'Recently, perovskite solar cells (PSCs) have been paid more attentions due to its low cost, long charge diffusion length, and high efficiency [1\u20134]. In 2009, Tsutomu Miyasaka et al. applied perovskte material to solar cells for the first time and obtained the power conversion efficiency (PCE) of 3.8% [5]. In the past few years, the PCE of perovskite solar cells has reached 22.1% [6]. However, the perovskite solar cells only absorbs a small portion of incident light in the visible range [7,8], and a large portion of incident light energy is lost due to non-absorption of near infrared (NIR) ligh'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2684, 'score': 0.767, 'text': 'T) and introduced into a planar PSC. This new CdS ETL effectively enhanced the current without sacrificing other parameters such as the open-circuit voltage and fill factor, resulting in superior photovoltaic performance. **Keywords:** Perovskite solar cells | Electron-transporting layer | Ultra-thin cadmium sulfide Over the past several years, organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising candidates for low-cost, high-efficiency solar cells.<sup>1-3</sup> By virtue of the attractive characteristics of perovskite materials, such as high absorp'}, {'doi': '10.1016/j.joule.2018.06.009', 'paper_title': 'Gas Quenching for Perovskite Thin Film Deposition', 'section': 'Gas Quenching for Perovskite Thin Film Deposition', 'passage_id': 616, 'score': 0.766, 'text': ' of 22.7% in 2017 (as reported by the National Renewable Energy Laboratory). Moreover, based on recent simulations, this exciting material class is envisioned to challenge even the most efficient multi-junction solar cells achieved so far, through triple-junction (all-)perovskite solar cells approaching theoretical performances of 47%.[2](#page-4-3) As a result, photovoltaic perovskites have the potential to gain tremendous commercial momentum, yet several key challenges remain to be addressed for this to materialize. From an environmental perspective, the reliance of successful opto-electroni'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2685, 'score': 0.766, 'text': 'n cadmium sulfide Over the past several years, organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising candidates for low-cost, high-efficiency solar cells.<sup>1-3</sup> By virtue of the attractive characteristics of perovskite materials, such as high absorption coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture '}]}",
+   "result_chars": 7648,
+   "seconds": 0.04,
+   "t_offset_s": 223.0,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT JV_default_PCE AS pce, Ref_DOI_number AS doi, Ref_publication_date AS pub_date, HTL_stack_sequence AS htl FROM devices WHERE Cell_architecture = 'pin' AND HTL_stack_sequence LIKE '%PTAA%' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 0 ORDER BY JV_default_PCE DESC LIMIT 5"
+   },
+   "result": "{'columns': ['pce', 'doi', 'pub_date', 'htl'], 'n_rows': 5, 'rows': [{'pce': 22.6, 'doi': '10.1126/sciadv.aav8925', 'pub_date': '2019-03-09', 'htl': 'PTAA'}, {'pce': 22.3, 'doi': '10.1038/s41560-019-0538-4', 'pub_date': '2020-01-20', 'htl': 'PTAA'}, {'pce': 22.3, 'doi': '10.1038/s41560-019-0538-4', 'pub_date': '2020-01-20', 'htl': 'PTAA'}, {'pce': 22.1, 'doi': '10.1002/advs.202000480', 'pub_date': '2020-04-30', 'htl': 'PTAA'}, {'pce': 22.1, 'doi': '10.1002/advs.202000480', 'pub_date': '2020-04-30', 'htl': 'PTAA'}]}",
+   "result_chars": 520,
+   "seconds": 0.049,
+   "t_offset_s": 224.31,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_ID, Ref_DOI_number AS doi, Ref_publication_date AS pub_date, Ref_lead_author AS lead, Ref_journal AS journal, JV_default_PCE AS pce, JV_default_Voc AS voc, JV_default_Jsc AS jsc, JV_default_FF AS ff, Perovskite_composition_short_form AS pvk, HTL_stack_sequence AS htl, ETL_stack_sequence AS etl FROM devices WHERE Cell_architecture = 'pin' AND HTL_stack_sequence LIKE '%PTAA%' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 0 ORDER BY JV_default_PCE DESC LIMIT 5"
+   },
+   "result": "{'columns': ['Ref_ID', 'doi', 'pub_date', 'lead', 'journal', 'pce', 'voc', 'jsc', 'ff', 'pvk', 'htl', 'etl'], 'n_rows': 5, 'rows': [{'Ref_ID': 26847.0, 'doi': '10.1126/sciadv.aav8925', 'pub_date': '2019-03-09', 'lead': 'Wu et al.', 'journal': 'Science Advances', 'pce': 22.6, 'voc': 1.08, 'jsc': 7.63, 'ff': 0.8390000000000001, 'pvk': 'MAPbI', 'htl': 'PTAA', 'etl': 'C60 | BCP'}, {'Ref_ID': 17283.0, 'doi': '10.1038/s41560-019-0538-4', 'pub_date': '2020-01-20', 'lead': 'Zheng et al.', 'journal': 'Nature Energy', 'pce': 22.3, 'voc': 1.17, 'jsc': 24.1, 'ff': 0.816, 'pvk': 'CsFAMAPbBrI', 'htl': 'PTAA', 'etl': 'C60 | BCP'}, {'Ref_ID': 17284.0, 'doi': '10.1038/s41560-019-0538-4', 'pub_date': '2020-01-20', 'lead': 'Zheng et al.', 'journal': 'Nature Energy', 'pce': 22.3, 'voc': 1.17, 'jsc': 24.1, 'ff': 0.816, 'pvk': 'CsFAMAPbBrI', 'htl': 'PTAA', 'etl': 'C60 | BCP'}, {'Ref_ID': 42326.0, 'doi': '10.1002/advs.202000480', 'pub_date': '2020-04-30', 'lead': 'Chen et al.', 'journal': 'Advanced Science', 'pce': 22.1, 'voc': 1.16, 'jsc': 23.81, 'ff': 0.785, 'pvk': 'CsFAMAPbBrI', 'htl': 'PTAA', 'etl': 'PCBM-60 | C60 | BCP'}, {'Ref_ID': 42327.0, 'doi': '10.1002/advs.202000480', 'pub_date': '2020-04-30', 'lead': 'Chen et al.', 'journal': 'Advanced Science', 'pce': 22.1, 'voc': 1.05, 'jsc': 22.43, 'ff': 0.775, 'pvk': 'CsFAMAPbBrI', 'htl': 'PTAA', 'etl': 'PCBM-60 | C60 | BCP'}]}",
+   "result_chars": 1376,
+   "seconds": 0.051,
+   "t_offset_s": 271.52,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1117/12.2506443",
+    "query": "champion device table power conversion efficiency Voc Jsc fill factor of mixed poly-TPD doped PTAA hole transport layer p-i-n device structure ITO C60"
+   },
+   "result": "{'doi': '10.1117/12.2506443', 'title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'n_passages_total': 46, 'n_passages_returned': 8, 'passages': [{'section': 'ABSTRACT', 'text': 'of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL show significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be ex'}, {'section': 'ABSTRACT', 'text': 'w significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be explained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, e'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'CH3NH3PbI3 perovskite layer/PC61BM/Bphen/Ag (Fig. 1a), and the molecular structures of the materials used in this study were also shown in Fig. 1b. Firstly, the conductivities of poly-TPD doped and undoped HTLs are tested and exhibited in Fig. 1c. The device structure we used to test is ITO/PTAA with or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, highe'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'h or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, higher concentration of poly-TPD will degrade the conductively of composite HTL. ![](_page_1_Figure_3.jpeg) **Fig. 1.** (a) Device structure of the perovskite solar cells; (b) chemical structures of PTAA and poly-TPD; (c) conductivities of HTLs with the structure of ITO/HTLs /Ag. It has long been known t'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'r concentration of poly-TPD will degrade the conductively of composite HTL. ![](_page_1_Figure_3.jpeg) **Fig. 1.** (a) Device structure of the perovskite solar cells; (b) chemical structures of PTAA and poly-TPD; (c) conductivities of HTLs with the structure of ITO/HTLs /Ag. It has long been known that the quality of perovskite layer upon HTL can be dramatically affected. As shown in the corresponding SEM images of the perovskite films upon pure and poly-TPD modified PTAA HTLs are shown in Fig. 2. In Fig. 2a, perovskite film upon pure PTAA has bigger roughness size and smaller grain, by contra'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'st with the perovskite layer upon poly-TPD modified one (Fig. 2b). And larger grains can efficiently increase the ability of charge transfer in the active layer, resulting in higher PCE of the poly-TPD doped PVSCs. ![](_page_2_Picture_0.jpeg) ![](_page_2_Picture_1.jpeg) Fig. 2. SEM images of perovskite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-------------------'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-----------------------|-------------|---------------------------------|--------|---------| | Pure PTAA | 0.87 | 19.63 | 70.80 | 12.11 | | 2 wt% poly-TPD doped | 0.87 | 20.81 | 74.01 | 13.42 | | 5 wt% poly-TPD doped | 0.87 | 21.89 | 76.72 | 14.63 | | 10 wt% poly-TPD doped | 0.87 | 17.99 | 72.50 | 11.32 | <sup>&</sup>l'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'nge the energy level of PTAA. Compared to the PVSCs with poly-TPD doping concentrations more than 5 wt%, the PCEs of the PVSCs are lower than the control cells, corresponding to the decreased $J_{SC}$ and FF. This phenomenon may be due to the high concentration of poly-TPD doping into PTAA influence the film morphology of the composite HTL. ![](_page_2_Figure_7.jpeg) Fig. 3. (a) J-V curves of the photovoltaic devices with poly-TPD concentrations ranging from 0 to 10 wt% under 100mW/cm<sup>2</sup> AM 1.5G irradiation. (b) EQE versus wavelength of devices with and without poly-TPD doping. The im'}]}",
+   "result_chars": 5478,
+   "seconds": 0.042,
+   "t_offset_s": 465.09,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1126/sciadv.aav8925"
+   },
+   "result": "{'error': \"no paper with DOI '10.1126/sciadv.aav8925' in the corpus; use list_papers\"}",
+   "result_chars": 86,
+   "seconds": 0.0,
+   "t_offset_s": 589.21,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "inverted p-i-n perovskite solar cell PTAA hole transport layer power conversion efficiency Voc Jsc FF",
+    "k": 10
+   },
+   "result": "{'query': 'inverted p-i-n perovskite solar cell PTAA hole transport layer power conversion efficiency Voc Jsc FF', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2590, 'score': 0.736, 'text': 'Perovskite solar cells (PVSCs) based on the hybrid organic/inorganic structure have shown great prospect to the development of low cost, flexible, lightweight, and simple processability. But there are still exist many problems that limit its further commercial applications, such as the low mobility of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL sho'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.73, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2592, 'score': 0.727, 'text': 'w significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be explained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, e'}, {'doi': '10.1016/j.jpowsour.2018.08.070', 'paper_title': 'Journal of Power Sources', 'section': '1. Introduction', 'passage_id': 705, 'score': 0.712, 'text': 'Organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising photovoltaic technologies because of their high power conversion efficiency (PCE) and low fabrication cost [1-5]. Through the rapid progress of material engineering and processing techniques, the PCE of PSCs has exceeded 22% over the past few years [6]. Due to the advantages of promoting effective hole transport and collection, and reducing charge recombination losses, hole-transporting materials (HTMs) play an important role in PSCs for achieving high overall performance [7]. To date, the state-of'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells', 'passage_id': 2, 'score': 0.712, 'text': 'ease in the band gap. The photovoltaic performance shows higher open circuit voltage (***V***oc) for the quasi 2D perovskite (i.e.,** *n* **= 40, 50, 60) compared to the 3D perovskite.** *V***oc of 1.3 V without hole transport material (HTM) and** *V***oc of 1.46 V using HTM have been demonstrated, with corresponding efficiency of 6.3% and 8.5%, among the highest reported. The lower mobility and transport in the quasi 2D perovskites have been proved effective to gain high** *V***oc with high efficiency, further supported by ab initio calculations and charge extraction measurements. Bromide is '}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2686, 'score': 0.701, 'text': 'tion coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture for an efficient PSC with n-i-p configuration can be summarized as follows: transparent conductive oxide (TCO) as the electron-collecting layer/ n-type semiconductor for the electron-transporting layer (ETL)/ perovskite as the intrinsic material/p-type semiconductor for the hole-transporting layer ('}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '1. INTRODUCTION', 'passage_id': 2595, 'score': 0.701, 'text': 'from 3.9% to 22.7 %. Among the various PVSCs, the structure of p-i-n perovskite solar cells had attracted great attention [4-5]. The p-i-n PVSCs have the ability of solution processed organic hole transporting layers to resist etching or complete dissolution during the deposition of the perovskite layer [6]. The major bottlenecks to restrict the PCE improvement of p-i-n PVSCs are the undesirable contact between perovskite layer and hole transporting layer (HTL), which leads to limited charge transport and collection ability [7-8]. The recent interest in PVSCs was using suitable materials to ch'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'REFERENCES', 'passage_id': 2627, 'score': 0.7, 'text': 'naith H.J., \"Electron-hole diffusion lengths exceeding 1 micrometer in an organometal trihalide perovskite absorber\", Science 342, 341-343 (2013). - [3] Yang L., Cai F., Yan Y., Li J., Liu D., Pearson A.J., Wang T., \"Conjugated small molecule for efficient hole transport in high-performance p-i-n type perovskite solar cells\", Adv. Funct. Mater. 27, 1702613 (2017). - [4] Zhou Z., Li X., Cai M., Xie F., Wu Y., Lan Z., Yang X., Qiang Y., Islam A., Han L., \"Stable inverted planar perovskite solar cells with low-temperature-processed hole-transport bilayer\", Adv. Energy Mater. 7, 1700763 (2017). - '}, {'doi': '10.1088/1361-6463/ab1626', 'paper_title': 'PAPER**', 'section': '1. Introduction', 'passage_id': 2417, 'score': 0.699, 'text': ' have been widely used for photovoltaic applications, mainly due to its attractive properties, including a high absorption coefficient, long charge diffusion length, low exciton binding energy, band gap tunability, high charge carrier mobility and its long lifetime [\\\\[14](#page-8-6)\u2013[17](#page-8-7)]. With the development of various thin film fabrication techniques, such as spin coating, vapor assisted deposition, and vacuum deposition etc [[15,](#page-8-8) [18\\\\]](#page-8-9), the power conversion efficiency (PCE) of perovskite solar cells (PSC) has attained a maximum value of 23.7% [\\\\[19](#page'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '3. Conclusions', 'passage_id': 80, 'score': 0.692, 'text': 'he 3D perovskite. The lower mobility and transport in the quasi 2D perovskites is beneficial to the solar cell performance, in particular, to achieve high *V*oc. This fact was supported by charge extraction measurements. Moreover, the DFT simulations show an increase of the electrical conductivity when increasing the perovskite dimensionality, further supporting the PV performance of these cells. This work shows that the quasi-2D perovskites are attractive candidates for high voltage and high efficiency solar cells.'}]}",
+   "result_chars": 7949,
+   "seconds": 0.319,
+   "t_offset_s": 623.09,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "10.1126/sciadv.aav8925 Science Advances 2019 inverted p-i-n perovskite solar cell PTAA certified 22.6% efficiency record",
+    "k": 8
+   },
+   "result": "{'query': '10.1126/sciadv.aav8925 Science Advances 2019 inverted p-i-n perovskite solar cell PTAA certified 22.6% efficiency record', 'method': 'semantic', 'n_hits': 8, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 562, 'score': 0.738, 'text': 'high-performance solar cells, Nature 517 (2015) 476\u2013480. - [17] W. Chen, Y. Wu, Y. Yue, J. Liu, W. Zhang, X. Yang, H. Chen, E. Bi, I. Ashraful, M. Gr\u00e4tzel, Efficient and stable large-area perovskite solar cells with inorganic charge extraction layers, Science 350 (2015) 944\u2013948. - [18] Efficiency Records Chart, http://www.nrel.gov/ncpv/images/efficiency\\\\_chart.jpg. - [19] S. De Wolf, J. Holovsky, S.J. Moon, P. Loper, B. Niesen, M. Ledinsky, F.J. Haug, J.H. Yum, C. Ballif, Organometallic halide perovskites: sharp optical absorption edge and its relation to photovoltaic performance, J. Phys. Che'}, {'doi': '10.1016/j.joule.2018.06.009', 'paper_title': 'Gas Quenching for Perovskite Thin Film Deposition', 'section': 'Solvent Quenching versus Gas', 'passage_id': 647, 'score': 0.734, 'text': ', we report CAGQ-processed state-ofthe-art quadruple cation perovskite solar cells, prepared in our lab, in n-i-p configuration (ITO/SnO2/C60/perovskite/ Spiro-OMeTAD/Au) with the composition Rb0.05(Cs0.05(FA0.83MA0.17)0.95)0.95 Pb(I0.90Br0.10)3, delivering an average efficiency of 19.7% G 0.2%, and a champion stabilized power output (SPO) of 20% ([Figure 2](#page-3-0)). Clearly, it can be stated that the GQ method is an exceptional and effortless approach to obtain high efficiencies among a large portion of the <span id=\"page-3-0\"></span>![](_page_3_Figure_1.jpeg) Figure 2. Photovoltaic Chara'}, {'doi': '10.1088/1361-6463/ab1626', 'paper_title': 'PAPER**', 'section': '1. Introduction', 'passage_id': 2417, 'score': 0.729, 'text': ' have been widely used for photovoltaic applications, mainly due to its attractive properties, including a high absorption coefficient, long charge diffusion length, low exciton binding energy, band gap tunability, high charge carrier mobility and its long lifetime [\\\\[14](#page-8-6)\u2013[17](#page-8-7)]. With the development of various thin film fabrication techniques, such as spin coating, vapor assisted deposition, and vacuum deposition etc [[15,](#page-8-8) [18\\\\]](#page-8-9), the power conversion efficiency (PCE) of perovskite solar cells (PSC) has attained a maximum value of 23.7% [\\\\[19](#page'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 69, 'score': 0.726, 'text': 'sents shorter lifetime for the 3D perovskite than for *n* = 50 which has longer lifetime than *n* = 60 and *n* = 40. (Table S2, Supporting Information) These results are in partial agreement with the *V*oc of the corresponding cells. Therefore, we can conclude that the *V*oc is not determining only by the number of perovskite layers and that the selective contacts also play a role in determined the *V*oc of the cells. **Table 2** and **Figure 6** present the best *P\u2013V* parameters and the *I*\u2013*V* curves of the various HTM free solar cells. The 3D perovskite (MAPbBr3) shows high PCE of 6.2% with'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.724, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'passage_id': 2614, 'score': 0.721, 'text': 't;sup>a</sup>All parameters are average value collected from 10 devices. To investigate the devices performance, we fabricate perovskite solar cells based on doped and undoped HTL. The structure of the devices is shown in Fig. 1a. The current density-voltage (J-V) characteristics of PVSCs under a solar intensity of 100 mW cm<sup>-2</sup> are tested and shown in Fig. 3a, and the operating parameters of these devices are summarized in Table 1. Devices fabricated without poly-TPD have a PCE of 12.11 %, with a $J_{SC}$ of 19.63 mA cm<sup>-2</sup>, a $V_{OC}$ of 0.87 V and a FF of 70.8 %. Adding po'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'passage_id': 2613, 'score': 0.72, 'text': '----|-------------|---------------------------------|--------|---------| | Pure PTAA | 0.87 | 19.63 | 70.80 | 12.11 | | 2 wt% poly-TPD doped | 0.87 | 20.81 | 74.01 | 13.42 | | 5 wt% poly-TPD doped | 0.87 | 21.89 | 76.72 | 14.63 | | 10 wt% poly-TPD doped | 0.87 | 17.99 | 72.50 | 11.32 | <sup>&</sup>lt;sup>a</sup>All parameters are average value collected from 10 devices. To investigate the devices performance, we fabricate perovskite solar cells based on doped and undoped HTL. The structure of the devices is shown in Fig. 1a. The current density-voltage (J-V) characteristics of PVSCs under a so'}, {'doi': '10.1021/acs.jpclett.5b01716', 'paper_title': 'Mixed Iodide-Bromide Methylammonium Lead Perovskite-based **Diodes for Light Emission and Photovoltaics**', 'section': 'REFERENCES', 'passage_id': 1389, 'score': 0.72, 'text': 'hen, D.; Kahn, A. Interface Energetics in Organo-Metal Halide Perovskite-Based Photovoltaic Cells. Energy Environ. Sci. 2014, 7, 1377\u22121381. - (46) Momblona, C.; Malinkiewicz, O.; Roldan-Carmona, C.; Soriano, \u0301 A.; Gil-Escrig, L.; Bandiello, E.; Scheepers, M.; Edri, E.; Bolink, H. J. Efficient Methylammonium Lead Iodide Perovskite Solar Cells with Active Layers from 300 to 900 nm. APL Mater. 2014, 2, 081504.'}]}",
+   "result_chars": 6152,
+   "seconds": 0.917,
+   "t_offset_s": 850.82,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 14,
+ "n_model_calls": 21,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 21,
+  "prompt_chars": 262859,
+  "completion_chars": 23731,
+  "real_prompt_tokens": 806604,
+  "real_completion_tokens": 53485,
+  "usage_reported_calls": 21,
+  "rate_limit_events": 0,
+  "provider_error_events": 5,
+  "pool_wait_s": 0,
+  "llm_latency_s": 1358.9,
+  "infra_failed": true,
+  "infra_reason": "timeout: timed out",
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "grep",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "grep",
+     "read",
+     "todowrite",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "grep",
+     "glob",
+     "grep",
+     "read",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 11,
+    "opencode_tools_used": [
+     "invalid",
+     "glob",
+     "read",
+     "read",
+     "read",
+     "glob",
+     "glob",
+     "grep",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 6,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "grep",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "glob",
+     "read",
+     "grep",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "invalid",
+     "invalid",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 11,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "invalid",
+     "glob",
+     "read",
+     "grep",
+     "grep",
+     "read",
+     "grep",
+     "read",
+     "grep",
+     "todowrite",
+     "read",
+     "glob",
+     "read",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "todowrite",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "invalid",
+     "glob",
+     "grep",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "invalid",
+     "glob",
+     "read",
+     "grep",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "invalid",
+     "glob",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "todowrite",
+     "todowrite",
+     "read"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "grep",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "timeout: timed out"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "glob",
+     "grep",
+     "read"
+    ]
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_201202_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 4,
+  "escalations": 1
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

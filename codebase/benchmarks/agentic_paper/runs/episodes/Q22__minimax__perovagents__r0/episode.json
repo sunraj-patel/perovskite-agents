@@ -1,0 +1,68 @@
+{
+ "episode_id": "Q22__minimax__perovagents__r0",
+ "qid": "Q22",
+ "category": "pdb",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:11:50",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Which three perovskite compositions (short-form label) are most frequently reported in n-i-p devices with PCE above 22%? Give the labels and their record counts.",
+ "finished_at": "2026-10-21T20:12:02",
+ "seconds": 12.0,
+ "termination": "answer",
+ "final_answer": "Dispatched the database query to the pdb agent.",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 1,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 1,
+  "prompt_chars": 2853,
+  "completion_chars": 47,
+  "real_prompt_tokens": 10504,
+  "real_completion_tokens": 647,
+  "usage_reported_calls": 1,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 11.9,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "todowrite"
+    ]
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_201150_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 0,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

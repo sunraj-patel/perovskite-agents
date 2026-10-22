@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perovagents"
+version = "0.2.0"
+description = "Multi-agent framework for perovskite solar-cell research"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "requests"]
+
+[project.optional-dependencies]
+all = ["catboost", "shap", "sentence-transformers"]
+dev = ["pytest"]
+
+[project.scripts]
+perovagents = "perovagents.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["perovagents*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: runs SCAPS under wine and takes a minute; deselect with -m 'not slow'",
+]

@@ -1,0 +1,40 @@
+episode_id,attempt,manifest_status,validity,replaces,attempt_file,evidence
+Q30__deepseek__direct__r0,1,completed,valid,,runs/episodes/Q30__deepseek__direct__r0/episode.attempt1.json,
+Q30__deepseek__perovagents__r0,1,completed,valid,,runs/episodes/Q30__deepseek__perovagents__r0/episode.attempt1.json,
+Q30__gemini__direct__r0,1,completed,valid,,runs/episodes/Q30__gemini__direct__r0/episode.attempt1.json,
+Q30__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q30__gemini__perovagents__r0/episode.attempt1.json,
+Q31__deepseek__direct__r0,1,completed,valid,,runs/episodes/Q31__deepseek__direct__r0/episode.attempt1.json,
+Q31__deepseek__perovagents__r0,1,completed,valid,,runs/episodes/Q31__deepseek__perovagents__r0/episode.attempt1.json,
+Q31__gemini__direct__r0,1,completed,valid,,runs/episodes/Q31__gemini__direct__r0/episode.attempt1.json,
+Q31__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q31__gemini__perovagents__r0/episode.attempt1.json,
+Q32__deepseek__direct__r0,1,completed,valid,,runs/episodes/Q32__deepseek__direct__r0/episode.attempt1.json,
+Q32__deepseek__perovagents__r0,1,completed,valid,,runs/episodes/Q32__deepseek__perovagents__r0/episode.attempt1.json,
+Q32__gemini__direct__r0,1,infra_failed,infra_failed,,runs/episodes/Q32__gemini__direct__r0/episode.attempt1.json,"provider failure: all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN E"
+Q32__gemini__direct__r0,2,completed,valid,runs/episodes/Q32__gemini__direct__r0/episode.attempt1.json,runs/episodes/Q32__gemini__direct__r0/episode.attempt2.json,
+Q32__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q32__gemini__perovagents__r0/episode.attempt1.json,
+Q41__deepseek__direct__r0,1,completed,valid,,runs/episodes/Q41__deepseek__direct__r0/episode.attempt1.json,
+Q41__deepseek__perovagents__r0,1,completed,valid,,runs/episodes/Q41__deepseek__perovagents__r0/episode.attempt1.json,
+Q41__gemini__direct__r0,1,infra_failed,infra_failed,,runs/episodes/Q41__gemini__direct__r0/episode.attempt1.json,"provider failure: all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN E"
+Q41__gemini__direct__r0,2,completed,valid,runs/episodes/Q41__gemini__direct__r0/episode.attempt1.json,runs/episodes/Q41__gemini__direct__r0/episode.attempt2.json,
+Q41__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q41__gemini__perovagents__r0/episode.attempt1.json,
+Q42__deepseek__direct__r0,1,infra_failed,infra_failed,,runs/episodes/Q42__deepseek__direct__r0/episode.attempt1.json,"provider failure: rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 179262720"
+Q42__deepseek__perovagents__r0,1,infra_failed,infra_failed,,runs/episodes/Q42__deepseek__perovagents__r0/episode.attempt1.json,"provider failure: rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 179262720"
+Q42__gemini__direct__r0,1,infra_failed,infra_failed,,runs/episodes/Q42__gemini__direct__r0/episode.attempt1.json,"provider failure: all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN E"
+Q42__gemini__direct__r0,2,completed,valid,runs/episodes/Q42__gemini__direct__r0/episode.attempt1.json,runs/episodes/Q42__gemini__direct__r0/episode.attempt2.json,
+Q42__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q42__gemini__perovagents__r0/episode.attempt1.json,
+Q44__deepseek__direct__r0,1,infra_failed,infra_failed,,runs/episodes/Q44__deepseek__direct__r0/episode.attempt1.json,provider failure: rate_limit: free usage exceeded (quota resets at epoch 1792627201)
+Q44__deepseek__perovagents__r0,1,infra_failed,infra_failed,,runs/episodes/Q44__deepseek__perovagents__r0/episode.attempt1.json,provider failure: rate_limit: free usage exceeded (quota resets at epoch 1792627201)
+Q44__gemini__direct__r0,1,completed,valid,,runs/episodes/Q44__gemini__direct__r0/episode.attempt1.json,
+Q44__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q44__gemini__perovagents__r0/episode.attempt1.json,
+Q46__gemini__direct__r0,1,completed,valid,,runs/episodes/Q46__gemini__direct__r0/episode.attempt1.json,
+Q46__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q46__gemini__perovagents__r0/episode.attempt1.json,
+Q47__gemini__direct__r0,1,completed,valid,,runs/episodes/Q47__gemini__direct__r0/episode.attempt1.json,
+Q47__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q47__gemini__perovagents__r0/episode.attempt1.json,
+Q48__gemini__direct__r0,1,completed,valid,,runs/episodes/Q48__gemini__direct__r0/episode.attempt1.json,
+Q48__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q48__gemini__perovagents__r0/episode.attempt1.json,
+Q49__gemini__direct__r0,1,completed,valid,,runs/episodes/Q49__gemini__direct__r0/episode.attempt1.json,
+Q49__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q49__gemini__perovagents__r0/episode.attempt1.json,
+Q50__gemini__direct__r0,1,completed,valid,,runs/episodes/Q50__gemini__direct__r0/episode.attempt1.json,
+Q50__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q50__gemini__perovagents__r0/episode.attempt1.json,
+Q51__gemini__direct__r0,1,completed,valid,,runs/episodes/Q51__gemini__direct__r0/episode.attempt1.json,
+Q51__gemini__perovagents__r0,1,completed,valid,,runs/episodes/Q51__gemini__perovagents__r0/episode.attempt1.json,

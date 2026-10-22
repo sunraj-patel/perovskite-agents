@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perovagents"
+version = "0.1.0"
+description = "PerovAgents — an agentic framework for perovskite solar cell research"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "PerovAgents" }]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "requests",
+]
+
+[project.optional-dependencies]
+# Heavy / optional capabilities. Install what matches your workload:
+#   llm         -> Google Gemini backend (google-genai SDK) for LLM planning
+#   embeddings  -> sentence-transformers for semantic literature search
+#   ml          -> CatBoost PCE predictor + SHAP explainability
+#   mp          -> Materials Project REST client (long-timeout cache)
+llm = ["google-genai"]
+embeddings = ["sentence-transformers"]
+ml = ["catboost", "shap"]
+mp = ["mp-api"]
+
+[project.scripts]
+perovagents = "perovagents.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["perovagents*"]
+
+[tool.setuptools.package-data]
+perovagents = ["py.typed"]

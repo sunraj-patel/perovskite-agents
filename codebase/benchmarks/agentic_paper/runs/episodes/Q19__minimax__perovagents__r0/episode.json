@@ -1,0 +1,903 @@
+{
+ "episode_id": "Q19__minimax__perovagents__r0",
+ "qid": "Q19",
+ "category": "multi_tool",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:04:20",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "I am considering a new n-i-p device using a candidate ETL and HTL. Find relevant literature evidence, retrieve the relevant material properties, estimate the expected PCE, and identify the parameters that most strongly affect the prediction.",
+ "finished_at": "2026-10-21T20:16:51",
+ "seconds": 751.3,
+ "termination": "answer",
+ "final_answer": "[PROVIDER FAILURE] backbone unavailable; episode aborted.",
+ "tool_calls": [
+  {
+   "agent": "scaps",
+   "tool": "reference_cell",
+   "args": [],
+   "result": "{'found': True, 'stack': 'FTO | ETL TiO2 | Perovskite | HTL Spiro-MeOTAD | Au (n-i-p)', 'parameters': {'pvk_d': {'value': 400.0, 'unit': 'nm'}, 'pvk_Eg': {'value': 1.55, 'unit': 'eV'}, 'pvk_chi': {'value': 3.93, 'unit': 'eV'}, 'pvk_eps': {'value': 10.0, 'unit': '-'}, 'pvk_Nc': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'pvk_Nv': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'pvk_mun': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'pvk_mup': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'pvk_Nt': {'value': 100000000000000.0, 'unit': '1/cm^3'}, 'htl_d': {'value': 200.0, 'unit': 'nm'}, 'htl_Eg': {'value': 3.0, 'unit': 'eV'}, 'htl_chi': {'value': 2.2, 'unit': 'eV'}, 'htl_eps': {'value': 3.0, 'unit': '-'}, 'htl_mun': {'value': 0.002, 'unit': 'cm^2/Vs'}, 'htl_mup': {'value': 0.002, 'unit': 'cm^2/Vs'}, 'htl_Na': {'value': 1e+18, 'unit': '1/cm^3'}, 'htl_Nt': {'value': 100000000000000.0, 'unit': '1/cm^3'}, 'etl_d': {'value': 50.0, 'unit': 'nm'}, 'etl_Eg': {'value': 3.2, 'unit': 'eV'}, 'etl_chi': {'value': 4.0, 'unit': 'eV'}, 'etl_eps': {'value': 9.0, 'unit': '-'}, 'etl_mun': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'etl_mup': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'etl_Nd': {'value': 1e+18, 'unit': '1/cm^3'}, 'etl_Nt': {'value': 100000000000000.0, 'unit': '1/cm^3'}}}",
+   "result_chars": 1233,
+   "seconds": 0.0,
+   "t_offset_s": 40.45,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "n-i-p electron first perovskite solar cell device stack ETL HTL structure thicknesses",
+    "k": 10
+   },
+   "result": "{'query': 'n-i-p electron first perovskite solar cell device stack ETL HTL structure thicknesses', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.739, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 443, 'score': 0.736, 'text': 'd thin film photovoltaic devices has risen from 3.8% to 22.10% in just eight years [5\u201318]. Such a rapid increase in device efficiency is largely attributed to the superior photovoltaic characteristics of lead halide perovskites, such as the high optical absorption coefficient, long carrier lifetime, and excellent film crystallinity [19\u201322]. High-performance perovskite solar cells (PSCs) typically employ hole transporting layers (HTLs) and electron transporting layers (ETLs) to build strong electrical fields to dissociate and collect photo-generated carriers in perovskite absorbers. These carri'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '1. Introduction', 'passage_id': 856, 'score': 0.731, 'text': 'n perovskite solar cells to access macroscopic physical device changes. The findings provide insights into the physical and chemical change of such triple-cation perovskite layers and address that more efforts should be invested to enhance its thermal stability for the future device commercialization.'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '2.1. Effect of annealed perovskite film on device degradation', 'passage_id': 857, 'score': 0.731, 'text': 'We conducted the study using the triple cation perovskite Cs0.05(MA0.17FA0.83)0.95Pb(I0.83Br0.17)3 and the p-i-n solar cell devices with ITO/PEDOT: PSS/perovskite/PCBM/Ag architecture ([Fig. 1](#page-1-0)b). To rule out the possible degradation caused by the upper stacked layers of electron transporting layer and metallic cathode, the heating processes were only applied on semi-finished cells of ITO/PEDOT:PSS/perovskite films. [Fig. 1](#page-1-0)c shows the J-V characteristics of the devices with freshly prepared as well as annealed (85 \u00b0C) perovskite films for different durations. The pristin'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'passage_id': 2614, 'score': 0.727, 'text': 't;sup>a</sup>All parameters are average value collected from 10 devices. To investigate the devices performance, we fabricate perovskite solar cells based on doped and undoped HTL. The structure of the devices is shown in Fig. 1a. The current density-voltage (J-V) characteristics of PVSCs under a solar intensity of 100 mW cm<sup>-2</sup> are tested and shown in Fig. 3a, and the operating parameters of these devices are summarized in Table 1. Devices fabricated without poly-TPD have a PCE of 12.11 %, with a $J_{SC}$ of 19.63 mA cm<sup>-2</sup>, a $V_{OC}$ of 0.87 V and a FF of 70.8 %. Adding po'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '3. Discussion', 'passage_id': 916, 'score': 0.722, 'text': 'I2) near the interface between the perovskite and the top electron transporting layer [\\\\(Figs. 1 and 3](#page-1-0)). The detachment behavior between the perovskite and the bottom hole transporting layer also limits the photogenerated carrier collection at the contact ([Fig. 2](#page-2-0)). In addition, the surface electronic structure of the perovskite film significantly is modified with an increased hole extraction barrier that leads to energy loss for the solar cell [\\\\(Fig. 4](#page-4-0)). From the proposed degradation mechanism and the impact on the device performance it is easy to understa'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2684, 'score': 0.715, 'text': 'T) and introduced into a planar PSC. This new CdS ETL effectively enhanced the current without sacrificing other parameters such as the open-circuit voltage and fill factor, resulting in superior photovoltaic performance. **Keywords:** Perovskite solar cells | Electron-transporting layer | Ultra-thin cadmium sulfide Over the past several years, organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising candidates for low-cost, high-efficiency solar cells.<sup>1-3</sup> By virtue of the attractive characteristics of perovskite materials, such as high absorp'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 39, 'score': 0.707, 'text': 'of *n* = 20 and *n* = \u221e, Figure 3D,E, respectively. The surface in Figure 3E is covered by large cubic crystals, while the surface in the case of *n* = 20 is mainly rough crystals with layered character structure, can be also seen at the inset of Figure 3D. was evaluated. As described, the 2D and the quasi-2D perovskites are based on bromide, resulting in an increase of the band gap compared to the iodide counterpart. A large band gap could potentially provide higher open circuit voltage (*V*oc). In addition, the solar cell structure used in this work is based on ![](_page_2_Figure_11.jpeg) **'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 69, 'score': 0.705, 'text': 'sents shorter lifetime for the 3D perovskite than for *n* = 50 which has longer lifetime than *n* = 60 and *n* = 40. (Table S2, Supporting Information) These results are in partial agreement with the *V*oc of the corresponding cells. Therefore, we can conclude that the *V*oc is not determining only by the number of perovskite layers and that the selective contacts also play a role in determined the *V*oc of the cells. **Table 2** and **Figure 6** present the best *P\u2013V* parameters and the *I*\u2013*V* curves of the various HTM free solar cells. The 3D perovskite (MAPbBr3) shows high PCE of 6.2% with'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '2.2. Morphology', 'passage_id': 878, 'score': 0.704, 'text': 'ribution to the electric current). Figs. 2g and 2h depict the cross-sectional SEM images of solar cells based on pristine and degraded perovskite films annealed for 48 h. In the pristine case, the stacked multilayers are neat and tight, whereas the detachment of the perovskite layer from the underlying PEDOT:PSS layer is observed for the degraded sample, as previously reported by Han et al. [35]. The delamination behavior conceivably would restrict the charge transfer between perovskite and PEDOT:PSS, and thus decrease the device current during operation. Next, we replaced PED-OT:PSS with SnO<'}]}",
+   "result_chars": 7667,
+   "seconds": 10.462,
+   "t_offset_s": 30.73,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "n-i-p cell, SnO2 ETL, Spiro-MeOTAD HTL, MAPbI3 perovskite 550 nm, ETL of 70 nm, HTL of 200 nm",
+    "architecture": "overall"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'Overall', 'predicted_pce': 12.89, 'pce_95_interval': [11.13, 14.65], 'interval_spread_percent': 3.53, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'SnO2', 'HTL': 'Spiro-MeOTAD', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_Overall.cbm', 'target': 'PCE'}}",
+   "result_chars": 461,
+   "seconds": 1.242,
+   "t_offset_s": 45.72,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transporting layer n-i-p perovskite solar cell device structure Voc Jsc FF PCE",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 electron transporting layer n-i-p perovskite solar cell device structure Voc Jsc FF PCE', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.762, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '3. Discussion', 'passage_id': 916, 'score': 0.728, 'text': 'I2) near the interface between the perovskite and the top electron transporting layer [\\\\(Figs. 1 and 3](#page-1-0)). The detachment behavior between the perovskite and the bottom hole transporting layer also limits the photogenerated carrier collection at the contact ([Fig. 2](#page-2-0)). In addition, the surface electronic structure of the perovskite film significantly is modified with an increased hole extraction barrier that leads to energy loss for the solar cell [\\\\(Fig. 4](#page-4-0)). From the proposed degradation mechanism and the impact on the device performance it is easy to understa'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.718, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '2.1. Effect of annealed perovskite film on device degradation', 'passage_id': 857, 'score': 0.701, 'text': 'We conducted the study using the triple cation perovskite Cs0.05(MA0.17FA0.83)0.95Pb(I0.83Br0.17)3 and the p-i-n solar cell devices with ITO/PEDOT: PSS/perovskite/PCBM/Ag architecture ([Fig. 1](#page-1-0)b). To rule out the possible degradation caused by the upper stacked layers of electron transporting layer and metallic cathode, the heating processes were only applied on semi-finished cells of ITO/PEDOT:PSS/perovskite films. [Fig. 1](#page-1-0)c shows the J-V characteristics of the devices with freshly prepared as well as annealed (85 \u00b0C) perovskite films for different durations. The pristin'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '3. Conclusions', 'passage_id': 78, 'score': 0.698, 'text': 'This work demonstrates the synthesis of 2D and 3D layered perovskites and their PV activity. PEA was used as the barrier molecule in order to get various perovskite layers starting from *n* = 1 (for pure 2D perovskite) through *n* = \u221e (for 3D perovskite). XRD measurements showed the nature of the 2D perovskite indicated by the low angle reflections. Absorbance and PL proved the confinement effect by the change in the band gap. PV solar cells with HTM and without HTM were fabricated demonstrating high open circuit voltage and high PCE for the quasi-2D perovskite (*n* = 40, 50, 60) compared to t'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '1. Introduction', 'passage_id': 856, 'score': 0.693, 'text': 'n perovskite solar cells to access macroscopic physical device changes. The findings provide insights into the physical and chemical change of such triple-cation perovskite layers and address that more efforts should be invested to enhance its thermal stability for the future device commercialization.'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.693, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 140, 'score': 0.691, 'text': 'the perovskite underlayer and without contributing to parasitic absorption in perovskite solar cells. We observe that subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination, as shown by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h a'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '1. INTRODUCTION', 'passage_id': 2595, 'score': 0.691, 'text': 'from 3.9% to 22.7 %. Among the various PVSCs, the structure of p-i-n perovskite solar cells had attracted great attention [4-5]. The p-i-n PVSCs have the ability of solution processed organic hole transporting layers to resist etching or complete dissolution during the deposition of the perovskite layer [6]. The major bottlenecks to restrict the PCE improvement of p-i-n PVSCs are the undesirable contact between perovskite layer and hole transporting layer (HTL), which leads to limited charge transport and collection ability [7-8]. The recent interest in PVSCs was using suitable materials to ch'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1428, 'score': 0.689, 'text': ' SnF_2}$ (20 mol %) with the resultant photovoltaic parameters attained shown in Table 1 and Figure 2a. Short-circuit photocurrent density $(J_{sc})$ of 27.67 mA/cm<sup>2</sup> under AM 1.5G solar illumination has been observed for CsSnI<sub>3</sub> (with SnF<sub>2</sub>) solar cell, owing to the smaller band gap and better crystal quality attained by annealing the perovskite loaded TiO<sub>2</sub> films at 100 \u00b0C. The quality of the perovskite film is highly critical in affecting the cell performance as has been reported by other research groups and as such perovskite annealing temperatures a'}]}",
+   "result_chars": 7675,
+   "seconds": 0.207,
+   "t_offset_s": 88.71,
+   "error": false
+  },
+  {
+   "agent": "scaps",
+   "tool": "get_sweep",
+   "args": {
+    "sweep": "eg"
+   },
+   "result": "{'found': True, 'parameter': 'perovskite_band_gap', 'unit': 'eV', 'n_points': 8, 'data': [{'parameter': 'perovskite_band_gap', 'value': 1.35, 'unit': 'eV', 'Voc': 1.193228, 'Jsc': 30.58575967, 'FF': 89.3873, 'PCE': 32.6226}, {'parameter': 'perovskite_band_gap', 'value': 1.4, 'unit': 'eV', 'Voc': 1.241981, 'Jsc': 28.92989995, 'FF': 89.7048, 'PCE': 32.2313}, {'parameter': 'perovskite_band_gap', 'value': 1.45, 'unit': 'eV', 'Voc': 1.289875, 'Jsc': 26.97940001, 'FF': 90.0332, 'PCE': 31.3316}, {'parameter': 'perovskite_band_gap', 'value': 1.5, 'unit': 'eV', 'Voc': 1.338586, 'Jsc': 25.41660789, 'FF': 90.3009, 'PCE': 30.7225}, {'parameter': 'perovskite_band_gap', 'value': 1.55, 'unit': 'eV', 'Voc': 1.386528, 'Jsc': 23.68894771, 'FF': 90.5772, 'PCE': 29.7504}, {'parameter': 'perovskite_band_gap', 'value': 1.6, 'unit': 'eV', 'Voc': 1.435019, 'Jsc': 22.36534943, 'FF': 90.8149, 'PCE': 29.1468}, {'parameter': 'perovskite_band_gap', 'value': 1.65, 'unit': 'eV', 'Voc': 1.483314, 'Jsc': 20.8763554, 'FF': 91.0141, 'PCE': 28.1836}, {'parameter': 'perovskite_band_gap', 'value': 1.7, 'unit': 'eV', 'Voc': 1.531517, 'Jsc': 19.67276812, 'FF': 91.1947, 'PCE': 27.4762}], 'provenance': {'kind': 'scaps_sweep', 'source': 'sweep_results.csv', 'device': 'perovskite_nip.def'}, 'pearson_r_PCE': -0.9975, 'relative_PCE_change': -0.1578, 'trend': 'negative'}",
+   "result_chars": 1346,
+   "seconds": 0.006,
+   "t_offset_s": 116.0,
+   "error": false
+  },
+  {
+   "agent": "design",
+   "tool": "design_stack",
+   "args": {
+    "architecture": "n-i-p",
+    "absorber": "MAPbI3",
+    "htl": "Spiro-MeOTAD",
+    "etl": "SnO2",
+    "absorber_thickness_nm": 550,
+    "htl_thickness_nm": 200,
+    "etl_thickness_nm": 70
+   },
+   "result": "{'architecture': 'n-i-p', 'architecture_meaning': 'electron transport layer on the illuminated (front/right) side', 'illumination': 'front/right contact (ETL) side', 'n_scaps_layers': 3, 'layers': [{'name': 'HTL', 'material': 'Spiro-MeOTAD', 'thickness_nm': 200, 'role': 'far surface side', 'defect_density_1e14cm3': 1000.0, 'band_gap_eV': 3.0, 'electron_affinity_eV': 2.2, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+17}, {'depth_nm': 200, 'Nt_1cm3': 1e+17}]}, {'name': 'Perovskite', 'material': 'MAPbI3', 'thickness_nm': 550, 'role': 'absorber', 'defect_density_1e14cm3': 1.0, 'band_gap_eV': 1.55, 'electron_affinity_eV': 3.93, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 100000000000000.0}, {'depth_nm': 550, 'Nt_1cm3': 100000000000000.0}]}, {'name': 'ETL', 'material': 'SnO2', 'thickness_nm': 70, 'role': 'illuminated surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.6, 'electron_affinity_eV': 4.05, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 70, 'Nt_1cm3': 1e+16}]}], 'units': 'public/engineering (nm, eV, 1/cm^3, cm^2/Vs)', 'contact_order': 'back/left contact is the hole side, front/right is the electron side, for both architectures', 'note': 'Not yet simulated. Call simulate_stack with this layout to get Voc/Jsc/FF/PCE from SCAPS-1D.'}",
+   "result_chars": 1314,
+   "seconds": 0.0,
+   "t_offset_s": 140.5,
+   "error": false
+  },
+  {
+   "agent": "scaps",
+   "tool": "get_sweep",
+   "args": {
+    "sweep": "d"
+   },
+   "result": "{'found': True, 'parameter': 'perovskite_thickness', 'unit': 'nm', 'n_points': 8, 'data': [{'parameter': 'perovskite_thickness', 'value': 200.00000000000003, 'unit': 'nm', 'Voc': 1.400082, 'Jsc': 19.14383777, 'FF': 90.6249, 'PCE': 24.2902}, {'parameter': 'perovskite_thickness', 'value': 300.00000000000006, 'unit': 'nm', 'Voc': 1.39242, 'Jsc': 22.09208109, 'FF': 90.6192, 'PCE': 27.8758}, {'parameter': 'perovskite_thickness', 'value': 400.00000000000006, 'unit': 'nm', 'Voc': 1.386528, 'Jsc': 23.68894771, 'FF': 90.5772, 'PCE': 29.7504}, {'parameter': 'perovskite_thickness', 'value': 500.00000000000006, 'unit': 'nm', 'Voc': 1.381731, 'Jsc': 24.61148062, 'FF': 90.5279, 'PCE': 30.7853}, {'parameter': 'perovskite_thickness', 'value': 600.0000000000001, 'unit': 'nm', 'Voc': 1.377323, 'Jsc': 25.17493741, 'FF': 90.5039, 'PCE': 31.3814}, {'parameter': 'perovskite_thickness', 'value': 700.0000000000001, 'unit': 'nm', 'Voc': 1.373396, 'Jsc': 25.53587801, 'FF': 90.4857, 'PCE': 31.7341}, {'parameter': 'perovskite_thickness', 'value': 800.0000000000001, 'unit': 'nm', 'Voc': 1.37004, 'Jsc': 25.77634854, 'FF': 90.4598, 'PCE': 31.9455}, {'parameter': 'perovskite_thickness', 'value': 1000.0000000000001, 'unit': 'nm', 'Voc': 1.364521, 'Jsc': 26.05889348, 'FF': 90.3966, 'PCE': 32.1431}], 'provenance': {'kind': 'scaps_sweep', 'source': 'sweep_results.csv', 'device': 'perovskite_nip.def'}, 'pearson_r_PCE': 0.8536, 'relative_PCE_change': 0.3233, 'trend': 'positive'}",
+   "result_chars": 1465,
+   "seconds": 0.001,
+   "t_offset_s": 142.37,
+   "error": false
+  },
+  {
+   "agent": "design",
+   "tool": "write_execution_script",
+   "args": {
+    "job": "baseline_nip_snO2_spiro",
+    "architecture": "n-i-p",
+    "absorber": "MAPbI3",
+    "htl": "Spiro-MeOTAD",
+    "etl": "SnO2",
+    "absorber_thickness_nm": 550,
+    "htl_thickness_nm": 200,
+    "etl_thickness_nm": 70,
+    "sublayers": 4,
+    "temperature_k": 300.0,
+    "stopv": 1.6,
+    "step": 0.02
+   },
+   "result": "{'job': 'baseline_nip_snO2_spiro', 'def_path': '/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/def/baseline_nip_snO2_spiro.def', 'def_layer_order': ['HTL', 'Perovskite', 'ETL'], 'device': {'architecture': 'n-i-p', 'architecture_meaning': 'electron transport layer on the illuminated (front/right) side', 'illumination': 'front/right contact (ETL) side', 'n_scaps_layers': 3, 'layers': [{'name': 'HTL', 'material': 'Spiro-MeOTAD', 'thickness_nm': 200, 'role': 'far surface side', 'defect_density_1e14cm3': 1000.0, 'band_gap_eV': 3.0, 'electron_affinity_eV': 2.2, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+17}, {'depth_nm': 200, 'Nt_1cm3': 1e+17}]}, {'name': 'Perovskite', 'material': 'MAPbI3', 'thickness_nm': 550, 'role': 'absorber', 'defect_density_1e14cm3': 1.0, 'band_gap_eV': 1.55, 'electron_affinity_eV': 3.93, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 100000000000000.0}, {'depth_nm': 550, 'Nt_1cm3': 100000000000000.0}]}, {'name': 'ETL', 'material': 'SnO2', 'thickness_nm': 70, 'role': 'illuminated surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.6, 'electron_affinity_eV': 4.05, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 70, 'Nt_1cm3': 1e+16}]}], 'units': 'public/engineering (nm, eV, 1/cm^3, cm^2/Vs)'}, 'script_path': '/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/script/baseline_nip_snO2_spiro.script', 'execution_script': 'set quitscript.quitSCAPS\\nset errorhandling.overwritefile\\nload definitionfile baseline_nip_snO2_spiro.def\\nclear actions\\naction workingpoint.temperature 300.0\\naction iv.startv 0.0\\naction iv.stopv 1.6\\naction iv.increment 0.02\\naction iv.doiv\\naction light\\ncalculate singleshot\\nsave results.iv baseline_nip_snO2_spiro.iv\\n', 'expected_result_file': '/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/results/baseline_nip_snO2_spiro.iv', 'note': 'Files written. Call simulate_stack to execute this script.'}",
+   "result_chars": 2093,
+   "seconds": 0.002,
+   "t_offset_s": 175.29,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "explain_global",
+   "args": {
+    "architecture": "overall"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'Overall', 'n_design_samples': 96, 'features': [{'name': 'HTL_deposition_method', 'importance': np.float64(0.9923), 'direction': 'negative', 'shap': np.float64(-0.6617)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.6123), 'direction': 'negative', 'shap': np.float64(-0.1566)}, {'name': 'Substrate_stack_sequence', 'importance': np.float64(0.4623), 'direction': 'positive', 'shap': np.float64(0.4603)}, {'name': 'ETL_deposition_method', 'importance': np.float64(0.3798), 'direction': 'positive', 'shap': np.float64(0.3729)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.36), 'direction': 'positive', 'shap': np.float64(0.356)}, {'name': 'HTL_band_gap', 'importance': np.float64(0.1943), 'direction': 'positive', 'shap': np.float64(0.1886)}, {'name': 'has_Spiro_na', 'importance': np.float64(0.1332), 'direction': 'positive', 'shap': np.float64(0.0276)}, {'name': 'has_PTAA_na', 'importance': np.float64(0.124), 'direction': 'positive', 'shap': np.float64(0.0164)}, {'name': 'ETL_max_atomic_mass', 'importance': np.float64(0.1227), 'direction': 'positive', 'shap': np.float64(0.0577)}, {'name': 'Perovskite_deposition_synthesis_atmosphere', 'importance': np.float64(0.1197), 'direction': 'positive', 'shap': np.float64(0.1072)}, {'name': 'Perovskite_pl_max_nm_na', 'importance': np.float64(0.105), 'direction': 'positive', 'shap': np.float64(0.0963)}, {'name': 'ETL_hole_mobility', 'importance': np.float64(0.1), 'direction': 'positive', 'shap': np.float64(0.0909)}, {'name': 'Backcontact_stack_sequence', 'importance': np.float64(0.0961), 'direction': 'positive', 'shap': np.float64(0.0961)}, {'name': 'has_LiF_na', 'importance': np.float64(0.0946), 'direction': 'positive', 'shap': np.float64(0.0432)}, {'name': 'Perovskite_composition_perovskite_ABC3_structure', 'importance': np.float64(0.0928), 'direction': 'positive', 'shap': np.float64(0.0377)}], 'controllable': {'HTL_deposition_method': True, 'Perovskite_deposition_solvents': True, 'Substrate_stack_sequence': True, 'ETL_deposition_method': True, 'Perov_quenching_crystallisation': True, 'HTL_band_gap': True, 'has_Spiro_na': False, 'has_PTAA_na': False, 'ETL_max_atomic_mass': True, 'Perovskite_deposition_synthesis_atmosphere': True, 'Perovskite_pl_max_nm_na': False, 'ETL_hole_mobility': True, 'Backcontact_stack_sequence': True, 'has_LiF_na': False, 'Perovskite_composition_perovskite_ABC3_structure': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_Overall.cbm', 'scope': 'global'}}",
+   "result_chars": 2600,
+   "seconds": 31.245,
+   "t_offset_s": 183.2,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Cell_architecture, COUNT(*) AS n_devices, COUNT(DISTINCT Ref_DOI_number) AS n_papers, SUM(CASE WHEN JV_default_PCE IS NOT NULL AND JV_default_PCE > 0 THEN 1 ELSE 0 END) AS n_with_valid_pce FROM devices GROUP BY Cell_architecture ORDER BY n_devices DESC"
+   },
+   "result": "{'columns': ['Cell_architecture', 'n_devices', 'n_papers', 'n_with_valid_pce'], 'n_rows': 8, 'rows': [{'Cell_architecture': 'nip', 'n_devices': 29897, 'n_papers': 5310, 'n_with_valid_pce': 29193}, {'Cell_architecture': 'pin', 'n_devices': 13342, 'n_papers': 2296, 'n_with_valid_pce': 13039}, {'Cell_architecture': 'Unknown', 'n_devices': 103, 'n_papers': 12, 'n_with_valid_pce': 52}, {'Cell_architecture': 'Back contacted', 'n_devices': 33, 'n_papers': 8, 'n_with_valid_pce': 25}, {'Cell_architecture': None, 'n_devices': 10, 'n_papers': 1, 'n_with_valid_pce': 0}, {'Cell_architecture': 'Front contacted', 'n_devices': 7, 'n_papers': 3, 'n_with_valid_pce': 7}, {'Cell_architecture': 'Schottky', 'n_devices': 5, 'n_papers': 4, 'n_with_valid_pce': 5}, {'Cell_architecture': 'Pn-Heterojunction', 'n_devices': 1, 'n_papers': 1, 'n_with_valid_pce': 1}]}",
+   "result_chars": 848,
+   "seconds": 0.043,
+   "t_offset_s": 235.51,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "n-i-p cell, SnO2 ETL, Spiro-MeOTAD HTL, MAPbI3 perovskite 550 nm, ETL of 70 nm, HTL of 200 nm, bandgap 1.55 eV, annealed at 110 C for 20 min, metal electrodes",
+    "architecture": "overall"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'Overall', 'predicted_pce': 12.91, 'pce_95_interval': [11.02, 14.79], 'interval_spread_percent': 3.76, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'SnO2', 'HTL': 'Spiro-MeOTAD', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_Overall.cbm', 'target': 'PCE'}}",
+   "result_chars": 461,
+   "seconds": 0.006,
+   "t_offset_s": 242.84,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 Spiro-OMeTAD n-i-p device structure ITO SnO2 perovskite Spiro-OMeTAD gold thickness Voc Jsc FF PCE",
+    "doi": "10.1002/aenm.201803587",
+    "k": 8
+   },
+   "result": "{'query': 'SnO2 Spiro-OMeTAD n-i-p device structure ITO SnO2 perovskite Spiro-OMeTAD gold thickness Voc Jsc FF PCE', 'method': 'semantic', 'n_hits': 8, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 173, 'score': 0.605, 'text': ' planar configuration of fluorinated-tin-oxide (FTO)/compact SnO2/perovskite/ spiro-OMeTAD/Au, as shown in **Figure 5**a. The current\u2013voltage (*J\u2013V*) characteristics of champion PSCs without and with FACl additive, before and after passivation by ADAHCl were measured under air mass (AM) 1.5G irradiation and reverse scan directions (Figure 5b). The figures of merit for the corresponding devices are listed in **Table 1**. The reference device ![](_page_4_Figure_4.jpeg) ![](_page_4_Figure_5.jpeg) **Figure 3.** 2D X-ray diffraction (2D-XRD) patterns of perovskite films a) reference and b) with the'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '4. Experimental Section', 'passage_id': 223, 'score': 0.548, 'text': 'the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 141, 'score': 0.53, 'text': 'n by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h aging under continuous illumination, which is much better than the reference device, maintaining 67% of its initial PCE value.'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.511, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 140, 'score': 0.51, 'text': 'the perovskite underlayer and without contributing to parasitic absorption in perovskite solar cells. We observe that subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination, as shown by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h a'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 150, 'score': 0.5, 'text': 'in film perovskite, with a high surface-to-volume ratio are lower than those temperatures shown in Figure S1 in the Supporting Information. As a result, using FACl modification, we not only improve the perovskite crystallinity but also reduce the amount of MA cation in the perovskite composition, which can improve the stability of PSC devices as well.[42] To further support this claim, solution 1 H NMR spectroscopy for both reference and FACl perovskite films is performed and the MA and FA peaks are studied. As shown in Figure S2 in the Supporting Information, the MA (3H, NH3) peak intensity f'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 125, 'score': 0.494, 'text': 'ysical Chemistry Polish Academy of Sciences Kasprzaka 44/52, 01-224 Warsaw, Poland The ORCID identification number(s) for the author(s) of this article can be found under https://doi.org/10.1002/aenm.201803587. **DOI: 10.1002/aenm.201803587** and low-temperature processability, excellent light absorption, long carrier diffusion length, and high carrier mobility, perovskite materials have emerged as an exceptional candidate for optoelectronic applications.[4\u20138] In the last few years, much research has sought to improve the performance and operational stability of the PSCs through interface engi'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 187, 'score': 0.493, 'text': 'ackward) \u00d7 100) for the corresponding PSCs are shown in Figure S9 in the Supporting Information. As seen, the FACl-containing device and ADAHCl passivated device have lower average hysteresis indices as compared to the reference PSCs, which has previously been correlated with the higher perovskite quality and lower defect density.[44] Recent works demonstrated that due to the organic nature of perovskites and unbonded surface atoms, the surface of the perovskite film\u2014even with large grains\u2014is vulnerable to moisture and sunlight.[4] One of the main current challenges in the field of PSCs is thu'}]}",
+   "result_chars": 7022,
+   "seconds": 0.057,
+   "t_offset_s": 257.68,
+   "error": false
+  },
+  {
+   "agent": "design",
+   "tool": "design_stack",
+   "args": {
+    "architecture": "n-i-p",
+    "absorber": "MAPbI3",
+    "htl": "Spiro-MeOTAD",
+    "etl": "SnO2",
+    "absorber_thickness_nm": 550,
+    "htl_thickness_nm": 200,
+    "etl_thickness_nm": 70
+   },
+   "result": "{'architecture': 'n-i-p', 'architecture_meaning': 'electron transport layer on the illuminated (front/right) side', 'illumination': 'front/right contact (ETL) side', 'n_scaps_layers': 3, 'layers': [{'name': 'HTL', 'material': 'Spiro-MeOTAD', 'thickness_nm': 200, 'role': 'far surface side', 'defect_density_1e14cm3': 1000.0, 'band_gap_eV': 3.0, 'electron_affinity_eV': 2.2, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+17}, {'depth_nm': 200, 'Nt_1cm3': 1e+17}]}, {'name': 'Perovskite', 'material': 'MAPbI3', 'thickness_nm': 550, 'role': 'absorber', 'defect_density_1e14cm3': 1.0, 'band_gap_eV': 1.55, 'electron_affinity_eV': 3.93, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 100000000000000.0}, {'depth_nm': 550, 'Nt_1cm3': 100000000000000.0}]}, {'name': 'ETL', 'material': 'SnO2', 'thickness_nm': 70, 'role': 'illuminated surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.6, 'electron_affinity_eV': 4.05, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 70, 'Nt_1cm3': 1e+16}]}], 'units': 'public/engineering (nm, eV, 1/cm^3, cm^2/Vs)', 'contact_order': 'back/left contact is the hole side, front/right is the electron side, for both architectures', 'note': 'Not yet simulated. Call simulate_stack with this layout to get Voc/Jsc/FF/PCE from SCAPS-1D.'}",
+   "result_chars": 1314,
+   "seconds": 0.0,
+   "t_offset_s": 301.54,
+   "error": false
+  },
+  {
+   "agent": "design",
+   "tool": "design_stack",
+   "args": {
+    "architecture": "n-i-p",
+    "absorber": "MAPbI3",
+    "htl": "PTAA",
+    "etl": "SnO2",
+    "absorber_thickness_nm": 550,
+    "htl_thickness_nm": 150,
+    "etl_thickness_nm": 70
+   },
+   "result": "{'architecture': 'n-i-p', 'architecture_meaning': 'electron transport layer on the illuminated (front/right) side', 'illumination': 'front/right contact (ETL) side', 'n_scaps_layers': 3, 'layers': [{'name': 'HTL', 'material': 'PTAA', 'thickness_nm': 150, 'role': 'far surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.2, 'electron_affinity_eV': 2.2, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 150, 'Nt_1cm3': 1e+16}]}, {'name': 'Perovskite', 'material': 'MAPbI3', 'thickness_nm': 550, 'role': 'absorber', 'defect_density_1e14cm3': 1.0, 'band_gap_eV': 1.55, 'electron_affinity_eV': 3.93, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 100000000000000.0}, {'depth_nm': 550, 'Nt_1cm3': 100000000000000.0}]}, {'name': 'ETL', 'material': 'SnO2', 'thickness_nm': 70, 'role': 'illuminated surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.6, 'electron_affinity_eV': 4.05, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 70, 'Nt_1cm3': 1e+16}]}], 'units': 'public/engineering (nm, eV, 1/cm^3, cm^2/Vs)', 'contact_order': 'back/left contact is the hole side, front/right is the electron side, for both architectures', 'note': 'Not yet simulated. Call simulate_stack with this layout to get Voc/Jsc/FF/PCE from SCAPS-1D.'}",
+   "result_chars": 1305,
+   "seconds": 0.0,
+   "t_offset_s": 327.48,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT ETL_stack_sequence AS etl_stack, COUNT(*) AS n_devices, COUNT(DISTINCT Ref_DOI_number) AS n_papers FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence IS NOT NULL GROUP BY 1 ORDER BY n_devices DESC LIMIT 20"
+   },
+   "result": "{'columns': ['etl_stack', 'n_devices', 'n_papers'], 'n_rows': 20, 'rows': [{'etl_stack': 'TiO2-c | TiO2-mp', 'n_devices': 11719, 'n_papers': 2269}, {'etl_stack': 'TiO2-c', 'n_devices': 6817, 'n_papers': 1486}, {'etl_stack': 'SnO2-np', 'n_devices': 1684, 'n_papers': 320}, {'etl_stack': 'SnO2-c', 'n_devices': 1382, 'n_papers': 293}, {'etl_stack': 'TiO2-c | TiO2-mp | ZrO2-mp', 'n_devices': 643, 'n_papers': 134}, {'etl_stack': 'ZnO-c', 'n_devices': 450, 'n_papers': 111}, {'etl_stack': 'TiO2-c | TiO2-nw', 'n_devices': 307, 'n_papers': 69}, {'etl_stack': 'ZnO-np', 'n_devices': 293, 'n_papers': 64}, {'etl_stack': 'TiO2-c | PCBM-60', 'n_devices': 288, 'n_papers': 74}, {'etl_stack': 'TiO2-np', 'n_devices': 250, 'n_papers': 50}, {'etl_stack': 'C60', 'n_devices': 246, 'n_papers': 53}, {'etl_stack': 'none', 'n_devices': 214, 'n_papers': 98}, {'etl_stack': 'TiO2-c | TiO2-mp | Al2O3-mp', 'n_devices': 193, 'n_papers': 38}, {'etl_stack': 'TiO2-c | Al2O3-mp', 'n_devices': 180, 'n_papers': 56}, {'etl_stack': 'SnO2-c | PCBM-60', 'n_devices': 173, 'n_papers': 28}, {'etl_stack': 'PCBM-60', 'n_devices': 172, 'n_papers': 52}, {'etl_stack': 'TiO2-c | C60', 'n_devices': 131, 'n_papers': 32}, {'etl_stack': 'ZnO-c | ZnO-nw', 'n_devices': 119, 'n_papers': 36}, {'etl_stack': 'SnO2-c | C60-SAM', 'n_devices': 100, 'n_papers': 16}, {'etl_stack': 'TiO2-mp', 'n_devices': 91, 'n_papers': 43}]}",
+   "result_chars": 1381,
+   "seconds": 0.026,
+   "t_offset_s": 371.39,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT HTL_stack_sequence AS htl_stack, COUNT(*) AS n_devices, COUNT(DISTINCT Ref_DOI_number) AS n_papers FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence IS NOT NULL GROUP BY 1 ORDER BY n_devices DESC LIMIT 25"
+   },
+   "result": "{'columns': ['htl_stack', 'n_devices', 'n_papers'], 'n_rows': 25, 'rows': [{'htl_stack': 'Spiro-MeOTAD', 'n_devices': 20924, 'n_papers': 4133}, {'htl_stack': 'none', 'n_devices': 2424, 'n_papers': 563}, {'htl_stack': 'PTAA', 'n_devices': 990, 'n_papers': 211}, {'htl_stack': 'P3HT', 'n_devices': 858, 'n_papers': 230}, {'htl_stack': 'CuSCN', 'n_devices': 180, 'n_papers': 49}, {'htl_stack': 'PEDOT:PSS', 'n_devices': 156, 'n_papers': 31}, {'htl_stack': 'CuPc', 'n_devices': 126, 'n_papers': 28}, {'htl_stack': 'NiO-mp', 'n_devices': 85, 'n_papers': 15}, {'htl_stack': 'NiO-c', 'n_devices': 66, 'n_papers': 14}, {'htl_stack': 'CuI', 'n_devices': 66, 'n_papers': 16}, {'htl_stack': 'NiO-np', 'n_devices': 44, 'n_papers': 12}, {'htl_stack': 'Spiro-MeOTAD | PEDOT:PSS', 'n_devices': 42, 'n_papers': 5}, {'htl_stack': 'Spiro-MeOTAD | MoO3', 'n_devices': 41, 'n_papers': 12}, {'htl_stack': 'PEDOT', 'n_devices': 39, 'n_papers': 7}, {'htl_stack': 'PDBD-T', 'n_devices': 29, 'n_papers': 1}, {'htl_stack': 'TT1', 'n_devices': 26, 'n_papers': 1}, {'htl_stack': 'PTB7', 'n_devices': 26, 'n_papers': 12}, {'htl_stack': 'NiO', 'n_devices': 26, 'n_papers': 12}, {'htl_stack': 'EH44', 'n_devices': 26, 'n_papers': 3}, {'htl_stack': 'TaTm | F6-TCNNQ; TaTm', 'n_devices': 25, 'n_papers': 8}, {'htl_stack': 'asy-PBTBDT', 'n_devices': 24, 'n_papers': 3}, {'htl_stack': 'HTM', 'n_devices': 24, 'n_papers': 7}, {'htl_stack': 'PMMA | Spiro-MeOTAD', 'n_devices': 23, 'n_papers': 6}, {'htl_stack': 'Unknown', 'n_devices': 22, 'n_papers': 8}, {'htl_stack': 'Spiro-MeOTAD | MoOx', 'n_devices': 22, 'n_papers': 5}]}",
+   "result_chars": 1588,
+   "seconds": 0.027,
+   "t_offset_s": 373.88,
+   "error": false
+  },
+  {
+   "agent": "scaps",
+   "tool": "read_def",
+   "args": [],
+   "result": "{'found': True, 'def_file': 'perovskite_nip.def', 'stack': ['HTL', 'Perovskite', 'ETL'], 'layers': {'HTL': {'htl_d': {'value': 200.0, 'unit': 'nm'}, 'htl_Eg': {'value': 3.0, 'unit': 'eV'}, 'htl_chi': {'value': 2.2, 'unit': 'eV'}, 'htl_eps': {'value': 3.0, 'unit': '-'}, 'htl_Nc': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'htl_Nv': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'htl_mun': {'value': 0.002, 'unit': 'cm^2/Vs'}, 'htl_mup': {'value': 0.002, 'unit': 'cm^2/Vs'}, 'htl_Na': {'value': 1e+18, 'unit': '1/cm^3'}, 'htl_Nd': {'value': 0.0, 'unit': '1/cm^3'}, 'htl_Nt': {'value': 100000000000000.0, 'unit': '1/cm^3'}, 'htl_Et': {'value': 0.0, 'unit': 'eV'}}, 'Perovskite': {'pvk_d': {'value': 400.0, 'unit': 'nm'}, 'pvk_Eg': {'value': 1.55, 'unit': 'eV'}, 'pvk_chi': {'value': 3.93, 'unit': 'eV'}, 'pvk_eps': {'value': 10.0, 'unit': '-'}, 'pvk_Nc': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'pvk_Nv': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'pvk_mun': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'pvk_mup': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'pvk_Na': {'value': 0.0, 'unit': '1/cm^3'}, 'pvk_Nd': {'value': 0.0, 'unit': '1/cm^3'}, 'pvk_Nt': {'value': 100000000000000.0, 'unit': '1/cm^3'}, 'pvk_Et': {'value': 0.0, 'unit': 'eV'}}, 'ETL': {'etl_d': {'value': 50.0, 'unit': 'nm'}, 'etl_Eg': {'value': 3.2, 'unit': 'eV'}, 'etl_chi': {'value': 4.0, 'unit': 'eV'}, 'etl_eps': {'value': 9.0, 'unit': '-'}, 'etl_Nc': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'etl_Nv': {'value': 2.2e+18, 'unit': '1/cm^3'}, 'etl_mun': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'etl_mup': {'value': 1.0, 'unit': 'cm^2/Vs'}, 'etl_Na': {'value': 0.0, 'unit': '1/cm^3'}, 'etl_Nd': {'value': 1e+18, 'unit': '1/cm^3'}, 'etl_Nt': {'value': 100000000000000.0, 'unit': '1/cm^3'}, 'etl_Et': {'value': 0.0, 'unit': 'eV'}}}, 'provenance': {'kind': 'scaps_def', 'source': 'perovskite_nip.def'}}",
+   "result_chars": 1821,
+   "seconds": 0.001,
+   "t_offset_s": 395.79,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT role, material, n_dev, n_pap, champion_pce, avg_pce, n_pce FROM ( SELECT 'ETL' AS role, 'SnO2' AS material, COUNT(*) AS n_dev, COUNT(DISTINCT Ref_DOI_number) AS n_pap, MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END) AS champion_pce, ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2) AS avg_pce, COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) AS n_pce FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' UNION ALL SELECT 'ETL','TiO2',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%TiO2%' UNION ALL SELECT 'ETL','ZnO',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%ZnO%' UNION ALL SELECT 'ETL','C60',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%C60%' UNION ALL SELECT 'ETL','PCBM',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%PCBM%' UNION ALL SELECT 'HTL','Spiro-MeOTAD',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence LIKE '%Spiro%' UNION ALL SELECT 'HTL','PTAA',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence LIKE '%PTAA%' UNION ALL SELECT 'HTL','NiO',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence LIKE '%NiO%' UNION ALL SELECT 'HTL','MoOx/MoO3',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence LIKE '%MoO%' UNION ALL SELECT 'HTL','2PACz',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence LIKE '%2PACz%' UNION ALL SELECT 'HTL','P3HT',COUNT(*),COUNT(DISTINCT Ref_DOI_number),MAX(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),ROUND(AVG(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN JV_default_PCE END),2),COUNT(CASE WHEN JV_default_PCE>0 AND JV_default_PCE<=35 THEN 1 END) FROM devices WHERE Cell_architecture='nip' AND HTL_stack_sequence LIKE '%P3HT%' ) ORDER BY role, n_dev DESC"
+   },
+   "result": "{'columns': ['role', 'material', 'n_dev', 'n_pap', 'champion_pce', 'avg_pce', 'n_pce'], 'n_rows': 11, 'rows': [{'role': 'ETL', 'material': 'TiO2', 'n_dev': 22779, 'n_pap': 4207, 'champion_pce': 30.3, 'avg_pce': 11.69, 'n_pce': 22232}, {'role': 'ETL', 'material': 'SnO2', 'n_dev': 4422, 'n_pap': 794, 'champion_pce': 34.8, 'avg_pce': 15.3, 'n_pce': 4298}, {'role': 'ETL', 'material': 'ZnO', 'n_dev': 1516, 'n_pap': 318, 'champion_pce': 34.8, 'avg_pce': 10.68, 'n_pce': 1485}, {'role': 'ETL', 'material': 'PCBM', 'n_dev': 1102, 'n_pap': 228, 'champion_pce': 22.6, 'avg_pce': 13.43, 'n_pce': 1090}, {'role': 'ETL', 'material': 'C60', 'n_dev': 898, 'n_pap': 183, 'champion_pce': 22.33, 'avg_pce': 13.79, 'n_pce': 868}, {'role': 'HTL', 'material': 'Spiro-MeOTAD', 'n_dev': 21695, 'n_pap': 4190, 'champion_pce': 34.8, 'avg_pce': 12.9, 'n_pce': 21204}, {'role': 'HTL', 'material': 'PTAA', 'n_dev': 1044, 'n_pap': 223, 'champion_pce': 22.9, 'avg_pce': 12.77, 'n_pce': 998}, {'role': 'HTL', 'material': 'P3HT', 'n_dev': 967, 'n_pap': 246, 'champion_pce': 23.9, 'avg_pce': 8.41, 'n_pce': 934}, {'role': 'HTL', 'material': 'NiO', 'n_dev': 269, 'n_pap': 58, 'champion_pce': 21.42, 'avg_pce': 10.39, 'n_pce': 254}, {'role': 'HTL', 'material': 'MoOx/MoO3', 'n_dev': 159, 'n_pap': 35, 'champion_pce': 23.7, 'avg_pce': 13.21, 'n_pce': 158}, {'role': 'HTL', 'material': '2PACz', 'n_dev': 0, 'n_pap': 0, 'champion_pce': None, 'avg_pce': None, 'n_pce': 0}]}",
+   "result_chars": 1438,
+   "seconds": 0.274,
+   "t_offset_s": 427.11,
+   "error": false
+  },
+  {
+   "agent": "design",
+   "tool": "design_stack",
+   "args": {
+    "architecture": "n-i-p",
+    "absorber": "MAPbI3",
+    "htl": "Spiro-MeOTAD",
+    "etl": "TiO2",
+    "absorber_thickness_nm": 550,
+    "htl_thickness_nm": 200,
+    "etl_thickness_nm": 50
+   },
+   "result": "{'architecture': 'n-i-p', 'architecture_meaning': 'electron transport layer on the illuminated (front/right) side', 'illumination': 'front/right contact (ETL) side', 'n_scaps_layers': 3, 'layers': [{'name': 'HTL', 'material': 'Spiro-MeOTAD', 'thickness_nm': 200, 'role': 'far surface side', 'defect_density_1e14cm3': 1000.0, 'band_gap_eV': 3.0, 'electron_affinity_eV': 2.2, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+17}, {'depth_nm': 200, 'Nt_1cm3': 1e+17}]}, {'name': 'Perovskite', 'material': 'MAPbI3', 'thickness_nm': 550, 'role': 'absorber', 'defect_density_1e14cm3': 1.0, 'band_gap_eV': 1.55, 'electron_affinity_eV': 3.93, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 100000000000000.0}, {'depth_nm': 550, 'Nt_1cm3': 100000000000000.0}]}, {'name': 'ETL', 'material': 'TiO2', 'thickness_nm': 50, 'role': 'illuminated surface side', 'defect_density_1e14cm3': 1000.0, 'band_gap_eV': 3.2, 'electron_affinity_eV': 4.0, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+17}, {'depth_nm': 50, 'Nt_1cm3': 1e+17}]}], 'units': 'public/engineering (nm, eV, 1/cm^3, cm^2/Vs)', 'contact_order': 'back/left contact is the hole side, front/right is the electron side, for both architectures', 'note': 'Not yet simulated. Call simulate_stack with this layout to get Voc/Jsc/FF/PCE from SCAPS-1D.'}",
+   "result_chars": 1314,
+   "seconds": 0.0,
+   "t_offset_s": 441.01,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Cell_architecture AS arch, HTL_stack_sequence AS htl, COUNT(*) AS n_dev, COUNT(DISTINCT Ref_DOI_number) AS n_pap FROM devices WHERE HTL_stack_sequence LIKE '%PACz%' OR HTL_stack_sequence LIKE '%MeO%' OR HTL_stack_sequence LIKE '%NiO%' OR HTL_stack_sequence LIKE '%MoO%' OR HTL_stack_sequence LIKE '%PDA%' OR HTL_stack_sequence LIKE '%4PADCB%' GROUP BY 1,2 ORDER BY n_dev DESC LIMIT 40"
+   },
+   "result": "{'columns': ['arch', 'htl', 'n_dev', 'n_pap'], 'n_rows': 40, 'rows': [{'arch': 'nip', 'htl': 'Spiro-MeOTAD', 'n_dev': 20924, 'n_pap': 4133}, {'arch': 'pin', 'htl': 'NiO-c', 'n_dev': 1633, 'n_pap': 341}, {'arch': 'pin', 'htl': 'NiO-np', 'n_dev': 367, 'n_pap': 79}, {'arch': 'pin', 'htl': 'Spiro-MeOTAD', 'n_dev': 164, 'n_pap': 50}, {'arch': 'pin', 'htl': 'NiO', 'n_dev': 142, 'n_pap': 33}, {'arch': 'pin', 'htl': '2PACz', 'n_dev': 88, 'n_pap': 4}, {'arch': 'nip', 'htl': 'NiO-mp', 'n_dev': 85, 'n_pap': 15}, {'arch': 'pin', 'htl': 'NiO-np | Meo-2PACz', 'n_dev': 68, 'n_pap': 1}, {'arch': 'nip', 'htl': 'NiO-c', 'n_dev': 66, 'n_pap': 14}, {'arch': 'pin', 'htl': 'NiO-c | NiO-mp', 'n_dev': 49, 'n_pap': 9}, {'arch': 'nip', 'htl': 'NiO-np', 'n_dev': 44, 'n_pap': 12}, {'arch': 'nip', 'htl': 'Spiro-MeOTAD | PEDOT:PSS', 'n_dev': 42, 'n_pap': 5}, {'arch': 'nip', 'htl': 'Spiro-MeOTAD | MoO3', 'n_dev': 41, 'n_pap': 12}, {'arch': 'pin', 'htl': 'MoO3 | PEDOT:PSS', 'n_dev': 32, 'n_pap': 6}, {'arch': 'pin', 'htl': 'MoO3', 'n_dev': 27, 'n_pap': 9}, {'arch': 'nip', 'htl': 'NiO', 'n_dev': 26, 'n_pap': 12}, {'arch': 'pin', 'htl': 'NiO-c | PTAA', 'n_dev': 25, 'n_pap': 3}, {'arch': 'nip', 'htl': 'PMMA | Spiro-MeOTAD', 'n_dev': 23, 'n_pap': 6}, {'arch': 'nip', 'htl': 'Spiro-MeOTAD | MoOx', 'n_dev': 22, 'n_pap': 5}, {'arch': 'pin', 'htl': 'PEDOT:PSS | NiO-c', 'n_dev': 22, 'n_pap': 4}, {'arch': 'pin', 'htl': 'NiO-c | Al2O3-mp', 'n_dev': 21, 'n_pap': 4}, {'arch': 'pin', 'htl': 'NiO-mp', 'n_dev': 21, 'n_pap': 6}, {'arch': 'nip', 'htl': 'PEAI | Spiro-MeOTAD', 'n_dev': 20, 'n_pap': 2}, {'arch': 'nip', 'htl': 'TAPC | MoO3; TAPC', 'n_dev': 19, 'n_pap': 2}, {'arch': 'pin', 'htl': 'Meo-2PACz', 'n_dev': 19, 'n_pap': 1}, {'arch': 'pin', 'htl': 'MoO3 | NPB', 'n_dev': 19, 'n_pap': 2}, {'arch': 'nip', 'htl': 'Florinated polymer | Spiro-MeOTAD', 'n_dev': 18, 'n_pap': 1}, {'arch': 'nip', 'htl': 'MeO-TPD', 'n_dev': 14, 'n_pap': 2}, {'arch': 'nip', 'htl': 'SWCNTs | Spiro-MeOTAD', 'n_dev': 14, 'n_pap': 6}, {'arch': 'nip', 'htl': 'HS-Ph-CN | Spiro-MeOTAD', 'n_dev': 13, 'n_pap': 1}]}",
+   "result_chars": 2067,
+   "seconds": 0.035,
+   "t_offset_s": 447.01,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_ID AS ref_id, Ref_DOI_number AS doi, ETL_stack_sequence AS etl, Perovskite_composition_short_form AS pvk, HTL_stack_sequence AS htl, Backcontact_stack_sequence AS bc, JV_default_Voc AS voc, JV_default_Jsc AS jsc, JV_default_FF AS ff, JV_default_PCE AS pce, Cell_area_measured AS area, Stability_PCE_T80 AS t80, Stability_protocol AS stab_protocol, Stability_time_total_exposure AS stab_h, Stabilised_performance_PCE AS stab_pce FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE>0 AND JV_default_PCE<=35 ORDER BY JV_default_PCE DESC LIMIT 25"
+   },
+   "result": "{'columns': ['ref_id', 'doi', 'etl', 'pvk', 'htl', 'bc', 'voc', 'jsc', 'ff', 'pce', 'area', 't80', 'stab_protocol', 'stab_h', 'stab_pce'], 'n_rows': 25, 'rows': [{'ref_id': 38105.0, 'doi': '10.1039/d0ta04721j', 'etl': 'ZnO-np | SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.95, 'jsc': 0.158, 'ff': 0.72, 'pce': 34.8, 'area': None, 't80': None, 'stab_protocol': 'ISOS-D-1', 'stab_h': 840.0, 'stab_pce': None}, {'ref_id': 38101.0, 'doi': '10.1039/d0ta04721j', 'etl': 'ZnO-np | SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.97, 'jsc': 0.077, 'ff': 0.7, 'pce': 33.4, 'area': None, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 38102.0, 'doi': '10.1039/d0ta04721j', 'etl': 'ZnO-np | SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.93, 'jsc': 0.077, 'ff': 0.71, 'pce': 32.3, 'area': None, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 6187.0, 'doi': '10.1039/c9ra05323a', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.815, 'jsc': 3.102, 'ff': 0.78, 'pce': 30.3, 'area': 0.16, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 33183.0, 'doi': '10.1002/aelm.201900884', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'MAPbI', 'htl': 'TPA-BPFN-TPA', 'bc': 'Ag', 'voc': 0.7959999999999999, 'jsc': 18.6, 'ff': 0.74, 'pce': 30.01, 'area': 0.1, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 6185.0, 'doi': '10.1039/c9ra05323a', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.778, 'jsc': 3.053, 'ff': 0.742, 'pce': 27.1, 'area': 0.16, 't80': None, 'stab_protocol': 'ISOS-D-1', 'stab_h': 672.0, 'stab_pce': None}, {'ref_id': 6188.0, 'doi': '10.1039/c9ra05323a', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.812, 'jsc': 2.99, 'ff': 0.698, 'pce': 26.1, 'area': 0.16, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 6186.0, 'doi': '10.1039/c9ra05323a', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.7759999999999999, 'jsc': 2.984, 'ff': 0.727, 'pce': 25.9, 'area': 0.16, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 43757.0, 'doi': '10.1126/science.abh1885', 'etl': 'Unknown', 'pvk': 'nannannan', 'htl': 'Unknown', 'bc': 'Unknown', 'voc': None, 'jsc': None, 'ff': None, 'pce': 25.7, 'area': 0.0803, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 26760.0, 'doi': '10.1016/j.nanoen.2016.10.030', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.775, 'jsc': 0.0579999999999999, 'ff': 0.72, 'pce': 25.4, 'area': 0.12, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 36231.0, 'doi': '10.1021/acsenergylett.8b00607', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.804, 'jsc': 27.31, 'ff': 0.748, 'pce': 25.26, 'area': 0.15, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 42442.0, 'doi': '10.1038/s41586-021-03285-w', 'etl': 'SnO2', 'pvk': 'nannannan', 'htl': 'alkylammonium bromide | Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.194, 'jsc': 25.09, 'ff': 0.847, 'pce': 25.2, 'area': 0.0937, 't80': None, 'stab_protocol': None, 'stab_h': 500.0, 'stab_pce': 25.2}, {'ref_id': 43584.0, 'doi': '10.1038/s41586-021-03285-w', 'etl': 'SnO2-c', 'pvk': 'FAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.18, 'jsc': 25.15, 'ff': 0.848, 'pce': 25.2, 'area': 0.984, 't80': None, 'stab_protocol': 'ISOS-L-1I', 'stab_h': 500.0, 'stab_pce': 25.2}, {'ref_id': 42443.0, 'doi': '10.1126/science.abb7167', 'etl': 'TiO2-c | TiO2-mp | Li-TFSI', 'pvk': 'nannannan', 'htl': 'n-octylammonium iodide | Spiro-mF', 'bc': 'Au', 'voc': 1.164, 'jsc': 26.35, 'ff': 0.809, 'pce': 24.82, 'area': 0.0819, 't80': None, 'stab_protocol': None, 'stab_h': 500.0, 'stab_pce': None}, {'ref_id': 38103.0, 'doi': '10.1039/d0ta04721j', 'etl': 'SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.89, 'jsc': 0.15, 'ff': 0.52, 'pce': 24.7, 'area': None, 't80': None, 'stab_protocol': 'ISOS-D-1', 'stab_h': 300.0, 'stab_pce': None}, {'ref_id': 6307.0, 'doi': '10.1126/science.aay7044', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.14, 'jsc': 26.5, 'ff': 0.818, 'pce': 24.66, 'area': 0.1, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 33184.0, 'doi': '10.1002/aelm.201900884', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'MAPbI', 'htl': 'TPA-BPFN-TPA', 'bc': 'Ag', 'voc': 0.7, 'jsc': 17.6, 'ff': 0.69, 'pce': 24.5, 'area': 0.1, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 36230.0, 'doi': '10.1021/acsenergylett.8b00607', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'WT3', 'bc': 'Au', 'voc': 0.767, 'jsc': 27.9, 'ff': 0.727, 'pce': 23.94, 'area': 0.15, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 20912.0, 'doi': '10.1038/s41586-019-1036-3', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'htl': 'P3HT', 'bc': 'Au', 'voc': 1.152, 'jsc': 24.88, 'ff': 0.8140000000000001, 'pce': 23.9, 'area': 0.0935, 't80': 1000.0, 'stab_protocol': 'ISOS-D-1', 'stab_h': 1000.0, 'stab_pce': 23.9}, {'ref_id': 6308.0, 'doi': '10.1126/science.aay7044', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.15, 'jsc': 26.1, 'ff': 0.79, 'pce': 23.73, 'area': 0.1, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': 23.73}, {'ref_id': 42444.0, 'doi': '10.1126/science.abf7652', 'etl': 'SnO2', 'pvk': 'nannannan', 'htl': 'Spiro-MeOTAD | MoO3', 'bc': 'Au', 'voc': 1.17, 'jsc': 25.34, 'ff': 0.8140000000000001, 'pce': 23.7, 'area': 0.05, 't80': None, 'stab_protocol': None, 'stab_h': 500.0, 'stab_pce': 23.7}, {'ref_id': 6309.0, 'doi': '10.1126/science.aay7044', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.144, 'jsc': 26.7, 'ff': 0.7759999999999999, 'pce': 23.69, 'area': 0.1, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': 23.69}, {'ref_id': 29825.0, 'doi': '10.1038/s41566-019-0398-2', 'etl': 'SnO2-c', 'pvk': 'FAMAPbI', 'htl': 'PEAI | Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.15, 'jsc': 24.96, 'ff': 0.82, 'pce': 23.53, 'area': 0.07, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 13633.0, 'doi': '10.3389/fchem.2019.00209', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.797, 'jsc': 0.026, 'ff': 0.72, 'pce': 23.4, 'area': 0.2, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': None}, {'ref_id': 36686.0, 'doi': '10.1038/s41566-019-0398-2', 'etl': 'SnO2-np', 'pvk': 'FAMAPbI', 'htl': 'PEAI | Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.15, 'jsc': 24.96, 'ff': 0.82, 'pce': 23.4, 'area': 0.0739, 't80': None, 'stab_protocol': None, 'stab_h': None, 'stab_pce': 23.4}]}",
+   "result_chars": 7093,
+   "seconds": 0.022,
+   "t_offset_s": 467.66,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "n-i-p electron first device architecture SnO2 perovskite Spiro-OMeTAD thickness layers FTO",
+    "k": 10
+   },
+   "result": "{'query': 'n-i-p electron first device architecture SnO2 perovskite Spiro-OMeTAD thickness layers FTO', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.666, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 487, 'score': 0.654, 'text': ' spiro-OMeTAD, and Au electrode of approximately 80 nm, 310 nm, 160 nm, and 80 nm, correspondingly. The band diagram of our cells is shown in Fig. S7b. The surface morphology of perovskite layers spin-coated on 3.5% Sn-doped TiO<sub>2</sub> and pristine TiO<sub>2</sub> films are shown in Fig. 3b and c. Compared with the SEM image of perovskite spin-coated on pristine TiO<sub>2</sub>, it is obvious that perovskite deposited on the 3.5% Sn-doped TiO<sub>2</sub> layer is obtained with larger grain size, which is consisted with reduction of full-width-of-half-maximum (FWHM) of XRD diffraction peak'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '5.2. Device fabrication and characterization', 'passage_id': 935, 'score': 0.627, 'text': 'ealed at 140 \u00b0C for 10 min in ambient air. The perovskite layers were spin coated on ITO/PEDOT:PSS. 20 mg/Ml and PCBM in chlorobenzene solution was deposited on the top perovskite films at 1500 rpm for 30 s as electron transporting layer. After that, Ag (100 nm) layer was thermally evaporated with a shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. '}, {'doi': '10.1039/c9ta01893j', 'paper_title': 'Journal of Materials Chemistry A', 'section': 'Device fabrication', 'passage_id': 2268, 'score': 0.622, 'text': 'Devices were fabricated on FTO substrates (15 $\\\\Omega$ sq<sup>-1</sup>) with dimensions of 20 $\\\\times$ 20 mm. The substrates were thoroughly cleaned with a detergent solution, acetone, and isopropanol, and finally treated in a plasma cleaner for 5 min. Then, a layer of SnO<sub>2</sub> (purchased from Alfa Aesar) was deposited in ambient air as the electron transport layer at a speed of 4000 rpm for 30 s and then annealed at 140 \u00b0C for 20 min. After cooling to room temperature, the substrates were transferred to a nitrogen filled glove box. To prepare the perovskite precursor solution, FAI (1 M'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '3. Conclusions', 'passage_id': 534, 'score': 0.617, 'text': 't the $\\\\rm TiO_2/perovskite$ interface. This sequentially causes significant increases in $\\\\rm J_{SC}$ and FF and improvement in stability of PSCs. In general, this low-temperature solution-processed method in this paper will pave the way for doping other lower-valency elements into $\\\\rm TiO_2$ as large-area and high-quality ETLs, because it does not need a high temperature and can easily upscale the area in a solution process. Also, since the whole fabrication procedures were conducted below $\\\\rm 100\\\\,^{\\\\circ}C$ , the PSCs based on as-prepared Sn-doped $\\\\rm TiO_2$ compact layer offer signific'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 474, 'score': 0.612, 'text': 'omote the electron transport in TiO<sub>2</sub> film. To further investigate the defect-state density of Sn-doping on the density of electron trap state in the perovskite films, the pristine TiO<sub>2</sub> or 3.5% Sn-doped TiO<sub>2</sub> film-based devices (FTO/pristine or 3.5% Sn-doped TiO<sub>2</sub>/MAPbI<sub>3</sub> /PCBM/Ag) were fabricated, and the densities of electron trap-state in perovskite film on pristine or Sn-doped TiO<sub>2</sub> were measured. The logarithmic current\u2013voltage (I\u2013V) data of the devices are shown in Fig. S3b. At voltage lower than the kink-point, the current inc'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 517, 'score': 0.602, 'text': '. Fig. 6a demonstrates the PL spectra (excited by 515 nm light) of perovskite/TiO<sub>2</sub> (undoped or doped) layers deposited on FTO substrate. As seen from the peak intensity peak at 785 nm, the MAPbI<sub>3</sub> perovskite film deposited on 3.5% Sn-doped TiO2 showed the strongest PL quenching efficiency among those TiO2 films, indicating that Sn doping can successfully increase the carrier extraction rate at the ETL/perovskite interface. In addition, time constant average lifetime $(\\\\tau_{ave})$ was calculated by fitting TRPL (excitation at 515 nm and emission at 785 nm) curves (Fig. 6b)'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.6, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 486, 'score': 0.6, 'text': 'ughness is beneficial to form a highquality perovskite layer [49]. In scanning electronic micrographs (SEM) image for cross section area of a complete PSC (Fig. 3a), we can observe a sandwiched planar heterojunction PSC with thickness of 3.5% Sn-doped TiO<sub>2</sub>, perovskite (MAPbI<sub>3</sub>), spiro-OMeTAD, and Au electrode of approximately 80 nm, 310 nm, 160 nm, and 80 nm, correspondingly. The band diagram of our cells is shown in Fig. S7b. The surface morphology of perovskite layers spin-coated on 3.5% Sn-doped TiO<sub>2</sub> and pristine TiO<sub>2</sub> films are shown in Fig. 3b and'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '3. Conclusions', 'passage_id': 78, 'score': 0.599, 'text': 'This work demonstrates the synthesis of 2D and 3D layered perovskites and their PV activity. PEA was used as the barrier molecule in order to get various perovskite layers starting from *n* = 1 (for pure 2D perovskite) through *n* = \u221e (for 3D perovskite). XRD measurements showed the nature of the 2D perovskite indicated by the low angle reflections. Absorbance and PL proved the confinement effect by the change in the band gap. PV solar cells with HTM and without HTM were fabricated demonstrating high open circuit voltage and high PCE for the quasi-2D perovskite (*n* = 40, 50, 60) compared to t'}]}",
+   "result_chars": 7680,
+   "seconds": 0.217,
+   "t_offset_s": 475.33,
+   "error": false
+  },
+  {
+   "agent": "design",
+   "tool": "write_execution_script",
+   "args": {
+    "job": "candidate_a_snO2_PTAA",
+    "architecture": "n-i-p",
+    "absorber": "MAPbI3",
+    "htl": "PTAA",
+    "etl": "SnO2",
+    "absorber_thickness_nm": 550,
+    "htl_thickness_nm": 150,
+    "etl_thickness_nm": 70,
+    "sublayers": 4,
+    "temperature_k": 300.0,
+    "stopv": 1.6,
+    "step": 0.02
+   },
+   "result": "{'job': 'candidate_a_snO2_PTAA', 'def_path': '/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/def/candidate_a_snO2_PTAA.def', 'def_layer_order': ['HTL', 'Perovskite', 'ETL'], 'device': {'architecture': 'n-i-p', 'architecture_meaning': 'electron transport layer on the illuminated (front/right) side', 'illumination': 'front/right contact (ETL) side', 'n_scaps_layers': 3, 'layers': [{'name': 'HTL', 'material': 'PTAA', 'thickness_nm': 150, 'role': 'far surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.2, 'electron_affinity_eV': 2.2, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 150, 'Nt_1cm3': 1e+16}]}, {'name': 'Perovskite', 'material': 'MAPbI3', 'thickness_nm': 550, 'role': 'absorber', 'defect_density_1e14cm3': 1.0, 'band_gap_eV': 1.55, 'electron_affinity_eV': 3.93, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 100000000000000.0}, {'depth_nm': 550, 'Nt_1cm3': 100000000000000.0}]}, {'name': 'ETL', 'material': 'SnO2', 'thickness_nm': 70, 'role': 'illuminated surface side', 'defect_density_1e14cm3': 100.0, 'band_gap_eV': 3.6, 'electron_affinity_eV': 4.05, 'defect_profile_1cm3': [{'depth_nm': 0.0, 'Nt_1cm3': 1e+16}, {'depth_nm': 70, 'Nt_1cm3': 1e+16}]}], 'units': 'public/engineering (nm, eV, 1/cm^3, cm^2/Vs)'}, 'script_path': '/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/script/candidate_a_snO2_PTAA.script', 'execution_script': 'set quitscript.quitSCAPS\\nset errorhandling.overwritefile\\nload definitionfile candidate_a_snO2_PTAA.def\\nclear actions\\naction workingpoint.temperature 300.0\\naction iv.startv 0.0\\naction iv.stopv 1.6\\naction iv.increment 0.02\\naction iv.doiv\\naction light\\ncalculate singleshot\\nsave results.iv candidate_a_snO2_PTAA.iv\\n', 'expected_result_file': '/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/results/candidate_a_snO2_PTAA.iv', 'note': 'Files written. Call simulate_stack to execute this script.'}",
+   "result_chars": 2072,
+   "seconds": 0.002,
+   "t_offset_s": 504.58,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_ID AS ref_id, Ref_DOI_number AS doi, ETL_stack_sequence AS etl, Perovskite_composition_short_form AS pvk, HTL_stack_sequence AS htl, Backcontact_stack_sequence AS bc, JV_default_Voc AS voc, JV_default_Jsc AS jsc, JV_default_FF AS ff, JV_default_PCE AS pce, Cell_area_measured AS area_cm2, Stability_protocol AS protocol, Stability_time_total_exposure AS hours, Stability_PCE_T95 AS t95, Stability_PCE_T80 AS t80, Stability_PCE_Ts80 AS ts80, Stability_PCE_Te80 AS te80, Stability_PCE_end_of_experiment AS pce_end, Stability_atmosphere AS atm, Stability_relative_humidity_load_conditions AS rh, Stabilised_performance_PCE AS stab_pce FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE>0 AND JV_default_PCE<=35 AND Stability_time_total_exposure IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 20"
+   },
+   "result": "{'columns': ['ref_id', 'doi', 'etl', 'pvk', 'htl', 'bc', 'voc', 'jsc', 'ff', 'pce', 'area_cm2', 'protocol', 'hours', 't95', 't80', 'ts80', 'te80', 'pce_end', 'atm', 'rh', 'stab_pce'], 'n_rows': 20, 'rows': [{'ref_id': 38105.0, 'doi': '10.1039/d0ta04721j', 'etl': 'ZnO-np | SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.95, 'jsc': 0.158, 'ff': 0.72, 'pce': 34.8, 'area_cm2': None, 'protocol': 'ISOS-D-1', 'hours': 840.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 43.0, 'atm': 'Unknown', 'rh': None, 'stab_pce': None}, {'ref_id': 6185.0, 'doi': '10.1039/c9ra05323a', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.778, 'jsc': 3.053, 'ff': 0.742, 'pce': 27.1, 'area_cm2': 0.16, 'protocol': 'ISOS-D-1', 'hours': 672.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 93.0, 'atm': 'Air', 'rh': None, 'stab_pce': None}, {'ref_id': 42442.0, 'doi': '10.1038/s41586-021-03285-w', 'etl': 'SnO2', 'pvk': 'nannannan', 'htl': 'alkylammonium bromide | Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.194, 'jsc': 25.09, 'ff': 0.847, 'pce': 25.2, 'area_cm2': 0.0937, 'protocol': None, 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 0.8, 'atm': 'Unknown', 'rh': None, 'stab_pce': 25.2}, {'ref_id': 43584.0, 'doi': '10.1038/s41586-021-03285-w', 'etl': 'SnO2-c', 'pvk': 'FAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.18, 'jsc': 25.15, 'ff': 0.848, 'pce': 25.2, 'area_cm2': 0.984, 'protocol': 'ISOS-L-1I', 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': None, 'atm': 'N2', 'rh': 'Ambient', 'stab_pce': 25.2}, {'ref_id': 42443.0, 'doi': '10.1126/science.abb7167', 'etl': 'TiO2-c | TiO2-mp | Li-TFSI', 'pvk': 'nannannan', 'htl': 'n-octylammonium iodide | Spiro-mF', 'bc': 'Au', 'voc': 1.164, 'jsc': 26.35, 'ff': 0.809, 'pce': 24.82, 'area_cm2': 0.0819, 'protocol': None, 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 0.87, 'atm': 'Unknown', 'rh': None, 'stab_pce': None}, {'ref_id': 38103.0, 'doi': '10.1039/d0ta04721j', 'etl': 'SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.89, 'jsc': 0.15, 'ff': 0.52, 'pce': 24.7, 'area_cm2': None, 'protocol': 'ISOS-D-1', 'hours': 300.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': None, 'atm': 'Unknown', 'rh': None, 'stab_pce': None}, {'ref_id': 20912.0, 'doi': '10.1038/s41586-019-1036-3', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'htl': 'P3HT', 'bc': 'Au', 'voc': 1.152, 'jsc': 24.88, 'ff': 0.8140000000000001, 'pce': 23.9, 'area_cm2': 0.0935, 'protocol': 'ISOS-D-1', 'hours': 1000.0, 't95': None, 't80': 1000.0, 'ts80': None, 'te80': None, 'pce_end': 80.0, 'atm': 'Air', 'rh': None, 'stab_pce': 23.9}, {'ref_id': 42444.0, 'doi': '10.1126/science.abf7652', 'etl': 'SnO2', 'pvk': 'nannannan', 'htl': 'Spiro-MeOTAD | MoO3', 'bc': 'Au', 'voc': 1.17, 'jsc': 25.34, 'ff': 0.8140000000000001, 'pce': 23.7, 'area_cm2': 0.05, 'protocol': None, 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 0.9, 'atm': 'N2', 'rh': None, 'stab_pce': 23.7}, {'ref_id': 34833.0, 'doi': '10.1002/adma.201905766', 'etl': 'In2O3-c | SnO2-c', 'pvk': 'FAMAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.16, 'jsc': 24.53, 'ff': 0.812, 'pce': 23.07, 'area_cm2': 0.0883, 'protocol': 'ISOS-D-1I', 'hours': 1920.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 97.5, 'atm': 'N2', 'rh': None, 'stab_pce': None}, {'ref_id': 38272.0, 'doi': '10.1002/adma.201907769', 'etl': 'SnO2-np', 'pvk': 'FAMAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.145, 'jsc': 24.9, 'ff': 0.8079999999999999, 'pce': 22.95, 'area_cm2': None, 'protocol': 'ISOS-L-1', 'hours': 504.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 85.7, 'atm': 'Unknown', 'rh': 'ambient', 'stab_pce': 22.95}, {'ref_id': 38003.0, 'doi': '10.1039/d0ta03376f', 'etl': 'SnO2-np', 'pvk': 'CsFAMAPbBrI', 'htl': 'PTAA; Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.12, 'jsc': 23.8, 'ff': 0.7759999999999999, 'pce': 22.9, 'area_cm2': 0.09408, 'protocol': 'ISOS-L-1', 'hours': 200.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': None, 'atm': 'Unknown', 'rh': None, 'stab_pce': 22.9}, {'ref_id': 34822.0, 'doi': '10.1126/science.aay9698', 'etl': 'SnO2-np', 'pvk': 'FAMAPbBrI', 'htl': 'Theophylline | PTAA', 'bc': 'Ag', 'voc': 1.187, 'jsc': 24.74, 'ff': 0.77, 'pce': 22.61, 'area_cm2': 0.1, 'protocol': 'ISOS-D-1', 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 95.3, 'atm': 'Air', 'rh': None, 'stab_pce': None}, {'ref_id': 16927.0, 'doi': '10.1126/science.aan2301', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI', 'htl': 'PTAA', 'bc': 'Au', 'voc': 1.11, 'jsc': 25.0, 'ff': 0.8170000000000001, 'pce': 22.6, 'area_cm2': 0.96, 'protocol': 'ISOS-D-1', 'hours': 9744.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 93.0, 'atm': 'Ambient', 'rh': None, 'stab_pce': None}, {'ref_id': 26305.0, 'doi': '10.1002/adfm.201907962', 'etl': 'TiO2-c | TiO2-mp | PCBM-60; PMMA | BAI', 'pvk': 'CsFAMAPbBrI', 'htl': 'BAI | Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.2, 'jsc': 23.94, 'ff': 0.7929999999999999, 'pce': 22.6, 'area_cm2': 0.16, 'protocol': 'ISOS-L-1I', 'hours': 20.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 90.0, 'atm': 'N2', 'rh': None, 'stab_pce': 22.6}, {'ref_id': 12816.0, 'doi': '10.1002/anie.201905624', 'etl': 'SnO2-c | C60-SAM', 'pvk': 'FAMAPbBrI', 'htl': 'PMMA | DTPC13-ThTPA', 'bc': 'Au', 'voc': 1.135, 'jsc': 22.82, 'ff': 0.787, 'pce': 22.33, 'area_cm2': 0.08, 'protocol': 'ISOS-D-1', 'hours': 720.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 92.0, 'atm': 'Air', 'rh': None, 'stab_pce': 22.33}, {'ref_id': 12815.0, 'doi': '10.1002/anie.201905624', 'etl': 'SnO2-c | C60-SAM', 'pvk': 'FAMAPbBrI', 'htl': 'PMMA | DTPC8-ThTPA', 'bc': 'Au', 'voc': 1.094, 'jsc': 22.66, 'ff': 0.741, 'pce': 22.32, 'area_cm2': 0.08, 'protocol': 'ISOS-D-1', 'hours': 720.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 91.0, 'atm': 'Air', 'rh': None, 'stab_pce': 22.32}, {'ref_id': 29697.0, 'doi': '10.1038/s41560-018-0200-6', 'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI', 'htl': 'DM', 'bc': 'Au', 'voc': 1.12, 'jsc': 24.8, 'ff': 0.8029999999999999, 'pce': 22.3, 'area_cm2': 0.0939, 'protocol': 'ISOS-D-2', 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 95.1, 'atm': 'Air', 'rh': None, 'stab_pce': None}, {'ref_id': 12667.0, 'doi': '10.1021/acsami.7b12721', 'etl': 'TiO2-c | TiO2-mp | NH4I', 'pvk': 'FAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.022, 'jsc': 1.07, 'ff': 0.759, 'pce': 22.2, 'area_cm2': 0.09, 'protocol': 'ISOS-D-1', 'hours': 700.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 85.0, 'atm': 'Air', 'rh': None, 'stab_pce': 22.2}, {'ref_id': 12671.0, 'doi': '10.1021/acsami.7b12721', 'etl': 'TiO2-c | TiO2-mp | NH4I', 'pvk': 'FAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 0.022, 'jsc': 1.07, 'ff': 0.759, 'pce': 22.2, 'area_cm2': 0.09, 'protocol': 'Other', 'hours': 21.0, 't95': None, 't80': 4.0, 'ts80': None, 'te80': None, 'pce_end': 70.0, 'atm': 'Unknown', 'rh': None, 'stab_pce': 22.2}, {'ref_id': 18685.0, 'doi': '10.1002/adfm.201804356', 'etl': 'TiO2-macroporous', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'bc': 'Au', 'voc': 1.12, 'jsc': 23.0, 'ff': 0.78, 'pce': 22.2, 'area_cm2': 0.16, 'protocol': 'ISOS-D-1', 'hours': 500.0, 't95': None, 't80': None, 'ts80': None, 'te80': None, 'pce_end': 95.0, 'atm': 'Air', 'rh': None, 'stab_pce': 22.2}]}",
+   "result_chars": 7620,
+   "seconds": 0.075,
+   "t_offset_s": 553.61,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT ETL_stack_sequence AS etl, Perovskite_composition_short_form AS pvk, HTL_stack_sequence AS htl, COUNT(*) AS n_dev, COUNT(DISTINCT Ref_DOI_number) AS n_pap, ROUND(MAX(JV_default_PCE),2) AS champion_pce, ROUND(AVG(JV_default_PCE),2) AS avg_pce FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE>0 AND JV_default_PCE<=35 AND ETL_stack_sequence IS NOT NULL AND HTL_stack_sequence IS NOT NULL GROUP BY 1,2,3 HAVING n_dev>=3 ORDER BY champion_pce DESC LIMIT 15"
+   },
+   "result": "{'columns': ['etl', 'pvk', 'htl', 'n_dev', 'n_pap', 'champion_pce', 'avg_pce'], 'n_rows': 15, 'rows': [{'etl': 'ZnO-np | SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'n_dev': 12, 'n_pap': 2, 'champion_pce': 34.8, 'avg_pce': 21.78}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'n_dev': 683, 'n_pap': 205, 'champion_pce': 30.3, 'avg_pce': 16.53}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'MAPbI', 'htl': 'TPA-BPFN-TPA', 'n_dev': 6, 'n_pap': 1, 'champion_pce': 30.01, 'avg_pce': 20.92}, {'etl': 'Unknown', 'pvk': 'nannannan', 'htl': 'Unknown', 'n_dev': 4, 'n_pap': 1, 'champion_pce': 25.7, 'avg_pce': 22.36}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'n_dev': 4728, 'n_pap': 1233, 'champion_pce': 25.4, 'avg_pce': 11.84}, {'etl': 'SnO2-c', 'pvk': 'FAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'n_dev': 166, 'n_pap': 45, 'champion_pce': 25.2, 'avg_pce': 16.15}, {'etl': 'SnO2-np', 'pvk': 'MAPbI', 'htl': 'Spiro-MeOTAD', 'n_dev': 338, 'n_pap': 89, 'champion_pce': 24.7, 'avg_pce': 15.27}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAPbI', 'htl': 'Spiro-MeOTAD', 'n_dev': 105, 'n_pap': 39, 'champion_pce': 24.66, 'avg_pce': 13.32}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'CsFAMAPbBrI', 'htl': 'WT3', 'n_dev': 4, 'n_pap': 1, 'champion_pce': 23.94, 'avg_pce': 20.57}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'htl': 'P3HT', 'n_dev': 4, 'n_pap': 1, 'champion_pce': 23.9, 'avg_pce': 20.23}, {'etl': 'SnO2-c', 'pvk': 'FAMAPbI', 'htl': 'PEAI | Spiro-MeOTAD', 'n_dev': 11, 'n_pap': 1, 'champion_pce': 23.53, 'avg_pce': 22.07}, {'etl': 'SnO2-np', 'pvk': 'FAMAPbI', 'htl': 'PEAI | Spiro-MeOTAD', 'n_dev': 8, 'n_pap': 1, 'champion_pce': 23.4, 'avg_pce': 22.12}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI | OAPbI', 'htl': 'OAI | DM', 'n_dev': 3, 'n_pap': 1, 'champion_pce': 23.31, 'avg_pce': 22.75}, {'etl': 'TiO2-c | TiO2-mp', 'pvk': 'FAMAPbBrI', 'htl': 'Spiro-MeOTAD', 'n_dev': 668, 'n_pap': 191, 'champion_pce': 23.05, 'avg_pce': 16.04}, {'etl': 'TiO2-c | SnO2-np', 'pvk': 'CsFAPbI', 'htl': 'Spiro-MeOTAD', 'n_dev': 5, 'n_pap': 1, 'champion_pce': 22.99, 'avg_pce': 17.67}]}",
+   "result_chars": 2120,
+   "seconds": 0.043,
+   "t_offset_s": 570.57,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "2PACz MoOx NiOx hole transporting layer and TiO2 SnO2 electron transporting layer comparison n-i-p perovskite device",
+    "k": 10
+   },
+   "result": "{'query': '2PACz MoOx NiOx hole transporting layer and TiO2 SnO2 electron transporting layer comparison n-i-p perovskite device', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.686, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.662, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 516, 'score': 0.656, 'text': ' is distributed well within Sn-doped $TiO_2$ film. The time resolved photoluminescence (TRPL) decay characterization and steady-state photoluminescence (PL) spectra for the perovskite absorber layer deposited on TiO2 ETL were conducted to study the electron extraction and transport mechanism [54,55]. Fig. 6a demonstrates the PL spectra (excited by 515 nm light) of perovskite/TiO<sub>2</sub> (undoped or doped) layers deposited on FTO substrate. As seen from the peak intensity peak at 785 nm, the MAPbI<sub>3</sub> perovskite film deposited on 3.5% Sn-doped TiO2 showed the strongest PL quenching '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 517, 'score': 0.651, 'text': '. Fig. 6a demonstrates the PL spectra (excited by 515 nm light) of perovskite/TiO<sub>2</sub> (undoped or doped) layers deposited on FTO substrate. As seen from the peak intensity peak at 785 nm, the MAPbI<sub>3</sub> perovskite film deposited on 3.5% Sn-doped TiO2 showed the strongest PL quenching efficiency among those TiO2 films, indicating that Sn doping can successfully increase the carrier extraction rate at the ETL/perovskite interface. In addition, time constant average lifetime $(\\\\tau_{ave})$ was calculated by fitting TRPL (excitation at 515 nm and emission at 785 nm) curves (Fig. 6b)'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 474, 'score': 0.648, 'text': 'omote the electron transport in TiO<sub>2</sub> film. To further investigate the defect-state density of Sn-doping on the density of electron trap state in the perovskite films, the pristine TiO<sub>2</sub> or 3.5% Sn-doped TiO<sub>2</sub> film-based devices (FTO/pristine or 3.5% Sn-doped TiO<sub>2</sub>/MAPbI<sub>3</sub> /PCBM/Ag) were fabricated, and the densities of electron trap-state in perovskite film on pristine or Sn-doped TiO<sub>2</sub> were measured. The logarithmic current\u2013voltage (I\u2013V) data of the devices are shown in Fig. S3b. At voltage lower than the kink-point, the current inc'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.648, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1038/ncomms15330', 'paper_title': 'ARTICLE', 'section': 'References', 'passage_id': 1798, 'score': 0.647, 'text': 's, T. et al. Stability of metal halide perovskite solar cells. Adv. Energy Mater. 5, 23 (2015). - 19. You, J. et al. Improved air stability of perovskite solar cells via solutionprocessed metal oxide transport layers. Nat. Nanotechnol. 11, 75\u201381 (2016). - 20. Liu, J. et al. A dopant-free hole-transporting material for efficient and stable perovskite solar cells. Energy Environ. Sci. 7, 2963\u20132967 (2014). - 21. Leijtens, T. et al. Overcoming ultraviolet light instability of sensitized TiO2 with meso-superstructured organometal tri-halide perovskite solar cells. Nat. Commun. 4, 2885 (2013). - 22.'}, {'doi': '10.1021/acs.jpcc.5b06269', 'paper_title': 'Photodecomposition and Morphology Evolution of Organometal Halide Perovskite Solar Cells', 'section': 'REFERENCES', 'passage_id': 1117, 'score': 0.644, 'text': '.; Colbert, A. E.; Ziffer, M. E.; Ginger, D. S. Zr Incorporation into TiO2 Electrodes Reduces Hysteresis and Improves Performance in Hybrid Perovskite Solar Cells While Increasing Carrier Lifetimes. J. Phys. Chem. Lett. 2015, 6, 669\u2212675. - (20) Liu, J.; Wu, Y.; Qin, C.; Yang, X.; Yasuda, T.; Islam, A.; Zhang, K.; Peng, W.; Chen, W.; Han, L. A Dopant-Free Hole-Transporting Material for Efficient and Stable Perovskite Solar Cells. Energy Environ. Sci. 2014, 7, 2963\u22122967. - (21) Kwon, Y. S.; Lim, J.; Yun, H.-J.; Kim, Y.-H.; Park, T. A Diketopyrrolopyrrole-Containing Hole Transporting Conjugated P'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '3. Conclusions', 'passage_id': 534, 'score': 0.644, 'text': 't the $\\\\rm TiO_2/perovskite$ interface. This sequentially causes significant increases in $\\\\rm J_{SC}$ and FF and improvement in stability of PSCs. In general, this low-temperature solution-processed method in this paper will pave the way for doping other lower-valency elements into $\\\\rm TiO_2$ as large-area and high-quality ETLs, because it does not need a high temperature and can easily upscale the area in a solution process. Also, since the whole fabrication procedures were conducted below $\\\\rm 100\\\\,^{\\\\circ}C$ , the PSCs based on as-prepared Sn-doped $\\\\rm TiO_2$ compact layer offer signific'}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '3. Results and discussion', 'passage_id': 377, 'score': 0.641, 'text': 'espectively. Uniformity of the gap between nanorods for 13% Er-6% Yb:TiO2 could be good for the infiltration of the perovskite material, and it reduces the direct contact probability of the hole transport layer and electron transfer layer. The appropriate contact area between the perovskite and TiO2 is beneficial for the separation and injection of electrons and holes [\\\\[14\\\\]](#page-6-0). ![](_page_2_Figure_6.jpeg) Fig. 3. XRD patterns of un-doped TiO2 and 13% Er-6% Yb:TiO2 NRs. (Asterisks show the peaks of the FTO substrate). [Fig.](#page-4-0) 6A shows the UV\u2013vis absorption spectrum of un-dop'}]}",
+   "result_chars": 7623,
+   "seconds": 0.272,
+   "t_offset_s": 751.0,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 26,
+ "n_model_calls": 34,
+ "repeated_tool_calls": 1,
+ "tool_errors": 0,
+ "retries": 1,
+ "provider": {
+  "model_calls": 34,
+  "prompt_chars": 494717,
+  "completion_chars": 56223,
+  "real_prompt_tokens": 2573296,
+  "real_completion_tokens": 121315,
+  "usage_reported_calls": 34,
+  "rate_limit_events": 0,
+  "provider_error_events": 11,
+  "pool_wait_s": 0,
+  "llm_latency_s": 2410.1,
+  "infra_failed": true,
+  "infra_reason": "timeout: timed out",
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 6,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "grep",
+     "read",
+     "glob",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "glob",
+     "glob",
+     "read",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "glob",
+     "glob",
+     "grep",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 12,
+    "opencode_tools_used": [
+     "todowrite",
+     "todowrite",
+     "todowrite",
+     "read",
+     "glob",
+     "todowrite",
+     "todowrite",
+     "todowrite",
+     "todowrite",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "read",
+     "todowrite",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "glob",
+     "glob",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 8,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "todowrite",
+     "read",
+     "todowrite",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 9,
+    "opencode_tools_used": [
+     "glob",
+     "invalid",
+     "read",
+     "grep",
+     "read",
+     "read",
+     "glob",
+     "glob",
+     "glob",
+     "glob",
+     "glob",
+     "read",
+     "invalid",
+     "invalid",
+     "read",
+     "read",
+     "read",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "grep",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "glob",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "glob",
+     "glob",
+     "read",
+     "glob",
+     "glob",
+     "glob",
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "todowrite",
+     "read",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 39,
+    "opencode_tools_used": [
+     "todowrite",
+     "read",
+     "grep",
+     "glob",
+     "read",
+     "read",
+     "read",
+     "grep",
+     "read",
+     "todowrite",
+     "grep",
+     "read",
+     "read",
+     "read",
+     "grep",
+     "read",
+     "read",
+     "read",
+     "read",
+     "read",
+     "glob",
+     "read",
+     "todowrite",
+     "grep",
+     "read",
+     "grep",
+     "read",
+     "glob",
+     "grep",
+     "read",
+     "read",
+     "grep",
+     "read",
+     "grep",
+     "grep",
+     "read",
+     "read",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 12,
+    "opencode_tools_used": [
+     "read",
+     "read",
+     "glob",
+     "read",
+     "read",
+     "grep",
+     "read",
+     "grep",
+     "read",
+     "read",
+     "read",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "todowrite",
+     "todowrite",
+     "read",
+     "glob",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 6,
+    "opencode_tools_used": [
+     "glob",
+     "glob",
+     "glob",
+     "grep",
+     "read",
+     "read",
+     "todowrite",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "todowrite",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "grep"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "glob",
+     "glob",
+     "read",
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "provider_error",
+    "detail": "empty text in serve response"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 14,
+    "opencode_tools_used": [
+     "grep",
+     "glob",
+     "read",
+     "read",
+     "read",
+     "read",
+     "read",
+     "read",
+     "todowrite",
+     "grep",
+     "glob",
+     "read",
+     "todowrite",
+     "grep",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "glob",
+     "glob"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "timeout: timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "provider_error",
+    "detail": "empty text in serve response"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "timeout: timed out"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "provider_error",
+    "detail": "empty text in serve response"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 12,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "glob",
+     "grep",
+     "glob",
+     "read",
+     "read",
+     "read",
+     "grep",
+     "read",
+     "read",
+     "todowrite",
+     "read"
+    ]
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_200420_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 5,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

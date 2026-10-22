@@ -1,0 +1,4 @@
+{"t": 1790660596.249193, "event": "plan", "run_id": "20260929T054316_91315", "seed": 42, "tasks": [{"id": "t1", "cell": "scaps", "request": "Sweep perovskite absorber thickness to find thickness required to reach predicted PCE of 20%", "params": {"sweep_name": "pvk_d"}, "depends_on": []}]}
+{"t": 1790660596.249235, "event": "dispatch", "task": "t1", "cell": "scaps"}
+{"t": 1790660654.581738, "event": "failed", "task": "t1", "cell": "scaps", "reason": "sweep_found: unknown sweep None; options: ['d', 'eg', 'htlEg', 'htlchi', 'mue', 'muh']"}
+{"t": 1790660654.5820422, "event": "done", "run_id": "20260929T054316_91315", "summary": {"run_id": "20260929T054316_91315", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "sweep_found: unknown sweep None; options: ['d', 'eg', 'htlEg', 'htlchi', 'mue', 'muh']"}, "skipped": []}}

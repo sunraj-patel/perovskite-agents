@@ -1,0 +1,121 @@
+{
+  "case_id": "cs_2026-09-28_sno2-nip-improve",
+  "title": "Improve SnO2 n-i-p device PCE",
+  "date": "2026-09-28",
+  "channel": "streamlit-frontend",
+  "pipeline": "llm",
+  "path": "legacy",
+  "question": "I am trying to develop an SnO2 n-i-p device, what can i do to improve the pce? What does literature have about improving these devices?",
+  "plan_iterations": [
+    {
+      "iter": 1,
+      "agent": "llm",
+      "verdict": null
+    },
+    {
+      "iter": 2,
+      "agent": "llm",
+      "verdict": "RECOVERABLE",
+      "trigger": "citation_support output requirement not satisfied; asked to verify a general claim against a broad review paper"
+    }
+  ],
+  "tools_invoked": [
+    {
+      "step": 1,
+      "tool": "ml",
+      "action": "optimize",
+      "status": "ok",
+      "layer": "ml",
+      "elapsed_s": 0.36,
+      "input": {"target": "PCE", "stack": "SnO2 n-i-p", "description": "SnO2 n-i-p perovskite solar cell"},
+      "output": {"PCE": 16.3, "interval": [14.59, 18.01], "model": "model_NIP.cbm",
+                 "note": "No controllable change among the inputs described improved the predicted PCE above the baseline; the described stack may already be near the model optimum. Try describing a different stack or adding a thickness / annealing input to sweep."},
+      "bug_and_fix": "Under-specified description (no thickness/annealing/HTL/composition) + sweep limited to 'already set' inputs in the Overall-model SHAP top-25 => skipped every real knob and returned a misleading flat optimum. Fixed (perovagents/ml/predictor.py): sweep declared-range controllable knobs around training-median baseline (source=default_stack), evaluate material slots left 'unknown', and use arch-matched SHAP. Corrected recommendations for same input: decrease Perov_anneal_time_min (+0.21 pp), decrease Perovskite_thickness_nm (+0.13 pp), decrease ETL_thickness_nm (+0.12 pp)."
+    },
+    {
+      "step": 2,
+      "tool": "literature",
+      "action": "search",
+      "status": "ok",
+      "layer": "literature",
+      "elapsed_s": 6.55,
+      "input": {"purpose": "methods to enhance PCE in SnO2 n-i-p devices"},
+      "output": {
+        "hits": [
+          {"score": 0.74, "title": "Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell"},
+          {"score": 0.72, "title": "Impact of Anionic Br- Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnI3-xBrx) Solar Cells"},
+          {"score": 0.72, "title": "Electrochimica Acta"},
+          {"score": 0.71, "title": "Journal of Materials Chemistry A"},
+          {"score": 0.71, "title": "Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer"}
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "tool": "literature",
+      "action": "search",
+      "status": "ok",
+      "layer": "literature",
+      "elapsed_s": 7.0,
+      "input": {"purpose": "second wave, top citations"},
+      "output": {
+        "hits": [
+          {"score": 0.73, "title": "Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell"},
+          {"score": 0.73, "title": "Electrochimica Acta", "doi": "10.1016/j.electacta.2017.12.108", "note": "Sn-doped TiO2 low-temperature ETL"},
+          {"score": 0.71, "title": "Contents lists available at ScienceDirect"},
+          {"score": 0.71, "title": "Improved Photovoltaic Performance from High Quality Perovskite Thin Film Grown with the Assistance of PC71BM"}
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "tool": "citations",
+      "action": "verify",
+      "status": "fail",
+      "layer": "literature",
+      "elapsed_s": 0.77,
+      "input": {"claim": "Strategies exist to improve the power conversion efficiency of SnO2 n-i-p perovskite solar cells.",
+                "doi": "10.1038/s41560-019-0442-7"},
+      "output": {"verdict": "FAIL", "reason": "paper not retrievable"}
+    }
+  ],
+  "pending_replanned_steps": [
+    {"tool": "literature", "action": "search", "purpose": "strategies to improve PCE in SnO2 n-i-p perovskite solar cells"},
+    {"tool": "citations", "action": "verify", "purpose": "verify a specific claim from retrieved literature (citation_support)"},
+    {"tool": "ml", "action": "optimize", "purpose": "identify controllable parameters to improve predicted PCE"},
+    {"tool": "literature", "action": "search", "purpose": "methods to enhance PCE in SnO2 n-i-p devices"},
+    {"tool": "citations", "action": "verify", "purpose": "verify a general claim against a broad review paper"}
+  ],
+  "sources": [
+    "model_NIP.cbm",
+    "10.1038/ncomms13503",
+    "10.1016/j.nanoen.2018.10.011",
+    "10.1007/s10118-017-1891-z",
+    "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+    "10.1021/jp5126624",
+    "10.1246/cl.180616",
+    "10.1016/j.electacta.2017.06.032",
+    "10.1002/aenm.201803587",
+    "10.1038/ncomms15330",
+    "10.1016/j.electacta.2017.12.108",
+    "10.1039/c9ta01893j"
+  ],
+  "answer_summary": {
+    "ml": "16.3% PCE (95% [14.59, 18.01]); no controlled sweep improved beyond baseline (near optimum) [POST-FIX: same query returns ranked default_stack knobs - decrease anneal time/perovskite thickness/ETL thickness - instead of a flat optimum; underspecified controllable inputs are now swept]",
+    "literature": "ADAHCl surface passivation [10.1002/aenm.201803587]; SnF2 20 mol% -> Jsc 27.67 mA/cm2 [10.1021/jp5126624]; other passages general only",
+    "caveat": "claim verification FAIL - target paper not retrievable; full text needed"
+  },
+  "figure_layout": {
+    "x": "timeline",
+    "bands": [
+      {"t": "planner iter1", "badge": "llm"},
+      {"t": "ml.optimize", "elapsed_s": 0.36, "color": "green"},
+      {"t": "literature.search", "elapsed_s": 6.55, "color": "blue"},
+      {"t": "literature.search wave2", "elapsed_s": 7.0, "color": "blue"},
+      {"t": "citations.verify", "elapsed_s": 0.77, "color": "red", "verdict": "FAIL"},
+      {"t": "validator", "badge": "RECOVERABLE", "color": "orange"},
+      {"t": "planner iter2 replan", "steps": 5, "dashed": true},
+      {"t": "answer card", "note": "16.3% +/- interval, 11 DOIs + 1"}
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+set quitscript.quitSCAPS
+set errorhandling.overwritefile
+load definitionfile perovagents_probe.def
+clear actions
+action workingpoint.temperature 300
+action iv.startv 0
+action iv.stopv 1.4
+action iv.increment 0.02
+action iv.doiv
+action light
+calculate singleshot
+save results.iv live_90697.iv

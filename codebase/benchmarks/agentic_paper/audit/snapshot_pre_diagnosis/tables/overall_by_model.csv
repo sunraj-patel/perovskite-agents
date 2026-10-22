@@ -1,0 +1,7 @@
+backbone,model_label,condition,n_questions_paired,n_episodes,completed,completed_lo,completed_hi,correct,correct_lo,correct_hi,tool_f1,tool_f1_lo,tool_f1_hi,partial,partial_lo,partial_hi
+gemini,Gemini 3.5 Flash-Lite,direct,12,12,0.333,0.083,0.583,0.333,0.083,0.583,0.417,0.167,0.667,0.333,0.083,0.583
+gemini,Gemini 3.5 Flash-Lite,perovagents,12,12,0.583,0.333,0.833,0.417,0.167,0.667,0.928,0.821,1.0,0.592,0.361,0.814
+deepseek,DeepSeek V4.1 Flash,direct,0,0,,,,,,,,,,,,
+deepseek,DeepSeek V4.1 Flash,perovagents,0,0,,,,,,,,,,,,
+minimax,MiniMax M3.1 Flash,direct,8,21,0.875,0.625,1.0,0.75,0.375,1.0,0.933,0.842,1.0,0.833,0.583,1.0
+minimax,MiniMax M3.1 Flash,perovagents,8,8,0.25,0.0,0.625,0.25,0.0,0.625,0.405,0.125,0.708,0.25,0.0,0.625

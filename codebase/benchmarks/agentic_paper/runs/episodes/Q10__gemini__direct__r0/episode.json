@@ -1,0 +1,84 @@
+{
+ "episode_id": "Q10__gemini__direct__r0",
+ "qid": "Q10",
+ "category": "ml",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:16:55",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What are the most important parameters for improving PCE in n-i-p perovskite solar cells according to the ML model?",
+ "finished_at": "2026-10-21T20:24:59",
+ "seconds": 484.4,
+ "termination": "answer",
+ "final_answer": "According to the global SHAP feature importance analysis for n-i-p perovskite solar cells, the most important parameters/features for improving PCE include:\n1. ETL deposition method (importance: 0.376)\n2. Perovskite quenching/crystallisation (importance: 0.3748)\n3. Perovskite deposition synthesis atmosphere (importance: 0.3608)\n4. Perovskite material (importance: 0.3542)\n5. HTL additives/compounds (importance: 0.3428)\n6. HTL deposition method (importance: 0.3135)\n7. Presence of LiF (importance: 0.265)\n8. Presence of ZnO (importance: 0.2377)\n9. HTL HOMO level (importance: 0.1921)\n10. Presence of SnO2 (importance: 0.1633)",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "explain_global",
+   "args": {
+    "architecture": "nip"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'NIP', 'n_design_samples': 96, 'features': [{'name': 'ETL_deposition_method', 'importance': np.float64(0.376), 'direction': 'positive', 'shap': np.float64(0.1498)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.3748), 'direction': 'positive', 'shap': np.float64(0.0954)}, {'name': 'Perovskite_deposition_synthesis_atmosphere', 'importance': np.float64(0.3608), 'direction': 'negative', 'shap': np.float64(-0.0278)}, {'name': 'Perovskite', 'importance': np.float64(0.3542), 'direction': 'positive', 'shap': np.float64(0.1503)}, {'name': 'HTL_additives_compounds', 'importance': np.float64(0.3428), 'direction': 'positive', 'shap': np.float64(0.3415)}, {'name': 'HTL_deposition_method', 'importance': np.float64(0.3135), 'direction': 'positive', 'shap': np.float64(0.2017)}, {'name': 'has_LiF_na', 'importance': np.float64(0.265), 'direction': 'positive', 'shap': np.float64(0.1872)}, {'name': 'has_ZnO_na', 'importance': np.float64(0.2377), 'direction': 'positive', 'shap': np.float64(0.1192)}, {'name': 'HTL_HOMO_na', 'importance': np.float64(0.1921), 'direction': 'positive', 'shap': np.float64(0.1166)}, {'name': 'has_SnO2', 'importance': np.float64(0.1633), 'direction': 'positive', 'shap': np.float64(0.0429)}, {'name': 'Perovskite_dielectric_constant_na', 'importance': np.float64(0.1573), 'direction': 'positive', 'shap': np.float64(0.0924)}, {'name': 'has_NiOx_na', 'importance': np.float64(0.1424), 'direction': 'positive', 'shap': np.float64(0.084)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.1358), 'direction': 'positive', 'shap': np.float64(0.0396)}, {'name': 'Add_lay_front', 'importance': np.float64(0.1318), 'direction': 'negative', 'shap': np.float64(-0.0076)}, {'name': 'Perovskite_en_max', 'importance': np.float64(0.1101), 'direction': 'positive', 'shap': np.float64(0.0597)}], 'controllable': {'ETL_deposition_method': True, 'Perov_quenching_crystallisation': True, 'Perovskite_deposition_synthesis_atmosphere': True, 'Perovskite': True, 'HTL_additives_compounds': True, 'HTL_deposition_method': True, 'has_LiF_na': False, 'has_ZnO_na': False, 'HTL_HOMO_na': False, 'has_SnO2': True, 'Perovskite_dielectric_constant_na': False, 'has_NiOx_na': False, 'Perovskite_deposition_solvents': True, 'Add_lay_front': True, 'Perovskite_en_max': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_NIP.cbm', 'scope': 'global'}}",
+   "result_chars": 2486,
+   "seconds": 34.226,
+   "t_offset_s": 436.69,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 10,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 10,
+  "prompt_chars": 52349,
+  "completion_chars": 700,
+  "real_prompt_tokens": 4083,
+  "real_completion_tokens": 236,
+  "usage_reported_calls": 2,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 438.2,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "explain_global({'architecture': 'nip'})",
+    "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'NIP', 'n_design_samples': 96, 'features': [{'name': 'ETL_deposition_method', 'importance': np.float64(0.376), 'direction': 'positive', 'shap': np.float64(0.1498)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.3748), 'direction': 'positive', 'shap': np.float64(0.0954)}, {'name': 'Perovskite_deposition_synthesis_atmosphere', 'importance': np.float64(0.3608), 'direction': 'negative', 'shap': np.float64(-0.0278)}, {'name': 'Perovskite', 'importance': np.float64(0.3542), 'direction': 'positive', 'shap': np.float64(0.1503)}, {'name': 'HTL_additives_compounds', 'importance': np.float64(0.3428), 'direction': 'positive', 'shap': np.float64(0.3415)}, {'name': 'HTL_deposition_method', 'importance': np.float64(0.3135), 'direction': 'positive', 'shap': np.float64(0.2017)}, {'name': 'has_LiF_na', 'importance': np.float64(0.265), 'direction': 'positive', 'shap': np.float64(0.1872)}, {'name': 'has_ZnO_na', 'importance': np.float64(0.2377), 'direction': 'positive', 'shap': np.float64(0.1192)}, {'name': 'HTL_HOMO_na', 'importance': np.float64(0.1921), 'direction': 'positive', 'shap': np.float64(0.1166)}, {'name': 'has_SnO2', 'importance': np.float64(0.1633), 'direction': 'positive', 'shap': np.float64(0.0429)}, {'name': 'Perovskite_dielectric_constant_na', 'importance': np.float64(0.1573), 'direction': 'positive', 'shap': np.float64(0.0924)}, {'name': 'has_NiOx_na', 'importance': np.float64(0.1424), 'direction': 'positive', 'shap': np.float64(0.084)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.1358), 'direction': 'positive', 'shap': np.float64(0.0396)}, {'name': 'Add_lay_front', 'importance': np.float64(0.1318), 'direction': 'negative', 'shap': np.float64(-0.0076)}, {'name': 'Perovskite_en_max', 'importance': np.float64(0.1101), 'direction': 'positive', 'shap': np.float64(0.0597)}], 'controllable': {'ETL_deposition_method': True, 'Perov_quenching_crystallisation': True, 'Perovskite_deposition_synthesis_atmosphere': True, 'Perovskite': True, 'HTL_additives_compounds': True, 'HTL_deposition_method': True, 'has_LiF_na': False, 'has_ZnO_na': False, 'HTL_HOMO_na': False, 'has_SnO2': True, 'Perovskite_dielectric_constant_na': False, 'has_NiOx_na': False, 'Perovskite_deposition_solvents': True, 'Add_lay_front': True, 'Perovskite_en_max': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_NIP.cbm', 'scope': 'global'}}"
+   ],
+   [
+    "(final)",
+    "According to the global SHAP feature importance analysis for n-i-p perovskite solar cells, the most important parameters/features for improving PCE include:\n1. ETL deposition method (importance: 0.376)\n2. Perovskite quenching/crystallisation (importance: 0.3748)\n3. Perovskite deposition synthesis atmosphere (importance: 0.3608)\n4. Perovskite material (importance: 0.3542)\n5. HTL additives/compounds (importance: 0.3428)\n6. HTL deposition method (importance: 0.3135)\n7. Presence of LiF (importance: 0.265)\n8. Presence of ZnO (importance: 0.2377)\n9. HTL HOMO level (importance: 0.1921)\n10. Presence of SnO2 (importance: 0.1633)"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

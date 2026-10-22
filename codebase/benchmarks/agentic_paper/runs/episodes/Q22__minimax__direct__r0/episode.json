@@ -1,0 +1,207 @@
+{
+ "episode_id": "Q22__minimax__direct__r0",
+ "qid": "Q22",
+ "category": "pdb",
+ "condition": "direct",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:08:03",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Which three perovskite compositions (short-form label) are most frequently reported in n-i-p devices with PCE above 22%? Give the labels and their record counts.",
+ "finished_at": "2026-10-21T20:14:19",
+ "seconds": 375.6,
+ "termination": "answer",
+ "final_answer": "Top three perovskite compositions (short form) in n-i-p devices with PCE > 22%, using `Cell_architecture = 'nip'` and `JV_default_PCE > 22`:\n\n1. **FAMAPbBrI** \u2014 19 records\n2. **FAMAPbI** \u2014 17 records\n3. **CsFAMAPbBrI** \u2014 13 records\n\n(Next closest: MAPbI 11, FAPbI 7, `nannannan` 5.)\n\nBasis and caveats:\n- Counts come from `SELECT Perovskite_composition_short_form, COUNT(*) ... WHERE Cell_architecture='nip' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 22 GROUP BY ... ORDER BY n DESC` on the `devices` table (29,897 n-i-p rows total). A variant query without the `IS NOT NULL` filter returned the identical ranking, so the result is not sensitive to null handling in that column.\n- PCE criterion is the dataset's `JV_default_PCE` column only. I could not re-query with `JV_reverse_scan_PCE`/`JV_forward_scan_PCE`/`Stabilised_performance_PCE` as an alternative or combined criterion, so the ranking is unverified against those metrics.\n- `nannannan` (5 records) appears to be a placeholder/artifact composition string rather than a real composition; it is outside the top three either way.\n- The `devices` table gives device records, not unique publications, so counts are records rather than distinct papers, and a single paper can contribute multiple rows.",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT * FROM devices LIMIT 3"
+   },
+   "result": "{'columns': ['Ref_ID', 'Ref_ID_temp', 'Ref_name_of_person_entering_the_data', 'Ref_data_entered_by_author', 'Ref_DOI_number', 'Ref_lead_author', 'Ref_publication_date', 'Ref_journal', 'Ref_part_of_initial_dataset', 'Ref_original_filename_data_upload', 'Ref_free_text_comment', 'Ref_internal_sample_id', 'Cell_stack_sequence', 'Cell_area_total', 'Cell_area_measured', 'Cell_number_of_cells_per_substrate', 'Cell_architecture', 'Cell_flexible', 'Cell_flexible_min_bending_radius', 'Cell_semitransparent', 'Cell_semitransparent_AVT', 'Cell_semitransparent_wavelength_range', 'Cell_semitransparent_raw_data', 'Module', 'Module_number_of_cells_in_module', 'Module_area_total', 'Module_area_effective', 'Module_JV_data_recalculated_per_cell', 'Substrate_stack_sequence', 'Substrate_thickness', 'Substrate_area', 'Substrate_supplier', 'Substrate_brand_name', 'Substrate_deposition_procedure', 'Substrate_surface_roughness_rms', 'Substrate_etching_procedure', 'Substrate_cleaning_procedure', 'ETL_stack_sequence', 'ETL_thickness', 'ETL_additives_compounds', 'ETL_additives_concentrations', 'ETL_deposition_procedure', 'ETL_deposition_aggregation_state_of_reactants', 'ETL_deposition_synthesis_atmosphere', 'ETL_deposition_synthesis_atmosphere_pressure_total', 'ETL_deposition_synthesis_atmosphere_pressure_partial', 'ETL_deposition_synthesis_atmosphere_relative_humidity', 'ETL_deposition_solvents', 'ETL_deposition_solvents_mixing_ratios', 'ETL_deposition_solvents_supplier', 'ETL_deposition_solvents_purity', 'ETL_deposition_reaction_solutions_compounds', 'ETL_deposition_reaction_solutions_compounds_supplier', 'ETL_deposition_reaction_solutions_compounds_purity', 'ETL_deposition_reaction_solutions_concentrations', 'ETL_deposition_reaction_solutions_volumes', 'ETL_deposition_reaction_solutions_age', 'ETL_deposition_reaction_solutions_temperature', 'ETL_deposition_substrate_temperature', 'ETL_deposition_thermal_annealing_temperature', 'ETL_deposition_thermal_annealing_time', 'ETL_deposition_thermal_annealing_atmosphere', 'ETL_storage_time_until_next_deposition_step', 'ETL_storage_atmosphere', 'ETL_storage_relative_humidity', 'ETL_surface_treatment_before_next_deposition_step', 'Perovskite_single_crystal', 'Perovskite_dimension_0D', 'Perovskite_dimension_2D', 'Perovskite_dimension_2D3D_mixture', 'Perovskite_dimension_3D', 'Perovskite_dimension_3D_with_2D_capping_layer', 'Perovskite_dimension_list_of_layers', 'Perovskite_composition_perovskite_ABC3_structure', 'Perovskite_composition_perovskite_inspired_structure', 'Perovskite_composition_a_ions', 'Perovskite_composition_a_ions_coefficients', 'Perovskite_composition_b_ions', 'Perovskite_composition_b_ions_coefficients', 'Perovskite_composition_c_ions', 'Perovskite_composition_c_ions_coefficients', 'Perovskite_composition_none_stoichiometry_components_in_excess', 'Perovskite_composition_short_form', 'Perovskite_composition_long_form', 'Perovskite_composition_assumption', 'Perovskite_composition_inorganic', 'Perovskite_composition_leadfree', 'Perovskite_additives_compounds', 'Perovskite_additives_concentrations', 'Perovskite_thickness', 'Perovskite_band_gap', 'Perovskite_band_gap_graded', 'Perovskite_band_gap_estimation_basis', 'Perovskite_pl_max', 'Perovskite_deposition_number_of_deposition_steps', 'Perovskite_deposition_procedure', 'Perovskite_deposition_aggregation_state_of_reactants', 'Perovskite_deposition_synthesis_atmosphere', 'Perovskite_deposition_synthesis_atmosphere_pressure_total', 'Perovskite_deposition_synthesis_atmosphere_pressure_partial', 'Perovskite_deposition_synthesis_atmosphere_relative_humidity', 'Perovskite_deposition_solvents', 'Perovskite_deposition_solvents_mixing_ratios', 'Perovskite_deposition_solvents_supplier', 'Perovskite_deposition_solvents_purity', 'Perovskite_deposition_reaction_solutions_compounds', 'Perovskite_deposition_reaction_solutions_compounds_supplier', 'Perovskite_deposition_reaction_solutions_compounds_purity', 'Perovskite_deposition_reaction_solutions_concentrations', 'Perovskite_deposition_reaction_solutions_volumes', 'Perovskite_deposition_reaction_solutions_age', 'Perovskite_deposition_reaction_solutions_temperature', 'Perovskite_deposition_substrate_temperature', 'Perovskite_deposition_quenching_induced_crystallisation', 'Perovskite_deposition_quenching_media', 'Perovskite_deposition_quenching_media_mixing_ratios', 'Perovskite_deposition_quenching_media_volume', 'Perovskite_deposition_quenching_media_additives_compounds', 'Perovskite_deposition_quenching_media_additives_concentrations', 'Perovskite_deposition_thermal_annealing_temperature', 'Perovskite_deposition_thermal_annealing_time', 'Perovskite_deposition_thermal_annealing_atmosphere', 'Perovskite_deposition_thermal_annealing_relative_humidity', 'Perovskite_deposition_thermal_annealing_pressure', 'Perovskite_deposition_solvent_annealing', 'Perovskite_deposition_solvent_annealing_timing', 'Perovskite_deposition_solvent_annealing_solvent_atmosphere', 'Perovskite_deposition_solvent_annealing_time', 'Perovskite_deposition_solvent_annealing_temperature', 'Perovskite_deposition_after_treatment_of_formed_perovskite', 'Perovskite_deposition_after_treatment_of_formed_perovskite_met', 'Perovskite_storage_time_until_next_deposition_step', 'Perovskite_storage_atmosphere', 'Perovskite_storage_relative_humidity', 'Perovskite_surface_treatment_before_next_deposition_step', 'HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step', 'Backcontact_stack_sequence', 'Backcontact_thickness_list', 'Backcontact_additives_compounds', 'Backcontact_additives_concentrations', 'Backcontact_deposition_procedure', 'Backcontact_deposition_aggregation_state_of_reactants', 'Backcontact_deposition_synthesis_atmosphere', 'Backcontact_deposition_synthesis_atmosphere_pressure_total', 'Backcontact_deposition_synthesis_atmosphere_pressure_partial', 'Backcontact_deposition_synthesis_atmosphere_relative_humidity', 'Backcontact_deposition_solvents', 'Backcontact_deposition_solvents_mixing_ratios', 'Backcontact_deposition_solvents_supplier', 'Backcontact_deposition_solvents_purity', 'Backcontact_deposition_reaction_solutions_compounds', 'Backcontact_deposition_reaction_solutions_compounds_supplier', 'Backcontact_deposition_reaction_solutions_compounds_purity', 'Backcontact_deposition_reaction_solutions_concentrations', 'Backcontact_deposition_reaction_solutions_volumes', 'Backcontact_deposition_reaction_solutions_age', 'Backcontact_deposition_reaction_solutions_temperature', 'Backcontact_deposition_substrate_temperature', 'Backcontact_deposition_thermal_annealing_temperature', 'Backcontact_deposition_thermal_annealing_time', 'Backcontact_deposition_thermal_annealing_atmosphere', 'Backcontact_storage_time_until_next_deposition_step', 'Backcontact_storage_atmosphere', 'Backcontact_storage_relative_humidity', 'Backcontact_surface_treatment_before_next_deposition_step', 'Add_lay_front', 'Add_lay_front_function', 'Add_lay_front_stack_sequence', 'Add_lay_front_thickness_list', 'Add_lay_front_additives_compounds', 'Add_lay_front_additives_concentrations', 'Add_lay_front_deposition_procedure', 'Add_lay_front_deposition_aggregation_state_of_reactants', 'Add_lay_front_deposition_synthesis_atmosphere', 'Add_lay_front_deposition_synthesis_atmosphere_pressure_total', 'Add_lay_front_deposition_synthesis_atmosphere_pressure_partial', 'Add_lay_front_deposition_synthesis_atmosphere_relative_humidity', 'Add_lay_front_deposition_solvents', 'Add_lay_front_deposition_solvents_mixing_ratios', 'Add_lay_front_deposition_solvents_supplier', 'Add_lay_front_deposition_solvents_purity', 'Add_lay_front_deposition_reaction_solutions_compounds', 'Add_lay_front_deposition_reaction_solutions_compounds_supplier', 'Add_lay_front_deposition_reaction_solutions_compounds_purity', 'Add_lay_front_deposition_reaction_solutions_concentrations', 'Add_lay_front_deposition_reaction_solutions_volumes', 'Add_lay_front_deposition_reaction_solutions_age', 'Add_lay_front_deposition_reaction_solutions_temperature', 'Add_lay_front_deposition_substrate_temperature', 'Add_lay_front_deposition_thermal_annealing_temperature', 'Add_lay_front_deposition_thermal_annealing_time', 'Add_lay_front_deposition_thermal_annealing_atmosphere', 'Add_lay_front_storage_time_until_next_deposition_step', 'Add_lay_front_storage_atmosphere', 'Add_lay_front_storage_relative_humidity', 'Add_lay_front_surface_treatment_before_next_deposition_step', 'Add_lay_back', 'Add_lay_back_function', 'Add_lay_back_stack_sequence', 'Add_lay_back_thickness_list', 'Add_lay_back_additives_compounds', 'Add_lay_back_additives_concentrations', 'Add_lay_back_deposition_procedure', 'Add_lay_back_deposition_aggregation_state_of_reactants', 'Add_lay_back_deposition_synthesis_atmosphere', 'Add_lay_back_deposition_synthesis_atmosphere_pressure_total', 'Add_lay_back_deposition_synthesis_atmosphere_pressure_partial', 'Add_lay_back_deposition_synthesis_atmosphere_relative_humidity', 'Add_lay_back_deposition_solvents', 'Add_lay_back_deposition_solvents_mixing_ratios', 'Add_lay_back_deposition_solvents_supplier', 'Add_lay_back_deposition_solvents_purity', 'Add_lay_back_deposition_reaction_solutions_compounds', 'Add_lay_back_deposition_reaction_solutions_compounds_supplier', 'Add_lay_back_deposition_reaction_solutions_compounds_purity', 'Add_lay_back_deposition_reaction_solutions_concentrations', 'Add_lay_back_deposition_reaction_solutions_volumes', 'Add_lay_back_deposition_reaction_solutions_age', 'Add_lay_back_deposition_reaction_solutions_temperature', 'Add_lay_back_deposition_substrate_temperature', 'Add_lay_back_deposition_thermal_annealing_temperature', 'Add_lay_back_deposition_thermal_annealing_time', 'Add_lay_back_deposition_thermal_annealing_atmosphere', 'Add_lay_back_storage_time_until_next_deposition_step', 'Add_lay_back_storage_atmosphere', 'Add_lay_back_storage_relative_humidity', 'Add_lay_back_surface_treatment_before_next_deposition_step', 'Encapsulation', 'Encapsulation_stack_sequence', 'Encapsulation_edge_sealing_materials', 'Encapsulation_atmosphere_for_encapsulation', 'Encapsulation_water_vapour_transmission_rate', 'Encapsulation_oxygen_transmission_rate', 'JV_measured', 'JV_average_over_n_number_of_cells', 'JV_certified_values', 'JV_certification_institute', 'JV_storage_age_of_cell', 'JV_storage_atmosphere', 'JV_storage_relative_humidity', 'JV_test_atmosphere', 'JV_test_relative_humidity', 'JV_test_temperature', 'JV_light_source_type', 'JV_light_source_brand_name', 'JV_light_source_simulator_class', 'JV_light_intensity', 'JV_light_spectra', 'JV_light_wavelength_range', 'JV_light_illumination_direction', 'JV_light_masked_cell', 'JV_light_mask_area', 'JV_scan_speed', 'JV_scan_delay_time', 'JV_scan_integration_time', 'JV_scan_voltage_step', 'JV_preconditioning_protocol', 'JV_preconditioning_time', 'JV_preconditioning_potential', 'JV_preconditioning_light_intensity', 'JV_reverse_scan_Voc', 'JV_reverse_scan_Jsc', 'JV_reverse_scan_FF', 'JV_reverse_scan_PCE', 'JV_reverse_scan_Vmp', 'JV_reverse_scan_Jmp', 'JV_reverse_scan_series_resistance', 'JV_reverse_scan_shunt_resistance', 'JV_forward_scan_Voc', 'JV_forward_scan_Jsc', 'JV_forward_scan_FF', 'JV_forward_scan_PCE', 'JV_forward_scan_Vmp', 'JV_forward_scan_Jmp', 'JV_forward_scan_series_resistance', 'JV_forward_scan_shunt_resistance', 'JV_link_raw_data', 'JV_default_Voc', 'JV_default_Jsc', 'JV_default_FF', 'JV_default_PCE', 'JV_default_Voc_scan_direction', 'JV_default_Jsc_scan_direction', 'JV_default_FF_scan_direction', 'JV_default_PCE_scan_direction', 'JV_hysteresis_index', 'Stabilised_performance_measured', 'Stabilised_performance_procedure', 'Stabilised_performance_procedure_metrics', 'Stabilised_performance_measurement_time', 'Stabilised_performance_PCE', 'Stabilised_performance_Vmp', 'Stabilised_performance_Jmp', 'Stabilised_performance_link_raw_data', 'EQE_measured', 'EQE_light_bias', 'EQE_integrated_Jsc', 'EQE_link_raw_data', 'Stability_measured', 'Stability_protocol', 'Stability_average_over_n_number_of_cells', 'Stability_light_source_type', 'Stability_light_source_brand_name', 'Stability_light_source_simulator_class', 'Stability_light_intensity', 'Stability_light_spectra', 'Stability_light_wavelength_range', 'Stability_light_illumination_direction', 'Stability_light_load_condition', 'Stability_light_cycling_times', 'Stability_light_UV_filter', 'Stability_potential_bias_load_condition', 'Stability_potential_bias_range', 'Stability_potential_bias_passive_resistance', 'Stability_temperature_load_condition', 'Stability_temperature_range', 'Stability_temperature_cycling_times', 'Stability_temperature_ramp_speed', 'Stability_atmosphere', 'Stability_atmosphere_oxygen_concentration', 'Stability_relative_humidity_load_conditions', 'Stability_relative_humidity_range', 'Stability_relative_humidity_average_value', 'Stability_time_total_exposure', 'Stability_periodic_JV_measurements', 'Stability_periodic_JV_measurements_time_between_jv', 'Stability_PCE_initial_value', 'Stability_PCE_burn_in_observed', 'Stability_PCE_end_of_experiment', 'Stability_PCE_T95', 'Stability_PCE_Ts95', 'Stability_PCE_T80', 'Stability_PCE_Ts80', 'Stability_PCE_Te80', 'Stability_PCE_Tse80', 'Stability_PCE_after_1000_h', 'Stability_lifetime_energy_yield', 'Stability_flexible_cell_number_of_bending_cycles', 'Stability_flexible_cell_bending_radius', 'Stability_flexible_cell_PCE_initial_value', 'Stability_flexible_cell_PCE_end_of_experiment', 'Stability_link_raw_data_for_stability_trace', 'Outdoor_tested', 'Outdoor_protocol', 'Outdoor_average_over_n_number_of_cells', 'Outdoor_location_country', 'Outdoor_location_city', 'Outdoor_location_coordinates', 'Outdoor_location_climate_zone', 'Outdoor_installation_tilt', 'Outdoor_installation_cardinal_direction', 'Outdoor_installation_number_of_solar_tracking_axis', 'Outdoor_time_season', 'Outdoor_time_start', 'Outdoor_time_end', 'Outdoor_time_total_exposure', 'Outdoor_potential_bias_load_condition', 'Outdoor_potential_bias_range', 'Outdoor_potential_bias_passive_resistance', 'Outdoor_temperature_load_condition', 'Outdoor_temperature_range', 'Outdoor_temperature_tmodule', 'Outdoor_periodic_JV_measurements', 'Outdoor_periodic_JV_measurements_time_between_measurements', 'Outdoor_PCE_initial_value', 'Outdoor_PCE_burn_in_observed', 'Outdoor_PCE_end_of_experiment', 'Outdoor_PCE_T95', 'Outdoor_PCE_Ts95', 'Outdoor_PCE_T80', 'Outdoor_PCE_Ts80', 'Outdoor_PCE_Te80', 'Outdoor_PCE_Tse80', 'Outdoor_PCE_after_1000_h', 'Outdoor_power_generated', 'Outdoor_link_raw_data_for_outdoor_trace', 'Outdoor_detaild_weather_data_available', 'Outdoor_link_detailed_weather_data', 'Outdoor_spectral_data_available', 'Outdoor_link_spectral_data', 'Outdoor_irradiance_measured', 'Outdoor_link_irradiance_data'], 'n_rows': 3, 'rows': [{'Ref_ID': 1.0, 'Ref_ID_temp': 1.0, 'Ref_name_of_person_entering_the_data': 'Adam Hultqvist', 'Ref_data_entered_by_author': 0.0, 'Ref_DOI_number': '10.1021/jp5126624', 'Ref_lead_author': 'Sabba et al.', 'Ref_publication_date': '2015-01-06', 'Ref_journal': 'The Journal of Physical Chemistry C', 'Ref_part_of_initial_dataset': 1.0, 'Ref_original_filename_data_upload': 'Historic dataset on 2020 11 22_v7.xlsx', 'Ref_free_text_comment': None, 'Ref_internal_sample_id': None, 'Cell_stack_sequence': 'SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Au', 'Cell_area_total': None, 'Cell_area_measured': 0.2, 'Cell_number_of_cells_per_substrate': 0.0, 'Cell_architecture': 'nip', 'Cell_flexible': 0.0, 'Cell_flexible_min_bending_radius': None, 'Cell_semitransparent': 0.0, 'Cell_semitransparent_AVT': None, 'Cell_semitransparent_wavelength_range': 'nan; nan', 'Cell_semitransparent_raw_data': None, 'Module': 0.0, 'Module_number_of_cells_in_module': 0.0, 'Module_area_total': None, 'Module_area_effective': None, 'Module_JV_data_recalculated_per_cell': 0.0, 'Substrate_stack_sequence': 'SLG | FTO', 'Substrate_thickness': None, 'Substrate_area': None, 'Substrate_supplier': None, 'Substrate_brand_name': None, 'Substrate_deposition_procedure': 'Unknown', 'Substrate_surface_roughness_rms': None, 'Substrate_etching_procedure': None, 'Substrate_cleaning_procedure': None, 'ETL_stack_sequence': 'TiO2-c | TiO2-mp', 'ETL_thickness': '65.0 | nan', 'ETL_additives_compounds': 'Unknown', 'ETL_additives_concentrations': None, 'ETL_deposition_procedure': 'Spray-pyrolys | Spin-coating', 'ETL_deposition_aggregation_state_of_reactants': 'Unknown', 'ETL_deposition_synthesis_atmosphere': 'Unknown', 'ETL_deposition_synthesis_atmosphere_pressure_total': None, 'ETL_deposition_synthesis_atmosphere_pressure_partial': None, 'ETL_deposition_synthesis_atmosphere_relative_humidity': None, 'ETL_deposition_solvents': 'Unknown', 'ETL_deposition_solvents_mixing_ratios': None, 'ETL_deposition_solvents_supplier': 'Unknown', 'ETL_deposition_solvents_purity': 'Unknown', 'ETL_deposition_reaction_solutions_compounds': None, 'ETL_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'ETL_deposition_reaction_solutions_compounds_purity': 'Unknown', 'ETL_deposition_reaction_solutions_concentrations': None, 'ETL_deposition_reaction_solutions_volumes': 'Unknown', 'ETL_deposition_reaction_solutions_age': 'Unknown', 'ETL_deposition_reaction_solutions_temperature': 'Unknown', 'ETL_deposition_substrate_temperature': 'Unknown', 'ETL_deposition_thermal_annealing_temperature': 'Unknown', 'ETL_deposition_thermal_annealing_time': 'Unknown', 'ETL_deposition_thermal_annealing_atmosphere': 'Unknown', 'ETL_storage_time_until_next_deposition_step': None, 'ETL_storage_atmosphere': 'Unknown', 'ETL_storage_relative_humidity': None, 'ETL_surface_treatment_before_next_deposition_step': None, 'Perovskite_single_crystal': 0.0, 'Perovskite_dimension_0D': 0.0, 'Perovskite_dimension_2D': 0.0, 'Perovskite_dimension_2D3D_mixture': 0.0, 'Perovskite_dimension_3D': 1.0, 'Perovskite_dimension_3D_with_2D_capping_layer': 0.0, 'Perovskite_dimension_list_of_layers': '3.0', 'Perovskite_composition_perovskite_ABC3_structure': 1.0, 'Perovskite_composition_perovskite_inspired_structure': 0.0, 'Perovskite_composition_a_ions': 'Cs', 'Perovskite_composition_a_ions_coefficients': '1', 'Perovskite_composition_b_ions': 'Sn', 'Perovskite_composition_b_ions_coefficients': '1', 'Perovskite_composition_c_ions': 'I', 'Perovskite_composition_c_ions_coefficients': '3', 'Perovskite_composition_none_stoichiometry_components_in_excess': None, 'Perovskite_composition_short_form': 'CsSnI', 'Perovskite_composition_long_form': 'CsSnI3', 'Perovskite_composition_assumption': None, 'Perovskite_composition_inorganic': 1.0, 'Perovskite_composition_leadfree': 1.0, 'Perovskite_additives_compounds': None, 'Perovskite_additives_concentrations': None, 'Perovskite_thickness': None, 'Perovskite_band_gap': '1.27', 'Perovskite_band_gap_graded': 0.0, 'Perovskite_band_gap_estimation_basis': None, 'Perovskite_pl_max': None, 'Perovskite_deposition_number_of_deposition_steps': 1.0, 'Perovskite_deposition_procedure': 'Spin-coating', 'Perovskite_deposition_aggregation_state_of_reactants': 'Liquid', 'Perovskite_deposition_synthesis_atmosphere': 'N2', 'Perovskite_deposition_synthesis_atmosphere_pressure_total': None, 'Perovskite_deposition_synthesis_atmosphere_pressure_partial': None, 'Perovskite_deposition_synthesis_atmosphere_relative_humidity': None, 'Perovskite_deposition_solvents': 'DMSO', 'Perovskite_deposition_solvents_mixing_ratios': '1', 'Perovskite_deposition_solvents_supplier': 'Unknown', 'Perovskite_deposition_solvents_purity': 'Unknown', 'Perovskite_deposition_reaction_solutions_compounds': None, 'Perovskite_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Perovskite_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Perovskite_deposition_reaction_solutions_concentrations': None, 'Perovskite_deposition_reaction_solutions_volumes': 'Unknown', 'Perovskite_deposition_reaction_solutions_age': 'Unknown', 'Perovskite_deposition_reaction_solutions_temperature': 'Unknown', 'Perovskite_deposition_substrate_temperature': 'Unknown', 'Perovskite_deposition_quenching_induced_crystallisation': 0.0, 'Perovskite_deposition_quenching_media': 'Unknown', 'Perovskite_deposition_quenching_media_mixing_ratios': None, 'Perovskite_deposition_quenching_media_volume': 'Unknown', 'Perovskite_deposition_quenching_media_additives_compounds': None, 'Perovskite_deposition_quenching_media_additives_concentrations': None, 'Perovskite_deposition_thermal_annealing_temperature': '100', 'Perovskite_deposition_thermal_annealing_time': '10.0', 'Perovskite_deposition_thermal_annealing_atmosphere': 'Unknown', 'Perovskite_deposition_thermal_annealing_relative_humidity': None, 'Perovskite_deposition_thermal_annealing_pressure': None, 'Perovskite_deposition_solvent_annealing': 0.0, 'Perovskite_deposition_solvent_annealing_timing': None, 'Perovskite_deposition_solvent_annealing_solvent_atmosphere': 'Unknown', 'Perovskite_deposition_solvent_annealing_time': 'Unknown', 'Perovskite_deposition_solvent_annealing_temperature': 'Unknown', 'Perovskite_deposition_after_treatment_of_formed_perovskite': None, 'Perovskite_deposition_after_treatment_of_formed_perovskite_met': None, 'Perovskite_storage_time_until_next_deposition_step': 'Unknown', 'Perovskite_storage_atmosphere': 'Unknown', 'Perovskite_storage_relative_humidity': None, 'Perovskite_surface_treatment_before_next_deposition_step': None, 'HTL_stack_sequence': 'Spiro-MeOTAD', 'HTL_thickness_list': None, 'HTL_additives_compounds': 'Li(CF3SO2)2N; TBP', 'HTL_additives_concentrations': None, 'HTL_deposition_procedure': 'Spin-coating', 'HTL_deposition_aggregation_state_of_reactants': 'Unknown', 'HTL_deposition_synthesis_atmosphere': 'Unknown', 'HTL_deposition_synthesis_atmosphere_pressure_total': None, 'HTL_deposition_synthesis_atmosphere_pressure_partial': None, 'HTL_deposition_synthesis_atmosphere_relative_humidity': None, 'HTL_deposition_solvents': 'Unknown', 'HTL_deposition_solvents_mixing_ratios': None, 'HTL_deposition_solvents_supplier': 'Unknown', 'HTL_deposition_solvents_purity': 'Unknown', 'HTL_deposition_reaction_solutions_compounds': None, 'HTL_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'HTL_deposition_reaction_solutions_compounds_purity': 'Unknown', 'HTL_deposition_reaction_solutions_concentrations': None, 'HTL_deposition_reaction_solutions_volumes': 'Unknown', 'HTL_deposition_reaction_solutions_age': 'Unknown', 'HTL_deposition_reaction_solutions_temperature': 'Unknown', 'HTL_deposition_substrate_temperature': 'Unknown', 'HTL_deposition_thermal_annealing_temperature': 'Unknown', 'HTL_deposition_thermal_annealing_time': 'Unknown', 'HTL_deposition_thermal_annealing_atmosphere': 'Unknown', 'HTL_storage_time_until_next_deposition_step': 'Unknown', 'HTL_storage_atmosphere': 'Unknown', 'HTL_storage_relative_humidity': None, 'HTL_surface_treatment_before_next_deposition_step': None, 'Backcontact_stack_sequence': 'Au', 'Backcontact_thickness_list': '90.0', 'Backcontact_additives_compounds': None, 'Backcontact_additives_concentrations': None, 'Backcontact_deposition_procedure': 'Evaporation', 'Backcontact_deposition_aggregation_state_of_reactants': 'Unknown', 'Backcontact_deposition_synthesis_atmosphere': 'Unknown', 'Backcontact_deposition_synthesis_atmosphere_pressure_total': None, 'Backcontact_deposition_synthesis_atmosphere_pressure_partial': None, 'Backcontact_deposition_synthesis_atmosphere_relative_humidity': None, 'Backcontact_deposition_solvents': 'Unknown', 'Backcontact_deposition_solvents_mixing_ratios': None, 'Backcontact_deposition_solvents_supplier': 'Unknown', 'Backcontact_deposition_solvents_purity': 'Unknown', 'Backcontact_deposition_reaction_solutions_compounds': None, 'Backcontact_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Backcontact_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Backcontact_deposition_reaction_solutions_concentrations': None, 'Backcontact_deposition_reaction_solutions_volumes': 'Unknown', 'Backcontact_deposition_reaction_solutions_age': 'Unknown', 'Backcontact_deposition_reaction_solutions_temperature': 'Unknown', 'Backcontact_deposition_substrate_temperature': 'Unknown', 'Backcontact_deposition_thermal_annealing_temperature': 'Unknown', 'Backcontact_deposition_thermal_annealing_time': 'Unknown', 'Backcontact_deposition_thermal_annealing_atmosphere': 'Unknown', 'Backcontact_storage_time_until_next_deposition_step': 'Unknown', 'Backcontact_storage_atmosphere': 'Unknown', 'Backcontact_storage_relative_humidity': None, 'Backcontact_surface_treatment_before_next_deposition_step': None, 'Add_lay_front': 0.0, 'Add_lay_front_function': None, 'Add_lay_front_stack_sequence': 'Unknown', 'Add_lay_front_thickness_list': None, 'Add_lay_front_additives_compounds': None, 'Add_lay_front_additives_concentrations': None, 'Add_lay_front_deposition_procedure': 'Unknown', 'Add_lay_front_deposition_aggregation_state_of_reactants': 'Unknown', 'Add_lay_front_deposition_synthesis_atmosphere': 'Unknown', 'Add_lay_front_deposition_synthesis_atmosphere_pressure_total': None, 'Add_lay_front_deposition_synthesis_atmosphere_pressure_partial': None, 'Add_lay_front_deposition_synthesis_atmosphere_relative_humidity': None, 'Add_lay_front_deposition_solvents': 'Unknown', 'Add_lay_front_deposition_solvents_mixing_ratios': None, 'Add_lay_front_deposition_solvents_supplier': 'Unknown', 'Add_lay_front_deposition_solvents_purity': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_compounds': None, 'Add_lay_front_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_concentrations': None, 'Add_lay_front_deposition_reaction_solutions_volumes': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_age': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_temperature': 'Unknown', 'Add_lay_front_deposition_substrate_temperature': 'Unknown', 'Add_lay_front_deposition_thermal_annealing_temperature': 'Unknown', 'Add_lay_front_deposition_thermal_annealing_time': 'Unknown', 'Add_lay_front_deposition_thermal_annealing_atmosphere': 'Unknown', 'Add_lay_front_storage_time_until_next_deposition_step': 'Unknown', 'Add_lay_front_storage_atmosphere': 'Unknown', 'Add_lay_front_storage_relative_humidity': None, 'Add_lay_front_surface_treatment_before_next_deposition_step': None, 'Add_lay_back': 0.0, 'Add_lay_back_function': None, 'Add_lay_back_stack_sequence': 'Unknown', 'Add_lay_back_thickness_list': None, 'Add_lay_back_additives_compounds': None, 'Add_lay_back_additives_concentrations': None, 'Add_lay_back_deposition_procedure': 'Unknown', 'Add_lay_back_deposition_aggregation_state_of_reactants': 'Unknown', 'Add_lay_back_deposition_synthesis_atmosphere': 'Unknown', 'Add_lay_back_deposition_synthesis_atmosphere_pressure_total': None, 'Add_lay_back_deposition_synthesis_atmosphere_pressure_partial': None, 'Add_lay_back_deposition_synthesis_atmosphere_relative_humidity': None, 'Add_lay_back_deposition_solvents': 'Unknown', 'Add_lay_back_deposition_solvents_mixing_ratios': None, 'Add_lay_back_deposition_solvents_supplier': 'Unknown', 'Add_lay_back_deposition_solvents_purity': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_compounds': None, 'Add_lay_back_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_concentrations': None, 'Add_lay_back_deposition_reaction_solutions_volumes': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_age': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_temperature': 'Unknown', 'Add_lay_back_deposition_substrate_temperature': 'Unknown', 'Add_lay_back_deposition_thermal_annealing_temperature': 'Unknown', 'Add_lay_back_deposition_thermal_annealing_time': 'Unknown', 'Add_lay_back_deposition_thermal_annealing_atmosphere': 'Unknown', 'Add_lay_back_storage_time_until_next_deposition_step': 'Unknown', 'Add_lay_back_storage_atmosphere': 'Unknown', 'Add_lay_back_storage_relative_humidity': None, 'Add_lay_back_surface_treatment_before_next_deposition_step': None, 'Encapsulation': 0.0, 'Encapsulation_stack_sequence': 'Unknown', 'Encapsulation_edge_sealing_materials': 'Unknown', 'Encapsulation_atmosphere_for_encapsulation': 'Unknown', 'Encapsulation_water_vapour_transmission_rate': None, 'Encapsulation_oxygen_transmission_rate': None, 'JV_measured': 1.0, 'JV_average_over_n_number_of_cells': 1.0, 'JV_certified_values': 0.0, 'JV_certification_institute': None, 'JV_storage_age_of_cell': 'Unknown', 'JV_storage_atmosphere': 'Unknown', 'JV_storage_relative_humidity': None, 'JV_test_atmosphere': 'Air', 'JV_test_relative_humidity': None, 'JV_test_temperature': None, 'JV_light_source_type': None, 'JV_light_source_brand_name': None, 'JV_light_source_simulator_class': None, 'JV_light_intensity': 100.0, 'JV_light_spectra': 'AM 1.5', 'JV_light_wav",
+   "result_chars": 73493,
+   "seconds": 0.001,
+   "t_offset_s": 21.84,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "PCE"
+   },
+   "result": "['JV_reverse_scan_PCE', 'JV_forward_scan_PCE', 'JV_default_PCE', 'JV_default_PCE_scan_direction', 'Stabilised_performance_PCE', 'Stability_PCE_initial_value', 'Stability_PCE_burn_in_observed', 'Stability_PCE_end_of_experiment', 'Stability_PCE_T95', 'Stability_PCE_Ts95', 'Stability_PCE_T80', 'Stability_PCE_Ts80', 'Stability_PCE_Te80', 'Stability_PCE_Tse80', 'Stability_PCE_after_1000_h', 'Stability_flexible_cell_PCE_initial_value', 'Stability_flexible_cell_PCE_end_of_experiment', 'Outdoor_PCE_initial_value', 'Outdoor_PCE_burn_in_observed', 'Outdoor_PCE_end_of_experiment', 'Outdoor_PCE_T95', 'Outdoor_PCE_Ts95', 'Outdoor_PCE_T80', 'Outdoor_PCE_Ts80', 'Outdoor_PCE_Te80', 'Outdoor_PCE_Tse80', 'Outdoor_PCE_after_1000_h']",
+   "result_chars": 723,
+   "seconds": 0.0,
+   "t_offset_s": 41.63,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Cell_architecture, COUNT(*) AS n FROM devices GROUP BY Cell_architecture ORDER BY n DESC"
+   },
+   "result": "{'columns': ['Cell_architecture', 'n'], 'n_rows': 8, 'rows': [{'Cell_architecture': 'nip', 'n': 29897}, {'Cell_architecture': 'pin', 'n': 13342}, {'Cell_architecture': 'Unknown', 'n': 103}, {'Cell_architecture': 'Back contacted', 'n': 33}, {'Cell_architecture': None, 'n': 10}, {'Cell_architecture': 'Front contacted', 'n': 7}, {'Cell_architecture': 'Schottky', 'n': 5}, {'Cell_architecture': 'Pn-Heterojunction', 'n': 1}]}",
+   "result_chars": 423,
+   "seconds": 0.038,
+   "t_offset_s": 219.63,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Perovskite_composition_short_form AS comp, COUNT(*) AS n FROM devices WHERE Cell_architecture = 'nip' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 22 GROUP BY comp ORDER BY n DESC LIMIT 15"
+   },
+   "result": "{'columns': ['comp', 'n'], 'n_rows': 14, 'rows': [{'comp': 'FAMAPbBrI', 'n': 19}, {'comp': 'FAMAPbI', 'n': 17}, {'comp': 'CsFAMAPbBrI', 'n': 13}, {'comp': 'MAPbI', 'n': 11}, {'comp': 'FAPbI', 'n': 7}, {'comp': 'nannannan', 'n': 5}, {'comp': 'FAMAPbBrI | OAPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (C6H13NH3)PbI', 'n': 3}, {'comp': 'CsFAnanPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'n': 2}, {'comp': 'CsFAPbI', 'n': 2}, {'comp': 'FAMAPbBrI | (C8H17NH3)PbI', 'n': 1}, {'comp': 'CsFAMAPbI | (FEA)PbI', 'n': 1}, {'comp': 'CsFAGUPbI', 'n': 1}]}",
+   "result_chars": 548,
+   "seconds": 0.054,
+   "t_offset_s": 308.35,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Perovskite_composition_short_form AS comp, COUNT(*) AS n FROM devices WHERE Cell_architecture = 'nip' AND JV_default_PCE > 22 GROUP BY comp ORDER BY n DESC LIMIT 10"
+   },
+   "result": "{'columns': ['comp', 'n'], 'n_rows': 10, 'rows': [{'comp': 'FAMAPbBrI', 'n': 19}, {'comp': 'FAMAPbI', 'n': 17}, {'comp': 'CsFAMAPbBrI', 'n': 13}, {'comp': 'MAPbI', 'n': 11}, {'comp': 'FAPbI', 'n': 7}, {'comp': 'nannannan', 'n': 5}, {'comp': 'FAMAPbBrI | OAPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (C6H13NH3)PbI', 'n': 3}, {'comp': 'CsFAnanPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'n': 2}]}",
+   "result_chars": 399,
+   "seconds": 0.022,
+   "t_offset_s": 344.03,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 5,
+ "n_model_calls": 6,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 6,
+  "prompt_chars": 45857,
+  "completion_chars": 2681,
+  "real_prompt_tokens": 231241,
+  "real_completion_tokens": 10564,
+  "usage_reported_calls": 6,
+  "rate_limit_events": 0,
+  "provider_error_events": 1,
+  "pool_wait_s": 0,
+  "llm_latency_s": 375.5,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "grep",
+     "read",
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "glob",
+     "read",
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 8,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "glob",
+     "glob",
+     "read",
+     "grep",
+     "read",
+     "read",
+     "read",
+     "grep",
+     "grep",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "todowrite",
+     "read",
+     "grep",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 7,
+    "opencode_tools_used": [
+     "read",
+     "grep",
+     "read",
+     "read",
+     "todowrite",
+     "todowrite"
+    ]
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "sql({'query': 'SELECT Cell_architecture, COUNT(*) AS n FROM devices GROUP BY Cell_architecture ORDER BY n DESC'})",
+    "{'columns': ['Cell_architecture', 'n'], 'n_rows': 8, 'rows': [{'Cell_architecture': 'nip', 'n': 29897}, {'Cell_architecture': 'pin', 'n': 13342}, {'Cell_architecture': 'Unknown', 'n': 103}, {'Cell_architecture': 'Back contacted', 'n': 33}, {'Cell_architecture': None, 'n': 10}, {'Cell_architecture': 'Front contacted', 'n': 7}, {'Cell_architecture': 'Schottky', 'n': 5}, {'Cell_architecture': 'Pn-Heterojunction', 'n': 1}]}"
+   ],
+   [
+    "sql({'query': \"SELECT Perovskite_composition_short_form AS comp, COUNT(*) AS n FROM devices WHERE Cell_architecture = 'nip' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 22 GROUP BY comp ORDER BY n DESC LIMIT 15\"})",
+    "{'columns': ['comp', 'n'], 'n_rows': 14, 'rows': [{'comp': 'FAMAPbBrI', 'n': 19}, {'comp': 'FAMAPbI', 'n': 17}, {'comp': 'CsFAMAPbBrI', 'n': 13}, {'comp': 'MAPbI', 'n': 11}, {'comp': 'FAPbI', 'n': 7}, {'comp': 'nannannan', 'n': 5}, {'comp': 'FAMAPbBrI | OAPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (C6H13NH3)PbI', 'n': 3}, {'comp': 'CsFAnanPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'n': 2}, {'comp': 'CsFAPbI', 'n': 2}, {'comp': 'FAMAPbBrI | (C8H17NH3)PbI', 'n': 1}, {'comp': 'CsFAMAPbI | (FEA)PbI', 'n': 1}, {'comp': 'CsFAGUPbI', 'n': 1}]}"
+   ],
+   [
+    "sql({'query': \"SELECT Perovskite_composition_short_form AS comp, COUNT(*) AS n FROM devices WHERE Cell_architecture = 'nip' AND JV_default_PCE > 22 GROUP BY comp ORDER BY n DESC LIMIT 10\"})",
+    "{'columns': ['comp', 'n'], 'n_rows': 10, 'rows': [{'comp': 'FAMAPbBrI', 'n': 19}, {'comp': 'FAMAPbI', 'n': 17}, {'comp': 'CsFAMAPbBrI', 'n': 13}, {'comp': 'MAPbI', 'n': 11}, {'comp': 'FAPbI', 'n': 7}, {'comp': 'nannannan', 'n': 5}, {'comp': 'FAMAPbBrI | OAPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (C6H13NH3)PbI', 'n': 3}, {'comp': 'CsFAnanPbI', 'n': 3}, {'comp': 'FAMAPbBrI | (HTAB)FAMAPbBrI', 'n': 2}]}"
+   ],
+   [
+    "(final)",
+    "Top three perovskite compositions (short form) in n-i-p devices with PCE > 22%, using `Cell_architecture = 'nip'` and `JV_default_PCE > 22`:\n\n1. **FAMAPbBrI** \u2014 19 records\n2. **FAMAPbI** \u2014 17 records\n3. **CsFAMAPbBrI** \u2014 13 records\n\n(Next closest: MAPbI 11, FAPbI 7, `nannannan` 5.)\n\nBasis and caveats:\n- Counts come from `SELECT Perovskite_composition_short_form, COUNT(*) ... WHERE Cell_architecture='nip' AND JV_default_PCE IS NOT NULL AND JV_default_PCE > 22 GROUP BY ... ORDER BY n DESC` on the `devices` table (29,897 n-i-p rows total). A variant query without the `IS NOT NULL` filter returned the identical ranking, so the result is not sensitive to null handling in that column.\n- PCE criterion is the dataset's `JV_default_PCE` column only. I could not re-query with `JV_reverse_scan_PCE`/`JV_forward_scan_PCE`/`Stabilised_performance_PCE` as an alternative or combined criterion, so the ranking is unverified against those metrics.\n- `nannannan` (5 records) appears to be a placeholder/artifact composition string rather than a real composition; it is outside the top three either way.\n- The `devices` table gives device records, not unique publications, so counts are records rather than distinct papers, and a single paper can contribute multiple rows."
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

@@ -1,0 +1,804 @@
+{
+ "episode_id": "Q32__gemini__direct__r0",
+ "qid": "Q32",
+ "category": "ml",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:03:27",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "What operational lifetime (T80, in hours) does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite?",
+ "finished_at": "2026-10-22T00:11:46",
+ "seconds": 499.5,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "lifetime"
+   },
+   "result": "['Stability_lifetime_energy_yield']",
+   "result_chars": 35,
+   "seconds": 0.0,
+   "t_offset_s": 1.1,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "T80"
+   },
+   "result": "['Stability_PCE_T80', 'Outdoor_PCE_T80']",
+   "result_chars": 40,
+   "seconds": 0.0,
+   "t_offset_s": 2.46,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Stability_PCE_T80, Architecture, HTL, ETL, Perovskite FROM devices WHERE Architecture LIKE '%pin%' OR Architecture LIKE '%p-i-n%' LIMIT 10"
+   },
+   "result": "ERROR: ValueError: no such column: Architecture Similar columns: ['Cell_architecture']",
+   "result_chars": 86,
+   "seconds": 0.001,
+   "t_offset_s": 4.03,
+   "error": true
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Stability_PCE_T80, Cell_architecture, HTL, ETL, Perovskite FROM devices WHERE Cell_architecture LIKE '%pin%' OR Cell_architecture LIKE '%p-i-n%' LIMIT 10"
+   },
+   "result": "ERROR: ValueError: no such column: HTL Similar columns: ['HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total']",
+   "result_chars": 329,
+   "seconds": 0.0,
+   "t_offset_s": 5.6,
+   "error": true
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "HTL"
+   },
+   "result": "['HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step']",
+   "result_chars": 1203,
+   "seconds": 0.0,
+   "t_offset_s": 6.7,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "ETL"
+   },
+   "result": "['ETL_stack_sequence', 'ETL_thickness', 'ETL_additives_compounds', 'ETL_additives_concentrations', 'ETL_deposition_procedure', 'ETL_deposition_aggregation_state_of_reactants', 'ETL_deposition_synthesis_atmosphere', 'ETL_deposition_synthesis_atmosphere_pressure_total', 'ETL_deposition_synthesis_atmosphere_pressure_partial', 'ETL_deposition_synthesis_atmosphere_relative_humidity', 'ETL_deposition_solvents', 'ETL_deposition_solvents_mixing_ratios', 'ETL_deposition_solvents_supplier', 'ETL_deposition_solvents_purity', 'ETL_deposition_reaction_solutions_compounds', 'ETL_deposition_reaction_solutions_compounds_supplier', 'ETL_deposition_reaction_solutions_compounds_purity', 'ETL_deposition_reaction_solutions_concentrations', 'ETL_deposition_reaction_solutions_volumes', 'ETL_deposition_reaction_solutions_age', 'ETL_deposition_reaction_solutions_temperature', 'ETL_deposition_substrate_temperature', 'ETL_deposition_thermal_annealing_temperature', 'ETL_deposition_thermal_annealing_time', 'ETL_deposition_thermal_annealing_atmosphere', 'ETL_storage_time_until_next_deposition_step', 'ETL_storage_atmosphere', 'ETL_storage_relative_humidity', 'ETL_surface_treatment_before_next_deposition_step']",
+   "result_chars": 1198,
+   "seconds": 0.0,
+   "t_offset_s": 8.42,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "Perovskite"
+   },
+   "result": "['Perovskite_single_crystal', 'Perovskite_dimension_0D', 'Perovskite_dimension_2D', 'Perovskite_dimension_2D3D_mixture', 'Perovskite_dimension_3D', 'Perovskite_dimension_3D_with_2D_capping_layer', 'Perovskite_dimension_list_of_layers', 'Perovskite_composition_perovskite_ABC3_structure', 'Perovskite_composition_perovskite_inspired_structure', 'Perovskite_composition_a_ions', 'Perovskite_composition_a_ions_coefficients', 'Perovskite_composition_b_ions', 'Perovskite_composition_b_ions_coefficients', 'Perovskite_composition_c_ions', 'Perovskite_composition_c_ions_coefficients', 'Perovskite_composition_none_stoichiometry_components_in_excess', 'Perovskite_composition_short_form', 'Perovskite_composition_long_form', 'Perovskite_composition_assumption', 'Perovskite_composition_inorganic', 'Perovskite_composition_leadfree', 'Perovskite_additives_compounds', 'Perovskite_additives_concentrations', 'Perovskite_thickness', 'Perovskite_band_gap', 'Perovskite_band_gap_graded', 'Perovskite_band_gap_estimation_basis', 'Perovskite_pl_max', 'Perovskite_deposition_number_of_deposition_steps', 'Perovskite_deposition_procedure', 'Perovskite_deposition_aggregation_state_of_reactants', 'Perovskite_deposition_synthesis_atmosphere', 'Perovskite_deposition_synthesis_atmosphere_pressure_total', 'Perovskite_deposition_synthesis_atmosphere_pressure_partial', 'Perovskite_deposition_synthesis_atmosphere_relative_humidity', 'Perovskite_deposition_solvents', 'Perovskite_deposition_solvents_mixing_ratios', 'Perovskite_deposition_solvents_supplier', 'Perovskite_deposition_solvents_purity', 'Perovskite_deposition_reaction_solutions_compounds']",
+   "result_chars": 1635,
+   "seconds": 0.0,
+   "t_offset_s": 254.2,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 7,
+ "n_model_calls": 7,
+ "repeated_tool_calls": 0,
+ "tool_errors": 2,
+ "retries": 0,
+ "provider": {
+  "model_calls": 7,
+  "prompt_chars": 42774,
+  "completion_chars": 657,
+  "real_prompt_tokens": 13147,
+  "real_completion_tokens": 211,
+  "usage_reported_calls": 7,
+  "rate_limit_events": 105,
+  "provider_error_events": 0,
+  "pool_wait_s": 387.7,
+  "llm_latency_s": 254.2,
+  "infra_failed": true,
+  "infra_reason": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': ",
+  "provider_events": [
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 18.9
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 18.4
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 13.7
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.0,
+    "latency_s": 1.1,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5096,
+    "text_len": 61,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "dwXZavCeNsrMqfkP8O2r0Ak",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1574,
+      "completion_tokens": 19,
+      "thinking_tokens": null,
+      "total_tokens": 1593
+     },
+     "slot": 17,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.1,
+     "text_len": 61,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"lifetime\"}}----"
+    }
+   },
+   {
+    "i": 2,
+    "t_offset_s": 1.1,
+    "latency_s": 1.35,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5171,
+    "text_len": 52,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "eQXZatuDCsiwjuMP4PjccQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1595,
+      "completion_tokens": 19,
+      "thinking_tokens": null,
+      "total_tokens": 1614
+     },
+     "slot": 18,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.35,
+     "text_len": 52,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"T80\"}}"
+    }
+   },
+   {
+    "i": 3,
+    "t_offset_s": 2.46,
+    "latency_s": 1.57,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5248,
+    "text_len": 183,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "egXZatjhJezQjuMPjbia0AE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1629,
+      "completion_tokens": 56,
+      "thinking_tokens": null,
+      "total_tokens": 1685
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.57,
+     "text_len": 183,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Stability_PCE_T80, Architecture, HTL, ETL, Perovskite FROM devices WHERE Architecture LIKE '%pin%' OR Architecture LIKE '%p-i-n%' LIMIT 10\"}}"
+    }
+   },
+   {
+    "i": 4,
+    "t_offset_s": 4.03,
+    "latency_s": 1.57,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5502,
+    "text_len": 198,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "fAXZar6zEOL04-EPgp3cqAE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1697,
+      "completion_tokens": 62,
+      "thinking_tokens": null,
+      "total_tokens": 1759
+     },
+     "slot": 8,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.57,
+     "text_len": 198,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Stability_PCE_T80, Cell_architecture, HTL, ETL, Perovskite FROM devices WHERE Cell_architecture LIKE '%pin%' OR Cell_architecture LIKE '%p-i-n%' LIMIT 10\"}}"
+    }
+   },
+   {
+    "i": 5,
+    "t_offset_s": 5.6,
+    "latency_s": 1.1,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6014,
+    "text_len": 52,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "fQXZapy6GOL04-EPgp3cqAE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1852,
+      "completion_tokens": 18,
+      "thinking_tokens": null,
+      "total_tokens": 1870
+     },
+     "slot": 11,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.09,
+     "text_len": 52,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"HTL\"}}"
+    }
+   },
+   {
+    "i": 6,
+    "t_offset_s": 6.7,
+    "latency_s": 1.72,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7254,
+    "text_len": 52,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "fgXZavmqJIe9juMPwODpUQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2218,
+      "completion_tokens": 18,
+      "thinking_tokens": null,
+      "total_tokens": 2236
+     },
+     "slot": 13,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.72,
+     "text_len": 52,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"ETL\"}}"
+    }
+   },
+   {
+    "i": 7,
+    "t_offset_s": 8.42,
+    "latency_s": 245.78,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 8489,
+    "text_len": 59,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "dAbZaqDfJKbGjuMPhoWA6AU",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2582,
+      "completion_tokens": 19,
+      "thinking_tokens": null,
+      "total_tokens": 2601
+     },
+     "slot": 15,
+     "attempts": 55,
+     "attempt_log": [
+      {
+       "slot": 12,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.96
+      },
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.9
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.69
+      },
+      {
+       "slot": 17,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.3
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.07
+      },
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.76
+      }
+     ],
+     "latency_s": 1.94,
+     "text_len": 59,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"Perovskite\"}}"
+    }
+   },
+   {
+    "i": 8,
+    "t_offset_s": 254.2,
+    "latency_s": 245.28,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 10139,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true,
+    "detail": {
+     "status": "exhausted",
+     "attempts": 51,
+     "attempt_log": [
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.28
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.82
+      },
+      {
+       "slot": 17,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.68
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.79
+      },
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.9
+      },
+      {
+       "slot": 15,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.14
+      }
+     ],
+     "error": "429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': "
+    }
+   },
+   {
+    "i": 9,
+    "t_offset_s": 499.48,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 9319,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 10,
+    "t_offset_s": 499.48,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 8504,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 11,
+    "t_offset_s": 499.48,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7252,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 12,
+    "t_offset_s": 499.48,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7335,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 5
+ },
+ "infra_failure": true,
+ "validity": "infra_invalid",
+ "validity_evidence": {
+  "model_calls": 12,
+  "replies": 7,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 5,
+  "reason": "provider failure: all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': "
+ },
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

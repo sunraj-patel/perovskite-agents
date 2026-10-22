@@ -1,0 +1,13 @@
+plan: 18 cells, 7 done/exhausted, 11 to run (gemini, deepseek, minimax x direct, perovagents x reps 0..0)
+2026-10-21T18:42:10 Q01__minimax__direct__r0 -> completed/answer 64.0s
+2026-10-21T18:43:16 Q29__minimax__direct__r0 -> completed/answer 66.0s
+2026-10-21T18:43:37 Q01__deepseek__perovagents__r0 -> infra_failed/answer 151.0s
+2026-10-21T18:43:37 Q29__deepseek__direct__r0 -> infra_failed/turn_budget 0.0s
+2026-10-21T18:43:37 Q29__deepseek__perovagents__r0 -> infra_failed/answer 0.0s
+2026-10-21T18:43:37 Q01__deepseek__direct__r0 -> infra_failed/turn_budget 151.0s
+[deepseek] stopped: 4 consecutive infrastructure failures; remaining cells left for a later --resume run
+2026-10-21T18:43:37 Q33__deepseek__direct__r0 -> infra_failed/turn_budget 0.0s
+2026-10-21T18:50:36 Q01__minimax__perovagents__r0 -> infra_failed/answer 570.3s
+2026-10-21T18:54:04 Q33__minimax__perovagents__r0 -> harness_error/harness_error 207.6s
+2026-10-21T19:02:50 Q29__minimax__perovagents__r0 -> completed/answer 1174.6s
+finished; 0 cells left. Resume with the same command.

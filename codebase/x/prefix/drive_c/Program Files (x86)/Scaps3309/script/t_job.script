@@ -1,0 +1,12 @@
+set quitscript.quitSCAPS
+set errorhandling.overwritefile
+load definitionfile job.def
+clear actions
+action workingpoint.temperature 300.0
+action iv.startv 0.0
+action iv.stopv 1.5
+action iv.increment 0.02
+action iv.doiv
+action light
+calculate singleshot
+save results.iv t_job.iv

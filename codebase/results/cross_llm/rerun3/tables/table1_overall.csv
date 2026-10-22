@@ -1,0 +1,2 @@
+system,n,completion,contract,tool_f1,scientific,recovery_rate,repeat_rate,mean_tool_calls,mean_llm_calls,mean_tokens,mean_seconds
+mrs,3,0.333,0.333,0.61,0.333,0.333,0.095,9.0,18.667,86789.333,912.867

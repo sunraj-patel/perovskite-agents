@@ -1,0 +1,121 @@
+{
+ "episode_id": "Q29__minimax__direct__r0",
+ "qid": "Q29",
+ "category": "ml",
+ "condition": "direct",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T18:55:41",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What PCE does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite of 450 nm thickness? Report the prediction with its 95% interval.",
+ "finished_at": "2026-10-21T18:56:40",
+ "seconds": 58.9,
+ "termination": "answer",
+ "final_answer": "The ML model (`model_PIN.cbm`, p-i-n architecture) predicts **PCE = 13.46%** for a p-i-n cell with PTAA HTL, PCBM ETL, and a 450 nm MAPbI3 absorber, with a 95% prediction interval of **[12.27%, 14.66%]** (interval spread 2.38%, 3 bags).\n\nCaveats from the tool output: the model correctly resolved the materials (HTL = PTAA, ETL = PCBM, Perovskite = MAPbI3) and the target is PCE; however the out-of-envelope (\"hood\") check reported `n_features_checked = 0`, so the in-distribution flag (`ood: False`) is not backed by an actual feature-level envelope comparison. The prediction is a model estimate only \u2014 no physics simulation was run to corroborate it.",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "material"
+   },
+   "result": "['Encapsulation_edge_sealing_materials']",
+   "result_chars": 40,
+   "seconds": 0.0,
+   "t_offset_s": 27.51,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n perovskite solar cell: PTAA hole transport layer, PCBM electron transport layer, MAPbI3 perovskite absorber with 450 nm absorber thickness",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.46, 'pce_95_interval': [12.27, 14.66], 'interval_spread_percent': 2.38, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}",
+   "result_chars": 445,
+   "seconds": 2.241,
+   "t_offset_s": 47.11,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 2,
+ "n_model_calls": 3,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 3,
+  "prompt_chars": 15625,
+  "completion_chars": 939,
+  "real_prompt_tokens": 77813,
+  "real_completion_tokens": 4781,
+  "usage_reported_calls": 3,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 56.0,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 7,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "todowrite",
+     "read",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "find_columns({'keyword': 'material'})",
+    "['Encapsulation_edge_sealing_materials']"
+   ],
+   [
+    "predict({'description': 'p-i-n perovskite solar cell: PTAA hole transport layer, PCBM electron transport layer, MAPbI3 perovskite absorber with 450 nm absorber thickness', 'architecture': 'pin'})",
+    "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.46, 'pce_95_interval': [12.27, 14.66], 'interval_spread_percent': 2.38, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}"
+   ],
+   [
+    "(final)",
+    "The ML model (`model_PIN.cbm`, p-i-n architecture) predicts **PCE = 13.46%** for a p-i-n cell with PTAA HTL, PCBM ETL, and a 450 nm MAPbI3 absorber, with a 95% prediction interval of **[12.27%, 14.66%]** (interval spread 2.38%, 3 bags).\n\nCaveats from the tool output: the model correctly resolved the materials (HTL = PTAA, ETL = PCBM, Perovskite = MAPbI3) and the target is PCE; however the out-of-envelope (\"hood\") check reported `n_features_checked = 0`, so the in-distribution flag (`ood: False`) is not backed by an actual feature-level envelope comparison. The prediction is a model estimate only \u2014 no physics simulation was run to corroborate it."
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

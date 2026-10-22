@@ -1,0 +1,91 @@
+{
+ "version": "v4",
+ "rule": "development = questions run or inspected in v2/v3 (they exposed the defects, and v3 smoke used Q01,Q04,Q05,Q18). held_out_confirmatory_ml_multitool = Q30,Q31,Q32,Q41,Q42,Q44 (never run, never inspected, carried over from v3). held_out_confirmatory_pdb_lit = Q46-Q51, authored from the database/corpus after v3 and never shown to any model before evaluation. No held-out question may be used to debug prompts, contracts or scoring; protocol smoke tests use development questions only.",
+ "development": [
+  "Q01",
+  "Q02",
+  "Q03",
+  "Q04",
+  "Q05",
+  "Q06",
+  "Q07",
+  "Q08",
+  "Q09",
+  "Q10",
+  "Q11",
+  "Q12",
+  "Q17",
+  "Q18",
+  "Q19",
+  "Q21",
+  "Q22",
+  "Q23",
+  "Q24",
+  "Q25",
+  "Q26",
+  "Q27",
+  "Q28",
+  "Q29"
+ ],
+ "held_out": [
+  "Q30",
+  "Q31",
+  "Q32",
+  "Q41",
+  "Q42",
+  "Q44",
+  "Q46",
+  "Q47",
+  "Q48",
+  "Q49",
+  "Q50",
+  "Q51"
+ ],
+ "held_out_stage1_existing": [
+  "Q30",
+  "Q31",
+  "Q32",
+  "Q41",
+  "Q42",
+  "Q44"
+ ],
+ "held_out_stage2_new_pdb_lit": [
+  "Q46",
+  "Q47",
+  "Q48",
+  "Q49",
+  "Q50",
+  "Q51"
+ ],
+ "held_out_by_category": {
+  "ml": 3,
+  "multi_tool": 3,
+  "pdb": 3,
+  "literature": 3
+ },
+ "development_by_category": {
+  "pdb": 8,
+  "literature": 8,
+  "ml": 5,
+  "multi_tool": 3
+ },
+ "smoke": [
+  "Q01",
+  "Q05",
+  "Q18"
+ ],
+ "smoke_note": "protocol smoke questions are development questions (Q01 pdb, Q05 literature, Q18 multi-tool) already exposed in v2/v3",
+ "deferred_scaps": [
+  "Q33",
+  "Q34",
+  "Q35",
+  "Q36",
+  "Q37",
+  "Q38",
+  "Q39",
+  "Q40",
+  "Q43",
+  "Q45"
+ ],
+ "caveat": "Database/literature held-out set is small (3+3 questions): per-category intervals are wide and broad claims about general PSC workflow performance are not supported by n=12 held-out questions."
+}

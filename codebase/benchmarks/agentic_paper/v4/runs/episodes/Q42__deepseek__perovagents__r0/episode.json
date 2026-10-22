@@ -1,0 +1,381 @@
+{
+ "episode_id": "Q42__deepseek__perovagents__r0",
+ "qid": "Q42",
+ "category": "multi_tool",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:32:39",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "Which paper in the literature collection introduces an ultra-thin CdS electron-transport layer, and how many devices in the experimental database contain CdS in their ETL stack?",
+ "finished_at": "2026-10-22T00:35:13",
+ "seconds": 153.9,
+ "termination": "answer",
+ "final_answer": "[FORMAT ERROR] the orchestrator produced no valid `ASK` dispatch or `FINAL ANSWER:` after 3 attempts. Last reply: [PROVIDER FAILURE] backbone unavailable; episode aborted.",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 1,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 1,
+  "prompt_chars": 3440,
+  "completion_chars": 854,
+  "real_prompt_tokens": 5009,
+  "real_completion_tokens": 287,
+  "usage_reported_calls": 1,
+  "rate_limit_events": 2,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 3.6,
+  "infra_failed": true,
+  "infra_reason": "rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)",
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "rate_limit",
+    "detail": "free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)"
+   },
+   {
+    "type": "rate_limit",
+    "detail": "free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)"
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.09,
+    "latency_s": 3.65,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 3440,
+    "text_len": 854,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 2,
+    "t_offset_s": 3.74,
+    "latency_s": 150.13,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16489,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 3,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16634,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 4,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16781,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 5,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16928,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 6,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17075,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 7,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17222,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 8,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17369,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 9,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17516,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 10,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17663,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 11,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17810,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 12,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 17957,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 13,
+    "t_offset_s": 153.87,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 18104,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 14,
+    "t_offset_s": 3.74,
+    "latency_s": 150.19,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5195,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 15,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5324,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 16,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5455,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 17,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5586,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 18,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5717,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 19,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5848,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 20,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5979,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 21,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6110,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 22,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6241,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 23,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6372,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 24,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6503,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 25,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6634,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 26,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4710,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 27,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5059,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 28,
+    "t_offset_s": 153.93,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5059,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 27
+ },
+ "infra_failure": true,
+ "validity": "infra_invalid",
+ "validity_evidence": {
+  "model_calls": 28,
+  "replies": 1,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 27,
+  "reason": "provider failure: rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)"
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_003239_426c.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 2,
+  "n_format_errors": 3,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

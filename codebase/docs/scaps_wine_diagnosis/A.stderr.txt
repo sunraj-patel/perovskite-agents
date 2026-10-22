@@ -1,0 +1,77 @@
+002c:fixme:winediag:loader_init wine-sikarugir 10.0 is a testing version containing experimental patches.
+002c:fixme:winediag:loader_init Please mention your exact version when filing bug reports to Sikarugir-App.
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+0050:err:vulkan:vulkan_init_once Failed to load libMoltenVK.dylib
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a170 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb807c00 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a010 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb807aa0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb809eb0 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb807940 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb809d50 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb809bf0 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb809a90 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb809930 (vid 000d, pid f0e0): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8097d0 (vid 05ac, pid 8600): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb809200 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8090a0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8095a0 (vid 05ac, pid 8104): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808f40 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808de0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808c80 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80b470 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808b20 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80b310 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8089c0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80b1b0 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808860 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80b050 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8072c0 (vid 25a7, pid fa6c): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808700 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8085a0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a9b0 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808440 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a850 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb8082e0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a6f0 (vid 05ac, pid 8104): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808180 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a590 (vid 05ac, pid 8104): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb808020 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a430 (vid 05ac, pid 8104): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb807ec0 (vid 05ac, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb80a2d0 (vid 0000, pid 0000): not a joystick or gamepad
+00c4:err:hid:handle_DeviceMatchingCallback Ignoring HID device 0x7fe1bb807d60 (vid 05ac, pid 0000): not a joystick or gamepad
+00b0:err:ntoskrnl:ZwLoadDriver failed to create driver L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\winebth": c0000135
+003c:fixme:service:scmdatabase_autostart_services Auto-start service L"winebth" failed to start: 126
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+0050:fixme:keyboard:NtUserActivateKeyboardLayout Changing user locale is not supported
+00dc:fixme:keyboard:NtUserActivateKeyboardLayout Changing user locale is not supported
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+00e8:err:environ:init_peb starting L"C:\\Program Files (x86)\\Scaps3309\\scaps3309.exe" in experimental wow64 mode
+Wine cannot find the FreeType font library.  To enable Wine to
+use TrueType fonts please install a version of FreeType greater than
+or equal to 2.0.5.
+http://www.freetype.org
+00e8:fixme:keyboard:NtUserActivateKeyboardLayout Changing user locale is not supported
+00e8:fixme:heap:RtlCompactHeap handle 1A590000, flags 0 stub!

@@ -1,0 +1,286 @@
+{
+ "episode_id": "Q01__gemini__perovagents__r0",
+ "qid": "Q01",
+ "category": "pdb",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.8-flash",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:02:09",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What is the average reported PCE of n-i-p perovskite solar cells using SnO2 as the ETL?",
+ "finished_at": "2026-10-21T19:13:12",
+ "seconds": 662.7,
+ "termination": "answer",
+ "final_answer": "[PROVIDER FAILURE] backbone unavailable; episode aborted.",
+ "tool_calls": [
+  {
+   "agent": "pdb",
+   "tool": "column_values",
+   "args": {
+    "column": "Cell_architecture",
+    "top": 10
+   },
+   "result": "[('nip', 29897), ('pin', 13342), ('Unknown', 103), ('Back contacted', 33), ('Front contacted', 7), ('Schottky', 5), ('Pn-Heterojunction', 1)]",
+   "result_chars": 141,
+   "seconds": 0.036,
+   "t_offset_s": 110.61,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT count(*) FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%';"
+   },
+   "result": "{'columns': ['count(*)'], 'n_rows': 1, 'rows': [{'count(*)': 4422}]}",
+   "result_chars": 68,
+   "seconds": 0.032,
+   "t_offset_s": 125.41,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) as total_devices, COUNT(DISTINCT Ref_DOI_number) as total_papers, COUNT(JV_default_PCE) as non_null_pce, MIN(JV_default_PCE) as min_pce, MAX(JV_default_PCE) as max_pce, AVG(JV_default_PCE) as mean_pce FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%';"
+   },
+   "result": "{'columns': ['total_devices', 'total_papers', 'non_null_pce', 'min_pce', 'max_pce', 'mean_pce'], 'n_rows': 1, 'rows': [{'total_devices': 4422, 'total_papers': 794, 'non_null_pce': 4300, 'min_pce': 0.0, 'max_pce': 35.9, 'mean_pce': 15.303180534883722}]}",
+   "result_chars": 252,
+   "seconds": 0.033,
+   "t_offset_s": 142.34,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT AVG(JV_default_PCE) as mean_pce, SQRT(AVG(JV_default_PCE * JV_default_PCE) - AVG(JV_default_PCE) * AVG(JV_default_PCE)) as std_pce, MIN(JV_default_PCE) as min_pce, MAX(JV_default_PCE) as max_pce FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL;"
+   },
+   "result": "{'columns': ['mean_pce', 'std_pce', 'min_pce', 'max_pce'], 'n_rows': 1, 'rows': [{'mean_pce': 15.303180534883722, 'std_pce': 4.588103145972115, 'min_pce': 0.0, 'max_pce': 35.9}]}",
+   "result_chars": 178,
+   "seconds": 0.112,
+   "t_offset_s": 203.31,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT JV_default_PCE FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE LIMIT 1 OFFSET 2150;"
+   },
+   "result": "{'columns': ['JV_default_PCE'], 'n_rows': 1, 'rows': [{'JV_default_PCE': 16.6}]}",
+   "result_chars": 80,
+   "seconds": 0.033,
+   "t_offset_s": 329.52,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 5,
+ "n_model_calls": 11,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 5,
+ "provider": {
+  "model_calls": 11,
+  "prompt_chars": 177832,
+  "completion_chars": 1412,
+  "real_prompt_tokens": 646,
+  "real_completion_tokens": 69,
+  "usage_reported_calls": 1,
+  "rate_limit_events": 6,
+  "provider_error_events": 13,
+  "pool_wait_s": 351.3,
+  "llm_latency_s": 404.0,
+  "infra_failed": true,
+  "infra_reason": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'YOU EXCEEDED YOUR CURRENT QUOTA, PLEASE CHECK YOUR PLAN AND ",
+  "provider_events": [
+   {
+    "type": "provider_unavailable",
+    "slot": 3,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "invalid_key",
+    "slot": 6
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 8,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 11,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 13,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 10,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 15,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 16,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 2,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 17,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 3,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 18.8
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 2,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 18.7
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 6.4
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 4.3
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": true
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": true
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 18,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 9,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": true
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": true
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 3.1
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "episode_abort",
+    "detail": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'YOU EXCEEDED YOUR CURRENT QUOTA, PLEASE CHECK YOUR PLAN AND "
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_190210_d16d.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 5,
+  "n_asks": 1,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

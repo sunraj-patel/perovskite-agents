@@ -1,0 +1,13 @@
+metric,backbone,model_id,condition,n_paired_questions,value,ci_lo,ci_hi,worst_case
+completed,gemini,gemini-3.5-flash-lite,direct,12,0.75,0.5,1.0,0.75
+completed,gemini,gemini-3.5-flash-lite,perovagents,12,0.9167,0.75,1.0,0.9167
+completed,deepseek,opencode/deepseek-v4.1-flash-free,direct,4,0.75,,,0.75
+completed,deepseek,opencode/deepseek-v4.1-flash-free,perovagents,4,1.0,,,1.0
+correct,gemini,gemini-3.5-flash-lite,direct,12,0.6667,0.4167,0.9167,0.6667
+correct,gemini,gemini-3.5-flash-lite,perovagents,12,0.75,0.5,1.0,0.75
+correct,deepseek,opencode/deepseek-v4.1-flash-free,direct,4,0.75,,,0.75
+correct,deepseek,opencode/deepseek-v4.1-flash-free,perovagents,4,1.0,,,1.0
+tool_f1,gemini,gemini-3.5-flash-lite,direct,12,0.8556,0.6723,0.9833,0.8556
+tool_f1,gemini,gemini-3.5-flash-lite,perovagents,12,0.9556,0.889,1.0,0.9556
+tool_f1,deepseek,opencode/deepseek-v4.1-flash-free,direct,4,0.75,,,0.75
+tool_f1,deepseek,opencode/deepseek-v4.1-flash-free,perovagents,4,1.0,,,1.0

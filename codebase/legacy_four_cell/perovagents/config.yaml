@@ -1,0 +1,31 @@
+# PerovAgents cell-framework config (S7). Every value has a code default in
+# control/config.py mirroring config.py, so a missing file never breaks a run.
+llm:
+  model: gemini-2.5-flash
+  temperature: 0.0
+
+cells:
+  max_attempts: 3
+  timeout_s: 300.0
+
+db:
+  # sqlite mirror of the Perovskite Database; built from the CSV on first use
+  mirror: results/sqlite/perovskite.db
+  csv: null            # default: config.PDB_CSV
+  row_limit: 1000
+  query_timeout_s: 10.0
+
+embeddings:
+  corpus_dir: null     # default: config.CORPUS_DIR
+  model: all-MiniLM-L6-v2
+
+scaps:
+  path: null           # default: config.SCAPS_DIR
+  existing_results: null
+
+ml:
+  artifacts: results/ml
+  metrics: results/ml/validation.json
+
+trace:
+  dir: results/traces

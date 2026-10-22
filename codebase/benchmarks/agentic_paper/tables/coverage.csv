@@ -1,0 +1,7 @@
+backbone,condition,main_questions,rep0_done,rep1_done,rep2_done,episodes_done,episodes_missing_to_target_720_basis,infra_or_harness_rows
+gemini,direct,40,12,0,0,12,108,0
+gemini,perovagents,40,12,0,0,12,108,0
+deepseek,direct,40,0,0,0,0,120,0
+deepseek,perovagents,40,0,0,0,0,120,0
+minimax,direct,40,21,0,0,21,99,1
+minimax,perovagents,40,8,0,0,8,112,11

@@ -1,0 +1,4 @@
+{"t": 1790662620.136321, "event": "plan", "run_id": "20260929T061700_97993", "seed": 42, "tasks": [{"id": "t1", "cell": "pdb_sql", "request": "Calculate the average PCE for devices where SnO2 is used as the ETL.", "params": {"columns": ["PCE"], "filters": [{"column": "ETL_material", "operator": "=", "value": "SnO2"}], "aggregation": "AVG"}, "depends_on": []}]}
+{"t": 1790662620.136339, "event": "dispatch", "task": "t1", "cell": "pdb_sql"}
+{"t": 1790662620.1365492, "event": "failed", "task": "t1", "cell": "pdb_sql", "reason": "agent_ok: agent raised: 'str' object has no attribute 'get'"}
+{"t": 1790662620.137065, "event": "done", "run_id": "20260929T061700_97993", "summary": {"run_id": "20260929T061700_97993", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "agent_ok: agent raised: 'str' object has no attribute 'get'"}, "skipped": []}}

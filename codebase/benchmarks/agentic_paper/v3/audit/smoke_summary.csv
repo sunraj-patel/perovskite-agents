@@ -1,0 +1,9 @@
+episode_id,model,attempt,manifest_status,validity_rederived,termination,model_calls,empty_replies,finish_reasons,rate_limit_events,tool_calls,completed,correct,tool_f1,escalations,format_errors
+Q01__gemini__direct__r0,gemini-3.5-flash-lite,1,infra_failed,infra_invalid,turn_budget,10,10,"{""MALFORMED_FUNCTION_CALL"": 10, ""null"": 9}",30,0,0,0,0.0,,
+Q01__gemini__perovagents__r0,gemini-3.5-flash-lite,1,completed,valid,answer,5,0,"{""STOP"": 5}",0,2,1,1,1.0,0,0
+Q04__gemini__direct__r0,gemini-3.5-flash-lite,1,infra_failed,infra_invalid,timeout,30,30,"{""MALFORMED_FUNCTION_CALL"": 30}",33,0,0,0,0.0,,
+Q04__gemini__perovagents__r0,gemini-3.5-flash-lite,1,completed,valid,answer,12,3,"{""STOP"": 9, ""MALFORMED_FUNCTION_CALL"": 3}",0,4,1,0,0.67,1,0
+Q05__gemini__direct__r0,gemini-3.5-flash-lite,1,infra_failed,infra_invalid,turn_budget,7,7,"{""MALFORMED_FUNCTION_CALL"": 7, ""null"": 10}",35,0,0,0,0.0,,
+Q05__gemini__perovagents__r0,gemini-3.5-flash-lite,1,completed,valid,answer,8,0,"{""STOP"": 8}",0,4,1,1,1.0,1,0
+Q18__gemini__direct__r0,gemini-3.5-flash-lite,1,infra_failed,infra_invalid,timeout,25,25,"{""MALFORMED_FUNCTION_CALL"": 25, ""null"": 1}",36,0,0,0,0.0,,
+Q18__gemini__perovagents__r0,gemini-3.5-flash-lite,1,completed,valid,answer,13,1,"{""STOP"": 11, ""MALFORMED_FUNCTION_CALL"": 2}",0,6,1,1,0.86,0,0

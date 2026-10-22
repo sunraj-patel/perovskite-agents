@@ -1,0 +1,69 @@
+{
+ "episode_id": "Q29__deepseek__perovagents__r0",
+ "qid": "Q29",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T18:43:37",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What PCE does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite of 450 nm thickness? Report the prediction with its 95% interval.",
+ "finished_at": "2026-10-21T18:43:37",
+ "seconds": 0.0,
+ "termination": "answer",
+ "final_answer": "[PROVIDER FAILURE] backbone unavailable; episode aborted.",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 0,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 0,
+  "prompt_chars": 0,
+  "completion_chars": 0,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 1,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 0,
+  "infra_failed": true,
+  "infra_reason": "rate_limit: free usage exceeded (quota resets at epoch 1792627200)",
+  "provider_events": [
+   {
+    "type": "rate_limit",
+    "detail": "free usage exceeded (quota resets at epoch 1792627200)"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "rate_limit: free usage exceeded (quota resets at epoch 1792627200)"
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_184337_b9d7.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 0,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

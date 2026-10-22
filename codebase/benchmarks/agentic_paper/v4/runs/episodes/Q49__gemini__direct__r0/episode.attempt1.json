@@ -1,0 +1,716 @@
+{
+ "episode_id": "Q49__gemini__direct__r0",
+ "qid": "Q49",
+ "category": "literature",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:20:18",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "Find the paper in the collection on quasi-2D bromide perovskite solar cells of the type (PEA)2(MA)n-1PbnBr3n+1 with high open-circuit voltage. Give its DOI and the Voc demonstrated when a hole-transport material is used.",
+ "finished_at": "2026-10-22T00:20:43",
+ "seconds": 24.3,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT doi, title, abstract FROM devices WHERE abstract LIKE '%PEA%' AND abstract LIKE '%bromide%' LIMIT 10;"
+   },
+   "result": "ERROR: ValueError: no such column: doi Similar columns: ['Ref_DOI_number']",
+   "result_chars": 74,
+   "seconds": 0.001,
+   "t_offset_s": 1.66,
+   "error": true
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "DOI"
+   },
+   "result": "['Ref_DOI_number']",
+   "result_chars": 18,
+   "seconds": 0.0,
+   "t_offset_s": 2.82,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_DOI_number, Title, Abstract FROM devices WHERE Abstract LIKE '%(PEA)2%' OR Abstract LIKE '%quasi-2D%' LIMIT 15;"
+   },
+   "result": "ERROR: ValueError: no such column: Title Similar columns: []",
+   "result_chars": 60,
+   "seconds": 0.001,
+   "t_offset_s": 4.19,
+   "error": true
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_DOI_number, Abstract FROM devices WHERE Abstract LIKE '%(PEA)2%' OR Abstract LIKE '%quasi-2D%' LIMIT 15;"
+   },
+   "result": "ERROR: ValueError: no such column: Abstract Similar columns: []",
+   "result_chars": 63,
+   "seconds": 0.001,
+   "t_offset_s": 5.24,
+   "error": true
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT name FROM sqlite_master WHERE type='table';"
+   },
+   "result": "{'columns': ['name'], 'n_rows': 1, 'rows': [{'name': 'devices'}]}",
+   "result_chars": 65,
+   "seconds": 0.001,
+   "t_offset_s": 6.72,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "abstract"
+   },
+   "result": "[]",
+   "result_chars": 2,
+   "seconds": 0.0,
+   "t_offset_s": 8.19,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "perovskite"
+   },
+   "result": "['Perovskite_single_crystal', 'Perovskite_dimension_0D', 'Perovskite_dimension_2D', 'Perovskite_dimension_2D3D_mixture', 'Perovskite_dimension_3D', 'Perovskite_dimension_3D_with_2D_capping_layer', 'Perovskite_dimension_list_of_layers', 'Perovskite_composition_perovskite_ABC3_structure', 'Perovskite_composition_perovskite_inspired_structure', 'Perovskite_composition_a_ions', 'Perovskite_composition_a_ions_coefficients', 'Perovskite_composition_b_ions', 'Perovskite_composition_b_ions_coefficients', 'Perovskite_composition_c_ions', 'Perovskite_composition_c_ions_coefficients', 'Perovskite_composition_none_stoichiometry_components_in_excess', 'Perovskite_composition_short_form', 'Perovskite_composition_long_form', 'Perovskite_composition_assumption', 'Perovskite_composition_inorganic', 'Perovskite_composition_leadfree', 'Perovskite_additives_compounds', 'Perovskite_additives_concentrations', 'Perovskite_thickness', 'Perovskite_band_gap', 'Perovskite_band_gap_graded', 'Perovskite_band_gap_estimation_basis', 'Perovskite_pl_max', 'Perovskite_deposition_number_of_deposition_steps', 'Perovskite_deposition_procedure', 'Perovskite_deposition_aggregation_state_of_reactants', 'Perovskite_deposition_synthesis_atmosphere', 'Perovskite_deposition_synthesis_atmosphere_pressure_total', 'Perovskite_deposition_synthesis_atmosphere_pressure_partial', 'Perovskite_deposition_synthesis_atmosphere_relative_humidity', 'Perovskite_deposition_solvents', 'Perovskite_deposition_solvents_mixing_ratios', 'Perovskite_deposition_solvents_supplier', 'Perovskite_deposition_solvents_purity', 'Perovskite_deposition_reaction_solutions_compounds']",
+   "result_chars": 1635,
+   "seconds": 0.0,
+   "t_offset_s": 9.21,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "Voc"
+   },
+   "result": "['JV_reverse_scan_Voc', 'JV_forward_scan_Voc', 'JV_default_Voc', 'JV_default_Voc_scan_direction']",
+   "result_chars": 97,
+   "seconds": 0.001,
+   "t_offset_s": 20.03,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "transport"
+   },
+   "result": "[]",
+   "result_chars": 2,
+   "seconds": 0.0,
+   "t_offset_s": 21.49,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_DOI_number, Perovskite_dimension_2D, JV_default_Voc FROM devices WHERE Perovskite_dimension_2D LIKE '%PEA%' LIMIT 20;"
+   },
+   "result": "{'columns': ['Ref_DOI_number', 'Perovskite_dimension_2D', 'JV_default_Voc'], 'n_rows': 0, 'rows': []}",
+   "result_chars": 101,
+   "seconds": 0.037,
+   "t_offset_s": 22.7,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_DOI_number, Perovskite_dimension_list_of_layers, JV_default_Voc FROM devices WHERE Perovskite_dimension_list_of_layers LIKE '%PEA%' LIMIT 20;"
+   },
+   "result": "{'columns': ['Ref_DOI_number', 'Perovskite_dimension_list_of_layers', 'JV_default_Voc'], 'n_rows': 0, 'rows': []}",
+   "result_chars": 113,
+   "seconds": 0.039,
+   "t_offset_s": 24.24,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 11,
+ "n_model_calls": 14,
+ "repeated_tool_calls": 0,
+ "tool_errors": 3,
+ "retries": 0,
+ "provider": {
+  "model_calls": 14,
+  "prompt_chars": 91907,
+  "completion_chars": 1193,
+  "real_prompt_tokens": 19433,
+  "real_completion_tokens": 333,
+  "usage_reported_calls": 10,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 20.2,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.0,
+    "latency_s": 1.66,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5185,
+    "text_len": 146,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "awnZataIFK-X4-EPjYmcYQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "text",
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1593,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1593
+     },
+     "slot": 12,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.66,
+     "text_len": 146,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT doi, title, abstract FROM devices WHERE abstract LIKE '%PEA%' AND abstract LIKE '%bromide%' LIMIT 10;\"}}"
+    }
+   },
+   {
+    "i": 2,
+    "t_offset_s": 1.66,
+    "latency_s": 1.16,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5388,
+    "text_len": 52,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "bQnZaofGDbfy4-EP35-ceQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1647,
+      "completion_tokens": 17,
+      "thinking_tokens": null,
+      "total_tokens": 1664
+     },
+     "slot": 14,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.16,
+     "text_len": 52,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"DOI\"}}"
+    }
+   },
+   {
+    "i": 3,
+    "t_offset_s": 2.82,
+    "latency_s": 1.37,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5443,
+    "text_len": 160,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "bgnZapfbHrvljuMPvJjxcA",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1666,
+      "completion_tokens": 50,
+      "thinking_tokens": null,
+      "total_tokens": 1716
+     },
+     "slot": 15,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.36,
+     "text_len": 160,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Ref_DOI_number, Title, Abstract FROM devices WHERE Abstract LIKE '%(PEA)2%' OR Abstract LIKE '%quasi-2D%' LIMIT 15;\"}}"
+    }
+   },
+   {
+    "i": 4,
+    "t_offset_s": 4.19,
+    "latency_s": 1.05,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5648,
+    "text_len": 153,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "bwnZau6AIrO4juMPjNCnmA4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1724,
+      "completion_tokens": 48,
+      "thinking_tokens": null,
+      "total_tokens": 1772
+     },
+     "slot": 16,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.05,
+     "text_len": 153,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Ref_DOI_number, Abstract FROM devices WHERE Abstract LIKE '%(PEA)2%' OR Abstract LIKE '%quasi-2D%' LIMIT 15;\"}}"
+    }
+   },
+   {
+    "i": 5,
+    "t_offset_s": 5.24,
+    "latency_s": 1.48,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5849,
+    "text_len": 88,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cAnZarrTM_eqmNMP5sWEkAw",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1780,
+      "completion_tokens": 25,
+      "thinking_tokens": null,
+      "total_tokens": 1805
+     },
+     "slot": 18,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.47,
+     "text_len": 88,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT name FROM sqlite_master WHERE type='table';\"}}"
+    }
+   },
+   {
+    "i": 6,
+    "t_offset_s": 6.72,
+    "latency_s": 1.47,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5987,
+    "text_len": 57,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cgnZaqnFHfzVqfkP9Km44QY",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1824,
+      "completion_tokens": 17,
+      "thinking_tokens": null,
+      "total_tokens": 1841
+     },
+     "slot": 0,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.47,
+     "text_len": 57,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"abstract\"}}"
+    }
+   },
+   {
+    "i": 7,
+    "t_offset_s": 8.19,
+    "latency_s": 1.01,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6031,
+    "text_len": 59,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cwnZarCVJ7fy4-EP35-ceQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1837,
+      "completion_tokens": 19,
+      "thinking_tokens": null,
+      "total_tokens": 1856
+     },
+     "slot": 3,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.01,
+     "text_len": 59,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"perovskite\"}}"
+    }
+   },
+   {
+    "i": 8,
+    "t_offset_s": 9.21,
+    "latency_s": 1.89,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7710,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "dAnZaujnNoPYg8UPuY6uyA8",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2345,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 2345
+     },
+     "slot": 9,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.88,
+     "text_len": 0
+    },
+    "empty_class": "malformed_function_call"
+   },
+   {
+    "i": 9,
+    "t_offset_s": 13.09,
+    "latency_s": 1.82,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7710,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "eAnZataeIp7-4-EP89uUwA4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2345,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 2345
+     },
+     "slot": 13,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.82,
+     "text_len": 0
+    },
+    "empty_class": "malformed_function_call"
+   },
+   {
+    "i": 10,
+    "t_offset_s": 16.92,
+    "latency_s": 1.73,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7710,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "fAnZasjZGK6LqfkP2_nFmA4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2345,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 2345
+     },
+     "slot": 14,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.72,
+     "text_len": 0
+    },
+    "empty_class": "malformed_function_call"
+   },
+   {
+    "i": 11,
+    "t_offset_s": 18.65,
+    "latency_s": 1.38,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7793,
+    "text_len": 52,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "fgnZap_MFtPQqfkPkL7MuAE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2367,
+      "completion_tokens": 17,
+      "thinking_tokens": null,
+      "total_tokens": 2384
+     },
+     "slot": 15,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.37,
+     "text_len": 52,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"Voc\"}}"
+    }
+   },
+   {
+    "i": 12,
+    "t_offset_s": 20.03,
+    "latency_s": 1.46,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 7927,
+    "text_len": 58,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "fwnZapLKOO_XjuMPg9XC0QE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2415,
+      "completion_tokens": 17,
+      "thinking_tokens": null,
+      "total_tokens": 2432
+     },
+     "slot": 16,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.46,
+     "text_len": 58,
+     "raw_text": "{\"tool\": \"find_columns\", \"args\": {\"keyword\": \"transport\"}}"
+    }
+   },
+   {
+    "i": 13,
+    "t_offset_s": 21.49,
+    "latency_s": 1.21,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6637,
+    "text_len": 178,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "gQnZatbMA5r04-EPm4n14AE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2041,
+      "completion_tokens": 61,
+      "thinking_tokens": null,
+      "total_tokens": 2102
+     },
+     "slot": 17,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.21,
+     "text_len": 178,
+     "raw_text": "```json\n{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Ref_DOI_number, Perovskite_dimension_2D, JV_default_Voc FROM devices WHERE Perovskite_dimension_2D LIKE '%PEA%' LIMIT 20;\"}}\n```"
+    }
+   },
+   {
+    "i": 14,
+    "t_offset_s": 22.74,
+    "latency_s": 1.5,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6889,
+    "text_len": 190,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "ggnZaqWYJfad4-EPsMykcQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2132,
+      "completion_tokens": 62,
+      "thinking_tokens": null,
+      "total_tokens": 2194
+     },
+     "slot": 18,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.5,
+     "text_len": 190,
+     "raw_text": "{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Ref_DOI_number, Perovskite_dimension_list_of_layers, JV_default_Voc FROM devices WHERE Perovskite_dimension_list_of_layers LIKE '%PEA%' LIMIT 20;\"}}"
+    }
+   }
+  ],
+  "empty_reply_calls": 3,
+  "empty_reply_classes": {
+   "malformed_function_call": 3
+  },
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 14,
+  "replies": 14,
+  "empty_replies": 3,
+  "empty_classes": {
+   "malformed_function_call": 3
+  },
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "find_columns({'keyword': 'Voc'})",
+    "['JV_reverse_scan_Voc', 'JV_forward_scan_Voc', 'JV_default_Voc', 'JV_default_Voc_scan_direction']"
+   ],
+   [
+    "find_columns({'keyword': 'transport'})",
+    "[]"
+   ],
+   [
+    "sql({'query': \"SELECT Ref_DOI_number, Perovskite_dimension_2D, JV_default_Voc FROM devices WHERE Perovskite_dimension_2D LIKE '%PEA%' LIMIT 20;\"})",
+    "{'columns': ['Ref_DOI_number', 'Perovskite_dimension_2D', 'JV_default_Voc'], 'n_rows': 0, 'rows': []}"
+   ],
+   [
+    "sql({'query': \"SELECT Ref_DOI_number, Perovskite_dimension_list_of_layers, JV_default_Voc FROM devices WHERE Perovskite_dimension_list_of_layers LIKE '%PEA%' LIMIT 20;\"})",
+    "{'columns': ['Ref_DOI_number', 'Perovskite_dimension_list_of_layers', 'JV_default_Voc'], 'n_rows': 0, 'rows': []}"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

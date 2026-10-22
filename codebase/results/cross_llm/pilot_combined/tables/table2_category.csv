@@ -1,0 +1,7 @@
+category,system,n,completion,tool_f1,scientific
+literature,mrs,1,0.0,0.667,0.0
+ml,mrs,1,1.0,1.0,
+multi_tool,mrs,2,0.0,0.191,0.0
+pdb,gemini,1,1.0,1.0,1.0
+pdb,mrs,2,0.0,0.584,0.0
+scaps,mrs,1,1.0,0.667,1.0

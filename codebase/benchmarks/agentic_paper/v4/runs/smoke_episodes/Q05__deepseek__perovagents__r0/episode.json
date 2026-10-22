@@ -1,0 +1,392 @@
+{
+ "episode_id": "Q05__deepseek__perovagents__r0",
+ "qid": "Q05",
+ "category": "literature",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:05:03",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "Find literature evidence describing strategies for improving the performance of SnO2-based n-i-p perovskite solar cells. Give the strategy, mechanism, and supporting citation.",
+ "finished_at": "2026-10-22T00:07:19",
+ "seconds": 135.6,
+ "termination": "answer",
+ "final_answer": "Literature evidence is limited \u2014 the corpus search mostly returned non-qualifying papers (Sn-doped TiO2 ETLs, and a PCBM/PEDOT:PSS inverted device), so the only usable passage is one SnO2-based planar PSC paper.\n\nStrategy 1 \u2014 Perovskite surface passivation with 1-adamantylamine hydrochloride (ADAHCl)\nMechanism \u2014 Improves perovskite film quality by retarding surface recombination, giving higher Voc and lower hysteresis.\nCitation \u2014 DOI 10.1002/aenm.201803587: \"subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination \u2026 a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV.\"\n\nStrategy 2 \u2014 Chloride additive (FACl) for controllable perovskite crystallization via antisolvent deposition\nMechanism \u2014 Chloride additive controls crystallization/film morphology, and treated devices showed improved stability (95% of initial PCE retained after 90 d vs 86.5% for untreated).\nCitation \u2014 DOI 10.1002/aenm.201803587: \"Our results show an improved stability for FACl- and ADAHCl-treated devices (95% of initial PCE retained after 90 d) as compared to FACl-treated PSCs (91%) and reference untreated samples (86.5%).\"\n\nWhat could not be established: The paper is described as a \"SnO2-based planar PSC\" but the passage does not explicitly label the architecture n-i-p; this is inferred from the SnO2 electron-transport-layer configuration rather than stated. No direct SnO2 ETL doping, bilayer/multilayer ETL, nanoparticle morphology/size control, or SnO2 deposition/annealing-optimization evidence was retrieved \u2014 the other hits concerned Sn-doped TiO2 or a PEDOT:PSS/PCBM inverted device and were rejected. The literature agent escalated three times (INCOMPLETE/REPEATED_ACTION) without producing any further qualifying papers.",
+ "tool_calls": [
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 surface passivation interface modification electron extraction reduce recombination",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 surface passivation interface modification electron extraction reduce recombination', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.521, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '5.2. Device fabrication and characterization', 'passage_id': 935, 'score': 0.514, 'text': 'ealed at 140 \u00b0C for 10 min in ambient air. The perovskite layers were spin coated on ITO/PEDOT:PSS. 20 mg/Ml and PCBM in chlorobenzene solution was deposited on the top perovskite films at 1500 rpm for 30 s as electron transporting layer. After that, Ag (100 nm) layer was thermally evaporated with a shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. '}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '4. Experimental Section', 'passage_id': 223, 'score': 0.513, 'text': 'the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 509, 'score': 0.506, 'text': ' charge transfer in interface of Sn-doped TiO<sub>2</sub> and perovskite, higher conductivity of Sn-TiO2 film, larger perovskite crystal size and lower trap states [51]. The surface composition and chemical states of doped and undoped TiO<sub>2</sub> films were studied by XPS. The XPS survey spectrum Fig. 5a proves the existence of Sn element in 3.5% Sn-doped TiO<sub>2</sub> film. To further investigate the influence of inserting Sn<sup>4+</sup> ions into TiO<sub>2</sub> lattice, the detailed XPS spectra of Ti 2p, O 1s and Sn 3d peaks are detected as well (Fig. 5). After doping tin ions, the T'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 499, 'score': 0.494, 'text': 'a); (2) the more efficient charge extraction at Sn-doped TiO<sub>2</sub>/perovskite interface due to the higher conductivity of Sn-doped TiO<sub>2</sub> film (Table S1). The high Voc may be ascribed to the reduced charge recombination and improved charge separation/collection. However, it is interesting that the further increase of the Sn doping content results the decrease in the PSC performance with lower Jsc and FF (Table S2). The decline in PSC performance may be attributed to overdose Sn doping concentration in the TiO<sub>2</sub> introduced unexpected electron trapping sites, which is de'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 523, 'score': 0.494, 'text': 'charge injection from perovskite film into 3.5% Sn-doped TiO<sub>2</sub> is faster than that into pristine TiO<sub>2</sub>. Reasonably, both PL quenching and lifetime decay tendency are in perfect agreement with the corresponding device performance summarized in Table S2. The high electron injection rate from the perovskite into Sn-doped TiO<sub>2</sub> film may be beneficial for more efficient charge separation and more effective suppression of charge recombination at the perovskite/Sn-doped TiO<sub>2</sub> interface, leading to overall increased PSCs performance. Electrochemical impedance sp'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '5.2. Device fabrication and characterization', 'passage_id': 936, 'score': 0.488, 'text': ' shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. The following process is the same as the mentioned above. The current density-voltage (J-V) characteristics of the device cells were performed using a programmable Keithley 2612 source measurement unit under simulated solar light (Oriel model 91160, 100 mW/cm2 , AM 1.5 G). The external quantum effic'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '4. Experimental Section', 'passage_id': 87, 'score': 0.485, 'text': 'Br2. *Device Fabrication*: The TiO2 nanoparticles (20 nm, dyesol) were diluted 1:4 ratio in ethanol and spin coated (5000 rpm, 30 s) onto a substrate with the following architecture of SnO2:F(FTO) conductive glass (15 O cm1 , Pilkington) coated by a layer of compact TiO2 (TiDIP, 75% in isopropanol Aldrich). The substrate was then treated with TiCl4. (PEA)2(MA)*n*\u20131Pb*n*Br3*n*<sup>+</sup>1 perovskite 10 \u2264 *n* < \u221e solution was dropped on the substrate and spin coated in two-step 1000 and 5000 rpm for 10 and 60 s, respectively. During the second spin, 40 \u00b5L of toluene were deposited dropwise on t'}, {'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': '2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films', 'passage_id': 1837, 'score': 0.483, 'text': 'ormity, and chemical reactivity are interdependent in our solution processing steps. For device fabrication, both local non-stoichiometric regions (at the nanoscale) and interfacial recombination sites needed to be minimized. This includes (external and internal) surface dangling bonds. The solar cell performance was further optimized by improving the band gap alignment between the TiO2 photo-anode and photon-absorber. To this end we determined the optimum amount of Sn doping in TiO2. The nominal open circuit voltage, $V_{oc}$ , of the cells using Cs<sub>2</sub>SnI<sub>6</sub> is $\\\\sim$ 0.26 e'}, {'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': '2.2. Interfacial bandgap engineering', 'passage_id': 1916, 'score': 0.478, 'text': 'atch between TiO2 and SnO<sub>2</sub>.<sup>24,25</sup> Most importantly, the conduction band edge of SnO<sub>2</sub> is about 0.4 eV lower than that of TiO2.26,27 Thus we expect that Sn ions lead to an appropriate band alignment by reducing the position of the conduction band edge of TiO<sub>2</sub>. In our experiment, Sn-TiO<sub>2</sub> films were prepared by a simple hydrothermal method and E-spraying technique similar to that discussed above. Titanium(IV) isopropoxide (100 mL) was separately mixed with a solution containing appropriate amounts of SnCl<sub>2</sub> (Aldrich, 98%) in water. Th'}]}",
+   "result_chars": 8272,
+   "seconds": 6.752,
+   "t_offset_s": 28.2,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transport layer interface passivation surface treatment recombination perovskite solar cell",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 electron transport layer interface passivation surface treatment recombination perovskite solar cell', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 140, 'score': 0.746, 'text': 'the perovskite underlayer and without contributing to parasitic absorption in perovskite solar cells. We observe that subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination, as shown by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h a'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '3. Discussion', 'passage_id': 916, 'score': 0.732, 'text': 'I2) near the interface between the perovskite and the top electron transporting layer [\\\\(Figs. 1 and 3](#page-1-0)). The detachment behavior between the perovskite and the bottom hole transporting layer also limits the photogenerated carrier collection at the contact ([Fig. 2](#page-2-0)). In addition, the surface electronic structure of the perovskite film significantly is modified with an increased hole extraction barrier that leads to energy loss for the solar cell [\\\\(Fig. 4](#page-4-0)). From the proposed degradation mechanism and the impact on the device performance it is easy to understa'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.726, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.719, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 142, 'score': 0.713, 'text': 'The triple A-cation mixed-halide (ABX3) perovskite composition \"CsMAFA\" (cesium, methylammonium, and formamidinium) is employed as a reference system and deposited using the antisolvent technique. Here, we study the effect of chloride additives on the surface morphology and the photovoltaic performance of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the sur'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.691, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 560, 'score': 0.691, 'text': 'i, R. Asadpour, J.C. Blancon, A.J. Neukirch, G. Gupta, J.J. Crochet, M. Chhowalla, S. Tretiak, M.A. Alam, Solar cells. High-efficiency solutionprocessed perovskite solar cells with millimeter-scale grains, Science 347 (2015) 522\u2013525. - [15] W.S. Yang, J.H. Noh, N.J. Jeon, Y.C. Kim, S. Ryu, J. Seo, S.I. Seok, High-performance photovoltaic perovskite layers fabricated through intramolecular exchange, Science 348 (2015) 1234\u20131237. - change, Science 348 (2015) 1234\u20131237. [16] N.J. Jeon, J.H. Noh, W.S. Yang, Y.C. Kim, S. Ryu, J. Seo, S.I. Seok, Compositional engineering of perovskite materials for '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 567, 'score': 0.688, 'text': ' V. Bojinov, S.M. Zakeeruddin, M.K. Nazeeruddin, M. Gr\u00e4tzel, Light harvesting and charge recombination in CH<sub>3</sub>NH<sub>3</sub>Pbl<sub>3</sub> perovskite solar cells studied by hole transport layer thickness variation, ACS Nano 9 (2015) 4200\u20134209. - [25] G.S. Han, H.S. Chung, B.J. Kim, D.H. Kim, J.W. Lee, B.S. Swain, K. Mahmood, J.S. Yoo, N.G. Park, J.H. Lee, H.S. Jung, Retarding charge recombination in perovskite solar cells using ultrathin MgO-coated TiO<sub>2</sub> nanoparticulate films, J. Mater. Chem. 3 (2015) 9160\u20139164. - [26] J.H. Im, I.H. Jang, N. Pellet, M. Gr\u00e4tzel, N.G. Park, '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 566, 'score': 0.687, 'text': '), 063903. - [23] Y. Yamada, T. Nakamura, M. Endo, A. Wakamiya, Y. Kanemitsu, Photocarrier recombination dynamics in perovskite CH<sub>3</sub>NH<sub>3</sub>PbI<sub>3</sub> for solar cell applications, J. Am. Chem. Soc. 136 (2014) 11610\u201311613. - [24] N. Marinova, W. Tress, R. Humphry-Baker, M.I. Dar, V. Bojinov, S.M. Zakeeruddin, M.K. Nazeeruddin, M. Gr\u00e4tzel, Light harvesting and charge recombination in CH<sub>3</sub>NH<sub>3</sub>Pbl<sub>3</sub> perovskite solar cells studied by hole transport layer thickness variation, ACS Nano 9 (2015) 4200\u20134209. - [25] G.S. Han, H.S. Chung, B.J. Kim, D.H. K'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 561, 'score': 0.687, 'text': '.I. Seok, High-performance photovoltaic perovskite layers fabricated through intramolecular exchange, Science 348 (2015) 1234\u20131237. - change, Science 348 (2015) 1234\u20131237. [16] N.J. Jeon, J.H. Noh, W.S. Yang, Y.C. Kim, S. Ryu, J. Seo, S.I. Seok, Compositional engineering of perovskite materials for high-performance solar cells, Nature 517 (2015) 476\u2013480. - [17] W. Chen, Y. Wu, Y. Yue, J. Liu, W. Zhang, X. Yang, H. Chen, E. Bi, I. Ashraful, M. Gr\u00e4tzel, Efficient and stable large-area perovskite solar cells with inorganic charge extraction layers, Science 350 (2015) 944\u2013948. - [18] Efficiency Re'}]}",
+   "result_chars": 7772,
+   "seconds": 0.081,
+   "t_offset_s": 37.84,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transport layer doping",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 electron transport layer doping', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': '2.2. Interfacial bandgap engineering', 'passage_id': 1915, 'score': 0.616, 'text': 'h to be an efficient electron transport layer. In order to tailor appropriate band gap alignment for solar cell application, TiO2 was modified through the addition of Sn as a doping element. Tin is ideal for this purpose because of its structural compatibility and stability due to small lattice mismatch between TiO2 and SnO<sub>2</sub>.<sup>24,25</sup> Most importantly, the conduction band edge of SnO<sub>2</sub> is about 0.4 eV lower than that of TiO2.26,27 Thus we expect that Sn ions lead to an appropriate band alignment by reducing the position of the conduction band edge of TiO<sub>2</sub>'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 473, 'score': 0.598, 'text': '/sub> film; the calculated values of the electron mobility are $5.06 \\\\times 10^{-4}$ and $8.71 \\\\times 10^{-4} \\\\, \\\\mathrm{cm}^2 \\\\, \\\\mathrm{V}^{-1} \\\\, \\\\mathrm{s}^{-1}$ for pristine TiO<sub>2</sub> and 3.5 mol % Sn-doped TiO<sub>2</sub>, respectively, demonstrating that the Sn doping can effectively promote the electron transport in TiO<sub>2</sub> film. To further investigate the defect-state density of Sn-doping on the density of electron trap state in the perovskite films, the pristine TiO<sub>2</sub> or 3.5% Sn-doped TiO<sub>2</sub> film-based devices (FTO/pristine or 3.5% Sn-doped TiO<sub>2<'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 509, 'score': 0.584, 'text': ' charge transfer in interface of Sn-doped TiO<sub>2</sub> and perovskite, higher conductivity of Sn-TiO2 film, larger perovskite crystal size and lower trap states [51]. The surface composition and chemical states of doped and undoped TiO<sub>2</sub> films were studied by XPS. The XPS survey spectrum Fig. 5a proves the existence of Sn element in 3.5% Sn-doped TiO<sub>2</sub> film. To further investigate the influence of inserting Sn<sup>4+</sup> ions into TiO<sub>2</sub> lattice, the detailed XPS spectra of Ti 2p, O 1s and Sn 3d peaks are detected as well (Fig. 5). After doping tin ions, the T'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 468, 'score': 0.576, 'text': 'ited improved conductivity as increasing the amount of Sn<sup>4+</sup> doping ions. The reason for this phenomenon may be ascribed to the fact that the coordination of Ti<sup>4+</sup> and O<sup>2-</sup> in TiO<sub>2</sub> crystal lattice was replaced with Sn ion. Meanwhile, a defect energy level whose position was lower than the TiO<sub>2</sub> conduction band was formed, leading to an increased $\\\\sigma_0$ . The mobility of pristine TiO<sub>2</sub> and 3.5 mol % Sn-doped TiO<sub>2</sub> is obtained by fitting the current versus voltage (I\u2013V) curves of electron-only devices (FTO/SnO<sub>2</sub>'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 514, 'score': 0.567, 'text': 'rd shift by about 230 meV for the Fermi energy level of the Sn-doped film is found, obviously larger than the energy resolution of the XPS measurement [36]. This implies that the oxygen vacancy in Sn-doped film is significantly increased or that the Ti 3d defect state trap in Sn-doped one can be effectively filled [53]. Reasonably, the electron mobility of the $TiO_2$ film can be enhanced by these two effects, resulted in the improved performance of PSCs. The chemical constituents present in the sample according to the XPS results are shown in Table S4. The XPS result shows that the Sn element'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 499, 'score': 0.566, 'text': 'a); (2) the more efficient charge extraction at Sn-doped TiO<sub>2</sub>/perovskite interface due to the higher conductivity of Sn-doped TiO<sub>2</sub> film (Table S1). The high Voc may be ascribed to the reduced charge recombination and improved charge separation/collection. However, it is interesting that the further increase of the Sn doping content results the decrease in the PSC performance with lower Jsc and FF (Table S2). The decline in PSC performance may be attributed to overdose Sn doping concentration in the TiO<sub>2</sub> introduced unexpected electron trapping sites, which is de'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.564, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 463, 'score': 0.563, 'text': 'e with increased Sn doping (Fig. 1b). It can be attributed to the larger ionic radius of Sn<sup>4+</sup> (69 p.m.), compared with that of Ti<sup>4+</sup> (61 p.m.) [41]. No other peaks correlated to Sn, SnO<sub>2</sub>, SnCl<sub>4</sub> were detected, indicating that Sn has been successfully doped into TiO2 lattice. The HRTEM images of pristine TiO<sub>2</sub> and 3.5 mol % Sn-doped TiO<sub>2</sub> are shown in the Fig. S2. The corresponding lattice fringes were clearly observed, indicating that TiO<sub>2</sub> film was formed with good crystallinity. The interplanar spacing was determined to '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 512, 'score': 0.558, 'text': 'ond, thereby increasing the Ti 2p core level binding energy, suggesting that Sn is successfully incorporated into ![](_page_4_Figure_7.jpeg) Fig. 5. XPS spectra of TiO2 and Sn-doped TiO2 films: (a) XPS survey spectrum of 3.5% Sn -doped TiO2, (b) Ti 2p, (c) O 1s and (d) Sn 3d. the $TiO_2$ lattice. Due to the pretty close radii of $Sn^{4+}$ (69 p.m.) and $Ti^{4+}$ (61 p.m.) ions, Ti ions or Ti vacancies can be easily replaced or filled by $Sn^{4+}$ ions. The XPS valence band spectra are present to further reveal the influence of Sn doping on the electronic structure, as shown in Fig. S7a. A upwa'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.557, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}]}",
+   "result_chars": 7898,
+   "seconds": 7.083,
+   "t_offset_s": 32.04,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transport layer perovskite solar cell",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 electron transport layer perovskite solar cell', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.792, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.759, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.74, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 142, 'score': 0.72, 'text': 'The triple A-cation mixed-halide (ABX3) perovskite composition \"CsMAFA\" (cesium, methylammonium, and formamidinium) is employed as a reference system and deposited using the antisolvent technique. Here, we study the effect of chloride additives on the surface morphology and the photovoltaic performance of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the sur'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '3. Discussion', 'passage_id': 916, 'score': 0.718, 'text': 'I2) near the interface between the perovskite and the top electron transporting layer [\\\\(Figs. 1 and 3](#page-1-0)). The detachment behavior between the perovskite and the bottom hole transporting layer also limits the photogenerated carrier collection at the contact ([Fig. 2](#page-2-0)). In addition, the surface electronic structure of the perovskite film significantly is modified with an increased hole extraction barrier that leads to energy loss for the solar cell [\\\\(Fig. 4](#page-4-0)). From the proposed degradation mechanism and the impact on the device performance it is easy to understa'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 595, 'score': 0.717, 'text': '7/sref54) [solar cells, Nano Energy 11 \\\\(2015\\\\) 409](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref54)e[418.](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref54) - [55] [Q. Dong, Y. Shi, K. Wang, Y. Li, S. Wang, H. Zhang, Y. Xing, Y. Du, X. Bai, T. Ma,](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [Insight into perovskite solar cells based on SnO2](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [compact electron-selective](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [layer, J. Phys. Chem. C 119 \\\\(2015\\\\) 10212](http://refhub.elsevier.com/S0013-4686'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 140, 'score': 0.708, 'text': 'the perovskite underlayer and without contributing to parasitic absorption in perovskite solar cells. We observe that subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination, as shown by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h a'}, {'doi': '10.1038/ncomms15330', 'paper_title': 'ARTICLE', 'section': 'Diffusion engineering of ions and charge carriers for stable efficient perovskite solar cells', 'passage_id': 1696, 'score': 0.704, 'text': 'Enbing Bi1,2,\\\\*, Han Chen1,\\\\*, Fengxian Xie2,\\\\*, Yongzhen Wu2, Wei Chen2, Yanjie Su3, Ashraful Islam2, Michael Gra\u00a8tzel4, Xudong Yang1 & Liyuan Han1,2 Long-term stability is crucial for the future application of perovskite solar cells, a promising low-cost photovoltaic technology that has rapidly advanced in the recent years. Here, we designed a nanostructured carbon layer to suppress the diffusion of ions/molecules within perovskite solar cells, an important degradation process in the device. Furthermore, this nanocarbon layer benefited the diffusion of electron charge carriers to enable a hi'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1428, 'score': 0.699, 'text': ' SnF_2}$ (20 mol %) with the resultant photovoltaic parameters attained shown in Table 1 and Figure 2a. Short-circuit photocurrent density $(J_{sc})$ of 27.67 mA/cm<sup>2</sup> under AM 1.5G solar illumination has been observed for CsSnI<sub>3</sub> (with SnF<sub>2</sub>) solar cell, owing to the smaller band gap and better crystal quality attained by annealing the perovskite loaded TiO<sub>2</sub> films at 100 \u00b0C. The quality of the perovskite film is highly critical in affecting the cell performance as has been reported by other research groups and as such perovskite annealing temperatures a'}, {'doi': '10.1038/ncomms13503', 'paper_title': 'ARTICLE', 'section': 'References', 'passage_id': 1677, 'score': 0.697, 'text': 'ed solar cells require a mesoporous electron transporting scaffold (but not necessarily a hole conductor). Nano Lett. 14, 1000\u20131004 (2014). - 17. Smith, I. C. et al. A layered hybrid perovskite solar-cell absorber with enhanced moisture stability. Angew. Chem. Int. Ed. 53, 11232\u201311235 (2014). - 18. Cao, D. H. et al. 2D homologous perovskites as light-absorbing materials for solar cell applications. J. Am. Chem. Soc. 137, 7843\u20137850 (2015). - 19. Jiang, Q. et al. Pseudohalide-induced moisture tolerance in perovskite CH3NH3Pb(SCN)2I thin films. Angew. Chem. Int. Ed. 54, 7617\u20137620 (2015). - 20. Li'}]}",
+   "result_chars": 7883,
+   "seconds": 0.061,
+   "t_offset_s": 45.02,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 surface modification passivation layer self-assembled monolayer Lewis base coating electron extraction",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 surface modification passivation layer self-assembled monolayer Lewis base coating electron extraction', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '5.2. Device fabrication and characterization', 'passage_id': 935, 'score': 0.536, 'text': 'ealed at 140 \u00b0C for 10 min in ambient air. The perovskite layers were spin coated on ITO/PEDOT:PSS. 20 mg/Ml and PCBM in chlorobenzene solution was deposited on the top perovskite films at 1500 rpm for 30 s as electron transporting layer. After that, Ag (100 nm) layer was thermally evaporated with a shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. '}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.535, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': '2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films', 'passage_id': 1846, 'score': 0.494, 'text': '. A2SnX6), resulting in a Werner-like coordination complex. 15,16 The +4 oxidation state of Sn in Cs<sub>2</sub>SnI<sub>6</sub> leads to its intrinsic stability. In addition, Fig. 1c shows the differences in the surface and cross-sectional morphologies in the Cs<sub>2</sub>SnI<sub>6</sub> compound when CsI layers (from drop-coating and Espray coating) were soaked in SnI<sub>4</sub> solution and dried. We note that in the case of E-sprayed CsI coating, the formed Cs<sub>2</sub>SnI<sub>6</sub> compound has a smoother surface and interfaces as shown in Fig. 1c. This was verified by using a surfac'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '4. Experimental Section', 'passage_id': 223, 'score': 0.486, 'text': 'the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 515, 'score': 0.478, 'text': 'ectively filled [53]. Reasonably, the electron mobility of the $TiO_2$ film can be enhanced by these two effects, resulted in the improved performance of PSCs. The chemical constituents present in the sample according to the XPS results are shown in Table S4. The XPS result shows that the Sn element is distributed well within Sn-doped $TiO_2$ film. The time resolved photoluminescence (TRPL) decay characterization and steady-state photoluminescence (PL) spectra for the perovskite absorber layer deposited on TiO2 ETL were conducted to study the electron extraction and transport mechanism [54,55]'}, {'doi': '10.1063/1.4896779', 'paper_title': 'Electrical field profile and doping in planar lead halide perovskite solar cells *\u2299*', 'section': 'Electrical field profile and doping in planar lead halide perovskite solar cells', 'passage_id': 2331, 'score': 0.475, 'text': '*p-i-n* structure. All the studied cells of structure FTO/TiO<sub>2</sub>/PVK/spiro-OMeTad/Au were prepared over FTO (Pilkington TEC15, 15 $\\\\Omega$ /sq resistance), which were previously etched with zinc powder and HCl (2 M). The FTOs substrates were cleaned with soap (Hellmanex), deionized water, and ethanol, followed by sonication in a mixture acetone/isopropanol (v/v = 1:1). Before the deposition of electron selective contacts, substrates were treated in a UV-O<sub>3</sub> chamber for 30 min. The TiO<sub>2</sub> compact layer was deposited by spin-coating a mildly acidic solution of titaniu'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 487, 'score': 0.474, 'text': ' spiro-OMeTAD, and Au electrode of approximately 80 nm, 310 nm, 160 nm, and 80 nm, correspondingly. The band diagram of our cells is shown in Fig. S7b. The surface morphology of perovskite layers spin-coated on 3.5% Sn-doped TiO<sub>2</sub> and pristine TiO<sub>2</sub> films are shown in Fig. 3b and c. Compared with the SEM image of perovskite spin-coated on pristine TiO<sub>2</sub>, it is obvious that perovskite deposited on the 3.5% Sn-doped TiO<sub>2</sub> layer is obtained with larger grain size, which is consisted with reduction of full-width-of-half-maximum (FWHM) of XRD diffraction peak'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 158, 'score': 0.473, 'text': 's fabricated by the antisolvent method on SnO2-coated FTO glass a) before and b) after annealing, and c) after treatment with Cl additives. Cross-sectional view SEM images of devices d) without and e) with Cl additives, showing that Cl additives remove the capping layer of perovskite with small grains. Note that the SEM images taken by a focused ion beam (FIB) instrument and due to applying a high energy ion beam, the perovskite layer is decomposed partially, and the white dots are PbI2. study the surface roughness and morphology of the resulting perovskite films (Figure 2c,d). AFM results als'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '4. Experimental Section', 'passage_id': 87, 'score': 0.471, 'text': 'Br2. *Device Fabrication*: The TiO2 nanoparticles (20 nm, dyesol) were diluted 1:4 ratio in ethanol and spin coated (5000 rpm, 30 s) onto a substrate with the following architecture of SnO2:F(FTO) conductive glass (15 O cm1 , Pilkington) coated by a layer of compact TiO2 (TiDIP, 75% in isopropanol Aldrich). The substrate was then treated with TiCl4. (PEA)2(MA)*n*\u20131Pb*n*Br3*n*<sup>+</sup>1 perovskite 10 \u2264 *n* < \u221e solution was dropped on the substrate and spin coated in two-step 1000 and 5000 rpm for 10 and 60 s, respectively. During the second spin, 40 \u00b5L of toluene were deposited dropwise on t'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 596, 'score': 0.463, 'text': '686(17)32673-7/sref55) [Insight into perovskite solar cells based on SnO2](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [compact electron-selective](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [layer, J. Phys. Chem. C 119 \\\\(2015\\\\) 10212](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55)e[10217](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55). - [56] [J.C. Yu, D.B. Kim, G. Baek, B.R. Lee, E.D. Jung, S. Lee, J.H. Chu, D.K. Lee, K.J. Choi,](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref56) [S. Cho, High-performance planar perovskite optoelectronic d'}]}",
+   "result_chars": 8456,
+   "seconds": 0.337,
+   "t_offset_s": 89.5,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transport layer modified self-assembled monolayer Lewis base passivation electron extraction",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 electron transport layer modified self-assembled monolayer Lewis base passivation electron extraction', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.535, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '5.2. Device fabrication and characterization', 'passage_id': 935, 'score': 0.501, 'text': 'ealed at 140 \u00b0C for 10 min in ambient air. The perovskite layers were spin coated on ITO/PEDOT:PSS. 20 mg/Ml and PCBM in chlorobenzene solution was deposited on the top perovskite films at 1500 rpm for 30 s as electron transporting layer. After that, Ag (100 nm) layer was thermally evaporated with a shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 515, 'score': 0.499, 'text': 'ectively filled [53]. Reasonably, the electron mobility of the $TiO_2$ film can be enhanced by these two effects, resulted in the improved performance of PSCs. The chemical constituents present in the sample according to the XPS results are shown in Table S4. The XPS result shows that the Sn element is distributed well within Sn-doped $TiO_2$ film. The time resolved photoluminescence (TRPL) decay characterization and steady-state photoluminescence (PL) spectra for the perovskite absorber layer deposited on TiO2 ETL were conducted to study the electron extraction and transport mechanism [54,55]'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 473, 'score': 0.468, 'text': '/sub> film; the calculated values of the electron mobility are $5.06 \\\\times 10^{-4}$ and $8.71 \\\\times 10^{-4} \\\\, \\\\mathrm{cm}^2 \\\\, \\\\mathrm{V}^{-1} \\\\, \\\\mathrm{s}^{-1}$ for pristine TiO<sub>2</sub> and 3.5 mol % Sn-doped TiO<sub>2</sub>, respectively, demonstrating that the Sn doping can effectively promote the electron transport in TiO<sub>2</sub> film. To further investigate the defect-state density of Sn-doping on the density of electron trap state in the perovskite films, the pristine TiO<sub>2</sub> or 3.5% Sn-doped TiO<sub>2</sub> film-based devices (FTO/pristine or 3.5% Sn-doped TiO<sub>2<'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.45, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 596, 'score': 0.449, 'text': '686(17)32673-7/sref55) [Insight into perovskite solar cells based on SnO2](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [compact electron-selective](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [layer, J. Phys. Chem. C 119 \\\\(2015\\\\) 10212](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55)e[10217](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55). - [56] [J.C. Yu, D.B. Kim, G. Baek, B.R. Lee, E.D. Jung, S. Lee, J.H. Chu, D.K. Lee, K.J. Choi,](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref56) [S. Cho, High-performance planar perovskite optoelectronic d'}, {'doi': '10.1039/c9ta01893j', 'paper_title': 'Journal of Materials Chemistry A', 'section': 'Device fabrication', 'passage_id': 2268, 'score': 0.447, 'text': 'Devices were fabricated on FTO substrates (15 $\\\\Omega$ sq<sup>-1</sup>) with dimensions of 20 $\\\\times$ 20 mm. The substrates were thoroughly cleaned with a detergent solution, acetone, and isopropanol, and finally treated in a plasma cleaner for 5 min. Then, a layer of SnO<sub>2</sub> (purchased from Alfa Aesar) was deposited in ambient air as the electron transport layer at a speed of 4000 rpm for 30 s and then annealed at 140 \u00b0C for 20 min. After cooling to room temperature, the substrates were transferred to a nitrogen filled glove box. To prepare the perovskite precursor solution, FAI (1 M'}, {'doi': '10.1063/1.4896779', 'paper_title': 'Electrical field profile and doping in planar lead halide perovskite solar cells *\u2299*', 'section': 'Electrical field profile and doping in planar lead halide perovskite solar cells', 'passage_id': 2326, 'score': 0.447, 'text': \"t carriers are efficiently collected throughout the whole absorber layer. Although high electron beam-induced signal would indicate rather good transport properties, there is no direct determination of the electrical field distribution that allows accounting for the relative weight that diffusion and drift have as carrier transport driven forces. Here, we use planar structures of the type FTO/TiO<sub>2</sub>/PVK/2,2',7,7'tetrakis(N,N-di-p-methoxyphenylamine)-9,9-spirobifluorene(spiro-OMeTad)/Au to show that CH<sub>3</sub>NH<sub>3</sub>PbI<sub>3-x</sub>Cl<sub>x</sub> PVK exhibits p-doping chara\"}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 509, 'score': 0.444, 'text': ' charge transfer in interface of Sn-doped TiO<sub>2</sub> and perovskite, higher conductivity of Sn-TiO2 film, larger perovskite crystal size and lower trap states [51]. The surface composition and chemical states of doped and undoped TiO<sub>2</sub> films were studied by XPS. The XPS survey spectrum Fig. 5a proves the existence of Sn element in 3.5% Sn-doped TiO<sub>2</sub> film. To further investigate the influence of inserting Sn<sup>4+</sup> ions into TiO<sub>2</sub> lattice, the detailed XPS spectra of Ti 2p, O 1s and Sn 3d peaks are detected as well (Fig. 5). After doping tin ions, the T'}, {'doi': '10.1088/1361-6463/ab1626', 'paper_title': 'PAPER**', 'section': 'References', 'passage_id': 2532, 'score': 0.441, 'text': 'Eperon G E, Grancini G, Menelaou C, Alcocer M J P, Leijtens T, Herz L M, Petrozza A and Snaith H J 2013 Electron\u2013hole diffusion lengths exceeding 1 micrometer in an organometal trihalide perovskite absorber *Science* **[342](https://doi.org/10.1126/science.1243982)** [341](https://doi.org/10.1126/science.1243982)\u2013[4](https://doi.org/10.1126/science.1243982) - <span id=\"page-8-7\"></span>[17] Edri E, Kirmayer S, Mukhopadhyay S, Gartsman K, Hodes G and Cahen D 2014 Elucidating the charge carrier separation and working mechanism of CH3NH3PbI3\u2212*<sup>x</sup>*Cl*x* perovskite solar cells *Nat. Commun'}]}",
+   "result_chars": 8055,
+   "seconds": 0.089,
+   "t_offset_s": 99.76,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1002/aenm.201803587",
+    "query": "SnO2 film treated surface treatment interface"
+   },
+   "result": "{'doi': '10.1002/aenm.201803587', 'title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'n_passages_total': 144, 'n_passages_returned': 8, 'passages': [{'section': '1. Introduction', 'text': 'the perovskite underlayer and without contributing to parasitic absorption in perovskite solar cells. We observe that subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination, as shown by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h a'}, {'section': '2. Results and Discussion', 'text': 's achieving long-term stability under light and humidity, which is crucial for commercialization. We therefore examined the effect of FACl and ADAHCl additives on devices stability by keeping the PSCs in a dry air box (relative humidity, RH of 40%) and periodically recording *J\u2013V* scans over 90 d. Our results show an improved stability for FACl- and ADAHCl-treated devices (95% of initial PCE retained after 90 d) as compared to FACl-treated PSCs (91%) and reference untreated samples (86.5%) (Figure 5d). To get a better insight into the device stability after Cl treatment, we analyzed the surfac'}, {'section': '2. Results and Discussion', 'text': 'ur results show an improved stability for FACl- and ADAHCl-treated devices (95% of initial PCE retained after 90 d) as compared to FACl-treated PSCs (91%) and reference untreated samples (86.5%) (Figure 5d). To get a better insight into the device stability after Cl treatment, we analyzed the surface of perovskite films using contact angle measurements, as shown in **Figure 6**a,b. Interestingly, the contact angle of water droplet is increased from 48\u00b0 to 67\u00b0 after Cl treatment, suggesting less wetting by water for the Cl ![](_page_5_Figure_5.jpeg) **Figure 4.** a) Optical properties (UV\u2013vis a'}, {'section': '2. Results and Discussion', 'text': ' significant role and changes the surface properties of the perovskite film. In fact, a thin layer of ADAHCl on top of the perovskite film works as a protection layer with water-repellent properties, resulting in a better stability in our devices. Additionally, we measured the operational stability of reference and Cl-treated PSCs under continuous illumination at maximum power point tracking. This measurement was performed at room temperature under nitrogen flow, as shown in Figure 6c. The Cl-treated device retains 88% of its initial PCE value after 700 h under continuous illumination, while t'}, {'section': '2. Results and Discussion', 'text': 'of reference and Cl-treated PSCs under continuous illumination at maximum power point tracking. This measurement was performed at room temperature under nitrogen flow, as shown in Figure 6c. The Cl-treated device retains 88% of its initial PCE value after 700 h under continuous illumination, while the reference device maintains only 67% of its PCE under the same condition. This highlights the impact of the Cl treatment on not only shelf life stability but also the operational stability of the PSC devices. To further understand the role of the Cl additives, EIS measurements were carried out for'}, {'section': '3. Conclusions', 'text': 'ce of PSCs. Moreover, we demonstrate that surface modification of perovskite films using ADAHCl further improves the film quality and retards the surface recombination rates. Modification of the perovskite film with the combination of these chloride additives results in efficient planar PSCs with high PCE of 21.2%, *V*oc of 1152 mV, and lower hysteresis than untreated control samples. In addition, Cl-treated devices demonstrate improved operational stability with only 12% PCE loss under continuous illumination after 700 h aging. Our work develops an efficient combined bulk and surface modifica'}, {'section': '4. Experimental Section', 'text': ') water, acetone, and ethanol, in sequence. This is followed by the UV ozone cleaning, after which the substrates are coated with an SnO2 solution (SnCl4.5H2O diluted in ethanol (0.03 <sup>m</sup>)) that is spin coated twice at 4000 rpm for 20 s and followed by annealing at 180 \u00b0C for 60 min. Next, the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution a'}, {'section': '4. Experimental Section', 'text': 'the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo'}]}",
+   "result_chars": 5461,
+   "seconds": 0.074,
+   "t_offset_s": 103.99,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 7,
+ "n_model_calls": 14,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 14,
+  "prompt_chars": 132862,
+  "completion_chars": 14279,
+  "real_prompt_tokens": 123786,
+  "real_completion_tokens": 17000,
+  "usage_reported_calls": 14,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 149.6,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "grep",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "grep",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.08,
+    "latency_s": 3.24,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 3438,
+    "text_len": 648,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 2,
+    "t_offset_s": 3.33,
+    "latency_s": 11.94,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5321,
+    "text_len": 426,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 3,
+    "t_offset_s": 15.27,
+    "latency_s": 9.71,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4358,
+    "text_len": 1990,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 4,
+    "t_offset_s": 24.99,
+    "latency_s": 3.21,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5657,
+    "text_len": 138,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 5,
+    "t_offset_s": 24.99,
+    "latency_s": 7.05,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5677,
+    "text_len": 86,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 6,
+    "t_offset_s": 34.95,
+    "latency_s": 2.89,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 8778,
+    "text_len": 155,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 7,
+    "t_offset_s": 39.12,
+    "latency_s": 5.89,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 8746,
+    "text_len": 316,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 8,
+    "t_offset_s": 45.08,
+    "latency_s": 8.53,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 11832,
+    "text_len": 124,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 9,
+    "t_offset_s": 37.92,
+    "latency_s": 45.27,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 11918,
+    "text_len": 3634,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 10,
+    "t_offset_s": 83.19,
+    "latency_s": 6.31,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 12049,
+    "text_len": 157,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 11,
+    "t_offset_s": 89.85,
+    "latency_s": 9.91,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 12491,
+    "text_len": 156,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 12,
+    "t_offset_s": 99.84,
+    "latency_s": 4.15,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 12932,
+    "text_len": 265,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 13,
+    "t_offset_s": 104.07,
+    "latency_s": 21.9,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 16040,
+    "text_len": 4273,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 14,
+    "t_offset_s": 125.97,
+    "latency_s": 9.61,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 13625,
+    "text_len": 1911,
+    "empty": false,
+    "provider_failure": false
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 14,
+  "replies": 14,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_000503_348d.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 3,
+  "n_format_errors": 0,
+  "escalations": 3
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

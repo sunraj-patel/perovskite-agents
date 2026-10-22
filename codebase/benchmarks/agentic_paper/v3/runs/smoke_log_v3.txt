@@ -1,0 +1,10 @@
+plan: 8 cells, 0 done/exhausted, 8 to run (gemini x direct, perovagents x reps 0..0)
+2026-10-21T21:46:28 Q01__gemini__perovagents__r0 -> completed/answer 34.2s
+2026-10-21T21:47:42 Q04__gemini__perovagents__r0 -> completed/answer 108.4s
+2026-10-21T21:50:24 Q05__gemini__perovagents__r0 -> completed/answer 162.0s
+2026-10-21T21:52:20 Q05__gemini__direct__r0 -> infra_failed/turn_budget 352.5s
+2026-10-21T21:52:21 Q01__gemini__direct__r0 -> infra_failed/turn_budget 387.0s
+2026-10-21T21:53:30 Q18__gemini__perovagents__r0 -> completed/answer 70.0s
+2026-10-21T22:06:58 Q04__gemini__direct__r0 -> infra_failed/timeout 1264.3s
+2026-10-21T22:12:35 Q18__gemini__direct__r0 -> infra_failed/timeout 1330.9s
+finished; 0 cells left. Resume with the same command.

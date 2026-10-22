@@ -1,0 +1,8 @@
+plan: 12 cells, 6 done/exhausted, 6 to run (gemini, minimax x direct, perovagents x reps 0..0)
+2026-10-21T18:56:10 Q01__minimax__perovagents__r0 -> completed/answer 28.3s
+2026-10-21T18:56:27 Q29__minimax__perovagents__r0 -> completed/answer 16.9s
+2026-10-21T18:56:40 Q29__minimax__direct__r0 -> completed/answer 58.9s
+2026-10-21T18:56:59 Q33__minimax__direct__r0 -> completed/answer 32.4s
+2026-10-21T18:58:28 Q33__minimax__perovagents__r0 -> completed/answer 107.2s
+2026-10-21T19:01:36 Q01__minimax__direct__r0 -> completed/answer 354.5s
+finished; 0 cells left. Resume with the same command.

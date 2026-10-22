@@ -1,0 +1,68 @@
+{
+ "version": "v3",
+ "rule": "development = every main question that was run or whose traces were inspected in benchmark v2 (manifest + smoke manifest); held_out = all other main questions, never run and never inspected. Fixes were developed only on the inspected v2 failures (Q03, Q04, Q05, Q08 and the minimax orchestrator traces) and tested with scripted unit tests.",
+ "development": [
+  "Q01",
+  "Q02",
+  "Q03",
+  "Q04",
+  "Q05",
+  "Q06",
+  "Q07",
+  "Q08",
+  "Q09",
+  "Q10",
+  "Q11",
+  "Q12",
+  "Q17",
+  "Q18",
+  "Q19",
+  "Q21",
+  "Q22",
+  "Q23",
+  "Q24",
+  "Q25",
+  "Q26",
+  "Q27",
+  "Q28",
+  "Q29"
+ ],
+ "held_out": [
+  "Q30",
+  "Q31",
+  "Q32",
+  "Q41",
+  "Q42",
+  "Q44"
+ ],
+ "held_out_by_category": {
+  "ml": 3,
+  "multi_tool": 3
+ },
+ "development_by_category": {
+  "pdb": 8,
+  "literature": 8,
+  "ml": 5,
+  "multi_tool": 3
+ },
+ "smoke_v3": [
+  "Q01",
+  "Q04",
+  "Q05",
+  "Q18"
+ ],
+ "caveat": "held_out contains no database or literature questions (all were exposed in v2): confirmatory v3 results cover ml and multi_tool only; database/literature v3 results are development-set results and are reported separately.",
+ "deferred_scaps": [
+  "Q33",
+  "Q34",
+  "Q35",
+  "Q36",
+  "Q37",
+  "Q38",
+  "Q39",
+  "Q40",
+  "Q43",
+  "Q45"
+ ],
+ "deferred_note": "Per user instruction, every question that needs SCAPS (whole scaps category Q33-Q40, Q43, Q45) is out of the active v3 set for now. They remain in questions_v3.json with set='deferred_scaps'; questions_v2.json is unchanged."
+}

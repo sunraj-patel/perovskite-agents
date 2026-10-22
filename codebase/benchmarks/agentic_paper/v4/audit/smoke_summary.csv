@@ -1,0 +1,13 @@
+qid,backbone,condition,model_id_in_calls,termination,validity,tool_calls,model_calls,empty_replies,empty_classes,correct,tool_f1,answer_chars
+Q01,deepseek,direct,opencode/deepseek-v4.1-flash-free,answer,valid,4,5,0,{},0,1.0,319
+Q01,deepseek,perovagents,opencode/deepseek-v4.1-flash-free,answer,valid,1,8,0,{},1,1.0,363
+Q05,deepseek,direct,opencode/deepseek-v4.1-flash-free,answer,valid,2,3,0,{},1,1.0,1216
+Q05,deepseek,perovagents,opencode/deepseek-v4.1-flash-free,answer,valid,7,14,0,{},1,1.0,1897
+Q18,deepseek,direct,opencode/deepseek-v4.1-flash-free,answer,valid,0,1,0,{},0,0.0,340
+Q18,deepseek,perovagents,opencode/deepseek-v4.1-flash-free,answer,valid,12,27,0,{},1,1.0,4112
+Q01,gemini,direct,gemini-3.5-flash-lite,answer,valid,8,13,3,"{""malformed_function_call"": 3}",1,1.0,261
+Q01,gemini,perovagents,gemini-3.5-flash-lite,answer,valid,1,4,0,{},1,1.0,308
+Q05,gemini,direct,gemini-3.5-flash-lite,answer,valid,6,11,1,"{""malformed_function_call"": 1}",1,1.0,704
+Q05,gemini,perovagents,gemini-3.5-flash-lite,answer,valid,3,7,0,{},1,1.0,1284
+Q18,gemini,direct,gemini-3.5-flash-lite,turn_budget,valid,12,14,2,"{""malformed_function_call"": 2}",0,0.5,0
+Q18,gemini,perovagents,gemini-3.5-flash-lite,answer,valid,6,12,0,{},1,0.86,1236

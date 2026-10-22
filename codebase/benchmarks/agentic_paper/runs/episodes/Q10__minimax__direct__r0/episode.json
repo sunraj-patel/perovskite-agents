@@ -1,0 +1,118 @@
+{
+ "episode_id": "Q10__minimax__direct__r0",
+ "qid": "Q10",
+ "category": "ml",
+ "condition": "direct",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:34:36",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What are the most important parameters for improving PCE in n-i-p perovskite solar cells according to the ML model?",
+ "finished_at": "2026-10-21T19:37:20",
+ "seconds": 164.7,
+ "termination": "answer",
+ "final_answer": "According to the n\u2011i\u2011p ML model (model_NIP.cbm, SHAP global explanation over 96 design samples), the most important parameters for PCE, ranked by mean\u2011absolute SHAP importance, are:\n\n1. ETL_deposition_method \u2014 0.376 (positive, controllable)\n2. Perov_quenching_crystallisation \u2014 0.3748 (positive, controllable)\n3. Perovskite_deposition_synthesis_atmosphere \u2014 0.3608 (NEGATIVE direction, controllable)\n4. Perovskite (material/composition) \u2014 0.3542 (positive, controllable)\n5. HTL_additives_compounds \u2014 0.3428 (positive, controllable)\n6. HTL_deposition_method \u2014 0.3135 (positive, controllable)\n7. has_LiF_na \u2014 0.265 (positive, not controllable)\n8. has_ZnO_na \u2014 0.2377 (positive, not controllable)\n9. HTL_HOMO_na \u2014 0.1921 (positive, not controllable)\n10. has_SnO2 \u2014 0.1633 (positive, controllable)\n11. Perovskite_dielectric_constant_na \u2014 0.1573 (positive, not controllable)\n12. has_NiOx_na \u2014 0.1424 (positive, not controllable)\n13. Perovskite_deposition_solvents \u2014 0.1358 (positive, controllable)\n14. Add_lay_front \u2014 0.1318 (NEGATIVE direction, controllable)\n15. Perovskite_en_max \u2014 0.1101 (positive, controllable)\n\nKey takeaways for improving PCE:\n- The dominant lever in the controllable set is the ETL: the model's optimizer for a baseline n\u2011i\u2011p stack (MixedPerovskite 500 nm / Spiro\u2011MeOTAD 200 nm / TiO2 50 nm, no LiF) recommends switching TiO2 \u2192 SnO2, predicted PCE 16.29% \u2192 16.81% (+0.52 percentage points; 95% interval 15.59\u201318.04%). Switching TiO2 \u2192 PCBM gives 16.48% (15.72\u201317.25). These are model predictions with overlapping intervals, so the ETL ranking is the model's stated sensitivity, not a validated result.\n- Second priority: HTL formulation/process \u2014 HTL additives (importance 0.343, SHAP 0.342) and HTL deposition method (0.314), plus HTL HOMO level.\n- Third: absorber processing \u2014 quenching/crystallisation behaviour, absorber composition, deposition solvent, and band gap/absorption edge (Perovskite_en_max). Note the synthesis atmosphere feature is negatively associated with PCE in this model, i.e. the model links it to lower PCE.\n- Front-side additional layers (Add_lay_front) are also negatively associated.\n\nWhat could not be established:\n- The model output gives no per-category numeric PCE gain for the deposition methods, crystallisation, additives, or atmosphere; the only quantified change returned was the ETL material swap. Shown SHAP values (e.g. HTL additives 0.3415 vs. importance 0.3428) are direction-of-effect for the reference/sampled designs, not causal or experimentally verified effects.\n- The optimizer returned no ranked thickness, annealing, or other sweep-based recommendations for this device, so the PCE sensitivity to those inputs was not quantified here.\n- The explain_global result covers 96 design samples for the n\u2011i\u2011p architecture only; no uncertainty is reported on the importance ranking itself, and the tool's own note states the recommendations require experimental validation.\n- No literature values or DOIs were consulted; everything above comes solely from the ML model outputs.",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "explain_global",
+   "args": {
+    "architecture": "n-i-p"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'NIP', 'n_design_samples': 96, 'features': [{'name': 'ETL_deposition_method', 'importance': np.float64(0.376), 'direction': 'positive', 'shap': np.float64(0.1498)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.3748), 'direction': 'positive', 'shap': np.float64(0.0954)}, {'name': 'Perovskite_deposition_synthesis_atmosphere', 'importance': np.float64(0.3608), 'direction': 'negative', 'shap': np.float64(-0.0278)}, {'name': 'Perovskite', 'importance': np.float64(0.3542), 'direction': 'positive', 'shap': np.float64(0.1503)}, {'name': 'HTL_additives_compounds', 'importance': np.float64(0.3428), 'direction': 'positive', 'shap': np.float64(0.3415)}, {'name': 'HTL_deposition_method', 'importance': np.float64(0.3135), 'direction': 'positive', 'shap': np.float64(0.2017)}, {'name': 'has_LiF_na', 'importance': np.float64(0.265), 'direction': 'positive', 'shap': np.float64(0.1872)}, {'name': 'has_ZnO_na', 'importance': np.float64(0.2377), 'direction': 'positive', 'shap': np.float64(0.1192)}, {'name': 'HTL_HOMO_na', 'importance': np.float64(0.1921), 'direction': 'positive', 'shap': np.float64(0.1166)}, {'name': 'has_SnO2', 'importance': np.float64(0.1633), 'direction': 'positive', 'shap': np.float64(0.0429)}, {'name': 'Perovskite_dielectric_constant_na', 'importance': np.float64(0.1573), 'direction': 'positive', 'shap': np.float64(0.0924)}, {'name': 'has_NiOx_na', 'importance': np.float64(0.1424), 'direction': 'positive', 'shap': np.float64(0.084)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.1358), 'direction': 'positive', 'shap': np.float64(0.0396)}, {'name': 'Add_lay_front', 'importance': np.float64(0.1318), 'direction': 'negative', 'shap': np.float64(-0.0076)}, {'name': 'Perovskite_en_max', 'importance': np.float64(0.1101), 'direction': 'positive', 'shap': np.float64(0.0597)}], 'controllable': {'ETL_deposition_method': True, 'Perov_quenching_crystallisation': True, 'Perovskite_deposition_synthesis_atmosphere': True, 'Perovskite': True, 'HTL_additives_compounds': True, 'HTL_deposition_method': True, 'has_LiF_na': False, 'has_ZnO_na': False, 'HTL_HOMO_na': False, 'has_SnO2': True, 'Perovskite_dielectric_constant_na': False, 'has_NiOx_na': False, 'Perovskite_deposition_solvents': True, 'Add_lay_front': True, 'Perovskite_en_max': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_NIP.cbm', 'scope': 'global'}}",
+   "result_chars": 2486,
+   "seconds": 27.536,
+   "t_offset_s": 33.27,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "optimize",
+   "args": {
+    "description": "n-i-p perovskite solar cell with MixedPerovskite absorber (500 nm), Spiro-MeOTAD HTL (200 nm), TiO2 ETL (50 nm), standard deposition, no LiF interlayer",
+    "architecture": "n-i-p"
+   },
+   "result": "{'result_type': 'optimization', 'architecture': 'NIP', 'recommendations': [{'parameter': 'ETL', 'kind': 'material_choice', 'category': 'material_choice', 'base_value': 'TiO2', 'direction': 'switch ETL TiO2 \u2192 SnO2', 'recommended_value': 'SnO2', 'base_predicted_pce': 16.29, 'best_predicted_pce': 16.81, 'delta_predicted_pce': 0.52, 'values': [{'material': 'SnO2', 'predicted_pce': 16.81, 'interval_lo': 15.59, 'interval_hi': 18.04}, {'material': 'PCBM', 'predicted_pce': 16.48, 'interval_lo': 15.72, 'interval_hi': 17.25}]}], 'note': 'Recommendations are model-derived sensitivities over controllable inputs, not causal or experimentally verified claims', 'provenance': {'kind': 'ml_optimize', 'model': 'model_NIP.cbm', 'requires_experimental_validation': True}}",
+   "result_chars": 761,
+   "seconds": 1.643,
+   "t_offset_s": 148.2,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 2,
+ "n_model_calls": 3,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 3,
+  "prompt_chars": 20707,
+  "completion_chars": 3339,
+  "real_prompt_tokens": 60206,
+  "real_completion_tokens": 7168,
+  "usage_reported_calls": 3,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 135.5,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "grep",
+     "glob",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "explain_global({'architecture': 'n-i-p'})",
+    "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'NIP', 'n_design_samples': 96, 'features': [{'name': 'ETL_deposition_method', 'importance': np.float64(0.376), 'direction': 'positive', 'shap': np.float64(0.1498)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.3748), 'direction': 'positive', 'shap': np.float64(0.0954)}, {'name': 'Perovskite_deposition_synthesis_atmosphere', 'importance': np.float64(0.3608), 'direction': 'negative', 'shap': np.float64(-0.0278)}, {'name': 'Perovskite', 'importance': np.float64(0.3542), 'direction': 'positive', 'shap': np.float64(0.1503)}, {'name': 'HTL_additives_compounds', 'importance': np.float64(0.3428), 'direction': 'positive', 'shap': np.float64(0.3415)}, {'name': 'HTL_deposition_method', 'importance': np.float64(0.3135), 'direction': 'positive', 'shap': np.float64(0.2017)}, {'name': 'has_LiF_na', 'importance': np.float64(0.265), 'direction': 'positive', 'shap': np.float64(0.1872)}, {'name': 'has_ZnO_na', 'importance': np.float64(0.2377), 'direction': 'positive', 'shap': np.float64(0.1192)}, {'name': 'HTL_HOMO_na', 'importance': np.float64(0.1921), 'direction': 'positive', 'shap': np.float64(0.1166)}, {'name': 'has_SnO2', 'importance': np.float64(0.1633), 'direction': 'positive', 'shap': np.float64(0.0429)}, {'name': 'Perovskite_dielectric_constant_na', 'importance': np.float64(0.1573), 'direction': 'positive', 'shap': np.float64(0.0924)}, {'name': 'has_NiOx_na', 'importance': np.float64(0.1424), 'direction': 'positive', 'shap': np.float64(0.084)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.1358), 'direction': 'positive', 'shap': np.float64(0.0396)}, {'name': 'Add_lay_front', 'importance': np.float64(0.1318), 'direction': 'negative', 'shap': np.float64(-0.0076)}, {'name': 'Perovskite_en_max', 'importance': np.float64(0.1101), 'direction': 'positive', 'shap': np.float64(0.0597)}], 'controllable': {'ETL_deposition_method': True, 'Perov_quenching_crystallisation': True, 'Perovskite_deposition_synthesis_atmosphere': True, 'Perovskite': True, 'HTL_additives_compounds': True, 'HTL_deposition_method': True, 'has_LiF_na': False, 'has_ZnO_na': False, 'HTL_HOMO_na': False, 'has_SnO2': True, 'Perovskite_dielectric_constant_na': False, 'has_NiOx_na': False, 'Perovskite_deposition_solvents': True, 'Add_lay_front': True, 'Perovskite_en_max': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_NIP.cbm', 'scope': 'global'}}"
+   ],
+   [
+    "optimize({'description': 'n-i-p perovskite solar cell with MixedPerovskite absorber (500 nm), Spiro-MeOTAD HTL (200 nm), TiO2 ETL (50 nm), standard deposition, no LiF interlayer', 'architecture': 'n-i-p'})",
+    "{'result_type': 'optimization', 'architecture': 'NIP', 'recommendations': [{'parameter': 'ETL', 'kind': 'material_choice', 'category': 'material_choice', 'base_value': 'TiO2', 'direction': 'switch ETL TiO2 \u2192 SnO2', 'recommended_value': 'SnO2', 'base_predicted_pce': 16.29, 'best_predicted_pce': 16.81, 'delta_predicted_pce': 0.52, 'values': [{'material': 'SnO2', 'predicted_pce': 16.81, 'interval_lo': 15.59, 'interval_hi': 18.04}, {'material': 'PCBM', 'predicted_pce': 16.48, 'interval_lo': 15.72, 'interval_hi': 17.25}]}], 'note': 'Recommendations are model-derived sensitivities over controllable inputs, not causal or experimentally verified claims', 'provenance': {'kind': 'ml_optimize', 'model': 'model_NIP.cbm', 'requires_experimental_validation': True}}"
+   ],
+   [
+    "(final)",
+    "According to the n\u2011i\u2011p ML model (model_NIP.cbm, SHAP global explanation over 96 design samples), the most important parameters for PCE, ranked by mean\u2011absolute SHAP importance, are:\n\n1. ETL_deposition_method \u2014 0.376 (positive, controllable)\n2. Perov_quenching_crystallisation \u2014 0.3748 (positive, controllable)\n3. Perovskite_deposition_synthesis_atmosphere \u2014 0.3608 (NEGATIVE direction, controllable)\n4. Perovskite (material/composition) \u2014 0.3542 (positive, controllable)\n5. HTL_additives_compounds \u2014 0.3428 (positive, controllable)\n6. HTL_deposition_method \u2014 0.3135 (positive, controllable)\n7. has_LiF_na \u2014 0.265 (positive, not controllable)\n8. has_ZnO_na \u2014 0.2377 (positive, not controllable)\n9. HTL_HOMO_na \u2014 0.1921 (positive, not controllable)\n10. has_SnO2 \u2014 0.1633 (positive, controllable)\n11. Perovskite_dielectric_constant_na \u2014 0.1573 (positive, not controllable)\n12. has_NiOx_na \u2014 0.1424 (positive, not controllable)\n13. Perovskite_deposition_solvents \u2014 0.1358 (positive, controllable)\n14. Add_lay_front \u2014 0.1318 (NEGATIVE direction, controllable)\n15. Perovskite_en_max \u2014 0.1101 (positive, controllable)\n\nKey takeaways for improving PCE:\n- The dominant lever in the controllable set is the ETL: the model's optimizer for a baseline n\u2011i\u2011p stack (MixedPerovskite 500 nm / Spiro\u2011MeOTAD 200 nm / TiO2 50 nm, no LiF) recommends switching TiO2 \u2192 SnO2, predicted PCE 16.29% \u2192 16.81% (+0.52 percentage points; 95% interval 15.59\u201318.04%). Switching TiO2 \u2192 PCBM gives 16.48% (15.72\u201317.25). These are model predictions with overlapping intervals, so the ETL ranking is the model's stated sensitivity, not a validated result.\n- Second priority: HTL formulation/process \u2014 HTL additives (importance 0.343, SHAP 0.342) and HTL deposition method (0.314), plus HTL HOMO level.\n- Third: absorber processing \u2014 quenching/crystallisation behaviour, absorber composition, deposition solvent, and band gap/absorption edge (Perovskite_en_max). Note the synthesis atmosphere feature is negatively associated with PCE in this model, i.e. the model links it to lower PCE.\n- Front-side additional layers (Add_lay_front) are also negatively associated.\n\nWhat could not be established:\n- The model output gives no per-category numeric PCE gain for the deposition methods, crystallisation, additives, or atmosphere; the only quantified change returned was the ETL material swap. Shown SHAP values (e.g. HTL additives 0.3415 vs. importance 0.3428) are direction-of-effect for the reference/sampled designs, not causal or experimentally verified effects.\n- The optimizer returned no ranked thickness, annealing, or other sweep-based recommendations for this device, so the PCE sensitivity to those inputs was not quantified here.\n- The explain_global result covers 96 design samples for the n\u2011i\u2011p architecture only; no uncertainty is reported on the importance ranking itself, and the tool's own note states the recommendations require experimental validation.\n- No literature values or DOIs were consulted; everything above comes solely from the ML model outputs."
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

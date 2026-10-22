@@ -1,0 +1,37 @@
+episode_id,qid,category,backbone,condition,rep,manifest_status,termination,validity,evidence,seconds,model_calls,tool_calls,n_asks,escalations,completed,correct,tool_f1
+Q30__deepseek__direct__r0,Q30,ml,deepseek,direct,0,completed,answer,valid,,35.8,2,1,,,1,1,1.0
+Q30__deepseek__perovagents__r0,Q30,ml,deepseek,perovagents,0,completed,answer,valid,,48.5,4,1,1,0,1,1,1.0
+Q31__deepseek__direct__r0,Q31,ml,deepseek,direct,0,completed,answer,valid,,7.0,2,1,,,1,1,1.0
+Q31__deepseek__perovagents__r0,Q31,ml,deepseek,perovagents,0,completed,answer,valid,,19.9,5,2,1,0,1,1,1.0
+Q32__deepseek__direct__r0,Q32,ml,deepseek,direct,0,completed,answer,valid,,37.4,6,5,,,0,0,0.0
+Q32__deepseek__perovagents__r0,Q32,ml,deepseek,perovagents,0,completed,answer,valid,,40.5,6,1,2,1,1,1,1.0
+Q41__deepseek__direct__r0,Q41,multi_tool,deepseek,direct,0,completed,answer,valid,,36.5,7,6,,,1,1,1.0
+Q41__deepseek__perovagents__r0,Q41,multi_tool,deepseek,perovagents,0,completed,answer,valid,,26.3,6,2,2,1,1,1,1.0
+Q42__deepseek__direct__r0,Q42,multi_tool,deepseek,direct,0,infra_failed,turn_budget,infra_failed,"provider failure: rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627200)",164.7,1,1,,,,,
+Q42__deepseek__perovagents__r0,Q42,multi_tool,deepseek,perovagents,0,infra_failed,answer,infra_failed,"provider failure: rate_limit: free usage exceeded: Free usage exceeded, subscribe to Go (quota resets at epoch 1792627201)",153.9,1,0,2,0,,,
+Q44__deepseek__direct__r0,Q44,multi_tool,deepseek,direct,0,infra_failed,turn_budget,infra_failed,provider failure: rate_limit: free usage exceeded (quota resets at epoch 1792627201),0,0,0,,,,,
+Q44__deepseek__perovagents__r0,Q44,multi_tool,deepseek,perovagents,0,infra_failed,answer,infra_failed,provider failure: rate_limit: free usage exceeded (quota resets at epoch 1792627201),0.1,0,0,0,0,,,
+Q30__gemini__direct__r0,Q30,ml,gemini,direct,0,completed,answer,valid,,37.9,2,1,,,1,1,1.0
+Q30__gemini__perovagents__r0,Q30,ml,gemini,perovagents,0,completed,answer,valid,,41.5,4,1,1,0,1,1,1.0
+Q31__gemini__direct__r0,Q31,ml,gemini,direct,0,completed,answer,valid,,6.7,3,2,,,1,1,1.0
+Q31__gemini__perovagents__r0,Q31,ml,gemini,perovagents,0,completed,answer,valid,,14.6,10,4,2,0,1,1,0.667
+Q32__gemini__direct__r0,Q32,ml,gemini,direct,0,completed,answer,valid,,21.9,8,7,,,0,0,0.667
+Q32__gemini__perovagents__r0,Q32,ml,gemini,perovagents,0,completed,answer,valid,,59.3,5,2,1,0,1,1,1.0
+Q41__gemini__direct__r0,Q41,multi_tool,gemini,direct,0,completed,answer,valid,,329.0,11,9,,,1,1,1.0
+Q41__gemini__perovagents__r0,Q41,multi_tool,gemini,perovagents,0,completed,answer,valid,,13.1,6,2,2,0,1,1,1.0
+Q42__gemini__direct__r0,Q42,multi_tool,gemini,direct,0,completed,answer,valid,,36.4,8,2,,,0,0,1.0
+Q42__gemini__perovagents__r0,Q42,multi_tool,gemini,perovagents,0,completed,answer,valid,,65.8,9,3,3,1,1,1,1.0
+Q44__gemini__direct__r0,Q44,multi_tool,gemini,direct,0,completed,answer,valid,,101.2,6,3,,,1,1,1.0
+Q44__gemini__perovagents__r0,Q44,multi_tool,gemini,perovagents,0,completed,answer,valid,,63.7,8,3,2,1,1,0,0.8
+Q46__gemini__direct__r0,Q46,pdb,gemini,direct,0,completed,answer,valid,,320.0,8,7,,,1,1,1.0
+Q46__gemini__perovagents__r0,Q46,pdb,gemini,perovagents,0,completed,answer,valid,,73.5,9,3,1,0,1,1,1.0
+Q47__gemini__direct__r0,Q47,pdb,gemini,direct,0,completed,answer,valid,,262.8,11,7,,,1,1,1.0
+Q47__gemini__perovagents__r0,Q47,pdb,gemini,perovagents,0,completed,answer,valid,,12.4,6,3,1,0,1,0,1.0
+Q48__gemini__direct__r0,Q48,pdb,gemini,direct,0,completed,answer,valid,,22.9,12,8,,,1,1,1.0
+Q48__gemini__perovagents__r0,Q48,pdb,gemini,perovagents,0,completed,answer,valid,,7.6,4,1,1,0,1,1,1.0
+Q49__gemini__direct__r0,Q49,literature,gemini,direct,0,completed,turn_budget,valid,,24.3,14,11,,,0,0,0.0
+Q49__gemini__perovagents__r0,Q49,literature,gemini,perovagents,0,completed,answer,valid,,19.0,4,1,1,0,1,1,1.0
+Q50__gemini__direct__r0,Q50,literature,gemini,direct,0,completed,answer,valid,,20.9,10,8,,,1,0,0.8
+Q50__gemini__perovagents__r0,Q50,literature,gemini,perovagents,0,completed,answer,valid,,36.2,11,4,2,0,1,1,1.0
+Q51__gemini__direct__r0,Q51,literature,gemini,direct,0,completed,answer,valid,,29.6,13,6,,,1,1,0.8
+Q51__gemini__perovagents__r0,Q51,literature,gemini,perovagents,0,completed,answer,valid,,19.6,7,3,1,0,0,0,1.0

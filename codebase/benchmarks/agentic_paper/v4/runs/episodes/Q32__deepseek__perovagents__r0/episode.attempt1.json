@@ -1,0 +1,183 @@
+{
+ "episode_id": "Q32__deepseek__perovagents__r0",
+ "qid": "Q32",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:31:32",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "What operational lifetime (T80, in hours) does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite?",
+ "finished_at": "2026-10-22T00:32:13",
+ "seconds": 40.5,
+ "termination": "answer",
+ "final_answer": "This cannot be established with the available ML tools. The ML agent has no operational-lifetime/T80 model: its `predict` tool targets **PCE**, not T80 (`model_PIN.cbm`, CatBoost). Running the closest supported configuration for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 gave **PCE = 13.45 % (95% interval [12.28, 14.61])**, but no T80 value, no lifetime features and no lifetime uncertainty could be produced. Reporting a T80 number would be fabricated, so none is given.",
+ "tool_calls": [
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.45, 'pce_95_interval': [12.28, 14.61], 'interval_spread_percent': 2.34, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}",
+   "result_chars": 445,
+   "seconds": 1.753,
+   "t_offset_s": 26.64,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 6,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 6,
+  "prompt_chars": 28919,
+  "completion_chars": 4783,
+  "real_prompt_tokens": 32606,
+  "real_completion_tokens": 2990,
+  "usage_reported_calls": 6,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 38.7,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.04,
+    "latency_s": 3.29,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 3394,
+    "text_len": 476,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 2,
+    "t_offset_s": 3.33,
+    "latency_s": 7.97,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4657,
+    "text_len": 1325,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 3,
+    "t_offset_s": 11.3,
+    "latency_s": 6.17,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4153,
+    "text_len": 637,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 4,
+    "t_offset_s": 17.47,
+    "latency_s": 9.17,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4818,
+    "text_len": 120,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 5,
+    "t_offset_s": 28.39,
+    "latency_s": 7.35,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5366,
+    "text_len": 1733,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 6,
+    "t_offset_s": 35.75,
+    "latency_s": 4.77,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6531,
+    "text_len": 492,
+    "empty": false,
+    "provider_failure": false
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 6,
+  "replies": 6,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_003132_426c.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 2,
+  "n_format_errors": 0,
+  "escalations": 1
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

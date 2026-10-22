@@ -1,0 +1,7 @@
+qid,system,failure,recovered,final_correct,extra_tool_calls
+Q02,gemini,incomplete_synthesis,False,False,0
+Q02,mrs,incomplete_synthesis,False,False,2
+Q06,gemini,incomplete_synthesis,False,False,0
+Q06,mrs,incomplete_synthesis,False,False,7
+Q20,gemini,incomplete_synthesis,False,False,0
+Q20,mrs,incomplete_synthesis,False,False,10

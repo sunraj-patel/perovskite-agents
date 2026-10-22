@@ -1,0 +1,160 @@
+{
+ "episode_id": "Q25__minimax__perovagents__r0",
+ "qid": "Q25",
+ "category": "literature",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:17:49",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Which paper in the literature collection studies poly-TPD doped PTAA as the hole-transport layer? Report its DOI and the PCE of the control device and of the optimised device.",
+ "finished_at": "2026-10-21T20:27:30",
+ "seconds": 580.5,
+ "termination": "answer",
+ "final_answer": "**Paper:** \"Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer\"\n**DOI:** 10.1117/12.2506443\n\n**PCE of the control device (bare PTAA HTL): 12.11%** \u2014 Table 1 row: \"| Pure PTAA | 0.87 | 19.63 | 70.80 | 12.11 |\"\n\n**PCE of the optimised device (5 wt% poly-TPD in PTAA): 14.63%** \u2014 Table 1 row: \"| 5 wt% poly-TPD doped | 0.87 | 21.89 | 76.72 | 14.63 |\"; abstract: \"with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%.\"\n\n**What was optimised:** the HTL formulation itself \u2014 poly-TPD was blended into the PTAA hole-transport layer (not a perovskite additive or interface treatment). Composition series in Table 1: pure PTAA 12.11%, 2 wt% 13.42%, 5 wt% 14.63% (best), 10 wt% 11.32%. Device stack: CH3NH3PbI3/PC61BM/Bphen/Ag; reported gain attributed to \"the improved perovskite grain size and the increased electron transfer of mixed HTL.\"\n\nCaveats from the literature report: no champion-vs-average distinction or stability/hysteresis data appear in the retrieved passages, and author/journal metadata was not present in the collection passages.",
+ "tool_calls": [
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1117/12.2506443",
+    "query": "PCE efficiency control device optimized device poly-TPD doped PTAA hole transport layer"
+   },
+   "result": "{'doi': '10.1117/12.2506443', 'title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'n_passages_total': 46, 'n_passages_returned': 8, 'passages': [{'section': 'ABSTRACT', 'text': 'of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL show significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be ex'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'CH3NH3PbI3 perovskite layer/PC61BM/Bphen/Ag (Fig. 1a), and the molecular structures of the materials used in this study were also shown in Fig. 1b. Firstly, the conductivities of poly-TPD doped and undoped HTLs are tested and exhibited in Fig. 1c. The device structure we used to test is ITO/PTAA with or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, highe'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'h or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, higher concentration of poly-TPD will degrade the conductively of composite HTL. ![](_page_1_Figure_3.jpeg) **Fig. 1.** (a) Device structure of the perovskite solar cells; (b) chemical structures of PTAA and poly-TPD; (c) conductivities of HTLs with the structure of ITO/HTLs /Ag. It has long been known t'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'st with the perovskite layer upon poly-TPD modified one (Fig. 2b). And larger grains can efficiently increase the ability of charge transfer in the active layer, resulting in higher PCE of the poly-TPD doped PVSCs. ![](_page_2_Picture_0.jpeg) ![](_page_2_Picture_1.jpeg) Fig. 2. SEM images of perovskite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-------------------'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-----------------------|-------------|---------------------------------|--------|---------| | Pure PTAA | 0.87 | 19.63 | 70.80 | 12.11 | | 2 wt% poly-TPD doped | 0.87 | 20.81 | 74.01 | 13.42 | | 5 wt% poly-TPD doped | 0.87 | 21.89 | 76.72 | 14.63 | | 10 wt% poly-TPD doped | 0.87 | 17.99 | 72.50 | 11.32 | <sup>&</sup>l'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ly-TPD into the PTAA layer led to significant enhancements in the $J_{SC}$ and FF values compared to the control device. The PCE of the perovskite solar cells rose by about 20 % and reached 14.63 %. The films with poly-TPD in the PTAA layer resulted in the higher $J_{SC}$ of 21.89 mA cm<sup>-2</sup>, $V_{OC}$ of 0.87 V and higher FF of 76.72 %. This enhancement of photovoltaic performance ( $J_{SC}$ and FF) could be attributed to the modified charge carrier transport, and the morphology control of the composite HTL [12]. However, the unchanged $V_{OC}$ means that the doping poly-TPD cannot cha'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': ', $V_{OC}$ of 0.87 V and higher FF of 76.72 %. This enhancement of photovoltaic performance ( $J_{SC}$ and FF) could be attributed to the modified charge carrier transport, and the morphology control of the composite HTL [12]. However, the unchanged $V_{OC}$ means that the doping poly-TPD cannot change the energy level of PTAA. Compared to the PVSCs with poly-TPD doping concentrations more than 5 wt%, the PCEs of the PVSCs are lower than the control cells, corresponding to the decreased $J_{SC}$ and FF. This phenomenon may be due to the high concentration of poly-TPD doping into PTAA influence'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'nge the energy level of PTAA. Compared to the PVSCs with poly-TPD doping concentrations more than 5 wt%, the PCEs of the PVSCs are lower than the control cells, corresponding to the decreased $J_{SC}$ and FF. This phenomenon may be due to the high concentration of poly-TPD doping into PTAA influence the film morphology of the composite HTL. ![](_page_2_Figure_7.jpeg) Fig. 3. (a) J-V curves of the photovoltaic devices with poly-TPD concentrations ranging from 0 to 10 wt% under 100mW/cm<sup>2</sup> AM 1.5G irradiation. (b) EQE versus wavelength of devices with and without poly-TPD doping. The im'}]}",
+   "result_chars": 5509,
+   "seconds": 0.111,
+   "t_offset_s": 207.35,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "poly-TPD poly(triphenylamine) doped PTAA hole transporting layer perovskite solar cell power conversion efficiency control device",
+    "k": 6,
+    "doi": "10.1117/12.2506443"
+   },
+   "result": "{'query': 'poly-TPD poly(triphenylamine) doped PTAA hole transporting layer perovskite solar cell power conversion efficiency control device', 'method': 'semantic', 'n_hits': 6, 'hits': [{'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2590, 'score': 0.79, 'text': 'Perovskite solar cells (PVSCs) based on the hybrid organic/inorganic structure have shown great prospect to the development of low cost, flexible, lightweight, and simple processability. But there are still exist many problems that limit its further commercial applications, such as the low mobility of hole transporting layer (HTL) and the poor stability which caused by the external environment and internal degradation. In this work, we demonstrated that the mixed HTL with poly-TPD and PTAA can increase the performance of p-i-n PVSCs. By doping poly-TPD into PTAA, the devices with mixed HTL sho'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.75, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2592, 'score': 0.747, 'text': 'w significantly enhancement of short-circuit current and fill factor, with an optimized power conversion efficiency (PCE) obtained over 20% enhancement compared with the control devices with bare PTAA, and the best PCE reaches 14.6%. Detailed analysis shows that the performance enhancement can be explained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, e'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'passage_id': 2611, 'score': 0.732, 'text': 'st with the perovskite layer upon poly-TPD modified one (Fig. 2b). And larger grains can efficiently increase the ability of charge transfer in the active layer, resulting in higher PCE of the poly-TPD doped PVSCs. ![](_page_2_Picture_0.jpeg) ![](_page_2_Picture_1.jpeg) Fig. 2. SEM images of perovskite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-------------------'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'passage_id': 2616, 'score': 0.719, 'text': 'ly-TPD into the PTAA layer led to significant enhancements in the $J_{SC}$ and FF values compared to the control device. The PCE of the perovskite solar cells rose by about 20 % and reached 14.63 %. The films with poly-TPD in the PTAA layer resulted in the higher $J_{SC}$ of 21.89 mA cm<sup>-2</sup>, $V_{OC}$ of 0.87 V and higher FF of 76.72 %. This enhancement of photovoltaic performance ( $J_{SC}$ and FF) could be attributed to the modified charge carrier transport, and the morphology control of the composite HTL [12]. However, the unchanged $V_{OC}$ means that the doping poly-TPD cannot cha'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'REFERENCES', 'passage_id': 2632, 'score': 0.717, 'text': 'r cells\", Nanoscale DIO: 10.1039/C8NR01763H (2018). - [9] Ko Y., Kim Y., Lee C., Kim Y., Jun Y., \"Investigation of hole-transporting poly(triarylamine) on aggregation and charge transport for hysteresisless scalable planar perovskite solar cells\", Adv. Funct. Mater. 10, 11633- 11641 (2018). - [10]Yu Z., Sun L., \"Inorganic Hole-transporting materials for perovskite solar cells\", Small Methods 2, 1700280 (2018). - [11]Wang Z.J., Li Z., Zhou D.L., Yu J.S., \"Low turn-on voltage perovskite light-emitting diodes with methanol treated PEDOT:PSS as hole transport layer\", Appl. Phys. Lett. 111, 233304 '}]}",
+   "result_chars": 4824,
+   "seconds": 17.096,
+   "t_offset_s": 267.23,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1117/12.2506443",
+    "query": "Table 1 performance parameters PVSC devices with and without poly-TPD doping VOC JSC FF PCE pure PTAA control 2 wt% values"
+   },
+   "result": "{'doi': '10.1117/12.2506443', 'title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'n_passages_total': 46, 'n_passages_returned': 8, 'passages': [{'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'CH3NH3PbI3 perovskite layer/PC61BM/Bphen/Ag (Fig. 1a), and the molecular structures of the materials used in this study were also shown in Fig. 1b. Firstly, the conductivities of poly-TPD doped and undoped HTLs are tested and exhibited in Fig. 1c. The device structure we used to test is ITO/PTAA with or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, highe'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'h or without poly-TPD doping /Ag. We can notice that the poly-TPD doped HTL has higher current density compared to that of the pure PTAA HTL. So the carrier transport rate of PTAA can be promoted by doping poly-TPD into it, which is profitable for the performance enhancement of PVSCs. However, higher concentration of poly-TPD will degrade the conductively of composite HTL. ![](_page_1_Figure_3.jpeg) **Fig. 1.** (a) Device structure of the perovskite solar cells; (b) chemical structures of PTAA and poly-TPD; (c) conductivities of HTLs with the structure of ITO/HTLs /Ag. It has long been known t'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'st with the perovskite layer upon poly-TPD modified one (Fig. 2b). And larger grains can efficiently increase the ability of charge transfer in the active layer, resulting in higher PCE of the poly-TPD doped PVSCs. ![](_page_2_Picture_0.jpeg) ![](_page_2_Picture_1.jpeg) Fig. 2. SEM images of perovskite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-------------------'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ite layer upon (a) pure PTAA film and (b) 2 wt% poly-TPD doped PTAA film. Table 1. Performance Parameters of PVSCs Devices with and without poly-TPD doping under 100 mW/cm<sup>2</sup> AM 1.5 G Irradiation | HTL | $V_{OC}(V)$ | $J_{SC}$ (mA cm <sup>-2</sup> ) | FF (%) | PCE (%) | |-----------------------|-------------|---------------------------------|--------|---------| | Pure PTAA | 0.87 | 19.63 | 70.80 | 12.11 | | 2 wt% poly-TPD doped | 0.87 | 20.81 | 74.01 | 13.42 | | 5 wt% poly-TPD doped | 0.87 | 21.89 | 76.72 | 14.63 | | 10 wt% poly-TPD doped | 0.87 | 17.99 | 72.50 | 11.32 | <sup>&</sup>l'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'lar intensity of 100 mW cm<sup>-2</sup> are tested and shown in Fig. 3a, and the operating parameters of these devices are summarized in Table 1. Devices fabricated without poly-TPD have a PCE of 12.11 %, with a $J_{SC}$ of 19.63 mA cm<sup>-2</sup>, a $V_{OC}$ of 0.87 V and a FF of 70.8 %. Adding poly-TPD into the PTAA layer led to significant enhancements in the $J_{SC}$ and FF values compared to the control device. The PCE of the perovskite solar cells rose by about 20 % and reached 14.63 %. The films with poly-TPD in the PTAA layer resulted in the higher $J_{SC}$ of 21.89 mA cm<sup>-2</sup>'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'ly-TPD into the PTAA layer led to significant enhancements in the $J_{SC}$ and FF values compared to the control device. The PCE of the perovskite solar cells rose by about 20 % and reached 14.63 %. The films with poly-TPD in the PTAA layer resulted in the higher $J_{SC}$ of 21.89 mA cm<sup>-2</sup>, $V_{OC}$ of 0.87 V and higher FF of 76.72 %. This enhancement of photovoltaic performance ( $J_{SC}$ and FF) could be attributed to the modified charge carrier transport, and the morphology control of the composite HTL [12]. However, the unchanged $V_{OC}$ means that the doping poly-TPD cannot cha'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': ', $V_{OC}$ of 0.87 V and higher FF of 76.72 %. This enhancement of photovoltaic performance ( $J_{SC}$ and FF) could be attributed to the modified charge carrier transport, and the morphology control of the composite HTL [12]. However, the unchanged $V_{OC}$ means that the doping poly-TPD cannot change the energy level of PTAA. Compared to the PVSCs with poly-TPD doping concentrations more than 5 wt%, the PCEs of the PVSCs are lower than the control cells, corresponding to the decreased $J_{SC}$ and FF. This phenomenon may be due to the high concentration of poly-TPD doping into PTAA influence'}, {'section': '2. EXPERIMENTAL RESULTS AND DISCUSSIONS', 'text': 'nge the energy level of PTAA. Compared to the PVSCs with poly-TPD doping concentrations more than 5 wt%, the PCEs of the PVSCs are lower than the control cells, corresponding to the decreased $J_{SC}$ and FF. This phenomenon may be due to the high concentration of poly-TPD doping into PTAA influence the film morphology of the composite HTL. ![](_page_2_Figure_7.jpeg) Fig. 3. (a) J-V curves of the photovoltaic devices with poly-TPD concentrations ranging from 0 to 10 wt% under 100mW/cm<sup>2</sup> AM 1.5G irradiation. (b) EQE versus wavelength of devices with and without poly-TPD doping. The im'}]}",
+   "result_chars": 5540,
+   "seconds": 0.019,
+   "t_offset_s": 453.72,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 3,
+ "n_model_calls": 6,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 6,
+  "prompt_chars": 51031,
+  "completion_chars": 6834,
+  "real_prompt_tokens": 112227,
+  "real_completion_tokens": 7861,
+  "usage_reported_calls": 6,
+  "rate_limit_events": 0,
+  "provider_error_events": 2,
+  "pool_wait_s": 0,
+  "llm_latency_s": 563.1,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "glob",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "invalid",
+     "glob",
+     "read",
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "grep",
+     "read",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_201749_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 1,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

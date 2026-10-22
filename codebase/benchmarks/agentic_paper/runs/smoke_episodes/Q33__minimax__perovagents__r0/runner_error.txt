@@ -1,0 +1,1 @@
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sunraj/Desktop/College/S6/UGP/agentic_paper/codebase/benchmarks/agentic_paper/runs/smoke_episodes/Q33__minimax__perovagents__r0/episode.json'

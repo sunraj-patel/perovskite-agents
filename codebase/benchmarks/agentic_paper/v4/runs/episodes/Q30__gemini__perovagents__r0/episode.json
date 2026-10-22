@@ -1,0 +1,267 @@
+{
+ "episode_id": "Q30__gemini__perovagents__r0",
+ "qid": "Q30",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:02:42",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "According to the ML model, which input features matter most for the PCE of p-i-n perovskite solar cells? List the top five.",
+ "finished_at": "2026-10-22T00:03:24",
+ "seconds": 41.5,
+ "termination": "answer",
+ "final_answer": "According to the trained ML model's global SHAP analysis for p-i-n perovskite solar cells (based on 96 design samples), the top five input features that matter most for predicted PCE, ranked in descending order of feature importance, are:\n\n1. **Perovskite** (Importance: 0.2818)\n2. **HTL_deposition_method** (Importance: 0.2144)\n3. **Substrate_stack_sequence** (Importance: 0.1957)\n4. **Backcontact_stack_sequence** (Importance: 0.1674)\n5. **Perovskite_deposition_solvents** (Importance: 0.1286)",
+ "tool_calls": [
+  {
+   "agent": "ml",
+   "tool": "explain_global",
+   "args": {
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'global', 'method': 'shap', 'architecture': 'PIN', 'n_design_samples': 96, 'features': [{'name': 'Perovskite', 'importance': np.float64(0.2818), 'direction': 'negative', 'shap': np.float64(-0.1828)}, {'name': 'HTL_deposition_method', 'importance': np.float64(0.2144), 'direction': 'negative', 'shap': np.float64(-0.0603)}, {'name': 'Substrate_stack_sequence', 'importance': np.float64(0.1957), 'direction': 'positive', 'shap': np.float64(0.1913)}, {'name': 'Backcontact_stack_sequence', 'importance': np.float64(0.1674), 'direction': 'negative', 'shap': np.float64(-0.0084)}, {'name': 'Perovskite_deposition_solvents', 'importance': np.float64(0.1286), 'direction': 'positive', 'shap': np.float64(0.1165)}, {'name': 'Perov_quenching_crystallisation', 'importance': np.float64(0.1257), 'direction': 'positive', 'shap': np.float64(0.112)}, {'name': 'HTL_electron_mobility_na', 'importance': np.float64(0.1162), 'direction': 'positive', 'shap': np.float64(0.0696)}, {'name': 'gap_diff_HTL_Pvk', 'importance': np.float64(0.0994), 'direction': 'positive', 'shap': np.float64(0.0754)}, {'name': 'log_abs_hole_barrier_na', 'importance': np.float64(0.0951), 'direction': 'positive', 'shap': np.float64(0.0505)}, {'name': 'Perovskite_LUMO', 'importance': np.float64(0.0924), 'direction': 'positive', 'shap': np.float64(0.0794)}, {'name': 'ETL_max_atomic_mass', 'importance': np.float64(0.0918), 'direction': 'positive', 'shap': np.float64(0.017)}, {'name': 'has_stability_measurement_na', 'importance': np.float64(0.0917), 'direction': 'positive', 'shap': np.float64(0.0283)}, {'name': 'ETL_LUMO', 'importance': np.float64(0.0907), 'direction': 'positive', 'shap': np.float64(0.0427)}, {'name': 'has_SAM_na', 'importance': np.float64(0.0844), 'direction': 'positive', 'shap': np.float64(0.0299)}, {'name': 'perovskite_tau_descriptor', 'importance': np.float64(0.0827), 'direction': 'positive', 'shap': np.float64(0.0455)}], 'controllable': {'Perovskite': True, 'HTL_deposition_method': True, 'Substrate_stack_sequence': True, 'Backcontact_stack_sequence': True, 'Perovskite_deposition_solvents': True, 'Perov_quenching_crystallisation': True, 'HTL_electron_mobility_na': False, 'gap_diff_HTL_Pvk': True, 'log_abs_hole_barrier_na': False, 'Perovskite_LUMO': True, 'ETL_max_atomic_mass': True, 'has_stability_measurement_na': False, 'ETL_LUMO': True, 'has_SAM_na': False, 'perovskite_tau_descriptor': True}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_PIN.cbm', 'scope': 'global'}}",
+   "result_chars": 2525,
+   "seconds": 31.317,
+   "t_offset_s": 4.65,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 4,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 4,
+  "prompt_chars": 19635,
+  "completion_chars": 2123,
+  "real_prompt_tokens": 5484,
+  "real_completion_tokens": 636,
+  "usage_reported_calls": 4,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 9.6,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "invalid_key",
+    "slot": 1
+   },
+   {
+    "type": "invalid_key",
+    "slot": 4
+   },
+   {
+    "type": "invalid_key",
+    "slot": 7
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.56,
+    "latency_s": 2.62,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 3386,
+    "text_len": 186,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "TQXZasjHCPjy4-EP6OzTuQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 786,
+      "completion_tokens": 42,
+      "thinking_tokens": null,
+      "total_tokens": 828
+     },
+     "slot": 2,
+     "attempts": 2,
+     "attempt_log": [
+      {
+       "slot": 1,
+       "class": "invalid_key",
+       "exception": "ClientError",
+       "message": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': ",
+       "seconds": 0.36
+      }
+     ],
+     "latency_s": 1.13,
+     "text_len": 186,
+     "raw_text": "ASK ml: What are the top five input features that matter most for the PCE of p-i-n perovskite solar cells, according to the SHAP values or feature importance from the trained PCE models?"
+    }
+   },
+   {
+    "i": 2,
+    "t_offset_s": 3.18,
+    "latency_s": 1.46,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 4367,
+    "text_len": 59,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "TgXZave9LKbGjuMPhoWA6AU",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1231,
+      "completion_tokens": 17,
+      "thinking_tokens": null,
+      "total_tokens": 1248
+     },
+     "slot": 3,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.46,
+     "text_len": 59,
+     "raw_text": "{\"tool\": \"explain_global\", \"args\": {\"architecture\": \"pin\"}}"
+    }
+   },
+   {
+    "i": 3,
+    "t_offset_s": 35.96,
+    "latency_s": 3.56,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6934,
+    "text_len": 1369,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cAXZavflItvDg8UP0biDkQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2223,
+      "completion_tokens": 412,
+      "thinking_tokens": null,
+      "total_tokens": 2635
+     },
+     "slot": 9,
+     "attempts": 3,
+     "attempt_log": [
+      {
+       "slot": 4,
+       "class": "invalid_key",
+       "exception": "ClientError",
+       "message": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': ",
+       "seconds": 0.29
+      },
+      {
+       "slot": 7,
+       "class": "invalid_key",
+       "exception": "ClientError",
+       "message": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': ",
+       "seconds": 0.59
+      }
+     ],
+     "latency_s": 2.68,
+     "text_len": 1369,
+     "raw_text": "FINAL ANSWER: \n\nBased on the global SHAP analysis of the trained CatBoost model for p-i-n perovskite solar cells (`architecture='PIN'`, computed across 96 design samples), the top five input features that matter most for predicted PCE, ranked by descending feature importance, are:\n\n1. **Perovskite**\n   - **Importance:** 0.2818\n   - **Direction:** negative (associated SHAP value: -0.1828)\n\n2. **HTL_deposition_method**\n   - **Importance:** 0.2144\n   - **Direction:** negative (associated SHAP value: -0.0603)\n\n3. **Substrate_stack_sequence**\n   - **Importance:** 0.1957\n   - **Direction:** positive (associated SHAP value: 0.1913)\n\n4. **Backcontact_stack_sequence**\n   - **Importance:** 0.1674\n   - **Direction:** negative (associated SHAP value: -0.0084)\n\n5. **Perovskite_deposition_solvents**\n   - **Importance:** 0.1286\n   - **Direction:** positive (associated SHAP value: 0.1165)\n\n**Methodology & Scope:**\n- **Tool used:** `explain_global` with `architecture='pin'`.\n- **Sample size:** 96 design samples (`n_design_samples: 96`).\n- **What could NOT be found / limitations:** The p-i-n model has a grouped 5-fold cross-validation RMSE of 3.98 pp and an $R^2$ of 0.38 on unseen papers. These SHAP values reflect statistical associations learned by the model from the Perovskite Database rather than physical causal relationships or direct experimental measurements."
+    }
+   },
+   {
+    "i": 4,
+    "t_offset_s": 39.52,
+    "latency_s": 2.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 4948,
+    "text_len": 509,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cwXZap3cD6ibjuMPtcGn0QE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1244,
+      "completion_tokens": 165,
+      "thinking_tokens": null,
+      "total_tokens": 1409
+     },
+     "slot": 11,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.99,
+     "text_len": 509,
+     "raw_text": "FINAL ANSWER: According to the trained ML model's global SHAP analysis for p-i-n perovskite solar cells (based on 96 design samples), the top five input features that matter most for predicted PCE, ranked in descending order of feature importance, are:\n\n1. **Perovskite** (Importance: 0.2818)\n2. **HTL_deposition_method** (Importance: 0.2144)\n3. **Substrate_stack_sequence** (Importance: 0.1957)\n4. **Backcontact_stack_sequence** (Importance: 0.1674)\n5. **Perovskite_deposition_solvents** (Importance: 0.1286)"
+    }
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 4,
+  "replies": 4,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_000243_3411.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 1,
+  "n_format_errors": 0,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

@@ -1,0 +1,1324 @@
+{
+ "version": 1,
+ "pdb": {
+  "Q01": {
+   "count": 4300,
+   "mean_pce": 15.303,
+   "sql": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL"
+  },
+  "Q02": {
+   "ranking": [
+    {
+     "htl": "Spiro-MeOTAD",
+     "count": 736
+    },
+    {
+     "htl": "PTAA",
+     "count": 33
+    },
+    {
+     "htl": "PEAI | Spiro-MeOTAD",
+     "count": 18
+    },
+    {
+     "htl": "DM",
+     "count": 7
+    },
+    {
+     "htl": "TPFPB | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "SrCl2 | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "PMMA | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "P(VDF-TrFE) | Spiro-MeOTAD",
+     "count": 4
+    },
+    {
+     "htl": "DTP-C6Th",
+     "count": 4
+    },
+    {
+     "htl": "CuSCN",
+     "count": 4
+    }
+   ],
+   "sql": "SELECT HTL_stack_sequence, COUNT(*) AS c FROM devices WHERE Cell_architecture = 'nip' AND JV_default_PCE > 20 GROUP BY 1 ORDER BY 2 DESC LIMIT 10"
+  },
+  "Q03": {
+   "nip": {
+    "count": 29233,
+    "mean_pce": 12.113,
+    "median_pce": 12.89
+   },
+   "pin": {
+    "count": 13062,
+    "mean_pce": 11.937,
+    "median_pce": 12.6
+   },
+   "sql": "SELECT Cell_architecture, JV_default_PCE FROM devices WHERE Cell_architecture IN ('nip', 'pin') AND JV_default_PCE IS NOT NULL ORDER BY 1, 2"
+  },
+  "Q04": {
+   "top_devices": [
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 35.9,
+     "voc": 0.98,
+     "jsc": 0.158,
+     "ff": 0.72
+    },
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 34.8,
+     "voc": 0.95,
+     "jsc": 0.158,
+     "ff": 0.72
+    },
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 33.4,
+     "voc": 0.97,
+     "jsc": 0.077,
+     "ff": 0.7
+    },
+    {
+     "doi": "10.1039/d0ta04721j",
+     "htl": "Spiro-MeOTAD",
+     "etl": "ZnO-np | SnO2-np",
+     "absorber": "MAPbI3",
+     "pce": 32.3,
+     "voc": 0.93,
+     "jsc": 0.077,
+     "ff": 0.71
+    },
+    {
+     "doi": "10.1038/s41586-021-03285-w",
+     "htl": "alkylammonium bromide | Spiro-MeOTAD",
+     "etl": "SnO2",
+     "absorber": "nannannan",
+     "pce": 25.2,
+     "voc": 1.194,
+     "jsc": 25.09,
+     "ff": 0.847
+    }
+   ],
+   "sql": "SELECT Ref_DOI_number, HTL_stack_sequence, ETL_stack_sequence, Perovskite_composition_long_form, JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 5"
+  }
+ },
+ "ml": {
+  "Q09": {
+   "result_type": "prediction",
+   "architecture": "NIP",
+   "predicted_pce": 12.37,
+   "pce_95_interval": [
+    11.19,
+    13.56
+   ],
+   "interval_spread_percent": 2.36,
+   "n_bags": 3,
+   "hood": {
+    "applied": true,
+    "n_out_of_envelope": 0,
+    "n_features_checked": 0,
+    "fraction_out": 0.0,
+    "ood": false,
+    "details": []
+   },
+   "resolved_materials": {
+    "ETL": "SnO2",
+    "HTL": "Spiro-MeOTAD",
+    "Perovskite": "MAPbI3"
+   },
+   "provenance": {
+    "kind": "ml_prediction",
+    "model": "model_NIP.cbm",
+    "target": "PCE"
+   }
+  },
+  "Q10": {
+   "result_type": "explanation",
+   "scope": "global",
+   "method": "shap",
+   "architecture": "NIP",
+   "n_design_samples": 96,
+   "features": [
+    {
+     "name": "Perov_quenching_crystallisation",
+     "importance": 0.3946,
+     "direction": "positive",
+     "shap": 0.123
+    },
+    {
+     "name": "ETL_deposition_method",
+     "importance": 0.3923,
+     "direction": "positive",
+     "shap": 0.1892
+    },
+    {
+     "name": "Perovskite_deposition_synthesis_atmosphere",
+     "importance": 0.352,
+     "direction": "negative",
+     "shap": -0.0288
+    },
+    {
+     "name": "Perovskite",
+     "importance": 0.3473,
+     "direction": "positive",
+     "shap": 0.0852
+    },
+    {
+     "name": "HTL_additives_compounds",
+     "importance": 0.335,
+     "direction": "positive",
+     "shap": 0.335
+    },
+    {
+     "name": "HTL_deposition_method",
+     "importance": 0.2956,
+     "direction": "positive",
+     "shap": 0.1621
+    },
+    {
+     "name": "has_LiF_na",
+     "importance": 0.2855,
+     "direction": "positive",
+     "shap": 0.1552
+    },
+    {
+     "name": "has_ZnO_na",
+     "importance": 0.228,
+     "direction": "positive",
+     "shap": 0.1029
+    },
+    {
+     "name": "has_SnO2",
+     "importance": 0.1978,
+     "direction": "positive",
+     "shap": 0.065
+    },
+    {
+     "name": "Perovskite_dielectric_constant_na",
+     "importance": 0.1943,
+     "direction": "positive",
+     "shap": 0.0647
+    },
+    {
+     "name": "HTL_avg_atomic_mass",
+     "importance": 0.1587,
+     "direction": "positive",
+     "shap": 0.0017
+    },
+    {
+     "name": "ETL_LUMO",
+     "importance": 0.1536,
+     "direction": "positive",
+     "shap": 0.0613
+    },
+    {
+     "name": "has_C60_na",
+     "importance": 0.1359,
+     "direction": "positive",
+     "shap": 0.032
+    },
+    {
+     "name": "Add_lay_front",
+     "importance": 0.133,
+     "direction": "positive",
+     "shap": 0.0476
+    },
+    {
+     "name": "HTL_HOMO_na",
+     "importance": 0.1291,
+     "direction": "positive",
+     "shap": 0.1084
+    }
+   ],
+   "controllable": {
+    "Perov_quenching_crystallisation": true,
+    "ETL_deposition_method": true,
+    "Perovskite_deposition_synthesis_atmosphere": true,
+    "Perovskite": true,
+    "HTL_additives_compounds": true,
+    "HTL_deposition_method": true,
+    "has_LiF_na": false,
+    "has_ZnO_na": false,
+    "has_SnO2": true,
+    "Perovskite_dielectric_constant_na": false,
+    "HTL_avg_atomic_mass": true,
+    "ETL_LUMO": true,
+    "has_C60_na": false,
+    "Add_lay_front": true,
+    "HTL_HOMO_na": false
+   },
+   "provenance": {
+    "kind": "shap_explanation",
+    "model": "model_NIP.cbm",
+    "scope": "global"
+   }
+  },
+  "Q11": {
+   "predict": {
+    "result_type": "prediction",
+    "architecture": "NIP",
+    "predicted_pce": 12.37,
+    "pce_95_interval": [
+     11.19,
+     13.56
+    ],
+    "interval_spread_percent": 2.36,
+    "n_bags": 3,
+    "hood": {
+     "applied": true,
+     "n_out_of_envelope": 0,
+     "n_features_checked": 0,
+     "fraction_out": 0.0,
+     "ood": false,
+     "details": []
+    },
+    "resolved_materials": {
+     "ETL": "SnO2",
+     "HTL": "Spiro-MeOTAD",
+     "Perovskite": "MAPbI3"
+    },
+    "provenance": {
+     "kind": "ml_prediction",
+     "model": "model_NIP.cbm",
+     "target": "PCE"
+    }
+   },
+   "explain_local": {
+    "result_type": "explanation",
+    "scope": "local",
+    "method": "shap",
+    "architecture": "NIP",
+    "features": [
+     {
+      "name": "Perovskite_deposition_solvents",
+      "importance": 0.0611,
+      "direction": "positive",
+      "shap": 0.0611
+     },
+     {
+      "name": "Perovskite",
+      "importance": 0.0087,
+      "direction": "positive",
+      "shap": 0.0087
+     },
+     {
+      "name": "Perovskite_deposition_synthesis_atmosphere",
+      "importance": 0.7412,
+      "direction": "negative",
+      "shap": -0.7412
+     },
+     {
+      "name": "Perov_quenching_crystallisation",
+      "importance": 0.0,
+      "direction": "positive",
+      "shap": 0.0
+     },
+     {
+      "name": "ETL_deposition_method",
+      "importance": 0.4799,
+      "direction": "positive",
+      "shap": 0.4799
+     },
+     {
+      "name": "HTL_additives_compounds",
+      "importance": 0.3633,
+      "direction": "positive",
+      "shap": 0.3633
+     },
+     {
+      "name": "gap_diff_HTL_Pvk",
+      "importance": 0.0702,
+      "direction": "positive",
+      "shap": 0.0702
+     },
+     {
+      "name": "Perovskite_dielectric_constant",
+      "importance": 0.0582,
+      "direction": "positive",
+      "shap": 0.0582
+     },
+     {
+      "name": "HTL_deposition_method",
+      "importance": 0.0195,
+      "direction": "positive",
+      "shap": 0.0195
+     },
+     {
+      "name": "Substrate_stack_sequence",
+      "importance": 0.0095,
+      "direction": "negative",
+      "shap": -0.0095
+     }
+    ],
+    "controllable": {
+     "Perovskite_deposition_solvents": true,
+     "Perovskite": true,
+     "Perovskite_deposition_synthesis_atmosphere": true,
+     "Perov_quenching_crystallisation": true,
+     "ETL_deposition_method": true,
+     "HTL_additives_compounds": true,
+     "gap_diff_HTL_Pvk": true,
+     "Perovskite_dielectric_constant": true,
+     "HTL_deposition_method": true,
+     "Substrate_stack_sequence": true
+    },
+    "resolved_materials": {
+     "ETL": "SnO2",
+     "HTL": "Spiro-MeOTAD",
+     "Perovskite": "MAPbI3"
+    },
+    "provenance": {
+     "kind": "shap_explanation",
+     "model": "model_NIP.cbm",
+     "scope": "local"
+    }
+   }
+  },
+  "Q12": {
+   "parameter": "ETL_thickness_nm",
+   "declared_range": [
+    10.0,
+    200.0
+   ],
+   "what_if": {
+    "result_type": "what_if",
+    "architecture": "NIP",
+    "parameter": "ETL_thickness_nm",
+    "category": "processing_parameter",
+    "controllable": true,
+    "valid_range": [
+     10.0,
+     200.0
+    ],
+    "clamped_to_valid_range": false,
+    "base_value": null,
+    "data": [
+     {
+      "parameter_value": 57.5,
+      "predicted_pce": 12.25,
+      "interval_lo": 11.11,
+      "interval_hi": 13.39,
+      "hood": false
+     },
+     {
+      "parameter_value": 105.0,
+      "predicted_pce": 12.21,
+      "interval_lo": 11.37,
+      "interval_hi": 13.06,
+      "hood": false
+     },
+     {
+      "parameter_value": 152.5,
+      "predicted_pce": 12.3,
+      "interval_lo": 11.53,
+      "interval_hi": 13.07,
+      "hood": false
+     }
+    ],
+    "hood": {
+     "applied": true,
+     "n_out_of_envelope": 0,
+     "n_features_checked": 0,
+     "fraction_out": 0.0,
+     "ood": false,
+     "details": []
+    },
+    "provenance": {
+     "kind": "ml_what_if",
+     "model": "model_NIP.cbm",
+     "parameter": "ETL_thickness_nm",
+     "target": "PCE"
+    }
+   },
+   "optimize": {
+    "result_type": "optimization",
+    "architecture": "NIP",
+    "recommendations": [
+     {
+      "parameter": "Perovskite",
+      "kind": "material_choice",
+      "category": "material_choice",
+      "base_value": "MAPbI3",
+      "direction": "switch Perovskite MAPbI3 \u2192 FAPbI3",
+      "recommended_value": "FAPbI3",
+      "base_predicted_pce": 12.37,
+      "best_predicted_pce": 15.43,
+      "delta_predicted_pce": 3.05,
+      "values": [
+       {
+        "material": "CsMAFA",
+        "predicted_pce": 15.23,
+        "interval_lo": 14.03,
+        "interval_hi": 16.42
+       },
+       {
+        "material": "FAPbI3",
+        "predicted_pce": 15.43,
+        "interval_lo": 14.27,
+        "interval_hi": 16.58
+       },
+       {
+        "material": "FA_MA",
+        "predicted_pce": 15.43,
+        "interval_lo": 14.27,
+        "interval_hi": 16.58
+       }
+      ]
+     },
+     {
+      "parameter": "ETL",
+      "kind": "material_choice",
+      "category": "material_choice",
+      "base_value": "SnO2",
+      "direction": "switch ETL SnO2 \u2192 PCBM",
+      "recommended_value": "PCBM",
+      "base_predicted_pce": 12.37,
+      "best_predicted_pce": 12.71,
+      "delta_predicted_pce": 0.33,
+      "values": [
+       {
+        "material": "TiO2",
+        "predicted_pce": 11.96,
+        "interval_lo": 10.67,
+        "interval_hi": 13.25
+       },
+       {
+        "material": "PCBM",
+        "predicted_pce": 12.71,
+        "interval_lo": 11.92,
+        "interval_hi": 13.49
+       }
+      ]
+     },
+     {
+      "parameter": "HTL",
+      "kind": "material_choice",
+      "category": "material_choice",
+      "base_value": "Spiro-MeOTAD",
+      "direction": "switch HTL Spiro-MeOTAD \u2192 PEDOT:PSS",
+      "recommended_value": "PEDOT:PSS",
+      "base_predicted_pce": 12.37,
+      "best_predicted_pce": 12.39,
+      "delta_predicted_pce": 0.02,
+      "values": [
+       {
+        "material": "PTAA",
+        "predicted_pce": 12.15,
+        "interval_lo": 10.87,
+        "interval_hi": 13.43
+       },
+       {
+        "material": "PEDOT:PSS",
+        "predicted_pce": 12.39,
+        "interval_lo": 11.54,
+        "interval_hi": 13.25
+       },
+       {
+        "material": "NiO",
+        "predicted_pce": 12.25,
+        "interval_lo": 11.15,
+        "interval_hi": 13.35
+       }
+      ]
+     }
+    ],
+    "note": "Recommendations are model-derived sensitivities over controllable inputs, not causal or experimentally verified claims",
+    "provenance": {
+     "kind": "ml_optimize",
+     "model": "model_NIP.cbm",
+     "requires_experimental_validation": true
+    }
+   }
+  },
+  "_ml_meta": {
+   "device_description": "n-i-p cell, SnO2 ETL, Spiro-MeOTAD HTL, MAPbI3 perovskite 500 nm",
+   "architecture": "nip",
+   "artifact_dir": "/Users/sunraj/Desktop/College/S6/UGP/claude_code_perovagents/results/ml"
+  }
+ },
+ "literature": {
+  "Q05": {
+   "verified": true,
+   "candidates": [
+    {
+     "query": "SnO2 n-i-p perovskite strategies improve performance",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1021/acs.jpcc.8b01026",
+       "paper_title": "Global Control of CH<sub>3</sub>NH<sub>3</sub>Pbl<sub>3</sub> Formation with Multifunctional Ionic **Liquid for Perovskite Hybrid Photovoltaics**",
+       "section": "CONCLUSIONS",
+       "passage_id": 1221,
+       "score": 0.635,
+       "text": "of the perovskite fabrication provides a scientific guide on rational improvement of perovskite film quality and could also be utilized in other perovskite optoelectronic devices."
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "2. Results and Discussion",
+       "passage_id": 143,
+       "score": 0.622,
+       "text": "nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at "
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 223,
+       "score": 0.612,
+       "text": "the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo"
+      },
+      {
+       "doi": "10.1038/ncomms13503",
+       "paper_title": "ARTICLE",
+       "section": "Results",
+       "passage_id": 1537,
+       "score": 0.608,
+       "text": "\u2014 framework is the first important parameter, which can reduce the I-vacancy. Second, as CH<sub>3</sub>NH<sub>2</sub> can recover the degraded perovskite through the reverse reactions of (5\u20137), CH<sub>3</sub>NH<sub>2</sub> abundance is able to improve the stability of perovskite through retarding the degradation reaction. Therefore, the key to stable perovskite is to build a fully coordinated and robust [PbI<sub>3</sub>] \u2014 scaffold that accommodates CH<sub>3</sub>NH<sub>2</sub> at A sites of perovskite AMX<sub>3</sub> lattice, thus eliminating the inclusion of undesirable water molecules and s"
+      },
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "ABSTRACT",
+       "passage_id": 840,
+       "score": 0.601,
+       "text": "and chemical change of such triple-cation perovskite and indicates that more effort should be invested in surface treatment for enhancing perovskite device stability."
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "2. Results and discussion",
+       "passage_id": 480,
+       "score": 0.598,
+       "text": "O<sub>2</sub> can improve the perovskite film quality and decrease its trap state density. Fig. 2b shows UV\u2014vis absorption spectra for the pristine and Sn-doped $TiO_2$ films, exhibiting strong absorption less than 400 nm. Compared with the pristine $TiO_2$ film, the Sn-doped $TiO_2$ sample demonstrated a blue shift of the absorption edge, suggesting the existence of enlarged band gap after doping. The optical band gap, directly obtained by following the abscissa of Tauc plot (Fig. S4a), demonstrated an increase from 3.0 eV to 3.2 eV with increasing Sn dopant. It is indicated that substitution"
+      }
+     ]
+    },
+    {
+     "query": "SnO2 electron transport layer n-i-p mechanism",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1039/c7se00100b",
+       "paper_title": "Sustainable Energy & Fuels",
+       "section": "2.2. Interfacial bandgap engineering",
+       "passage_id": 1915,
+       "score": 0.539,
+       "text": "h to be an efficient electron transport layer. In order to tailor appropriate band gap alignment for solar cell application, TiO2 was modified through the addition of Sn as a doping element. Tin is ideal for this purpose because of its structural compatibility and stability due to small lattice mismatch between TiO2 and SnO<sub>2</sub>.<sup>24,25</sup> Most importantly, the conduction band edge of SnO<sub>2</sub> is about 0.4 eV lower than that of TiO2.26,27 Thus we expect that Sn ions lead to an appropriate band alignment by reducing the position of the conduction band edge of TiO<sub>2</sub>"
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "2. Results and discussion",
+       "passage_id": 514,
+       "score": 0.519,
+       "text": "rd shift by about 230 meV for the Fermi energy level of the Sn-doped film is found, obviously larger than the energy resolution of the XPS measurement [36]. This implies that the oxygen vacancy in Sn-doped film is significantly increased or that the Ti 3d defect state trap in Sn-doped one can be effectively filled [53]. Reasonably, the electron mobility of the $TiO_2$ film can be enhanced by these two effects, resulted in the improved performance of PSCs. The chemical constituents present in the sample according to the XPS results are shown in Table S4. The XPS result shows that the Sn element"
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "2. Results and Discussion",
+       "passage_id": 143,
+       "score": 0.51,
+       "text": "nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at "
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 223,
+       "score": 0.506,
+       "text": "the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo"
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "2. Results and discussion",
+       "passage_id": 509,
+       "score": 0.506,
+       "text": " charge transfer in interface of Sn-doped TiO<sub>2</sub> and perovskite, higher conductivity of Sn-TiO2 film, larger perovskite crystal size and lower trap states [51]. The surface composition and chemical states of doped and undoped TiO<sub>2</sub> films were studied by XPS. The XPS survey spectrum Fig. 5a proves the existence of Sn element in 3.5% Sn-doped TiO<sub>2</sub> film. To further investigate the influence of inserting Sn<sup>4+</sup> ions into TiO<sub>2</sub> lattice, the detailed XPS spectra of Ti 2p, O 1s and Sn 3d peaks are detected as well (Fig. 5). After doping tin ions, the T"
+      },
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "5.2. Device fabrication and characterization",
+       "passage_id": 936,
+       "score": 0.505,
+       "text": " shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. The following process is the same as the mentioned above. The current density-voltage (J-V) characteristics of the device cells were performed using a programmable Keithley 2612 source measurement unit under simulated solar light (Oriel model 91160, 100 mW/cm2 , AM 1.5 G). The external quantum effic"
+      }
+     ]
+    }
+   ],
+   "gold_evidence": {
+    "doi": "10.1002/aenm.201803587",
+    "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+    "architecture": "n-i-p",
+    "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+    "material": "SnO2 (compact, ETL)",
+    "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+    "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+    "baseline_pce": 19.43,
+    "facl_pce": 20.52,
+    "champion_pce": 21.2,
+    "champion_voc_mv": 1152,
+    "champion_jsc": 23.4,
+    "champion_ff": 78.3,
+    "mpp_stabilized": [
+     19.22,
+     20.32,
+     21.01
+    ],
+    "stability": "12% PCE loss after 700 h continuous illumination",
+    "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+    "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+    "verification_status": "verified-against-corpus-passages"
+   }
+  },
+  "Q06": {
+   "verified": true,
+   "candidates": [
+    {
+     "query": "SnO2 n-i-p perovskite solar cell efficiency improvement method",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1021/jp5126624",
+       "paper_title": "Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells",
+       "section": "\u25a0 RESULTS AND DISCUSSION",
+       "passage_id": 1428,
+       "score": 0.733,
+       "text": " SnF_2}$ (20 mol %) with the resultant photovoltaic parameters attained shown in Table 1 and Figure 2a. Short-circuit photocurrent density $(J_{sc})$ of 27.67 mA/cm<sup>2</sup> under AM 1.5G solar illumination has been observed for CsSnI<sub>3</sub> (with SnF<sub>2</sub>) solar cell, owing to the smaller band gap and better crystal quality attained by annealing the perovskite loaded TiO<sub>2</sub> films at 100 \u00b0C. The quality of the perovskite film is highly critical in affecting the cell performance as has been reported by other research groups and as such perovskite annealing temperatures a"
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "ARTICLE INFO",
+       "passage_id": 437,
+       "score": 0.717,
+       "text": "Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method"
+      },
+      {
+       "doi": "10.1002/adfm.201604733",
+       "paper_title": "High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**",
+       "section": "3. Conclusions",
+       "passage_id": 81,
+       "score": 0.706,
+       "text": "hen increasing the perovskite dimensionality, further supporting the PV performance of these cells. This work shows that the quasi-2D perovskites are attractive candidates for high voltage and high efficiency solar cells."
+      },
+      {
+       "doi": "10.1021/jp5126624",
+       "paper_title": "Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells",
+       "section": "INTRODUCTION",
+       "passage_id": 1396,
+       "score": 0.704,
+       "text": "The emergence of lead perovskite solar cells has had a major impact in the field of photovoltaic research as the power conversion efficiencies achieved until date are more than 19%. These solar cells which are processed completely by solutionbased methods make them amenable for low cost commercialization.<sup>2-7</sup> A key factor in making these solar cells commercially viable, are the efforts to replace toxic Pb with alternatives such as Sn. 8-10 High short-circuit current densities can be attained by Sn perovskites compared to the contemporary Pb-based perovskites owing to the small bandga"
+      },
+      {
+       "doi": "10.1246/cl.180616",
+       "paper_title": "Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell",
+       "section": "Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell",
+       "passage_id": 2685,
+       "score": 0.701,
+       "text": "n cadmium sulfide Over the past several years, organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising candidates for low-cost, high-efficiency solar cells.<sup>1-3</sup> By virtue of the attractive characteristics of perovskite materials, such as high absorption coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture "
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "References",
+       "passage_id": 562,
+       "score": 0.701,
+       "text": "high-performance solar cells, Nature 517 (2015) 476\u2013480. - [17] W. Chen, Y. Wu, Y. Yue, J. Liu, W. Zhang, X. Yang, H. Chen, E. Bi, I. Ashraful, M. Gr\u00e4tzel, Efficient and stable large-area perovskite solar cells with inorganic charge extraction layers, Science 350 (2015) 944\u2013948. - [18] Efficiency Records Chart, http://www.nrel.gov/ncpv/images/efficiency\\_chart.jpg. - [19] S. De Wolf, J. Holovsky, S.J. Moon, P. Loper, B. Niesen, M. Ledinsky, F.J. Haug, J.H. Yum, C. Ballif, Organometallic halide perovskites: sharp optical absorption edge and its relation to photovoltaic performance, J. Phys. Che"
+      }
+     ]
+    },
+    {
+     "query": "SnO2-based n-i-p device experimental",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "5.2. Device fabrication and characterization",
+       "passage_id": 936,
+       "score": 0.589,
+       "text": " shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. The following process is the same as the mentioned above. The current density-voltage (J-V) characteristics of the device cells were performed using a programmable Keithley 2612 source measurement unit under simulated solar light (Oriel model 91160, 100 mW/cm2 , AM 1.5 G). The external quantum effic"
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "1. Introduction",
+       "passage_id": 141,
+       "score": 0.551,
+       "text": "n by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h aging under continuous illumination, which is much better than the reference device, maintaining 67% of its initial PCE value."
+      },
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "5.2. Device fabrication and characterization",
+       "passage_id": 935,
+       "score": 0.533,
+       "text": "ealed at 140 \u00b0C for 10 min in ambient air. The perovskite layers were spin coated on ITO/PEDOT:PSS. 20 mg/Ml and PCBM in chlorobenzene solution was deposited on the top perovskite films at 1500 rpm for 30 s as electron transporting layer. After that, Ag (100 nm) layer was thermally evaporated with a shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. "
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 223,
+       "score": 0.499,
+       "text": "the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo"
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "2. Results and discussion",
+       "passage_id": 514,
+       "score": 0.483,
+       "text": "rd shift by about 230 meV for the Fermi energy level of the Sn-doped film is found, obviously larger than the energy resolution of the XPS measurement [36]. This implies that the oxygen vacancy in Sn-doped film is significantly increased or that the Ti 3d defect state trap in Sn-doped one can be effectively filled [53]. Reasonably, the electron mobility of the $TiO_2$ film can be enhanced by these two effects, resulted in the improved performance of PSCs. The chemical constituents present in the sample according to the XPS results are shown in Table S4. The XPS result shows that the Sn element"
+      },
+      {
+       "doi": "10.1039/c7se00100b",
+       "paper_title": "Sustainable Energy & Fuels",
+       "section": "2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films",
+       "passage_id": 1902,
+       "score": 0.468,
+       "text": "for 2 hours, and (d) 200 \u00b0C for 4 hours in an ambient system and (e) 200 \u00b0C for 2 hours under vacuum (10<sup>-4</sup> torr). that the amount of iodine observed decreases with time and temperature, and a proportional increase in the tin fraction is observed, while the relative ratio of cesium fraction was only slightly changed. At the same time, local EDS measurements indicate that the nano-crystallites on the surface of the Cs<sub>2</sub>SnI<sub>6</sub> crystal are most likely to be Sn oxides. The results indicating a loss of I are reasonable since SnI4 is known to have a much higher vapor pre"
+      }
+     ]
+    }
+   ],
+   "gold_evidence": {
+    "doi": "10.1002/aenm.201803587",
+    "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+    "architecture": "n-i-p",
+    "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+    "material": "SnO2 (compact, ETL)",
+    "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+    "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+    "baseline_pce": 19.43,
+    "facl_pce": 20.52,
+    "champion_pce": 21.2,
+    "champion_voc_mv": 1152,
+    "champion_jsc": 23.4,
+    "champion_ff": 78.3,
+    "mpp_stabilized": [
+     19.22,
+     20.32,
+     21.01
+    ],
+    "stability": "12% PCE loss after 700 h continuous illumination",
+    "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+    "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+    "verification_status": "verified-against-corpus-passages"
+   }
+  },
+  "Q07": {
+   "verified": true,
+   "candidates": [
+    {
+     "query": "SnO2 n-i-p perovskite PCE improvement quantitative champion",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1002/adfm.201604733",
+       "paper_title": "High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**",
+       "section": "2. Results and Discussion",
+       "passage_id": 73,
+       "score": 0.607,
+       "text": "e) | 1.25 | 8.2 | 62 | 6.3 | | 40 (HTM free) | 1.30 | 8.4 | 50 | 5.5 | | 50 + Spiro | 1.46 | 9.0 | 65 | 8.5 | | \u221e + Spiro | 1.22 | 10.7 | 66 | 8.1 | ![](_page_5_Figure_5.jpeg) **Figure 6.** *J*\u2013*V* curves of the best-performing cells observed for quasi-2D and 3D perovskite with and without HTM. the *n* = 40 perovskite ((PEA)2(MA)39Pb40Br121) attaining 1.3 V for the HTM free cell. To see how high the PCE could increase and, in addition, to compare it to our HTM free cells, we fabricated the same cells with Spiro as the HTM. As presented in Table 2 and Figure 6, the best PCE was observed for *n*"
+      },
+      {
+       "doi": "10.1021/acs.jpcc.8b01026",
+       "paper_title": "Global Control of CH<sub>3</sub>NH<sub>3</sub>Pbl<sub>3</sub> Formation with Multifunctional Ionic **Liquid for Perovskite Hybrid Photovoltaics**",
+       "section": "CONCLUSIONS",
+       "passage_id": 1221,
+       "score": 0.585,
+       "text": "of the perovskite fabrication provides a scientific guide on rational improvement of perovskite film quality and could also be utilized in other perovskite optoelectronic devices."
+      },
+      {
+       "doi": "10.1039/c9ta01893j",
+       "paper_title": "Journal of Materials Chemistry A",
+       "section": "Conclusions",
+       "passage_id": 2266,
+       "score": 0.582,
+       "text": "MA<sub>1-x</sub>GA<sub>x</sub> (1D/3D) perovskite with longer carrier life time, less trap density, and reduced charge recombination was obtained. Moreover, this novel 1D/3D perovskite demonstrated improvement of long-term, thermal and lightsoaking stability. The corresponding device exhibited a PCE of 20.29%, which is the highest efficiency reported for GA doped perovskites."
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 223,
+       "score": 0.58,
+       "text": "the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo"
+      },
+      {
+       "doi": "10.1039/c8ta07968d",
+       "paper_title": "Journal of Materials Chemistry A",
+       "section": "Solvent-engineering toward CsPb( $I_xBr_{1-x}$ )<sub>3</sub> films for high-performance inorganic perovskite solar cells\u2020",
+       "passage_id": 2059,
+       "score": 0.579,
+       "text": "< $I_x$ < 1) films. By regulating the content of DMSO, as high as 13.27% power conversion efficiency (PCE) has been achieved with a steady-state PCE of 12.5% under optimal conditions, which can maintain 98% of the initial PCE for 480 h under ambient conditions without encapsulation. The synergistic effect of the solvent-engineering method can provide a new access for good quality all-inorganic perovskite thin films for high performance optoelectronic devices."
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "2. Results and Discussion",
+       "passage_id": 143,
+       "score": 0.567,
+       "text": "nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at "
+      }
+     ]
+    },
+    {
+     "query": "SnO2 n-i-p efficiency 21% 22% 23%",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1016/j.joule.2018.06.009",
+       "paper_title": "Gas Quenching for Perovskite Thin Film Deposition",
+       "section": "Solvent Quenching versus Gas",
+       "passage_id": 681,
+       "score": 0.511,
+       "text": "er.com/S2542-4351(18)30245-9/sref9) [average efficiency of 18.3% and best](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref9) [efficiency of 19.7% fabricated via Lewis base](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref9) [adduct of lead\\(II\\) iodide. J. Am. Chem. Soc.](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref9) 137[, 8696\u20138699.](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref9) - <span id=\"page-4-10\"></span>10. [Zhang, M., Yun, J.S., Ma, Q., Zheng, J., Lau,](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref10) [C.F.J., Deng, X., Kim, J., Kim, D., Seidel, J."
+      },
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "5.2. Device fabrication and characterization",
+       "passage_id": 936,
+       "score": 0.495,
+       "text": " shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. The following process is the same as the mentioned above. The current density-voltage (J-V) characteristics of the device cells were performed using a programmable Keithley 2612 source measurement unit under simulated solar light (Oriel model 91160, 100 mW/cm2 , AM 1.5 G). The external quantum effic"
+      },
+      {
+       "doi": "10.1039/c7se00100b",
+       "paper_title": "Sustainable Energy & Fuels",
+       "section": "2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films",
+       "passage_id": 1902,
+       "score": 0.493,
+       "text": "for 2 hours, and (d) 200 \u00b0C for 4 hours in an ambient system and (e) 200 \u00b0C for 2 hours under vacuum (10<sup>-4</sup> torr). that the amount of iodine observed decreases with time and temperature, and a proportional increase in the tin fraction is observed, while the relative ratio of cesium fraction was only slightly changed. At the same time, local EDS measurements indicate that the nano-crystallites on the surface of the Cs<sub>2</sub>SnI<sub>6</sub> crystal are most likely to be Sn oxides. The results indicating a loss of I are reasonable since SnI4 is known to have a much higher vapor pre"
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 222,
+       "score": 0.476,
+       "text": ") water, acetone, and ethanol, in sequence. This is followed by the UV ozone cleaning, after which the substrates are coated with an SnO2 solution (SnCl4.5H2O diluted in ethanol (0.03 <sup>m</sup>)) that is spin coated twice at 4000 rpm for 20 s and followed by annealing at 180 \u00b0C for 60 min. Next, the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution a"
+      },
+      {
+       "doi": "10.1021/jp5126624",
+       "paper_title": "Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells",
+       "section": "EXPERIMENTAL SECTION",
+       "passage_id": 1465,
+       "score": 0.476,
+       "text": "in 2:7 w/w ratio and spin-coated onto the FTO substrate and sintered at 500 \u00b0C for 15 min. Deposition of perovskite, device fabrication and testing was done in nitrogen filled glovebox to prevent oxidation of ${\\rm Sn^{2+}}$ to ${\\rm Sn^{4+}}$ . Solutions containing $CsSnI_{3-x}Br_x$ (0.6 M)(where x=0, 0.1, 0.2, 1, 2, 2.8, 2.9, 3) + 20 mol % $SnF_2$ (Sigma-Aldrich, 99%) were stirred overnight at 70 \u00b0C in dimethyl sulfoxide (DMSO) by adding equimolar quantities of CsI/CsBr (Sigma-Aldrich, 99.9%) and $SnBr_2/SnI_2$ (Sigma-Aldrich, 99.99%) respectively. A 50 $\\mu$ L aliquot of this solution was u"
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 223,
+       "score": 0.47,
+       "text": "the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo"
+      }
+     ]
+    }
+   ],
+   "gold_evidence": {
+    "doi": "10.1002/aenm.201803587",
+    "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+    "architecture": "n-i-p",
+    "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+    "material": "SnO2 (compact, ETL)",
+    "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+    "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+    "baseline_pce": 19.43,
+    "facl_pce": 20.52,
+    "champion_pce": 21.2,
+    "champion_voc_mv": 1152,
+    "champion_jsc": 23.4,
+    "champion_ff": 78.3,
+    "mpp_stabilized": [
+     19.22,
+     20.32,
+     21.01
+    ],
+    "stability": "12% PCE loss after 700 h continuous illumination",
+    "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+    "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+    "verification_status": "verified-against-corpus-passages"
+   }
+  },
+  "Q08": {
+   "verified": true,
+   "candidates": [
+    {
+     "query": "SnO2 n-i-p perovskite improvement numerical value stability",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1002/adfm.201604733",
+       "paper_title": "High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**",
+       "section": "2. Results and Discussion",
+       "passage_id": 23,
+       "score": 0.641,
+       "text": " for *n* = 1 (described by the formula (PEA)2(MA)PbBr4) through Eg = 2.3 eV for *n* = 10 (described by the formula (PEA)2(MA)9Pb10Br28). It was previously reported that low *n* values provide much more stable perovskite structures compared to their 3D perovskite counterparts.[10] However, their transport properties are not as good as the 3D perovskite (the PV performance of low *n* values are discussed below). Therefore, we were motivated to fabricate higher *n* values in order to have good perovskite stability[10] but with transport properties close to the 3D perovskite (referred to as quasi-"
+      },
+      {
+       "doi": "10.1021/acs.jpcc.5b06269",
+       "paper_title": "Photodecomposition and Morphology Evolution of Organometal Halide Perovskite Solar Cells",
+       "section": "INTRODUCTION",
+       "passage_id": 1031,
+       "score": 0.626,
+       "text": "techniques, we relate the stability of the perovskite material to its performance in a completed device. Received: June 30, 2015 August 16, 2015 Published: August 24, 2015 ![](_page_0_Picture_17.jpeg) <sup>&</sup>lt;sup>\u2020</sup>Osaka Municipal Technical Research Institute, 1-6-50, Morinomiya, Joto-ku, Osaka 536-8553, Japan <sup>&</sup>lt;sup>\u2021</sup>Department of Chemistry, University of Washington, P.O. Box 351700, Seattle, Washington 98195-1700, United States"
+      },
+      {
+       "doi": "10.1021/acs.jpcc.8b01026",
+       "paper_title": "Global Control of CH<sub>3</sub>NH<sub>3</sub>Pbl<sub>3</sub> Formation with Multifunctional Ionic **Liquid for Perovskite Hybrid Photovoltaics**",
+       "section": "CONCLUSIONS",
+       "passage_id": 1221,
+       "score": 0.621,
+       "text": "of the perovskite fabrication provides a scientific guide on rational improvement of perovskite film quality and could also be utilized in other perovskite optoelectronic devices."
+      },
+      {
+       "doi": "10.1038/ncomms13503",
+       "paper_title": "ARTICLE",
+       "section": "Nonstoichiometric acid\u2013base reaction as reliable synthetic route to highly stable CH3NH3PbI3 perovskite film",
+       "passage_id": 1510,
+       "score": 0.615,
+       "text": " freshly prepared film probably due to slight doping. This work provides an important insight into perovskite intrinsic stability and the utilization of simple chemical reaction for material control in PSC."
+      },
+      {
+       "doi": "10.1039/c9ta01893j",
+       "paper_title": "Journal of Materials Chemistry A",
+       "section": "Introduction",
+       "passage_id": 2184,
+       "score": 0.614,
+       "text": "n based perovskites with other components, possessing attractive optoelectronic properties, are yet to be investigated. Herein, we demonstrate a novel quadruple cation with chemical formula perovskite, $Cs_{0.05}(FA_{0.83}(MA_{1-x}GA_x)_{0.17})_{0.95}Pb(I_{0.83}Br_{0.17})_3$ (abbreviated as CsFAMA<sub>1-x</sub>GA<sub>x</sub>), towards efficient and highly stable PSCs. The perovskites with different x values ranging from 0 to 1 were explored by gradually replacing MA with GA, and the corresponding phase, chemical composition, optical properties, morphology, optoelectronic properties and stabili"
+      },
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "ABSTRACT",
+       "passage_id": 840,
+       "score": 0.613,
+       "text": "and chemical change of such triple-cation perovskite and indicates that more effort should be invested in surface treatment for enhancing perovskite device stability."
+      }
+     ]
+    },
+    {
+     "query": "SnO2 interface passivation n-i-p quantitative",
+     "method": "semantic",
+     "n_hits": 6,
+     "hits": [
+      {
+       "doi": "10.1016/j.nanoen.2018.10.011",
+       "paper_title": "Contents lists available at ScienceDirect",
+       "section": "5.2. Device fabrication and characterization",
+       "passage_id": 936,
+       "score": 0.541,
+       "text": " shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. The following process is the same as the mentioned above. The current density-voltage (J-V) characteristics of the device cells were performed using a programmable Keithley 2612 source measurement unit under simulated solar light (Oriel model 91160, 100 mW/cm2 , AM 1.5 G). The external quantum effic"
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "1. Introduction",
+       "passage_id": 141,
+       "score": 0.532,
+       "text": "n by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h aging under continuous illumination, which is much better than the reference device, maintaining 67% of its initial PCE value."
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "2. Results and discussion",
+       "passage_id": 509,
+       "score": 0.51,
+       "text": " charge transfer in interface of Sn-doped TiO<sub>2</sub> and perovskite, higher conductivity of Sn-TiO2 film, larger perovskite crystal size and lower trap states [51]. The surface composition and chemical states of doped and undoped TiO<sub>2</sub> films were studied by XPS. The XPS survey spectrum Fig. 5a proves the existence of Sn element in 3.5% Sn-doped TiO<sub>2</sub> film. To further investigate the influence of inserting Sn<sup>4+</sup> ions into TiO<sub>2</sub> lattice, the detailed XPS spectra of Ti 2p, O 1s and Sn 3d peaks are detected as well (Fig. 5). After doping tin ions, the T"
+      },
+      {
+       "doi": "10.1039/c7se00100b",
+       "paper_title": "Sustainable Energy & Fuels",
+       "section": "2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films",
+       "passage_id": 1902,
+       "score": 0.503,
+       "text": "for 2 hours, and (d) 200 \u00b0C for 4 hours in an ambient system and (e) 200 \u00b0C for 2 hours under vacuum (10<sup>-4</sup> torr). that the amount of iodine observed decreases with time and temperature, and a proportional increase in the tin fraction is observed, while the relative ratio of cesium fraction was only slightly changed. At the same time, local EDS measurements indicate that the nano-crystallites on the surface of the Cs<sub>2</sub>SnI<sub>6</sub> crystal are most likely to be Sn oxides. The results indicating a loss of I are reasonable since SnI4 is known to have a much higher vapor pre"
+      },
+      {
+       "doi": "10.1016/j.electacta.2017.12.108",
+       "paper_title": "Electrochimica Acta",
+       "section": "2. Results and discussion",
+       "passage_id": 462,
+       "score": 0.502,
+       "text": "agonal structure of TiO<sub>2</sub> [JCPDS no. 21-1276], corresponding to the (110), (101), (111), (211), (002), (301) and (112) crystal planes [44]. Obviously, the samples retain the rutile phase irrespective of the Sn doping, whereas the (110) rutile peak slightly shifts to a smaller $\\theta$ angle with increased Sn doping (Fig. 1b). It can be attributed to the larger ionic radius of Sn<sup>4+</sup> (69 p.m.), compared with that of Ti<sup>4+</sup> (61 p.m.) [41]. No other peaks correlated to Sn, SnO<sub>2</sub>, SnCl<sub>4</sub> were detected, indicating that Sn has been successfully doped i"
+      },
+      {
+       "doi": "10.1002/aenm.201803587",
+       "paper_title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**",
+       "section": "4. Experimental Section",
+       "passage_id": 223,
+       "score": 0.502,
+       "text": "the SnO2 film is treated by using a chemical bath deposition technique. First, 0.5 g urea, 10 mL mercaptoacetic acid, and 0.5 mL HCl (37%) are mixed in 40 mL DI water. Then, SnO2.2H2O is dissolved in the solution at 0.005 <sup>m</sup> concentration. The SnO2 films are placed into the bath solution and kept in an oven at 70 \u00b0C for 1 h. These substrates are then cleaned again and then annealed at 180 \u00b0C for 1 h. Perovskite film is deposited by using a precursor solution of (FAPbI3)0.8 7(MAPbBr3)0.13 perovskite prepared by dissolving FAI (1.05 <sup>m</sup>, Dyesol), PbI2 (1.10 <sup>m</sup>, Tokyo"
+      }
+     ]
+    }
+   ],
+   "gold_evidence": {
+    "doi": "10.1002/aenm.201803587",
+    "title": "Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells",
+    "architecture": "n-i-p",
+    "stack": "FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au (planar)",
+    "material": "SnO2 (compact, ETL)",
+    "strategy": "chloride additives (FACl in precursor, bulk) + ADAHCl surface passivation",
+    "mechanism": "improved crystallization/morphology; retarded surface recombination (PL/EIS)",
+    "baseline_pce": 19.43,
+    "facl_pce": 20.52,
+    "champion_pce": 21.2,
+    "champion_voc_mv": 1152,
+    "champion_jsc": 23.4,
+    "champion_ff": 78.3,
+    "mpp_stabilized": [
+     19.22,
+     20.32,
+     21.01
+    ],
+    "stability": "12% PCE loss after 700 h continuous illumination",
+    "unit": "% (PCE), mV (Voc), mA/cm2 (Jsc)",
+    "evidence_location": "index passage ids 178, 184, 210, 211, 218 (Table 1, MPP, Conclusions)",
+    "verification_status": "verified-against-corpus-passages"
+   }
+  }
+ },
+ "scaps": {
+  "Q13": {
+   "converged": true,
+   "sweep_completed": true,
+   "convergence_failure": false,
+   "V_max_reached": 1.6,
+   "Voc_V": 1.305628,
+   "Jsc_mA_cm2": 27.12922237,
+   "FF_percent": 90.2801,
+   "PCE_percent": 31.9778,
+   "job": "gold_q13_pin",
+   "script_path": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/script/gold_q13_pin.script",
+   "iv_path": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/results/gold_q13_pin.iv",
+   "elapsed_s": 47.7,
+   "timed_out": false,
+   "engine": "SCAPS 3.3.02 under wine64",
+   "wine64": "/Users/sunraj/Applications/Age of Empires 2 Definitive Ed.app/Contents/SharedSupport/wine/bin/wine64",
+   "wine_version": "wine-11.0",
+   "def_path": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/prefix/drive_c/Program Files (x86)/Scaps3309/def/gold_q13_pin.def",
+   "def_text": "> SCAPS 3.3.02 ELIS-UGent: Version scaps3302.exe\n> generated by perovagents design agent\n>\n>\n\nconvergence\n\nrecalculate mesh :  1 (0: fixed mesh, 1: adaptive mesh)\n\nback contact\n\nflatband : 1 (1: flatband contact imposed; 0: fixed Phi_m value)\nrecalculate : 1 (1 = do or 0 = do not recalculate phi_m to set flatband in each batch step)\nSn : 1.000000e-02 [m/s]\nSp : 1.000000e+05 [m/s]\nTunneling to contact: 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :  1.00e+00\nRelative hole mass :  1.00e+00\n\nlayer\n\nname : HTL\nd : 2.000000e-07 [m]\ncomposition grading :\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t 0\t  1\t[-]\nv_th_n :\t 1.000e+05\t 1.000e+05\t 1.000e+01\t 1.000e+01\t 1.000e+01\t 1.000e+05\t 1.000e+05\t 0\t  0\t[m/s]\nv_th_p :\t 1.000e+05\t 1.000e+05\t 1.000e+01\t 1.000e+01\t 1.000e+01\t 1.000e+05\t 1.000e+05\t 0\t  0\t[m/s]\neps :\t    3.000000\t    3.000000\t    3.000000\t     1.000000\t     1.000000\t    3.000000\t    3.000000\t 0\t  0\t[-]\nchi :\t    2.200000\t    2.200000\t    2.200000\t  1.000000\t  1.000000\t    2.200000\t    2.200000\t 0\t  0\t[eV]\nEg :\t    3.200000\t    3.200000\t    3.200000\t  1.000000\t  1.000000\t    3.200000\t    3.200000\t 0\t  0\t[eV]\nNc :\t  2.200000e+24\t  2.200000e+24\t  2.200000e+24\t  1.000000e+00\t  1.000000e+00\t  2.200000e+24\t  2.200000e+24\t 0\t  0\t[/m^3]\nNv :\t  2.200000e+24\t  2.200000e+24\t  2.200000e+24\t  1.000000e+00\t  1.000000e+00\t  2.200000e+24\t  2.200000e+24\t 0\t  0\t[/m^3]\nmu_n :\t  1.000000e-06\t  1.000000e-06\t  1.000000e-06\t  1.000000e+00\t  1.000000e+00\t  1.000000e-06\t  1.000000e-06\t 0\t  0\t[m^2/Vs]\nmu_p :\t  1.000000e-04\t  1.000000e-04\t  1.000000e-04\t  1.000000e+00\t  1.000000e+00\t  1.000000e-04\t  1.000000e-04\t 0\t  0\t[m^2/Vs]\nTunneling in layer: 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 0\t  0\t[-]\nRelative hole mass :\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 0\t  0\t[-]\nK_rad :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^3/s]\nc_n_auger :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^6/s]\nc_p_auger :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^6/s]\nNa(y) :\t  1.000000e+24\t  1.000000e+24\t  1.000000e+24\t  1.000000e+00\t  1.000000e+00\t  1.000000e+24\t  1.000000e+24\t 0\t  0\t[/m^3]\nNd(y) :\t  0.000000e+00\t  0.000000e+00\t  0.000000e+00\t  1.000000e+00\t  1.000000e+00\t  0.000000e+00\t  0.000000e+00\t 0\t  0\t[/m^3]\nabsorption grading :\t 1033.31\t 1033.31\t  250.00\t  250.00\t    0.00\t    1.20\t    1.20\t 0\t  0\t[nm]\nabsorptionmodel pure A material (y=0) : coefficients A and B\nA : 1.000000e+07 [/(m*sqrt(eV))]\nB : 0.000000e+00 [sqrt(eV)/m]\nabsorption pure B material (y=1), model : coefficients A and B\npure B material (y=1), A : 1.000000e+07 [/(m*sqrt(eV))]\npure B material (y=1), B : 0.000000e+00 [sqrt(eV)/m]\n\nsrhrecombination\n\ntype : neutral ( 1 level(s) )\nenergy distribution : single\nReference for defect energy :  0 ; 0 = above EV (SCAPS<2.7); 1 = above Ei; 2 = below EC\nEkar :  0.1000 [eV]\nNt(y) :\t  1.000000e+22\t  1.000000e+22\t  1.000000e+22\t  1.000000e+00\t  1.000000e+00\t  1.000000e+22\t  1.000000e+22\t 0\t  0\t[/m^3]\nprofile : homogenous\nLkar : 1.000e+00 [m]\nNleft :   1.000000e+22 [/m^3]\nNright :   1.000000e+22 [/m^3]\nleveltype : neutral\t\nsigma_n : 1.000000e-19\t[m^2]\nsigma_p : 1.000000e-19\t[m^2]\nEt :   0.0000\t[eV]\n\n\ninterface properties\n\ninterfacename : \nIntraband tunneling : 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :  1.00e+00\nRelative hole mass :  1.00e+00\n\nlayer\n\nname : Perovskite\nd : 6.000000e-07 [m]\ncomposition grading :\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t 0\t  1\t[-]\nv_th_n :\t 1.000e+05\t 1.000e+05\t 1.000e+01\t 1.000e+01\t 1.000e+01\t 1.000e+05\t 1.000e+05\t 0\t  0\t[m/s]\nv_th_p :\t 1.000e+05\t 1.000e+05\t 1.000e+01\t 1.000e+01\t 1.000e+01\t 1.000e+05\t 1.000e+05\t 0\t  0\t[m/s]\neps :\t   26.000000\t   26.000000\t   26.000000\t     1.000000\t     1.000000\t   26.000000\t   26.000000\t 0\t  0\t[-]\nchi :\t    4.000000\t    4.000000\t    4.000000\t  1.000000\t  1.000000\t    4.000000\t    4.000000\t 0\t  0\t[eV]\nEg :\t    1.480000\t    1.480000\t    1.480000\t  1.000000\t  1.000000\t    1.480000\t    1.480000\t 0\t  0\t[eV]\nNc :\t  2.500000e+24\t  2.500000e+24\t  2.500000e+24\t  1.000000e+00\t  1.000000e+00\t  2.500000e+24\t  2.500000e+24\t 0\t  0\t[/m^3]\nNv :\t  2.500000e+24\t  2.500000e+24\t  2.500000e+24\t  1.000000e+00\t  1.000000e+00\t  2.500000e+24\t  2.500000e+24\t 0\t  0\t[/m^3]\nmu_n :\t  1.000000e-04\t  1.000000e-04\t  1.000000e-04\t  1.000000e+00\t  1.000000e+00\t  1.000000e-04\t  1.000000e-04\t 0\t  0\t[m^2/Vs]\nmu_p :\t  1.000000e-04\t  1.000000e-04\t  1.000000e-04\t  1.000000e+00\t  1.000000e+00\t  1.000000e-04\t  1.000000e-04\t 0\t  0\t[m^2/Vs]\nTunneling in layer: 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 0\t  0\t[-]\nRelative hole mass :\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 0\t  0\t[-]\nK_rad :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^3/s]\nc_n_auger :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^6/s]\nc_p_auger :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^6/s]\nNa(y) :\t  1.000000e+22\t  1.000000e+22\t  1.000000e+22\t  1.000000e+00\t  1.000000e+00\t  1.000000e+22\t  1.000000e+22\t 0\t  0\t[/m^3]\nNd(y) :\t  0.000000e+00\t  0.000000e+00\t  0.000000e+00\t  1.000000e+00\t  1.000000e+00\t  0.000000e+00\t  0.000000e+00\t 0\t  0\t[/m^3]\nabsorption grading :\t 1033.31\t 1033.31\t  250.00\t  250.00\t    0.00\t    1.20\t    1.20\t 0\t  0\t[nm]\nabsorptionmodel pure A material (y=0) : coefficients A and B\nA : 1.000000e+07 [/(m*sqrt(eV))]\nB : 0.000000e+00 [sqrt(eV)/m]\nabsorption pure B material (y=1), model : coefficients A and B\npure B material (y=1), A : 1.000000e+07 [/(m*sqrt(eV))]\npure B material (y=1), B : 0.000000e+00 [sqrt(eV)/m]\n\nsrhrecombination\n\ntype : neutral ( 1 level(s) )\nenergy distribution : single\nReference for defect energy :  0 ; 0 = above EV (SCAPS<2.7); 1 = above Ei; 2 = below EC\nEkar :  0.1000 [eV]\nNt(y) :\t  1.000000e+20\t  1.000000e+20\t  1.000000e+20\t  1.000000e+00\t  1.000000e+00\t  1.000000e+20\t  1.000000e+20\t 0\t  0\t[/m^3]\nprofile : homogenous\nLkar : 1.000e+00 [m]\nNleft :   1.000000e+20 [/m^3]\nNright :   1.000000e+20 [/m^3]\nleveltype : neutral\t\nsigma_n : 1.000000e-19\t[m^2]\nsigma_p : 1.000000e-19\t[m^2]\nEt :   0.0000\t[eV]\n\n\ninterface properties\n\ninterfacename : \nIntraband tunneling : 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :  1.00e+00\nRelative hole mass :  1.00e+00\n\nlayer\n\nname : ETL\nd : 5.000000e-08 [m]\ncomposition grading :\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t  0.00000\t 0\t  1\t[-]\nv_th_n :\t 1.000e+05\t 1.000e+05\t 1.000e+01\t 1.000e+01\t 1.000e+01\t 1.000e+05\t 1.000e+05\t 0\t  0\t[m/s]\nv_th_p :\t 1.000e+05\t 1.000e+05\t 1.000e+01\t 1.000e+01\t 1.000e+01\t 1.000e+05\t 1.000e+05\t 0\t  0\t[m/s]\neps :\t    9.000000\t    9.000000\t    9.000000\t     1.000000\t     1.000000\t    9.000000\t    9.000000\t 0\t  0\t[-]\nchi :\t    4.050000\t    4.050000\t    4.050000\t  1.000000\t  1.000000\t    4.050000\t    4.050000\t 0\t  0\t[eV]\nEg :\t    3.600000\t    3.600000\t    3.600000\t  1.000000\t  1.000000\t    3.600000\t    3.600000\t 0\t  0\t[eV]\nNc :\t  2.200000e+24\t  2.200000e+24\t  2.200000e+24\t  1.000000e+00\t  1.000000e+00\t  2.200000e+24\t  2.200000e+24\t 0\t  0\t[/m^3]\nNv :\t  2.200000e+24\t  2.200000e+24\t  2.200000e+24\t  1.000000e+00\t  1.000000e+00\t  2.200000e+24\t  2.200000e+24\t 0\t  0\t[/m^3]\nmu_n :\t  5.000000e-04\t  5.000000e-04\t  5.000000e-04\t  1.000000e+00\t  1.000000e+00\t  5.000000e-04\t  5.000000e-04\t 0\t  0\t[m^2/Vs]\nmu_p :\t  5.000000e-05\t  5.000000e-05\t  5.000000e-05\t  1.000000e+00\t  1.000000e+00\t  5.000000e-05\t  5.000000e-05\t 0\t  0\t[m^2/Vs]\nTunneling in layer: 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 0\t  0\t[-]\nRelative hole mass :\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 1.000000e+00\t 0\t  0\t[-]\nK_rad :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^3/s]\nc_n_auger :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^6/s]\nc_p_auger :\t 0.000000e+00\t 0.000000e+00\t 1.000000e+01\t 1.000000e+01\t 1.000000e+01\t 0.000000e+00\t 0.000000e+00\t 0\t  0\t[m^6/s]\nNa(y) :\t  0.000000e+00\t  0.000000e+00\t  0.000000e+00\t  1.000000e+00\t  1.000000e+00\t  0.000000e+00\t  0.000000e+00\t 0\t  0\t[/m^3]\nNd(y) :\t  1.000000e+25\t  1.000000e+25\t  1.000000e+25\t  1.000000e+00\t  1.000000e+00\t  1.000000e+25\t  1.000000e+25\t 0\t  0\t[/m^3]\nabsorption grading :\t 1033.31\t 1033.31\t  250.00\t  250.00\t    0.00\t    1.20\t    1.20\t 0\t  0\t[nm]\nabsorptionmodel pure A material (y=0) : coefficients A and B\nA : 1.000000e+07 [/(m*sqrt(eV))]\nB : 0.000000e+00 [sqrt(eV)/m]\nabsorption pure B material (y=1), model : coefficients A and B\npure B material (y=1), A : 1.000000e+07 [/(m*sqrt(eV))]\npure B material (y=1), B : 0.000000e+00 [sqrt(eV)/m]\n\nsrhrecombination\n\ntype : neutral ( 1 level(s) )\nenergy distribution : single\nReference for defect energy :  0 ; 0 = above EV (SCAPS<2.7); 1 = above Ei; 2 = below EC\nEkar :  0.1000 [eV]\nNt(y) :\t  1.000000e+22\t  1.000000e+22\t  1.000000e+22\t  1.000000e+00\t  1.000000e+00\t  1.000000e+22\t  1.000000e+22\t 0\t  0\t[/m^3]\nprofile : homogenous\nLkar : 1.000e+00 [m]\nNleft :   1.000000e+22 [/m^3]\nNright :   1.000000e+22 [/m^3]\nleveltype : neutral\t\nsigma_n : 1.000000e-18\t[m^2]\nsigma_p : 1.000000e-18\t[m^2]\nEt :   0.0000\t[eV]\n\n\nfront contact\n\nflatband : 1 (1: flatband contact imposed; 0: fixed Phi_m value)\nrecalculate : 1 (1 = do or 0 = do not recalculate phi_m to set flatband in each batch step)\nSn : 1.000000e+05 [m/s]\nSp : 1.000000e-02 [m/s]\nTunneling to contact: 0 (0: no tunneling, 1: with tunneling)\nRelative electron mass :  1.00e+00\nRelative hole mass :  1.00e+00\n\nworking point\n\nilluminated from : left\ninternal Rfront :   0.00000000\ninternal Tfront :  1.0000e+00\nvoltage V applied to : -1 (+1: right contact; -1: left contact)\ncell reference system :  1 (1: as a consumer (consumed power = +VJ); 0: as a generator (generated power = +VJ) )\n",
+   "execution_script": "set quitscript.quitSCAPS\nset errorhandling.overwritefile\nload definitionfile gold_q13_pin.def\nclear actions\naction workingpoint.temperature 300.0\naction iv.startv 0.0\naction iv.stopv 1.6\naction iv.increment 0.02\naction iv.doiv\naction light\ncalculate singleshot\nsave results.iv gold_q13_pin.iv\n",
+   "device": {
+    "architecture": "p-i-n",
+    "architecture_meaning": "hole transport layer on the illuminated (back/left) side",
+    "illumination": "back/left contact (HTL) side",
+    "n_scaps_layers": 3,
+    "layers": [
+     {
+      "name": "HTL",
+      "material": "PTAA",
+      "thickness_nm": 200.0,
+      "role": "illuminated surface side",
+      "defect_density_1e14cm3": 100.0,
+      "band_gap_eV": 3.2,
+      "electron_affinity_eV": 2.2,
+      "defect_profile_1cm3": [
+       {
+        "depth_nm": 0.0,
+        "Nt_1cm3": 1e+16
+       },
+       {
+        "depth_nm": 200.0,
+        "Nt_1cm3": 1e+16
+       }
+      ]
+     },
+     {
+      "name": "Perovskite",
+      "material": "FAPbI3",
+      "thickness_nm": 600.0,
+      "role": "absorber",
+      "defect_density_1e14cm3": 1.0,
+      "band_gap_eV": 1.48,
+      "electron_affinity_eV": 4.0,
+      "defect_profile_1cm3": [
+       {
+        "depth_nm": 0.0,
+        "Nt_1cm3": 100000000000000.0
+       },
+       {
+        "depth_nm": 600.0,
+        "Nt_1cm3": 100000000000000.0
+       }
+      ]
+     },
+     {
+      "name": "ETL",
+      "material": "SnO2",
+      "thickness_nm": 50.0,
+      "role": "far surface side",
+      "defect_density_1e14cm3": 100.0,
+      "band_gap_eV": 3.6,
+      "electron_affinity_eV": 4.05,
+      "defect_profile_1cm3": [
+       {
+        "depth_nm": 0.0,
+        "Nt_1cm3": 1e+16
+       },
+       {
+        "depth_nm": 50.0,
+        "Nt_1cm3": 1e+16
+       }
+      ]
+     }
+    ],
+    "units": "public/engineering (nm, eV, 1/cm^3, cm^2/Vs)"
+   },
+   "caveat": "SCAPS-1D drift-diffusion simulation with literature-typical material parameters; it is a physics model, not a measurement, and the transport parameters dominate the result."
+  },
+  "Q14": {
+   "found": true,
+   "parameter": "Perovskite layer thickness",
+   "unit": "nm",
+   "parameter_name": "pvk_d",
+   "data": [
+    {
+     "parameter": "Perovskite layer thickness",
+     "parameter_name": "pvk_d",
+     "value": 300.0,
+     "unit": "nm",
+     "converged": true,
+     "convergence_failure": false,
+     "Voc": 1.39242,
+     "Jsc": 22.09208109,
+     "FF": 90.6192,
+     "PCE": 27.8758,
+     "def_file": "sweep_pvk_d_300.def",
+     "inputs": {
+      "pvk_d": 300.0
+     },
+     "provenance": {
+      "kind": "scaps_point_live",
+      "executable": "scaps3309.exe"
+     }
+    },
+    {
+     "parameter": "Perovskite layer thickness",
+     "parameter_name": "pvk_d",
+     "value": 400.0,
+     "unit": "nm",
+     "converged": true,
+     "convergence_failure": false,
+     "Voc": 1.386528,
+     "Jsc": 23.68894771,
+     "FF": 90.5772,
+     "PCE": 29.7504,
+     "def_file": "sweep_pvk_d_400.def",
+     "inputs": {
+      "pvk_d": 400.0
+     },
+     "provenance": {
+      "kind": "scaps_point_live",
+      "executable": "scaps3309.exe"
+     }
+    },
+    {
+     "parameter": "Perovskite layer thickness",
+     "parameter_name": "pvk_d",
+     "value": 500.0,
+     "unit": "nm",
+     "converged": true,
+     "convergence_failure": false,
+     "Voc": 1.381731,
+     "Jsc": 24.61148062,
+     "FF": 90.5279,
+     "PCE": 30.7853,
+     "def_file": "sweep_pvk_d_500.def",
+     "inputs": {
+      "pvk_d": 500.0
+     },
+     "provenance": {
+      "kind": "scaps_point_live",
+      "executable": "scaps3309.exe"
+     }
+    },
+    {
+     "parameter": "Perovskite layer thickness",
+     "parameter_name": "pvk_d",
+     "value": 600.0,
+     "unit": "nm",
+     "converged": true,
+     "convergence_failure": false,
+     "Voc": 1.377323,
+     "Jsc": 25.17493741,
+     "FF": 90.5039,
+     "PCE": 31.3814,
+     "def_file": "sweep_pvk_d_600.def",
+     "inputs": {
+      "pvk_d": 600.0
+     },
+     "provenance": {
+      "kind": "scaps_point_live",
+      "executable": "scaps3309.exe"
+     }
+    },
+    {
+     "parameter": "Perovskite layer thickness",
+     "parameter_name": "pvk_d",
+     "value": 700.0,
+     "unit": "nm",
+     "converged": true,
+     "convergence_failure": false,
+     "Voc": 1.373396,
+     "Jsc": 25.53587801,
+     "FF": 90.4857,
+     "PCE": 31.7341,
+     "def_file": "sweep_pvk_d_700.def",
+     "inputs": {
+      "pvk_d": 700.0
+     },
+     "provenance": {
+      "kind": "scaps_point_live",
+      "executable": "scaps3309.exe"
+     }
+    }
+   ],
+   "provenance": {
+    "kind": "scaps_sweep_live",
+    "executable": "scaps3309.exe"
+   },
+   "pearson_r_PCE": 0.952,
+   "relative_PCE_change": 0.1384,
+   "trend": "positive"
+  },
+  "Q16": {
+   "derived_from": "Q14",
+   "note": "sensitive parameters read off the Q14 sweep trend"
+  }
+ }
+}

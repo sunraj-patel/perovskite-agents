@@ -1,0 +1,74 @@
+{
+ "episode_id": "Q29__gemini__perovagents__r0",
+ "qid": "Q29",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.8-flash",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T18:19:00",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What PCE does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite of 450 nm thickness? Report the prediction with its 95% interval.",
+ "finished_at": "2026-10-21T18:19:29",
+ "seconds": 28.6,
+ "termination": "answer",
+ "final_answer": "For a p-i-n perovskite solar cell with a PTAA HTL, PCBM ETL, and a 450 nm thick $\\text{MAPbI}_3$ perovskite absorber layer, the CatBoost p-i-n ML model predicts:\n\n- **Predicted PCE:** **13.46%**\n- **95% Confidence Interval:** **[12.27%, 14.66%]**\n\n*(Note: The device input is within the training domain of the model. The model's cross-validation root-mean-square error on unseen papers is approximately 3.98 percentage points, reflecting typical laboratory-to-laboratory experimental variation).*",
+ "tool_calls": [
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.46, 'pce_95_interval': [12.27, 14.66], 'interval_spread_percent': 2.38, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}",
+   "result_chars": 445,
+   "seconds": 1.091,
+   "t_offset_s": 12.31,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 4,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 4,
+  "prompt_chars": 16600,
+  "completion_chars": 2224,
+  "real_prompt_tokens": 4496,
+  "real_completion_tokens": 627,
+  "usage_reported_calls": 4,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 27.5,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_181900_b28e.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 1,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

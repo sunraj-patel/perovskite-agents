@@ -1,0 +1,15 @@
+plan: 480 cells, 0 done/exhausted, 480 to run (gemini, minimax x direct, perovagents x reps 0..2)
+2026-10-21T19:05:24 Q02__minimax__direct__r0 -> completed/answer 194.8s
+2026-10-21T19:05:35 Q02__gemini__perovagents__r0 -> completed/answer 205.8s
+2026-10-21T19:05:35 Q01__minimax__direct__r0 -> completed/answer 205.9s
+2026-10-21T19:05:48 Q03__minimax__perovagents__r0 -> completed/answer 13.2s
+2026-10-21T19:07:05 Q01__minimax__perovagents__r0 -> completed/answer 295.4s
+2026-10-21T19:12:08 Q03__minimax__direct__r0 -> completed/answer 403.7s
+2026-10-21T19:13:12 Q01__gemini__perovagents__r0 -> infra_failed/answer 662.7s
+2026-10-21T19:13:13 Q02__gemini__direct__r0 -> infra_failed/turn_budget 663.5s
+2026-10-21T19:13:42 Q03__gemini__direct__r0 -> infra_failed/turn_budget 486.9s
+2026-10-21T19:13:42 Q01__gemini__direct__r0 -> infra_failed/turn_budget 692.8s
+[gemini] stopped: 4 consecutive infrastructure failures; remaining cells left for a later --resume run
+2026-10-21T19:14:40 Q04__minimax__direct__r0 -> completed/turn_budget 531.3s
+2026-10-21T19:14:58 Q05__minimax__perovagents__r0 -> completed/answer 18.5s
+2026-10-21T19:15:07 Q05__minimax__direct__r0 -> completed/answer 179.6s

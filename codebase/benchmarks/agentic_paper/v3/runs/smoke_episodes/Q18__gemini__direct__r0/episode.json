@@ -1,0 +1,1638 @@
+{
+ "episode_id": "Q18__gemini__direct__r0",
+ "qid": "Q18",
+ "category": "multi_tool",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T21:50:24",
+ "config_version": "v3",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "For n-i-p devices using SnO2 as the ETL, first identify representative high-performing devices in the database, then estimate the PCE of an n-i-p SnO2 / MAPbI3 500 nm / Spiro-MeOTAD target device with the ML model and explain which parameters most affect the prediction.",
+ "finished_at": "2026-10-21T22:12:35",
+ "seconds": 1330.9,
+ "termination": "timeout",
+ "final_answer": "",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 25,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 25,
+  "prompt_chars": 133767,
+  "completion_chars": 0,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 204,
+  "provider_error_events": 0,
+  "pool_wait_s": 1027.0,
+  "llm_latency_s": 1049.3,
+  "infra_failed": true,
+  "infra_reason": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': ",
+  "provider_events": [
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 9.5
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 8.2
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 9.4
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 7.7
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 9.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 24.9
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 21.9
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.0,
+    "latency_s": 42.41,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5047,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cebYaqq0C7fy4-EP35-ceQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1549,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1549
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.88,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 2,
+    "t_offset_s": 44.42,
+    "latency_s": 59.96,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5047,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "rubYauyTIsuIqfkPmc-7qA4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1549,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1549
+     },
+     "slot": 2,
+     "attempts": 8,
+     "attempt_log": [
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.69
+      },
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.32
+      },
+      {
+       "slot": 15,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.8
+      },
+      {
+       "slot": 3,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.87
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.64
+      },
+      {
+       "slot": 0,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.25
+      }
+     ],
+     "latency_s": 3.32,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 3,
+    "t_offset_s": 106.38,
+    "latency_s": 58.8,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5047,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "7ObYar3JCqubjuMP7OqiiQE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1549,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1549
+     },
+     "slot": 2,
+     "attempts": 9,
+     "attempt_log": [
+      {
+       "slot": 10,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.73
+      },
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.66
+      },
+      {
+       "slot": 16,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.08
+      },
+      {
+       "slot": 11,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.76
+      },
+      {
+       "slot": 17,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.04
+      },
+      {
+       "slot": 0,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.01
+      }
+     ],
+     "latency_s": 2.51,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 4,
+    "t_offset_s": 165.19,
+    "latency_s": 2.91,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5128,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "7ubYav3yJ9vDg8UP0biDkQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1571,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1571
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.91,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 5,
+    "t_offset_s": 170.1,
+    "latency_s": 3.34,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5128,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "8-bYauDsEJO8juMPjNiBuQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1571,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1571
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 3.34,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 6,
+    "t_offset_s": 175.44,
+    "latency_s": 2.5,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5128,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "-ObYavbqM-21juMPiOHJmA4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1571,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1571
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.5,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 7,
+    "t_offset_s": 177.94,
+    "latency_s": 2.35,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5211,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "--bYaryICObx4-EPn8SjwQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1593,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1593
+     },
+     "slot": 8,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.35,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 8,
+    "t_offset_s": 182.3,
+    "latency_s": 2.59,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5211,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "_-bYaonXMZGkjuMP3OO2-A4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1593,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1593
+     },
+     "slot": 12,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.59,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 9,
+    "t_offset_s": 186.89,
+    "latency_s": 4.96,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5211,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "BOfYar-rGd_CjuMPu-7lYA",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1593,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1593
+     },
+     "slot": 14,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 4.96,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 10,
+    "t_offset_s": 191.85,
+    "latency_s": 124.08,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5294,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "gufYasWrNLbZg8UPpZyRqQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1615,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1615
+     },
+     "slot": 15,
+     "attempts": 17,
+     "attempt_log": [
+      {
+       "slot": 17,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.24
+      },
+      {
+       "slot": 0,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.02
+      },
+      {
+       "slot": 3,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.17
+      },
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.29
+      },
+      {
+       "slot": 12,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.34
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.76
+      }
+     ],
+     "latency_s": 2.53,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 11,
+    "t_offset_s": 317.93,
+    "latency_s": 181.43,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5294,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "OujYasnPBMa7mNMPscTxgQs",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1615,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1615
+     },
+     "slot": 15,
+     "attempts": 26,
+     "attempt_log": [
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.75
+      },
+      {
+       "slot": 8,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.93
+      },
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.78
+      },
+      {
+       "slot": 11,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.79
+      },
+      {
+       "slot": 12,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.08
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.74
+      }
+     ],
+     "latency_s": 2.64,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 12,
+    "t_offset_s": 501.37,
+    "latency_s": 3.54,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5294,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "P-jYauLIJ_7cqfkPo_usoAU",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1615,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1615
+     },
+     "slot": 17,
+     "attempts": 2,
+     "attempt_log": [
+      {
+       "slot": 16,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.91
+      }
+     ],
+     "latency_s": 2.63,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 13,
+    "t_offset_s": 504.91,
+    "latency_s": 2.17,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5377,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "QujYaq_5D5WhjuMP5_HNyQE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1637,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1637
+     },
+     "slot": 0,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.17,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 14,
+    "t_offset_s": 509.08,
+    "latency_s": 2.3,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5377,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "RujYaufFK6q0juMP_caYgQQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1637,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1637
+     },
+     "slot": 3,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.3,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 15,
+    "t_offset_s": 513.39,
+    "latency_s": 235.2,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5377,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "M-nYap3bH6Ovg8UPuY_Y-Qo",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1637,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1637
+     },
+     "slot": 16,
+     "attempts": 35,
+     "attempt_log": [
+      {
+       "slot": 12,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.08
+      },
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.65
+      },
+      {
+       "slot": 15,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.13
+      },
+      {
+       "slot": 0,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.73
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.12
+      },
+      {
+       "slot": 3,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.88
+      }
+     ],
+     "latency_s": 2.38,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 16,
+    "t_offset_s": 748.59,
+    "latency_s": 10.39,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5460,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "PenYaqeEPYPYg8UP7aWuGA",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1659,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1659
+     },
+     "slot": 10,
+     "attempts": 2,
+     "attempt_log": [
+      {
+       "slot": 8,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.01
+      }
+     ],
+     "latency_s": 2.29,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 17,
+    "t_offset_s": 760.98,
+    "latency_s": 3.7,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5460,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "Q-nYavKyHuL04-EPgp3cqAE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1659,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1659
+     },
+     "slot": 13,
+     "attempts": 2,
+     "attempt_log": [
+      {
+       "slot": 12,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.23
+      }
+     ],
+     "latency_s": 2.47,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 18,
+    "t_offset_s": 766.68,
+    "latency_s": 105.17,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5460,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "runYau7fCLvljuMPvJjxcA",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1659,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1659
+     },
+     "slot": 16,
+     "attempts": 19,
+     "attempt_log": [
+      {
+       "slot": 17,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.03
+      },
+      {
+       "slot": 18,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.35
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.95
+      },
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.96
+      },
+      {
+       "slot": 10,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.23
+      },
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.96
+      }
+     ],
+     "latency_s": 3.4,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 19,
+    "t_offset_s": 871.85,
+    "latency_s": 60.51,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5543,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "6-nYapGJFIPYg8UPuY6uyA8",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1681,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1681
+     },
+     "slot": 16,
+     "attempts": 9,
+     "attempt_log": [
+      {
+       "slot": 15,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.04
+      },
+      {
+       "slot": 17,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.12
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.28
+      },
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.25
+      },
+      {
+       "slot": 11,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.37
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.63
+      }
+     ],
+     "latency_s": 2.59,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 20,
+    "t_offset_s": 934.37,
+    "latency_s": 127.94,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5543,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "bOrYatasO8zkjuMP3riGaQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1681,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1681
+     },
+     "slot": 8,
+     "attempts": 26,
+     "attempt_log": [
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.09
+      },
+      {
+       "slot": 10,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.89
+      },
+      {
+       "slot": 11,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.02
+      },
+      {
+       "slot": 13,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.97
+      },
+      {
+       "slot": 14,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.95
+      },
+      {
+       "slot": 16,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.08
+      }
+     ],
+     "latency_s": 2.92,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 21,
+    "t_offset_s": 1064.31,
+    "latency_s": 2.62,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5543,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "cerYasm6JYe84-EP_PSVaQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1681,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1681
+     },
+     "slot": 8,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.62,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 22,
+    "t_offset_s": 1066.93,
+    "latency_s": 3.14,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5626,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "dOrYauCJAbjZ4-EPzOW4gQE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1703,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1703
+     },
+     "slot": 12,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 3.14,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 23,
+    "t_offset_s": 1072.08,
+    "latency_s": 2.19,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5626,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "eerYaqnvD9GcjuMPqZHcUQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1703,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1703
+     },
+     "slot": 15,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.19,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 24,
+    "t_offset_s": 1076.27,
+    "latency_s": 1.85,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5626,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "ferYatOYGOK0juMPzKa0wAE",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1703,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1703
+     },
+     "slot": 17,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.85,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 25,
+    "t_offset_s": 1078.12,
+    "latency_s": 3.25,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5709,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "gOrYaq7GC-28mNMPxbqH8Ao",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1725,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 1725
+     },
+     "slot": 0,
+     "attempts": 2,
+     "attempt_log": [
+      {
+       "slot": 18,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.77
+      }
+     ],
+     "latency_s": 2.48,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 26,
+    "t_offset_s": 1083.38,
+    "latency_s": 247.56,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5709,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true,
+    "detail": {
+     "status": "exhausted",
+     "attempts": 59,
+     "attempt_log": [
+      {
+       "slot": 0,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.84
+      },
+      {
+       "slot": 16,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.8
+      },
+      {
+       "slot": 18,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.95
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.18
+      },
+      {
+       "slot": 3,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.79
+      },
+      {
+       "slot": 8,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.04
+      }
+     ],
+     "error": "429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': "
+    }
+   }
+  ],
+  "empty_reply_calls": 25,
+  "empty_reply_classes": {
+   "provider_anomaly": 25
+  },
+  "provider_failure_calls": 1
+ },
+ "infra_failure": true,
+ "validity": "infra_invalid",
+ "validity_evidence": {
+  "model_calls": 26,
+  "empty_replies": 25,
+  "empty_classes": {
+   "provider_anomaly": 25
+  },
+  "provider_failure_calls": 1,
+  "reason": "provider failure: all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': "
+ },
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

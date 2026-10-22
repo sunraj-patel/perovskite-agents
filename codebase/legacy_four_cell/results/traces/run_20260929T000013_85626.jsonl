@@ -1,0 +1,5 @@
+{"t": 1790640013.070431, "event": "plan", "run_id": "20260929T000013_85626", "seed": 42, "tasks": [{"id": "t1", "cell": "pdb_sql", "request": "Average PCE for devices using SnO2 ETLs", "params": {"sql": "SELECT AVG(JV_default_PCE) AS avg_pce FROM perovskite_db WHERE ETL_stack_sequence LIKE '%SnO2%'"}, "depends_on": []}]}
+{"t": 1790640013.0704489, "event": "dispatch", "task": "t1", "cell": "pdb_sql"}
+{"t": 1790640462.93438, "event": "timeout", "task": "t1"}
+{"t": 1790640462.934387, "event": "failed", "task": "t1", "cell": "pdb_sql", "reason": "timeout"}
+{"t": 1790640486.608067, "event": "done", "run_id": "20260929T000013_85626", "summary": {"run_id": "20260929T000013_85626", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "timeout"}, "skipped": []}}

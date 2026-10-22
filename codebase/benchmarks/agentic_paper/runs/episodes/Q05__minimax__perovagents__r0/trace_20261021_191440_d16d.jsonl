@@ -1,0 +1,3 @@
+{"ts": 1792590280.344, "event": "question", "text": "[agentic_paper] Find literature evidence describing strategies for improving the performance of SnO2-based n-i-p perovskite solar cells. Give the strategy, mechanism, and supporting citation."}
+{"ts": 1792590298.745, "event": "llm_reply", "agent": "orchestrator", "turn": "1", "text": "Dispatched the literature agent for the SnO\u2082 n-i-p strategy/mechanism/citation report."}
+{"ts": 1792590298.746, "event": "answer", "text": "Dispatched the literature agent for the SnO\u2082 n-i-p strategy/mechanism/citation report."}

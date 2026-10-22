@@ -1,0 +1,4 @@
+qid,system,failure,recovered,final_correct,extra_tool_calls
+Q02,mrs,none,True,True,7
+Q06,mrs,incomplete_synthesis,False,False,6
+Q20,mrs,no_progress,False,False,14

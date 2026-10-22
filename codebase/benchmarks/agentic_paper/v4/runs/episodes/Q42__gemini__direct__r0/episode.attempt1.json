@@ -1,0 +1,490 @@
+{
+ "episode_id": "Q42__gemini__direct__r0",
+ "qid": "Q42",
+ "category": "multi_tool",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:08:56",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "Which paper in the literature collection introduces an ultra-thin CdS electron-transport layer, and how many devices in the experimental database contain CdS in their ETL stack?",
+ "finished_at": "2026-10-22T00:12:57",
+ "seconds": 241.0,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 0,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 0,
+  "prompt_chars": 0,
+  "completion_chars": 0,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 45,
+  "provider_error_events": 0,
+  "pool_wait_s": 196.5,
+  "llm_latency_s": 0,
+  "infra_failed": true,
+  "infra_reason": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': ",
+  "provider_events": [
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 11.2
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.1
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 13,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 11.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.4
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 10.3
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.1
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.0,
+    "latency_s": 241.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5142,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true,
+    "detail": {
+     "status": "exhausted",
+     "attempts": 45,
+     "attempt_log": [
+      {
+       "slot": 9,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.73
+      },
+      {
+       "slot": 2,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 1.05
+      },
+      {
+       "slot": 15,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.95
+      },
+      {
+       "slot": 16,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.9
+      },
+      {
+       "slot": 18,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.9
+      },
+      {
+       "slot": 0,
+       "class": "rate_limit",
+       "exception": "ClientError",
+       "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+       "seconds": 0.96
+      }
+     ],
+     "error": "429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': "
+    }
+   },
+   {
+    "i": 2,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5223,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 3,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5306,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 4,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5389,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 5,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5472,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 6,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5555,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 7,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5638,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 8,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5721,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 9,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5804,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 10,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5887,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 11,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5970,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 12,
+    "t_offset_s": 241.0,
+    "latency_s": 0.0,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6053,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 12
+ },
+ "infra_failure": true,
+ "validity": "infra_invalid",
+ "validity_evidence": {
+  "model_calls": 12,
+  "replies": 0,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 12,
+  "reason": "provider failure: all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'RESOURCE HAS BEEN EXHAUSTED (E.G. CHECK QUOTA).', 'STATUS': "
+ },
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

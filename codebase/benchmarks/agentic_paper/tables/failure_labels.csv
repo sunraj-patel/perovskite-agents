@@ -1,0 +1,16 @@
+backbone,condition,label,n_episodes
+gemini,direct,budget_exhaustion,8
+gemini,direct,incomplete_answer,8
+gemini,direct,incorrect_tool_selection,7
+gemini,perovagents,incomplete_answer,5
+gemini,perovagents,incorrect_value,2
+gemini,perovagents,unsupported_claim,2
+minimax,direct,budget_exhaustion,5
+minimax,direct,incomplete_answer,7
+minimax,direct,incorrect_tool_selection,3
+minimax,direct,incorrect_value,4
+minimax,direct,unsupported_claim,7
+minimax,perovagents,budget_exhaustion,2
+minimax,perovagents,incomplete_answer,6
+minimax,perovagents,incorrect_tool_selection,4
+minimax,perovagents,repeated_actions,1

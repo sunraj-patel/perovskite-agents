@@ -1,0 +1,3090 @@
+{
+ "version": 2,
+ "tool_action_taxonomy": {
+  "sql": "db.query",
+  "find_columns": "db.query",
+  "column_values": "db.query",
+  "search": "lit.search",
+  "read_paper": "lit.read",
+  "predict": "ml.predict",
+  "explain_global": "ml.explain_global",
+  "explain_local": "ml.explain_local",
+  "what_if": "ml.what_if",
+  "optimize": "ml.optimize",
+  "get_sweep": "scaps.sweep",
+  "reference_cell": "scaps.describe",
+  "list_parameters": "scaps.describe",
+  "read_def": "scaps.describe",
+  "run_point": "scaps.live",
+  "sweep": "scaps.live",
+  "design_stack": "design.layout",
+  "write_execution_script": "design.layout",
+  "simulate_stack": "design.simulate",
+  "simulate_defect_profile": "design.simulate",
+  "_calc": "calc"
+ },
+ "questions": [
+  {
+   "id": "Q01",
+   "category": "pdb",
+   "question": "What is the average reported PCE of n-i-p perovskite solar cells using SnO2 as the ETL?",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "count",
+    "mean_pce"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "count",
+     "type": "number",
+     "ref": "pdb.Q01.count",
+     "values": [
+      4300
+     ],
+     "unit": "devices",
+     "mandatory": true,
+     "rel_tol": 0.05
+    },
+    {
+     "id": "mean_pce",
+     "type": "number",
+     "ref": "pdb.Q01.mean_pce",
+     "values": [
+      15.303
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": "count within 5% (NULL-PCE filter variants); mean within 5%"
+  },
+  {
+   "id": "Q02",
+   "category": "pdb",
+   "question": "What are the 10 most frequently reported HTL materials in n-i-p perovskite solar cells with PCE above 20%?",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "adversarial",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "top_k",
+    "counts"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "top_htl",
+     "type": "set_recall",
+     "items": [
+      [
+       "spiro"
+      ],
+      [
+       "ptaa"
+      ],
+      [
+       "peai"
+      ]
+     ],
+     "min_fraction": 1.0,
+     "ref": "pdb.Q02.ranking[:3]",
+     "mandatory": true
+    },
+    {
+     "id": "top_count",
+     "type": "number",
+     "ref": "pdb.Q02.ranking[0].count",
+     "values": [
+      736
+     ],
+     "unit": "devices",
+     "mandatory": true,
+     "rel_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT HTL_stack_sequence, COUNT(*) FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE > 20 GROUP BY 1 ORDER BY 2 DESC LIMIT 10"
+    }
+   ],
+   "recovery_required": true,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q03",
+   "category": "pdb",
+   "question": "Compare the reported PCE distributions of p-i-n and n-i-p perovskite solar cells in the database. Report the number of records and the mean and median PCE for each architecture.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "count_per_group",
+    "mean_pce_per_group",
+    "median_pce_per_group"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "nip_mean",
+     "type": "number",
+     "ref": "pdb.Q03.nip.mean_pce",
+     "values": [
+      12.113
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.03,
+     "near": {
+      "term": "n-?i-?p",
+      "after": 120,
+      "before": 10
+     }
+    },
+    {
+     "id": "pin_mean",
+     "type": "number",
+     "ref": "pdb.Q03.pin.mean_pce",
+     "values": [
+      11.937
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.03,
+     "near": {
+      "term": "p-?i-?n",
+      "after": 120,
+      "before": 10
+     }
+    },
+    {
+     "id": "nip_median",
+     "type": "number",
+     "ref": "pdb.Q03.nip.median_pce",
+     "values": [
+      12.89
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.03,
+     "near": {
+      "term": "n-?i-?p",
+      "after": 120,
+      "before": 10
+     }
+    },
+    {
+     "id": "pin_median",
+     "type": "number",
+     "ref": "pdb.Q03.pin.median_pce",
+     "values": [
+      12.6
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.03,
+     "near": {
+      "term": "p-?i-?n",
+      "after": 120,
+      "before": 10
+     }
+    },
+    {
+     "id": "counts",
+     "type": "number",
+     "ref": "pdb.Q03.*.count",
+     "values": [
+      29233,
+      13062
+     ],
+     "unit": "devices",
+     "mandatory": true,
+     "rel_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT Cell_architecture, JV_default_PCE FROM devices WHERE Cell_architecture IN ('nip','pin') AND JV_default_PCE IS NOT NULL"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Values must be attached to the right architecture (window match).",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q04",
+   "category": "pdb",
+   "question": "Among n-i-p perovskite solar cells using SnO2 as the ETL, identify the highest-PCE reported devices and report their HTL, absorber/material stack, PCE, Voc, Jsc and FF.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "ranked_records",
+    "requested_fields"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "top_pce",
+     "type": "number",
+     "ref": "pdb.Q04.top_devices[0].pce",
+     "values": [
+      35.9
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.05
+    },
+    {
+     "id": "fields",
+     "type": "terms",
+     "any_of": [],
+     "all_of": [
+      "voc",
+      "jsc",
+      "ff"
+     ],
+     "mandatory": true
+    },
+    {
+     "id": "htl",
+     "type": "terms",
+     "any_of": [
+      "spiro"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT Ref_DOI_number, HTL_stack_sequence, ETL_stack_sequence, Perovskite_composition_long_form, JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 5"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "The maximum is a database entry with implausible Jsc (data-quality issue); the reference is what the database reports.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q05",
+   "category": "literature",
+   "question": "Find literature evidence describing strategies for improving the performance of SnO2-based n-i-p perovskite solar cells. Give the strategy, mechanism, and supporting citation.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "strategy",
+    "mechanism",
+    "citation"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "gold_doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1002/aenm.201803587"
+     ],
+     "ref": "literature.Q05.doi",
+     "mandatory": true
+    },
+    {
+     "id": "strategy",
+     "type": "terms",
+     "any_of": [
+      "chloride",
+      "facl",
+      "adahcl",
+      "passivat"
+     ],
+     "all_of": [],
+     "mandatory": true
+    },
+    {
+     "id": "mechanism",
+     "type": "terms",
+     "any_of": [
+      "crystalli",
+      "recombination",
+      "morpholog",
+      "passivat"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus",
+     "note": "gold evidence verified against passages (v1)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Only one corpus paper was verified as gold; other SnO2 papers are not credited.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q06",
+   "category": "literature",
+   "question": "Find a paper supporting an experimentally demonstrated method to improve SnO2-based n-i-p perovskite solar-cell performance. Verify that the paper actually studies an n-i-p SnO2 device before using it as evidence.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "adversarial",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "verified_citation",
+    "architecture_check"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search",
+      "lit.read"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [
+    [
+     "lit.search",
+     "lit.read"
+    ]
+   ],
+   "dependencies": "read the paper after finding it",
+   "checks": [
+    {
+     "id": "gold_doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1002/aenm.201803587"
+     ],
+     "ref": "literature.Q06.doi",
+     "mandatory": true
+    },
+    {
+     "id": "architecture",
+     "type": "terms",
+     "any_of": [
+      "n-i-p",
+      "nip",
+      "n\u2013i\u2013p"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus"
+    }
+   ],
+   "recovery_required": true,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q07",
+   "category": "literature",
+   "question": "Find a relevant paper reporting a quantitative performance improvement for an SnO2-based n-i-p perovskite solar cell. Report the baseline/result value, the intervention, the quantitative improvement, and the DOI.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "baseline_value",
+    "result_value",
+    "intervention",
+    "doi"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "gold_doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1002/aenm.201803587"
+     ],
+     "ref": "literature.Q07.doi",
+     "mandatory": true
+    },
+    {
+     "id": "baseline",
+     "type": "number",
+     "ref": "literature.Q07.baseline_pce",
+     "values": [
+      19.43
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    },
+    {
+     "id": "result",
+     "type": "number",
+     "ref": "literature.Q07.champion_pce",
+     "values": [
+      20.52,
+      21.2
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    },
+    {
+     "id": "intervention",
+     "type": "terms",
+     "any_of": [
+      "chloride",
+      "facl",
+      "adahcl"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q08",
+   "category": "literature",
+   "question": "Find literature evidence for improving an SnO2 n-i-p device, including a numerical value for the relevant improvement. Do not cite a paper as supporting the claim unless the required numerical evidence can actually be located in the paper.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "adversarial",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "numerical_evidence",
+    "verified_citation"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search",
+      "lit.read"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [
+    [
+     "lit.search",
+     "lit.read"
+    ]
+   ],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "gold_doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1002/aenm.201803587"
+     ],
+     "ref": "literature.Q08.doi",
+     "mandatory": true
+    },
+    {
+     "id": "numeric_evidence",
+     "type": "number",
+     "ref": "literature.Q08",
+     "values": [
+      19.43,
+      20.52,
+      21.2
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus"
+    }
+   ],
+   "recovery_required": true,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q09",
+   "category": "ml",
+   "question": "What PCE does the ML model predict for an n-i-p cell with SnO2 ETL, Spiro-MeOTAD HTL and MAPbI3 perovskite 500 nm? Report the prediction with its 95% interval.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "predicted_pce",
+    "interval_95"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.predict"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "predicted_pce",
+     "type": "number",
+     "ref": "ml.Q09.predicted_pce",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.1
+    },
+    {
+     "id": "interval_lo",
+     "type": "number",
+     "ref": "ml.Q09.interval[0]",
+     "values": [
+      10.91
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.8
+    },
+    {
+     "id": "interval_hi",
+     "type": "number",
+     "ref": "ml.Q09.interval[1]",
+     "values": [
+      13.78
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.8
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "predict(nip description)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": "10% on the point estimate (descriptions parse slightly differently)"
+  },
+  {
+   "id": "Q10",
+   "category": "ml",
+   "question": "What are the most important parameters for improving PCE in n-i-p perovskite solar cells according to the ML model?",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "feature_name",
+    "importance"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.explain_global"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "top_features",
+     "type": "set_recall",
+     "items": [
+      [
+       "ETL_deposition_method"
+      ],
+      [
+       "Perov_quenching_crystallisation"
+      ],
+      [
+       "Perovskite_deposition_synthesis_atmosphere"
+      ],
+      [
+       "Perovskite"
+      ],
+      [
+       "HTL_additives_compounds"
+      ]
+     ],
+     "min_fraction": 0.6,
+     "ref": "ml.Q10.top_features[:5]",
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "explain_global(nip)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q11",
+   "category": "ml",
+   "question": "For an n-i-p cell with SnO2 ETL, Spiro-MeOTAD HTL and MAPbI3 perovskite 500 nm, why did the ML model give its predicted PCE? Report the prediction, the major contributing features and their direction of contribution.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "predicted_pce",
+    "contributing_features",
+    "contribution_direction"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.predict",
+      "ml.explain_local"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [
+    [
+     "ml.predict",
+     "ml.explain_local"
+    ]
+   ],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "predicted_pce",
+     "type": "number",
+     "ref": "ml.Q11.predicted_pce",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.1
+    },
+    {
+     "id": "features",
+     "type": "set_recall",
+     "items": [
+      [
+       "Perovskite_deposition_synthesis_atmosphere"
+      ],
+      [
+       "ETL_deposition_method"
+      ],
+      [
+       "HTL_additives_compounds"
+      ]
+     ],
+     "min_fraction": 0.66,
+     "ref": "ml.Q11.top_local_features",
+     "mandatory": true
+    },
+    {
+     "id": "direction",
+     "type": "terms",
+     "any_of": [
+      "positive",
+      "negative",
+      "increas",
+      "decreas",
+      "raise",
+      "lower",
+      "reduc",
+      "push",
+      "improv"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "predict + explain_local(nip)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q12",
+   "category": "ml",
+   "question": "For an n-i-p cell with SnO2 ETL, Spiro-MeOTAD HTL and MAPbI3 perovskite 500 nm, what controllable parameters can be changed to improve the predicted PCE, and what does the ML model predict will happen? Give the baseline, candidate changes and predicted PCEs.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "baseline",
+    "candidate_change",
+    "predicted_pce",
+    "optimization_status"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.optimize"
+     ],
+     "optional": [
+      "ml.predict",
+      "ml.what_if"
+     ]
+    },
+    {
+     "required": [
+      "ml.predict",
+      "ml.what_if"
+     ],
+     "optional": [
+      "ml.optimize"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "baseline",
+     "type": "number",
+     "ref": "ml.Q12.baseline_pce",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.08
+    },
+    {
+     "id": "candidate",
+     "type": "terms",
+     "any_of": [
+      "csmafa",
+      "etl",
+      "fapbi3",
+      "fa_ma",
+      "htl",
+      "pcbm",
+      "pedot:pss",
+      "perovskite"
+     ],
+     "all_of": [],
+     "mandatory": true
+    },
+    {
+     "id": "predicted_pce",
+     "type": "number",
+     "ref": "ml.Q12.candidate_pces",
+     "values": [
+      12.4,
+      12.82,
+      15.52
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.3
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "optimize(nip description)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q13",
+   "category": "scaps",
+   "question": "Design and run a p-i-n cell with a SnO2 ETL, a PTAA HTL and a 600 nm absorber (FTO / PTAA / FAPbI3 / SnO2 / Ag; PTAA 200 nm, absorber 600 nm, SnO2 50 nm), then report Voc, Jsc, FF and PCE.",
+   "origin": "v1",
+   "set": "live_scaps_case_study",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "not_scored_in_main",
+   "required_outputs": [
+    "voc",
+    "jsc",
+    "ff",
+    "pce",
+    "convergence_status"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "design.layout",
+      "design.simulate"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [],
+   "provenance": [],
+   "recovery_required": false,
+   "notes": "Requires live SCAPS. Preserved and frozen; see case_studies/ for stored runs.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q14",
+   "category": "scaps",
+   "question": "For the p-i-n device with SnO2 ETL, PTAA HTL and 600 nm absorber from the previous design, determine how the PCE changes when the perovskite absorber thickness is varied over a physically reasonable range.",
+   "origin": "v1",
+   "set": "live_scaps_case_study",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "not_scored_in_main",
+   "required_outputs": [
+    "sweep_values",
+    "pce_trend"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.live"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [],
+   "provenance": [],
+   "recovery_required": false,
+   "notes": "Requires live SCAPS. Preserved and frozen; see case_studies/ for stored runs.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q15",
+   "category": "scaps",
+   "question": "Run a SCAPS simulation for the requested p-i-n device (SnO2 ETL, PTAA HTL, 600 nm absorber) and recover if the initial configuration does not converge. Report the final validated result and what was changed to reach convergence.",
+   "origin": "v1",
+   "set": "live_scaps_case_study",
+   "difficulty": "adversarial",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "not_scored_in_main",
+   "required_outputs": [
+    "final_metrics",
+    "convergence_status",
+    "recovery_action"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "design.simulate"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [],
+   "provenance": [],
+   "recovery_required": true,
+   "notes": "Requires live SCAPS. Preserved and frozen; see case_studies/ for stored runs.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q16",
+   "category": "scaps",
+   "question": "For the simulated p-i-n device (SnO2 ETL, PTAA HTL, 600 nm absorber), identify the parameters that most strongly affect the simulated PCE and explain what component of the device performance they influence.",
+   "origin": "v1",
+   "set": "live_scaps_case_study",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "not_scored_in_main",
+   "required_outputs": [
+    "sensitive_parameters",
+    "affected_component"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.live"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [],
+   "provenance": [],
+   "recovery_required": false,
+   "notes": "Requires live SCAPS. Preserved and frozen; see case_studies/ for stored runs.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q17",
+   "category": "multi_tool",
+   "question": "I am developing an SnO2 n-i-p perovskite solar cell. What can I do to improve the PCE, and what does the literature say about improving these devices?",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "multi_tool",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "structural",
+   "required_outputs": [
+    "model_recommendations",
+    "literature_evidence",
+    "provenance_split"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.optimize",
+      "lit.search"
+     ],
+     "optional": [
+      "ml.explain_global",
+      "lit.read",
+      "ml.predict",
+      "db.query"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi_valid",
+     "type": "doi_known",
+     "min_count": 1,
+     "mandatory": true
+    },
+    {
+     "id": "provenance_split",
+     "type": "term_groups",
+     "groups": [
+      [
+       "literature",
+       "paper",
+       "study",
+       "studies",
+       "reported"
+      ],
+      [
+       "model",
+       "ml ",
+       "shap",
+       "predicted",
+       "optimi"
+      ]
+     ],
+     "mandatory": true
+    },
+    {
+     "id": "numbers",
+     "type": "min_numbers",
+     "count": 2,
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus+ml"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Open-ended; no numeric gold. Structural checks only -> flagged for manual review.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q18",
+   "category": "multi_tool",
+   "question": "For n-i-p devices using SnO2 as the ETL, first identify representative high-performing devices in the database, then estimate the PCE of an n-i-p SnO2 / MAPbI3 500 nm / Spiro-MeOTAD target device with the ML model and explain which parameters most affect the prediction.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "multi_tool",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "representative_devices",
+    "predicted_pce",
+    "key_parameters"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query",
+      "ml.predict",
+      "ml.explain_local"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [
+    [
+     "db.query",
+     "ml.predict"
+    ],
+    [
+     "ml.predict",
+     "ml.explain_local"
+    ]
+   ],
+   "dependencies": "question states the sequence: database -> prediction -> explanation",
+   "checks": [
+    {
+     "id": "db_part_pce",
+     "type": "number_in_range",
+     "lo": 18,
+     "hi": 40,
+     "mandatory": true
+    },
+    {
+     "id": "predicted_pce",
+     "type": "number",
+     "ref": "ml.Q11.predicted_pce",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.1
+    },
+    {
+     "id": "key_params",
+     "type": "set_recall",
+     "items": [
+      [
+       "Perovskite_deposition_synthesis_atmosphere"
+      ],
+      [
+       "ETL_deposition_method"
+      ],
+      [
+       "HTL_additives_compounds"
+      ]
+     ],
+     "min_fraction": 0.33,
+     "ref": "ml.Q11.top_local_features",
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite+ml"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q19",
+   "category": "multi_tool",
+   "question": "I am considering a new n-i-p device using a candidate ETL and HTL. Find relevant literature evidence, retrieve the relevant material properties, estimate the expected PCE, and identify the parameters that most strongly affect the prediction.",
+   "origin": "v1",
+   "set": "main",
+   "difficulty": "multi_tool",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "structural",
+   "required_outputs": [
+    "literature_evidence",
+    "material_properties",
+    "predicted_pce",
+    "key_parameters"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search",
+      "ml.predict"
+     ],
+     "optional": [
+      "ml.explain_local",
+      "db.query",
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi_valid",
+     "type": "doi_known",
+     "min_count": 1,
+     "mandatory": true
+    },
+    {
+     "id": "predicted_pce",
+     "type": "number_in_range",
+     "lo": 3,
+     "hi": 25,
+     "mandatory": true
+    },
+    {
+     "id": "material_properties",
+     "type": "terms",
+     "any_of": [
+      "band gap",
+      "bandgap",
+      "ev",
+      "mobility",
+      "homo",
+      "lumo",
+      "electron affinity",
+      "work function"
+     ],
+     "all_of": [],
+     "mandatory": true
+    },
+    {
+     "id": "key_params",
+     "type": "terms",
+     "any_of": [
+      "feature",
+      "parameter",
+      "shap",
+      "thickness",
+      "deposition"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus+ml"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Underspecified query ('a candidate ETL and HTL'); structural checks only -> flagged for manual review.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q20",
+   "category": "multi_tool",
+   "question": "Design and evaluate a p-i-n perovskite solar cell using PTAA and SnO2 with a 600 nm absorber. Use the available scientific tools to construct the device, simulate it, report its performance, and explain the most important factors affecting the result. Where appropriate, support the interpretation using literature evidence.",
+   "origin": "v1",
+   "set": "live_scaps_case_study",
+   "difficulty": "multi_tool",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "not_scored_in_main",
+   "required_outputs": [
+    "device_spec",
+    "simulated_metrics",
+    "key_factors",
+    "supporting_evidence"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "design.layout",
+      "design.simulate",
+      "ml.explain_global",
+      "lit.search"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [],
+   "provenance": [],
+   "recovery_required": true,
+   "notes": "Requires live SCAPS. Preserved and frozen.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q21",
+   "category": "pdb",
+   "question": "How many n-i-p devices in the database use a compact + mesoporous TiO2 ETL (TiO2-c | TiO2-mp) together with Spiro-MeOTAD as the HTL, and what is their mean PCE?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "count",
+    "mean_pce"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "count",
+     "type": "number",
+     "ref": "pdb.Q21.count_alts",
+     "values": [
+      7660,
+      7856,
+      7860
+     ],
+     "unit": "devices",
+     "mandatory": true,
+     "rel_tol": 0.02
+    },
+    {
+     "id": "mean_pce",
+     "type": "number",
+     "ref": "pdb.Q21.mean_pce",
+     "values": [
+      12.216,
+      12.15
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.03
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence LIKE '%Spiro-MeOTAD%' AND JV_default_PCE IS NOT NULL",
+     "variant": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence = 'Spiro-MeOTAD' AND JV_default_PCE IS NOT NULL"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": "count accepts LIKE / equality / incl.-NULL-PCE variants (within 2%)"
+  },
+  {
+   "id": "Q22",
+   "category": "pdb",
+   "question": "Which three perovskite compositions (short-form label) are most frequently reported in n-i-p devices with PCE above 22%? Give the labels and their record counts.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "adversarial",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "ranked_labels",
+    "counts"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "top3",
+     "type": "set_recall",
+     "items": [
+      [
+       "famapbbri"
+      ],
+      [
+       "famapbi"
+      ],
+      [
+       "csfamapbbri"
+      ]
+     ],
+     "min_fraction": 1.0,
+     "ref": "pdb.Q22.top3",
+     "mandatory": true
+    },
+    {
+     "id": "top_count",
+     "type": "number",
+     "ref": "pdb.Q22.ranking[0].count",
+     "values": [
+      19
+     ],
+     "unit": "devices",
+     "mandatory": true,
+     "abs_tol": 0.5
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT Perovskite_composition_short_form, COUNT(*) c FROM devices WHERE Cell_architecture='nip' AND JV_default_PCE > 22 GROUP BY 1 ORDER BY 2 DESC LIMIT 5"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q23",
+   "category": "pdb",
+   "question": "What is the highest reported PCE among p-i-n devices that use PTAA as the HTL, and which paper (DOI) reports it?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "max_pce",
+    "doi"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "max_pce",
+     "type": "number",
+     "ref": "pdb.Q23.max_pce",
+     "values": [
+      22.6
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    },
+    {
+     "id": "doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1126/sciadv.aav8925"
+     ],
+     "ref": "pdb.Q23.doi",
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT Ref_DOI_number, JV_default_PCE, ETL_stack_sequence FROM devices WHERE Cell_architecture='pin' AND HTL_stack_sequence='PTAA' AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 3"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q24",
+   "category": "pdb",
+   "question": "What is the average reported PCE of n-i-p perovskite solar cells that use LaFeO3 as the electron-transport layer?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "insufficient_evidence",
+   "expected_behaviour": "decline",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "explicit_statement_that_no_matching_records_exist"
+   ],
+   "reference_plans": [
+    {
+     "required": [],
+     "optional": [
+      "db.query"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "states_no_data",
+     "type": "decline",
+     "phrases": [
+      "no record",
+      "no matching",
+      "no devices",
+      "not found",
+      "no data",
+      "none ",
+      "zero",
+      "0 devices",
+      "no entries",
+      "does not contain",
+      "no such",
+      "not contain",
+      "no passage",
+      "no paper",
+      "no evidence",
+      "no relevant",
+      "not covered",
+      "no mention",
+      "could not find",
+      "cannot",
+      "can't",
+      "unable",
+      "not available",
+      "no precomputed",
+      "does not include",
+      "not part",
+      "only predicts",
+      "not predict",
+      "does not predict",
+      "not supported",
+      "outside",
+      "no information",
+      "not report",
+      "no sweep",
+      "not established",
+      "could not be",
+      "not possible",
+      "isn't",
+      "is not"
+     ],
+     "forbidden_regex": [
+      "(mean|average)\\s+(reported\\s+)?pce[^.\\n]{0,40}\\b\\d{1,2}\\.\\d+\\s*%"
+     ],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "sql": "SELECT COUNT(*) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%LaFeO3%'",
+     "result_count": 0
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Zero matching records: the correct response reports that and gives no mean.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q25",
+   "category": "literature",
+   "question": "Which paper in the literature collection studies poly-TPD doped PTAA as the hole-transport layer? Report its DOI and the PCE of the control device and of the optimised device.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "doi",
+    "control_pce",
+    "optimised_pce"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1117/12.2506443"
+     ],
+     "ref": "literature.Q25.doi",
+     "mandatory": true
+    },
+    {
+     "id": "control",
+     "type": "number",
+     "ref": "literature.Q25.control_pce",
+     "values": [
+      12.11
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    },
+    {
+     "id": "modified",
+     "type": "number",
+     "ref": "literature.Q25.modified_pce",
+     "values": [
+      14.63
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus",
+     "paper": "10.1117/12.2506443",
+     "assertion": "numbers occur in paper text"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q26",
+   "category": "literature",
+   "question": "Find the paper that introduces an ultra-thin CdS electron-transport layer prepared from N-methyl thiourea for planar perovskite solar cells. Give its DOI and the PCE of the reference device with the thicker CdS layer (T-CdS).",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "doi",
+    "t_cds_pce"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1246/cl.180616"
+     ],
+     "ref": "literature.Q26.doi",
+     "mandatory": true
+    },
+    {
+     "id": "t_cds_pce",
+     "type": "number",
+     "ref": "literature.Q26.t_cds_pce",
+     "values": [
+      15.0
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus",
+     "paper": "10.1246/cl.180616"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q27",
+   "category": "literature",
+   "question": "Which paper in the collection reviews gas quenching for perovskite thin-film deposition? Give its DOI and describe how gas quenching works.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "doi",
+    "mechanism"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1016/j.joule.2018.06.009"
+     ],
+     "ref": "literature.Q27.doi",
+     "mandatory": true
+    },
+    {
+     "id": "mechanism",
+     "type": "terms",
+     "any_of": [
+      "nitrogen",
+      "gas flow",
+      "gas-assisted",
+      "evaporation of the precursor solvent",
+      "expedit",
+      "solvent removal",
+      "evaporat"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus",
+     "paper": "10.1016/j.joule.2018.06.009"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q28",
+   "category": "literature",
+   "question": "What do the papers in the literature collection report about the operational lifetime (T80, in hours) of NiOx hole-transport layers under ISOS stability protocols?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "insufficient_evidence",
+   "expected_behaviour": "decline",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "explicit_statement_that_the_collection_has_no_such_evidence"
+   ],
+   "reference_plans": [
+    {
+     "required": [],
+     "optional": [
+      "lit.search",
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "states_no_evidence",
+     "type": "decline",
+     "phrases": [
+      "no record",
+      "no matching",
+      "no devices",
+      "not found",
+      "no data",
+      "none ",
+      "zero",
+      "0 devices",
+      "no entries",
+      "does not contain",
+      "no such",
+      "not contain",
+      "no passage",
+      "no paper",
+      "no evidence",
+      "no relevant",
+      "not covered",
+      "no mention",
+      "could not find",
+      "cannot",
+      "can't",
+      "unable",
+      "not available",
+      "no precomputed",
+      "does not include",
+      "not part",
+      "only predicts",
+      "not predict",
+      "does not predict",
+      "not supported",
+      "outside",
+      "no information",
+      "not report",
+      "no sweep",
+      "not established",
+      "could not be",
+      "not possible",
+      "isn't",
+      "is not"
+     ],
+     "forbidden_regex": [
+      "t80[^.\\n]{0,80}\\b\\d{2,}\\s*(h|hours)\\b",
+      "niox[^.\\n]{0,100}\\b\\d{3,}\\s*(h|hours)\\b"
+     ],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus",
+     "absent_terms_checked": [
+      "NiOx",
+      "T80",
+      "ISOS",
+      "inkjet"
+     ]
+    }
+   ],
+   "recovery_required": false,
+   "notes": "The terms NiOx, T80, ISOS and inkjet occur in none of the 22 papers (asserted at build time).",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q29",
+   "category": "ml",
+   "question": "What PCE does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite of 450 nm thickness? Report the prediction with its 95% interval.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "predicted_pce",
+    "interval_95"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.predict"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "predicted_pce",
+     "type": "number",
+     "ref": "ml.Q29.predicted_pce",
+     "values": [
+      13.46
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.1
+    },
+    {
+     "id": "interval_lo",
+     "type": "number",
+     "ref": "ml.Q29.interval[0]",
+     "values": [
+      12.27
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.8
+    },
+    {
+     "id": "interval_hi",
+     "type": "number",
+     "ref": "ml.Q29.interval[1]",
+     "values": [
+      14.66
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.8
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "predict(pin)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q30",
+   "category": "ml",
+   "question": "According to the ML model, which input features matter most for the PCE of p-i-n perovskite solar cells? List the top five.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "feature_names"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.explain_global"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "top5",
+     "type": "set_recall",
+     "items": [
+      [
+       "Perovskite"
+      ],
+      [
+       "HTL_deposition_method"
+      ],
+      [
+       "Substrate_stack_sequence"
+      ],
+      [
+       "Backcontact_stack_sequence"
+      ],
+      [
+       "Perovskite_deposition_solvents"
+      ]
+     ],
+     "min_fraction": 0.6,
+     "ref": "ml.Q30.top_features",
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "explain_global(pin)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q31",
+   "category": "ml",
+   "question": "For an n-i-p cell with SnO2 ETL, Spiro-MeOTAD HTL and MAPbI3 perovskite, what does the ML model predict for the PCE when the perovskite thickness is 300 nm and when it is 500 nm?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "pce_300",
+    "pce_500"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "ml.what_if"
+     ],
+     "optional": [
+      "ml.predict"
+     ]
+    },
+    {
+     "required": [
+      "ml.predict"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "pce_300",
+     "type": "number",
+     "ref": "ml.Q31.pce_300",
+     "values": [
+      12.29
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.15
+    },
+    {
+     "id": "pce_500",
+     "type": "number",
+     "ref": "ml.Q31.pce_500",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.15
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "tool": "what_if(thickness)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "The two predictions differ by 0.05 points; a faithful answer reports a near-flat response.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q32",
+   "category": "ml",
+   "question": "What operational lifetime (T80, in hours) does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "insufficient_evidence",
+   "expected_behaviour": "decline",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "explicit_statement_that_the_model_predicts_PCE_only"
+   ],
+   "reference_plans": [
+    {
+     "required": [],
+     "optional": [
+      "ml.predict"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "states_unsupported",
+     "type": "decline",
+     "phrases": [
+      "no record",
+      "no matching",
+      "no devices",
+      "not found",
+      "no data",
+      "none ",
+      "zero",
+      "0 devices",
+      "no entries",
+      "does not contain",
+      "no such",
+      "not contain",
+      "no passage",
+      "no paper",
+      "no evidence",
+      "no relevant",
+      "not covered",
+      "no mention",
+      "could not find",
+      "cannot",
+      "can't",
+      "unable",
+      "not available",
+      "no precomputed",
+      "does not include",
+      "not part",
+      "only predicts",
+      "not predict",
+      "does not predict",
+      "not supported",
+      "outside",
+      "no information",
+      "not report",
+      "no sweep",
+      "not established",
+      "could not be",
+      "not possible",
+      "isn't",
+      "is not"
+     ],
+     "forbidden_regex": [
+      "t80[^.\\n]{0,80}\\b\\d{2,}\\s*(h|hours)\\b",
+      "\\b\\d{2,}\\s*(h|hours)\\b[^.\\n]{0,40}t80"
+     ],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "ml",
+     "note": "predictor target is PCE only (manifest)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q33",
+   "category": "scaps",
+   "question": "In the precomputed SCAPS sweep of absorber thickness, what is the simulated PCE at 200 nm and at 1000 nm, and how does PCE change with thickness?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "pce_200",
+    "pce_1000",
+    "trend"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep"
+     ],
+     "optional": [
+      "scaps.describe"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "pce_200",
+     "type": "number",
+     "ref": "scaps.Q33.pce_200nm",
+     "values": [
+      24.2902
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "pce_1000",
+     "type": "number",
+     "ref": "scaps.Q33.pce_1000nm",
+     "values": [
+      32.1431
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "trend",
+     "type": "terms",
+     "any_of": [
+      "increas",
+      "rise",
+      "rises",
+      "higher",
+      "grow",
+      "improv"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q34",
+   "category": "scaps",
+   "question": "In the precomputed SCAPS band-gap sweep, what are the simulated PCE and Voc at 1.35 eV and at 1.70 eV?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "pce_135",
+    "pce_170",
+    "voc_135",
+    "voc_170"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep"
+     ],
+     "optional": [
+      "scaps.describe"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "pce_135",
+     "type": "number",
+     "ref": "scaps.Q34.pce_1.35",
+     "values": [
+      32.6226
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "pce_170",
+     "type": "number",
+     "ref": "scaps.Q34.pce_1.70",
+     "values": [
+      27.4762
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "voc_135",
+     "type": "number",
+     "ref": "scaps.Q34.voc_1.35",
+     "values": [
+      1.1932
+     ],
+     "unit": "V",
+     "mandatory": true,
+     "abs_tol": 0.02
+    },
+    {
+     "id": "voc_170",
+     "type": "number",
+     "ref": "scaps.Q34.voc_1.70",
+     "values": [
+      1.5315
+     ],
+     "unit": "V",
+     "mandatory": true,
+     "abs_tol": 0.02
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q35",
+   "category": "scaps",
+   "question": "Using the precomputed SCAPS sweeps, compare how strongly the perovskite electron mobility, the perovskite hole mobility and the perovskite band gap affect the PCE: report the PCE span (maximum minus minimum) of each sweep.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "span_mue",
+    "span_muh",
+    "span_eg"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep"
+     ],
+     "optional": [
+      "scaps.describe",
+      "calc"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "three separate sweeps are needed",
+   "checks": [
+    {
+     "id": "span_mue",
+     "type": "number",
+     "ref": "scaps.Q35.span_mue",
+     "values": [
+      0.1759
+     ],
+     "unit": "% points",
+     "mandatory": true,
+     "abs_tol": 0.03
+    },
+    {
+     "id": "span_muh",
+     "type": "number",
+     "ref": "scaps.Q35.span_muh",
+     "values": [
+      1.5431
+     ],
+     "unit": "% points",
+     "mandatory": true,
+     "abs_tol": 0.03
+    },
+    {
+     "id": "span_eg",
+     "type": "number",
+     "ref": "scaps.Q35.span_eg",
+     "values": [
+      5.1464
+     ],
+     "unit": "% points",
+     "mandatory": true,
+     "abs_tol": 0.05
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q36",
+   "category": "scaps",
+   "question": "In the precomputed SCAPS hole-mobility sweep, what happens to the fill factor and the PCE when the perovskite hole mobility is reduced from 1 to 0.01 cm2/Vs?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "ff_1",
+    "ff_001",
+    "pce_1",
+    "pce_001"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep"
+     ],
+     "optional": [
+      "scaps.describe"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "ff_1",
+     "type": "number",
+     "ref": "scaps.Q36.ff_1",
+     "values": [
+      90.5772
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "ff_001",
+     "type": "number",
+     "ref": "scaps.Q36.ff_0.01",
+     "values": [
+      85.9579
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "pce_1",
+     "type": "number",
+     "ref": "scaps.Q36.pce_1",
+     "values": [
+      29.7504
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "pce_001",
+     "type": "number",
+     "ref": "scaps.Q36.pce_0.01",
+     "values": [
+      28.2222
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": "FF accepted as % only"
+  },
+  {
+   "id": "Q37",
+   "category": "scaps",
+   "question": "In the precomputed SCAPS sweep of the HTL band gap, what are the simulated PCE and fill factor at an HTL band gap of 2.0 eV?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "pce",
+    "ff"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep"
+     ],
+     "optional": [
+      "scaps.describe"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "pce_20",
+     "type": "number",
+     "ref": "scaps.Q37.pce_2.0",
+     "values": [
+      16.069
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.1
+    },
+    {
+     "id": "ff_20",
+     "type": "number",
+     "ref": "scaps.Q37.ff_2.0",
+     "values": [
+      61.8481
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.2
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q38",
+   "category": "scaps",
+   "question": "In the precomputed SCAPS sweep of the HTL electron affinity, at which values does the simulation fail to give a usable device result (no result or a collapsed device)? Report the values and what the sweep returns there.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "adversarial",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "failing_values",
+    "returned_values"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep"
+     ],
+     "optional": [
+      "scaps.describe"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "collapse_chi",
+     "type": "number",
+     "ref": "scaps.Q38.collapse_chi",
+     "values": [
+      3.0
+     ],
+     "unit": "eV",
+     "mandatory": true,
+     "abs_tol": 0.01
+    },
+    {
+     "id": "nan_1",
+     "type": "number",
+     "ref": "scaps.Q38.nan_chi[0]",
+     "values": [
+      3.4
+     ],
+     "unit": "eV",
+     "mandatory": true,
+     "abs_tol": 0.01
+    },
+    {
+     "id": "nan_2",
+     "type": "number",
+     "ref": "scaps.Q38.nan_chi[1]",
+     "values": [
+      3.8
+     ],
+     "unit": "eV",
+     "mandatory": true,
+     "abs_tol": 0.01
+    },
+    {
+     "id": "collapse_pce",
+     "type": "number",
+     "ref": "scaps.Q38.collapse_pce",
+     "values": [
+      0.0092
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.003
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "3.0 eV collapses (PCE ~0.009 %); 3.4 and 3.8 eV have no result.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q39",
+   "category": "scaps",
+   "question": "What are the perovskite thickness, perovskite band gap, ETL, HTL and architecture of the SCAPS reference device on which the precomputed sweeps are based?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "thickness",
+    "band_gap",
+    "htl",
+    "etl",
+    "architecture"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.describe"
+     ],
+     "optional": [
+      "scaps.sweep"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "thickness",
+     "type": "number",
+     "ref": "scaps.Q39.reference_cell_pvk_d_nm",
+     "values": [
+      400.0
+     ],
+     "unit": "nm",
+     "mandatory": true,
+     "abs_tol": 0.5
+    },
+    {
+     "id": "band_gap",
+     "type": "number",
+     "ref": "scaps.Q39.pvk_Eg_eV",
+     "values": [
+      1.55
+     ],
+     "unit": "eV",
+     "mandatory": true,
+     "abs_tol": 0.005
+    },
+    {
+     "id": "htl_etl",
+     "type": "terms",
+     "any_of": [],
+     "all_of": [
+      "spiro",
+      "tio2"
+     ],
+     "mandatory": true
+    },
+    {
+     "id": "architecture",
+     "type": "terms",
+     "any_of": [
+      "n-i-p",
+      "nip"
+     ],
+     "all_of": [],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_reference_cell()",
+     "note": "precomputed sweeps of the n-i-p reference cell (TiO2 / Spiro-MeOTAD)"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q40",
+   "category": "scaps",
+   "question": "How does the simulated PCE depend on the perovskite bulk defect density according to the precomputed SCAPS sweeps?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "insufficient_evidence",
+   "expected_behaviour": "decline",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "explicit_statement_that_no_defect_density_sweep_exists"
+   ],
+   "reference_plans": [
+    {
+     "required": [],
+     "optional": [
+      "scaps.describe",
+      "scaps.sweep"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "states_no_sweep",
+     "type": "decline",
+     "phrases": [
+      "no record",
+      "no matching",
+      "no devices",
+      "not found",
+      "no data",
+      "none ",
+      "zero",
+      "0 devices",
+      "no entries",
+      "does not contain",
+      "no such",
+      "not contain",
+      "no passage",
+      "no paper",
+      "no evidence",
+      "no relevant",
+      "not covered",
+      "no mention",
+      "could not find",
+      "cannot",
+      "can't",
+      "unable",
+      "not available",
+      "no precomputed",
+      "does not include",
+      "not part",
+      "only predicts",
+      "not predict",
+      "does not predict",
+      "not supported",
+      "outside",
+      "no information",
+      "not report",
+      "no sweep",
+      "not established",
+      "could not be",
+      "not possible",
+      "isn't",
+      "is not"
+     ],
+     "forbidden_regex": [
+      "(defect|\\bnt\\b)[^.\\n]{0,60}(increas|decreas|reduc)[^.\\n]{0,80}pce[^.\\n]{0,40}\\d+\\.\\d+"
+     ],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv",
+     "note": "six sweeps only: d, eg, mue, muh, htlchi, htlEg"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Live SCAPS is disabled, so the only correct response is to report that no such sweep exists.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q41",
+   "category": "multi_tool",
+   "question": "Compare what the experimental database and the ML model say about n-i-p devices with a SnO2 ETL: report the mean PCE of such devices in the database, and the PCE the ML model predicts for an n-i-p SnO2 / Spiro-MeOTAD / MAPbI3 (500 nm) device.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "db_mean_pce",
+    "predicted_pce"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query",
+      "ml.predict"
+     ],
+     "optional": []
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "db_mean",
+     "type": "number",
+     "ref": "multi_tool.Q41.db_mean_pce",
+     "values": [
+      15.303
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.05
+    },
+    {
+     "id": "ml_pred",
+     "type": "number",
+     "ref": "multi_tool.Q41.ml_predicted_pce",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.1
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite+ml"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q42",
+   "category": "multi_tool",
+   "question": "Which paper in the literature collection introduces an ultra-thin CdS electron-transport layer, and how many devices in the experimental database contain CdS in their ETL stack?",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "doi",
+    "device_count"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search",
+      "db.query"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1246/cl.180616"
+     ],
+     "ref": "literature.Q26.doi",
+     "mandatory": true
+    },
+    {
+     "id": "count",
+     "type": "number",
+     "ref": "pdb.Q42",
+     "values": [
+      160,
+      135
+     ],
+     "unit": "devices",
+     "mandatory": true,
+     "rel_tol": 0.02
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus+sqlite",
+     "sql": "SELECT COUNT(*) FROM devices WHERE ETL_stack_sequence LIKE '%CdS%'"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": "count accepts LIKE '%CdS%' (incl. CdSe) and the CdSe-excluded variant"
+  },
+  {
+   "id": "Q43",
+   "category": "multi_tool",
+   "question": "For the n-i-p perovskite device, compare how the precomputed SCAPS absorber-thickness sweep and the ML model (n-i-p SnO2 / Spiro-MeOTAD / MAPbI3) each predict the PCE at 300 nm and at 500 nm. Report all four values.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "scaps_300",
+    "scaps_500",
+    "ml_300",
+    "ml_500"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "scaps.sweep",
+      "ml.what_if"
+     ],
+     "optional": [
+      "ml.predict",
+      "scaps.describe"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "scaps_300",
+     "type": "number",
+     "ref": "multi_tool.Q43.scaps_pce_300nm",
+     "values": [
+      27.8758
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.15
+    },
+    {
+     "id": "scaps_500",
+     "type": "number",
+     "ref": "multi_tool.Q43.scaps_pce_500nm",
+     "values": [
+      30.7853
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.15
+    },
+    {
+     "id": "ml_300",
+     "type": "number",
+     "ref": "multi_tool.Q43.ml_pce_300",
+     "values": [
+      12.29
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.15
+    },
+    {
+     "id": "ml_500",
+     "type": "number",
+     "ref": "multi_tool.Q43.ml_pce_500",
+     "values": [
+      12.34
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.15
+    }
+   ],
+   "provenance": [
+    {
+     "source": "scaps_csv+ml"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "The two sources differ by ~15 points in absolute PCE; the answer must keep them apart.",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q44",
+   "category": "multi_tool",
+   "question": "Find the paper on poly-TPD doped PTAA hole-transport layers in the literature collection and report its DOI and the control and optimised PCE. Then use the ML model to predict the PCE of a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 (450 nm).",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "normal",
+   "expected_behaviour": "answer",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "doi",
+    "control_pce",
+    "optimised_pce",
+    "predicted_pce"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "lit.search",
+      "ml.predict"
+     ],
+     "optional": [
+      "lit.read"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "doi",
+     "type": "doi_evidence",
+     "dois": [
+      "10.1117/12.2506443"
+     ],
+     "ref": "multi_tool.Q44.doi",
+     "mandatory": true
+    },
+    {
+     "id": "control",
+     "type": "number",
+     "ref": "multi_tool.Q44.control_pce",
+     "values": [
+      12.11
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    },
+    {
+     "id": "modified",
+     "type": "number",
+     "ref": "multi_tool.Q44.modified_pce",
+     "values": [
+      14.63
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "abs_tol": 0.05
+    },
+    {
+     "id": "ml_pred",
+     "type": "number",
+     "ref": "multi_tool.Q44.ml_predicted_pce",
+     "values": [
+      13.46
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.1
+    }
+   ],
+   "provenance": [
+    {
+     "source": "corpus+ml"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "",
+   "tolerance_note": ""
+  },
+  {
+   "id": "Q45",
+   "category": "multi_tool",
+   "question": "Report the SCAPS-simulated PCE of a p-i-n device with a 600 nm CsPbI3 absorber and a Cu2O hole-transport layer, and compare it with the mean PCE of p-i-n devices in the experimental database.",
+   "origin": "v2",
+   "set": "main",
+   "difficulty": "insufficient_evidence",
+   "expected_behaviour": "partial_decline",
+   "evaluation_mode": "deterministic",
+   "required_outputs": [
+    "db_mean_pce",
+    "statement_that_the_simulation_cannot_be_provided"
+   ],
+   "reference_plans": [
+    {
+     "required": [
+      "db.query"
+     ],
+     "optional": [
+      "scaps.describe",
+      "scaps.sweep",
+      "design.layout"
+     ]
+    }
+   ],
+   "order_constraints": [],
+   "dependencies": "",
+   "checks": [
+    {
+     "id": "db_pin_mean",
+     "type": "number",
+     "ref": "multi_tool.Q45.db_pin_mean_pce",
+     "values": [
+      11.937
+     ],
+     "unit": "%",
+     "mandatory": true,
+     "rel_tol": 0.05
+    },
+    {
+     "id": "no_simulation",
+     "type": "decline",
+     "phrases": [
+      "cannot",
+      "can't",
+      "unable",
+      "not available",
+      "no precomputed",
+      "not simulated",
+      "no simulation",
+      "could not",
+      "not run",
+      "not possible",
+      "was not",
+      "not be established",
+      "disabled",
+      "no sweep",
+      "not able"
+     ],
+     "forbidden_regex": [
+      "(scaps|simulat\\w+)[^.\\n]{0,60}(cspbi3|cu2o)[^.\\n]{0,80}\\bpce\\b[^.\\n]{0,25}\\b[1-4]\\d\\.\\d+\\s*%"
+     ],
+     "mandatory": true
+    }
+   ],
+   "provenance": [
+    {
+     "source": "sqlite",
+     "note": "no precomputed sweep covers this device; live SCAPS disabled"
+    }
+   ],
+   "recovery_required": false,
+   "notes": "Half answerable (database mean), half unsupported (no simulation available).",
+   "tolerance_note": ""
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "episode_id": "Q05__gemini__perovagents__r0",
+ "qid": "Q05",
+ "category": "literature",
+ "set": "main",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "perovagents",
+ "rep": 0,
+ "started_at": "2026-10-22T09:06:36.480412",
+ "finished_at": "2026-10-22T09:07:17.180412",
+ "seconds": 40.7,
+ "termination": "answer",
+ "question": "Find literature evidence describing strategies for improving the performance of SnO2-based n-i-p perovskite solar cells. Give the strategy, mechanism, and supporting citation.",
+ "final_answer": "Strategy: chloride additives (FACl in the precursor) plus ADAHCl surface passivation. Mechanism: improved perovskite crystallization and morphology, with reduced surface recombination. Supporting citation: 10.1002/aenm.201803587.",
+ "tool_calls": [
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2-based n-i-p perovskite solar cells improvement strategy mechanism",
+    "k": 8
+   },
+   "result": "{'query': 'SnO2-based n-i-p perovskite solar cells improvement strategy mechanism', 'method': 'semantic', 'n_hits': 2, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'section': '3. Results and Discussion', 'passage_id': 178, 'score': 0.804, 'text': 'Chloride additives (FACl) improve crystallization and reduce surface traps in SnO2-based planar n-i-p devices.'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'section': '3.2 Surface passivation', 'passage_id': 210, 'score': 0.781, 'text': 'ADAHCl passivation suppresses non-radiative recombination at the perovskite surface.'}]}",
+   "result_chars": 884,
+   "seconds": 0.55,
+   "t_offset_s": 4.1,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1002/aenm.201803587",
+    "query": "FACl chloride additive crystallization mechanism surface recombination"
+   },
+   "result": "{'doi': '10.1002/aenm.201803587', 'title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'n_passages_total': 144, 'n_passages_returned': 2, 'passages': [{'section': '3. Results and Discussion', 'text': 'FACl addition improves crystallization and morphology, and reduces the small-grain capping layer.'}, {'section': '3.2 Surface passivation', 'text': 'ADAHCl treatment passivates surface defects; PL and EIS show reduced surface recombination.'}]}",
+   "result_chars": 546,
+   "seconds": 0.79,
+   "t_offset_s": 9.0,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1002/aenm.201803587",
+    "query": "device architecture SnO2 n-i-p champion efficiency"
+   },
+   "result": "{'doi': '10.1002/aenm.201803587', 'title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'n_passages_total': 144, 'n_passages_returned': 2, 'passages': [{'section': '5. Device fabrication', 'text': 'Devices use FTO / compact SnO2 / CsMAFA / spiro-OMeTAD / Au, a planar n-i-p architecture.'}, {'section': '4. Conclusions', 'text': 'Champion PCE is 21.2%.'}]}",
+   "result_chars": 456,
+   "seconds": 0.72,
+   "t_offset_s": 13.2,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 3,
+ "n_model_calls": 6,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 6,
+  "real_prompt_tokens": 7729,
+  "real_completion_tokens": 682,
+  "usage_reported_calls": 6,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "framework": "perovagents",
+  "handoffs": [
+   "literature",
+   "literature",
+   "literature"
+  ]
+ }
+}

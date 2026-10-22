@@ -1,0 +1,5 @@
+{"t": 1790647335.826157, "event": "plan", "run_id": "20260929T020215_85626", "seed": 42, "tasks": [{"id": "t1", "cell": "scaps", "request": "What happens to predicted PCE if perovskite thickness is increased from 300 to 500 nm?", "params": {"sweep_name": "pvk_d"}, "depends_on": []}]}
+{"t": 1790647335.8261828, "event": "dispatch", "task": "t1", "cell": "scaps"}
+{"t": 1790648204.2768419, "event": "timeout", "task": "t1"}
+{"t": 1790648204.276861, "event": "failed", "task": "t1", "cell": "scaps", "reason": "timeout"}
+{"t": 1790651064.9880161, "event": "done", "run_id": "20260929T020215_85626", "summary": {"run_id": "20260929T020215_85626", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "timeout"}, "skipped": []}}

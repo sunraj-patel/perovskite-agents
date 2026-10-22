@@ -1,0 +1,12 @@
+set quitscript.quitSCAPS
+set errorhandling.overwritefile
+load definitionfile pin_sno2_ptaa_files.def
+clear actions
+action workingpoint.temperature 300.0
+action iv.startv 0.0
+action iv.stopv 1.6
+action iv.increment 0.02
+action iv.doiv
+action light
+calculate singleshot
+save results.iv pin_sno2_ptaa_files.iv

@@ -1,0 +1,89 @@
+{
+ "Overall": {
+  "arch": "Overall",
+  "metric": "rmse",
+  "score": 3.8845,
+  "mae": 2.9932,
+  "r2": 0.4548,
+  "r2_std": 0.0241,
+  "folds_r2": [
+   0.4682,
+   0.465,
+   0.4412,
+   0.4121,
+   0.4799
+  ],
+  "split": "group-doi-5fold",
+  "group_col": "Ref_DOI_number",
+  "n": 42162,
+  "n_groups": 7478,
+  "n_features": 248,
+  "model": "model_Overall.cbm",
+  "recipe": {
+   "iterations": 800,
+   "depth": 6,
+   "learning_rate": 0.03,
+   "random_seed": 42
+  },
+  "elapsed_s": 72.3,
+  "note": "recipe+data validation under a group-aware split; deployed artifact shares the recipe (see module docstring)"
+ },
+ "NIP": {
+  "arch": "NIP",
+  "metric": "rmse",
+  "score": 3.8913,
+  "mae": 3.0088,
+  "r2": 0.4686,
+  "r2_std": 0.019,
+  "folds_r2": [
+   0.4421,
+   0.4693,
+   0.4777,
+   0.4963,
+   0.4528
+  ],
+  "split": "group-doi-5fold",
+  "group_col": "Ref_DOI_number",
+  "n": 29233,
+  "n_groups": 5296,
+  "n_features": 246,
+  "model": "model_NIP.cbm",
+  "recipe": {
+   "iterations": 800,
+   "depth": 6,
+   "learning_rate": 0.03,
+   "random_seed": 42
+  },
+  "elapsed_s": 53.2,
+  "note": "recipe+data validation under a group-aware split; deployed artifact shares the recipe (see module docstring)"
+ },
+ "PIN": {
+  "arch": "PIN",
+  "metric": "rmse",
+  "score": 3.9778,
+  "mae": 3.0257,
+  "r2": 0.3802,
+  "r2_std": 0.0544,
+  "folds_r2": [
+   0.4097,
+   0.3794,
+   0.319,
+   0.3251,
+   0.4647
+  ],
+  "split": "group-doi-5fold",
+  "group_col": "Ref_DOI_number",
+  "n": 12830,
+  "n_groups": 2290,
+  "n_features": 250,
+  "model": "model_PIN.cbm",
+  "recipe": {
+   "iterations": 800,
+   "depth": 6,
+   "learning_rate": 0.03,
+   "random_seed": 42
+  },
+  "elapsed_s": 31.4,
+  "note": "recipe+data validation under a group-aware split; deployed artifact shares the recipe (see module docstring)"
+ }
+}

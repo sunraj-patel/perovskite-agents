@@ -1,0 +1,66 @@
+{
+ "version": 4,
+ "built_at": "2026-10-21T23:54:43",
+ "pdb": {
+  "Q46": {
+   "count_alts": [
+    1592,
+    1633
+   ],
+   "mean_pce": 13.247,
+   "sql": "SELECT COUNT(*), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='pin' AND HTL_stack_sequence='NiO-c' AND JV_default_PCE IS NOT NULL"
+  },
+  "Q47": {
+   "count_alts": [
+    990,
+    1049
+   ],
+   "mean_voc": 1.065,
+   "sql": "SELECT COUNT(*), AVG(JV_default_Voc) FROM devices WHERE Cell_architecture='pin' AND HTL_stack_sequence='PTAA' AND JV_default_Voc IS NOT NULL"
+  },
+  "Q48": {
+   "ranking": [
+    {
+     "composition": "MAPbI",
+     "count": 111
+    },
+    {
+     "composition": "CsFAMAPbBrI",
+     "count": 81
+    },
+    {
+     "composition": "FAMAPbBrI",
+     "count": 45
+    },
+    {
+     "composition": "CsFAMAPbI",
+     "count": 11
+    },
+    {
+     "composition": "FAMAPbI",
+     "count": 10
+    }
+   ],
+   "top3": [
+    "MAPbI",
+    "CsFAMAPbBrI",
+    "FAMAPbBrI"
+   ],
+   "sql": "SELECT Perovskite_composition_short_form, COUNT(*) c FROM devices WHERE Cell_architecture='pin' AND JV_default_PCE > 20 GROUP BY 1 ORDER BY 2 DESC LIMIT 5"
+  }
+ },
+ "literature": {
+  "Q49": {
+   "doi": "10.1002/adfm.201604733",
+   "voc_htm": 1.46
+  },
+  "Q50": {
+   "doi": "10.1007/s10118-017-1891-z",
+   "pce_new": 12.68,
+   "pce_conventional": 9.49
+  },
+  "Q51": {
+   "doi": "10.1021/jp5126624"
+  }
+ }
+}

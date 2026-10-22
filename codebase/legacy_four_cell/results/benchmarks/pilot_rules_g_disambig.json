@@ -1,0 +1,535 @@
+{
+ "label": "pilot_rules_G_disambig",
+ "aggregate": {
+  "n": 15,
+  "classification_accuracy_pct": 53.3,
+  "selection_accuracy_pct": 100.0,
+  "parameter_validity_pct": 100.0,
+  "execution_success_pct": 100.0,
+  "contract_satisfied_pct": 86.7,
+  "final_sufficient_pct": 86.7,
+  "mean_iterations": 1.0,
+  "recovery_rate_pct": 0.0,
+  "mismatched_questions": []
+ },
+ "by_category": {
+  "disambiguation": {
+   "n": 15,
+   "classification_accuracy_pct": 53.3,
+   "selection_accuracy_pct": 100.0,
+   "parameter_validity_pct": 100.0,
+   "execution_success_pct": 100.0,
+   "contract_satisfied_pct": 86.7,
+   "final_sufficient_pct": 86.7,
+   "mean_iterations": 1.0,
+   "recovery_rate_pct": 0.0,
+   "mismatched_questions": []
+  }
+ },
+ "rows": [
+  {
+   "qid": "dis_01a",
+   "category": "disambiguation",
+   "question": "What PCE does the model predict for an n-i-p SnO2 device?",
+   "expected_task": [
+    "prediction"
+   ],
+   "task_type": "prediction",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "ml.predict"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.predict"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "prediction",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_01b",
+   "category": "disambiguation",
+   "question": "Which parameters does the model predict drive PCE for n-i-p SnO2 devices?",
+   "expected_task": [
+    "feature_importance"
+   ],
+   "task_type": "feature_importance",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "ml.explain_global"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.explain_global"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "feature_importance",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_01c",
+   "category": "disambiguation",
+   "question": "What PCE does the model predict drives n-i-p devices?",
+   "expected_task": [
+    "feature_importance"
+   ],
+   "task_type": "prediction",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "ml.explain_global"
+    ],
+    [
+     "ml.predict"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.predict"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "feature_importance",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_02a",
+   "category": "disambiguation",
+   "question": "Which features matter for n-i-p devices overall?",
+   "expected_task": [
+    "feature_importance"
+   ],
+   "task_type": "feature_importance",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "ml.explain_global"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.explain_global"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "feature_importance",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_02b",
+   "category": "disambiguation",
+   "question": "Which features matter for THIS n-i-p device?",
+   "expected_task": [
+    "feature_importance"
+   ],
+   "task_type": "interpretation",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "ml.explain_local"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.explain_local"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "feature_importance",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_02c",
+   "category": "disambiguation",
+   "question": "This device predicts 18.2% \u2014 which features matter?",
+   "expected_task": [
+    "feature_importance"
+   ],
+   "task_type": "interpretation",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "ml.explain_local"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.explain_local"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "feature_importance",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_03a",
+   "category": "disambiguation",
+   "question": "How does predicted PCE change with perovskite thickness?",
+   "expected_task": [
+    "sensitivity_analysis"
+   ],
+   "task_type": "sensitivity_analysis",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "ml.what_if"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.what_if"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "sensitivity_analysis",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_03b",
+   "category": "disambiguation",
+   "question": "What thickness should I use to maximize predicted PCE?",
+   "expected_task": [
+    "optimization"
+   ],
+   "task_type": "optimization",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "ml.optimize"
+    ],
+    [
+     "ml.what_if"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.optimize"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "optimization",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_03c",
+   "category": "disambiguation",
+   "question": "What thickness should I use to reach a predicted PCE of 20%?",
+   "expected_task": [
+    "sensitivity_analysis"
+   ],
+   "task_type": "optimization",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "ml.what_if"
+    ],
+    [
+     "ml.optimize"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.optimize"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "sensitivity_analysis",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_04a",
+   "category": "disambiguation",
+   "question": "How sensitive is PCE to band gap widening?",
+   "expected_task": [
+    "sensitivity_analysis"
+   ],
+   "task_type": "sensitivity_analysis",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "ml.what_if"
+    ],
+    [
+     "scaps.get_sweep"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.what_if"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "sensitivity_analysis",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_04b",
+   "category": "disambiguation",
+   "question": "How sensitive is band gap to alloy composition?",
+   "expected_task": [
+    "factual_lookup"
+   ],
+   "task_type": "sensitivity_analysis",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "material.lookup"
+    ],
+    [
+     "ml.what_if"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "ml.what_if"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "factual_lookup",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_04c",
+   "category": "disambiguation",
+   "question": "Which compositions can reach a 1.7 eV band gap?",
+   "expected_task": [
+    "factual_lookup"
+   ],
+   "task_type": "factual_lookup",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "material.lookup"
+    ],
+    [
+     "materials_project.lookup"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "material.lookup"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "RECOVERABLE",
+   "contract_satisfied": false,
+   "replanner": "rules",
+   "recovery_failure_seen": true,
+   "recovery_resolved": false,
+   "risk": "factual_lookup",
+   "model_association_asserted": false
+  },
+  {
+   "qid": "dis_05a",
+   "category": "disambiguation",
+   "question": "Check whether SnO2 ETLs really average above 20% PCE.",
+   "expected_task": [
+    "verification"
+   ],
+   "task_type": "database_query",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "citations.verify"
+    ],
+    [
+     "pdb.query"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "pdb.query"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "verification",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_05b",
+   "category": "disambiguation",
+   "question": "What do SnO2 ETLs average in PCE?",
+   "expected_task": [
+    "database_query"
+   ],
+   "task_type": "database_query",
+   "classification_ok": true,
+   "gt_sequences": [
+    [
+     "pdb.query"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "pdb.query"
+   ],
+   "param_valid": true,
+   "plan_valid": true,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "SUFFICIENT",
+   "contract_satisfied": true,
+   "replanner": "rules",
+   "recovery_failure_seen": false,
+   "recovery_resolved": false,
+   "risk": "database_query",
+   "model_association_asserted": true
+  },
+  {
+   "qid": "dis_05c",
+   "category": "disambiguation",
+   "question": "Find the source backing the claim that SnO2 ETLs average above 20%.",
+   "expected_task": [
+    "literature_retrieval"
+   ],
+   "task_type": "verification",
+   "classification_ok": false,
+   "gt_sequences": [
+    [
+     "literature.search"
+    ],
+    [
+     "citations.verify"
+    ]
+   ],
+   "gt_hit": true,
+   "plan_actions": [
+    "citations.verify"
+   ],
+   "param_valid": true,
+   "plan_valid": false,
+   "execution_ok": true,
+   "n_ok": 1,
+   "n_steps": 1,
+   "iterations": 1,
+   "final_verdict": "RECOVERABLE",
+   "contract_satisfied": false,
+   "replanner": "rules",
+   "recovery_failure_seen": true,
+   "recovery_resolved": false,
+   "risk": "literature_retrieval",
+   "model_association_asserted": false
+  }
+ ]
+}

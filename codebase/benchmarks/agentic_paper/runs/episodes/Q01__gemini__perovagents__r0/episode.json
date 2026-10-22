@@ -1,0 +1,73 @@
+{
+ "episode_id": "Q01__gemini__perovagents__r0",
+ "qid": "Q01",
+ "category": "pdb",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:19:51",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What is the average reported PCE of n-i-p perovskite solar cells using SnO2 as the ETL?",
+ "finished_at": "2026-10-21T19:20:06",
+ "seconds": 15.3,
+ "termination": "answer",
+ "final_answer": "Based on the Perovskite Database, the average reported Power Conversion Efficiency (PCE) of n-i-p perovskite solar cells using $\\text{SnO}_2$ as the electron transport layer (ETL) is **15.31%** (mean calculated from 4,299 valid device entries across 789 unique papers). The recorded PCE values for this configuration range from a minimum of 0.02% to a maximum of 35.9%.",
+ "tool_calls": [
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) as total_devices, COUNT(DISTINCT Ref_DOI_number) as total_papers, AVG(JV_default_PCE) as mean_pce, MIN(JV_default_PCE) as min_pce, MAX(JV_default_PCE) as max_pce, COUNT(JV_default_PCE) as count_pce FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0 AND JV_default_PCE < 40"
+   },
+   "result": "{'columns': ['total_devices', 'total_papers', 'mean_pce', 'min_pce', 'max_pce', 'count_pce'], 'n_rows': 1, 'rows': [{'total_devices': 4299, 'total_papers': 789, 'mean_pce': 15.306740241916726, 'min_pce': 0.02, 'max_pce': 35.9, 'count_pce': 4299}]}",
+   "result_chars": 247,
+   "seconds": 0.033,
+   "t_offset_s": 8.11,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 4,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 4,
+  "prompt_chars": 39829,
+  "completion_chars": 1709,
+  "real_prompt_tokens": 10527,
+  "real_completion_tokens": 532,
+  "usage_reported_calls": 4,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 14.6,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_191952_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 1,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

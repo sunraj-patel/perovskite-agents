@@ -1,0 +1,13 @@
+metric,backbone,model_id,condition,n_questions,n_episodes,value,ci95_lo,ci95_hi
+completed,gemini,gemini-3.5-flash-lite,direct,12,12,0.333,0.083,0.583
+completed,gemini,gemini-3.5-flash-lite,perovagents,12,12,0.583,0.333,0.833
+completed,minimax,opencode/minimax-m3.1-flash-free,direct,8,21,0.875,0.625,1.0
+completed,minimax,opencode/minimax-m3.1-flash-free,perovagents,8,8,0.25,0.0,0.625
+correct,gemini,gemini-3.5-flash-lite,direct,12,12,0.333,0.083,0.583
+correct,gemini,gemini-3.5-flash-lite,perovagents,12,12,0.417,0.167,0.667
+correct,minimax,opencode/minimax-m3.1-flash-free,direct,8,21,0.75,0.375,1.0
+correct,minimax,opencode/minimax-m3.1-flash-free,perovagents,8,8,0.25,0.0,0.625
+tool_f1,gemini,gemini-3.5-flash-lite,direct,12,12,0.417,0.167,0.667
+tool_f1,gemini,gemini-3.5-flash-lite,perovagents,12,12,0.928,0.821,1.0
+tool_f1,minimax,opencode/minimax-m3.1-flash-free,direct,8,21,0.933,0.842,1.0
+tool_f1,minimax,opencode/minimax-m3.1-flash-free,perovagents,8,8,0.405,0.125,0.708

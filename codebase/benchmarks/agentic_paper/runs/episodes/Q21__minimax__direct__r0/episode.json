@@ -1,0 +1,321 @@
+{
+ "episode_id": "Q21__minimax__direct__r0",
+ "qid": "Q21",
+ "category": "pdb",
+ "condition": "direct",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T20:05:48",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "How many n-i-p devices in the database use a compact + mesoporous TiO2 ETL (TiO2-c | TiO2-mp) together with Spiro-MeOTAD as the HTL, and what is their mean PCE?",
+ "finished_at": "2026-10-21T20:11:50",
+ "seconds": 361.8,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT * FROM devices LIMIT 5"
+   },
+   "result": "{'columns': ['Ref_ID', 'Ref_ID_temp', 'Ref_name_of_person_entering_the_data', 'Ref_data_entered_by_author', 'Ref_DOI_number', 'Ref_lead_author', 'Ref_publication_date', 'Ref_journal', 'Ref_part_of_initial_dataset', 'Ref_original_filename_data_upload', 'Ref_free_text_comment', 'Ref_internal_sample_id', 'Cell_stack_sequence', 'Cell_area_total', 'Cell_area_measured', 'Cell_number_of_cells_per_substrate', 'Cell_architecture', 'Cell_flexible', 'Cell_flexible_min_bending_radius', 'Cell_semitransparent', 'Cell_semitransparent_AVT', 'Cell_semitransparent_wavelength_range', 'Cell_semitransparent_raw_data', 'Module', 'Module_number_of_cells_in_module', 'Module_area_total', 'Module_area_effective', 'Module_JV_data_recalculated_per_cell', 'Substrate_stack_sequence', 'Substrate_thickness', 'Substrate_area', 'Substrate_supplier', 'Substrate_brand_name', 'Substrate_deposition_procedure', 'Substrate_surface_roughness_rms', 'Substrate_etching_procedure', 'Substrate_cleaning_procedure', 'ETL_stack_sequence', 'ETL_thickness', 'ETL_additives_compounds', 'ETL_additives_concentrations', 'ETL_deposition_procedure', 'ETL_deposition_aggregation_state_of_reactants', 'ETL_deposition_synthesis_atmosphere', 'ETL_deposition_synthesis_atmosphere_pressure_total', 'ETL_deposition_synthesis_atmosphere_pressure_partial', 'ETL_deposition_synthesis_atmosphere_relative_humidity', 'ETL_deposition_solvents', 'ETL_deposition_solvents_mixing_ratios', 'ETL_deposition_solvents_supplier', 'ETL_deposition_solvents_purity', 'ETL_deposition_reaction_solutions_compounds', 'ETL_deposition_reaction_solutions_compounds_supplier', 'ETL_deposition_reaction_solutions_compounds_purity', 'ETL_deposition_reaction_solutions_concentrations', 'ETL_deposition_reaction_solutions_volumes', 'ETL_deposition_reaction_solutions_age', 'ETL_deposition_reaction_solutions_temperature', 'ETL_deposition_substrate_temperature', 'ETL_deposition_thermal_annealing_temperature', 'ETL_deposition_thermal_annealing_time', 'ETL_deposition_thermal_annealing_atmosphere', 'ETL_storage_time_until_next_deposition_step', 'ETL_storage_atmosphere', 'ETL_storage_relative_humidity', 'ETL_surface_treatment_before_next_deposition_step', 'Perovskite_single_crystal', 'Perovskite_dimension_0D', 'Perovskite_dimension_2D', 'Perovskite_dimension_2D3D_mixture', 'Perovskite_dimension_3D', 'Perovskite_dimension_3D_with_2D_capping_layer', 'Perovskite_dimension_list_of_layers', 'Perovskite_composition_perovskite_ABC3_structure', 'Perovskite_composition_perovskite_inspired_structure', 'Perovskite_composition_a_ions', 'Perovskite_composition_a_ions_coefficients', 'Perovskite_composition_b_ions', 'Perovskite_composition_b_ions_coefficients', 'Perovskite_composition_c_ions', 'Perovskite_composition_c_ions_coefficients', 'Perovskite_composition_none_stoichiometry_components_in_excess', 'Perovskite_composition_short_form', 'Perovskite_composition_long_form', 'Perovskite_composition_assumption', 'Perovskite_composition_inorganic', 'Perovskite_composition_leadfree', 'Perovskite_additives_compounds', 'Perovskite_additives_concentrations', 'Perovskite_thickness', 'Perovskite_band_gap', 'Perovskite_band_gap_graded', 'Perovskite_band_gap_estimation_basis', 'Perovskite_pl_max', 'Perovskite_deposition_number_of_deposition_steps', 'Perovskite_deposition_procedure', 'Perovskite_deposition_aggregation_state_of_reactants', 'Perovskite_deposition_synthesis_atmosphere', 'Perovskite_deposition_synthesis_atmosphere_pressure_total', 'Perovskite_deposition_synthesis_atmosphere_pressure_partial', 'Perovskite_deposition_synthesis_atmosphere_relative_humidity', 'Perovskite_deposition_solvents', 'Perovskite_deposition_solvents_mixing_ratios', 'Perovskite_deposition_solvents_supplier', 'Perovskite_deposition_solvents_purity', 'Perovskite_deposition_reaction_solutions_compounds', 'Perovskite_deposition_reaction_solutions_compounds_supplier', 'Perovskite_deposition_reaction_solutions_compounds_purity', 'Perovskite_deposition_reaction_solutions_concentrations', 'Perovskite_deposition_reaction_solutions_volumes', 'Perovskite_deposition_reaction_solutions_age', 'Perovskite_deposition_reaction_solutions_temperature', 'Perovskite_deposition_substrate_temperature', 'Perovskite_deposition_quenching_induced_crystallisation', 'Perovskite_deposition_quenching_media', 'Perovskite_deposition_quenching_media_mixing_ratios', 'Perovskite_deposition_quenching_media_volume', 'Perovskite_deposition_quenching_media_additives_compounds', 'Perovskite_deposition_quenching_media_additives_concentrations', 'Perovskite_deposition_thermal_annealing_temperature', 'Perovskite_deposition_thermal_annealing_time', 'Perovskite_deposition_thermal_annealing_atmosphere', 'Perovskite_deposition_thermal_annealing_relative_humidity', 'Perovskite_deposition_thermal_annealing_pressure', 'Perovskite_deposition_solvent_annealing', 'Perovskite_deposition_solvent_annealing_timing', 'Perovskite_deposition_solvent_annealing_solvent_atmosphere', 'Perovskite_deposition_solvent_annealing_time', 'Perovskite_deposition_solvent_annealing_temperature', 'Perovskite_deposition_after_treatment_of_formed_perovskite', 'Perovskite_deposition_after_treatment_of_formed_perovskite_met', 'Perovskite_storage_time_until_next_deposition_step', 'Perovskite_storage_atmosphere', 'Perovskite_storage_relative_humidity', 'Perovskite_surface_treatment_before_next_deposition_step', 'HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step', 'Backcontact_stack_sequence', 'Backcontact_thickness_list', 'Backcontact_additives_compounds', 'Backcontact_additives_concentrations', 'Backcontact_deposition_procedure', 'Backcontact_deposition_aggregation_state_of_reactants', 'Backcontact_deposition_synthesis_atmosphere', 'Backcontact_deposition_synthesis_atmosphere_pressure_total', 'Backcontact_deposition_synthesis_atmosphere_pressure_partial', 'Backcontact_deposition_synthesis_atmosphere_relative_humidity', 'Backcontact_deposition_solvents', 'Backcontact_deposition_solvents_mixing_ratios', 'Backcontact_deposition_solvents_supplier', 'Backcontact_deposition_solvents_purity', 'Backcontact_deposition_reaction_solutions_compounds', 'Backcontact_deposition_reaction_solutions_compounds_supplier', 'Backcontact_deposition_reaction_solutions_compounds_purity', 'Backcontact_deposition_reaction_solutions_concentrations', 'Backcontact_deposition_reaction_solutions_volumes', 'Backcontact_deposition_reaction_solutions_age', 'Backcontact_deposition_reaction_solutions_temperature', 'Backcontact_deposition_substrate_temperature', 'Backcontact_deposition_thermal_annealing_temperature', 'Backcontact_deposition_thermal_annealing_time', 'Backcontact_deposition_thermal_annealing_atmosphere', 'Backcontact_storage_time_until_next_deposition_step', 'Backcontact_storage_atmosphere', 'Backcontact_storage_relative_humidity', 'Backcontact_surface_treatment_before_next_deposition_step', 'Add_lay_front', 'Add_lay_front_function', 'Add_lay_front_stack_sequence', 'Add_lay_front_thickness_list', 'Add_lay_front_additives_compounds', 'Add_lay_front_additives_concentrations', 'Add_lay_front_deposition_procedure', 'Add_lay_front_deposition_aggregation_state_of_reactants', 'Add_lay_front_deposition_synthesis_atmosphere', 'Add_lay_front_deposition_synthesis_atmosphere_pressure_total', 'Add_lay_front_deposition_synthesis_atmosphere_pressure_partial', 'Add_lay_front_deposition_synthesis_atmosphere_relative_humidity', 'Add_lay_front_deposition_solvents', 'Add_lay_front_deposition_solvents_mixing_ratios', 'Add_lay_front_deposition_solvents_supplier', 'Add_lay_front_deposition_solvents_purity', 'Add_lay_front_deposition_reaction_solutions_compounds', 'Add_lay_front_deposition_reaction_solutions_compounds_supplier', 'Add_lay_front_deposition_reaction_solutions_compounds_purity', 'Add_lay_front_deposition_reaction_solutions_concentrations', 'Add_lay_front_deposition_reaction_solutions_volumes', 'Add_lay_front_deposition_reaction_solutions_age', 'Add_lay_front_deposition_reaction_solutions_temperature', 'Add_lay_front_deposition_substrate_temperature', 'Add_lay_front_deposition_thermal_annealing_temperature', 'Add_lay_front_deposition_thermal_annealing_time', 'Add_lay_front_deposition_thermal_annealing_atmosphere', 'Add_lay_front_storage_time_until_next_deposition_step', 'Add_lay_front_storage_atmosphere', 'Add_lay_front_storage_relative_humidity', 'Add_lay_front_surface_treatment_before_next_deposition_step', 'Add_lay_back', 'Add_lay_back_function', 'Add_lay_back_stack_sequence', 'Add_lay_back_thickness_list', 'Add_lay_back_additives_compounds', 'Add_lay_back_additives_concentrations', 'Add_lay_back_deposition_procedure', 'Add_lay_back_deposition_aggregation_state_of_reactants', 'Add_lay_back_deposition_synthesis_atmosphere', 'Add_lay_back_deposition_synthesis_atmosphere_pressure_total', 'Add_lay_back_deposition_synthesis_atmosphere_pressure_partial', 'Add_lay_back_deposition_synthesis_atmosphere_relative_humidity', 'Add_lay_back_deposition_solvents', 'Add_lay_back_deposition_solvents_mixing_ratios', 'Add_lay_back_deposition_solvents_supplier', 'Add_lay_back_deposition_solvents_purity', 'Add_lay_back_deposition_reaction_solutions_compounds', 'Add_lay_back_deposition_reaction_solutions_compounds_supplier', 'Add_lay_back_deposition_reaction_solutions_compounds_purity', 'Add_lay_back_deposition_reaction_solutions_concentrations', 'Add_lay_back_deposition_reaction_solutions_volumes', 'Add_lay_back_deposition_reaction_solutions_age', 'Add_lay_back_deposition_reaction_solutions_temperature', 'Add_lay_back_deposition_substrate_temperature', 'Add_lay_back_deposition_thermal_annealing_temperature', 'Add_lay_back_deposition_thermal_annealing_time', 'Add_lay_back_deposition_thermal_annealing_atmosphere', 'Add_lay_back_storage_time_until_next_deposition_step', 'Add_lay_back_storage_atmosphere', 'Add_lay_back_storage_relative_humidity', 'Add_lay_back_surface_treatment_before_next_deposition_step', 'Encapsulation', 'Encapsulation_stack_sequence', 'Encapsulation_edge_sealing_materials', 'Encapsulation_atmosphere_for_encapsulation', 'Encapsulation_water_vapour_transmission_rate', 'Encapsulation_oxygen_transmission_rate', 'JV_measured', 'JV_average_over_n_number_of_cells', 'JV_certified_values', 'JV_certification_institute', 'JV_storage_age_of_cell', 'JV_storage_atmosphere', 'JV_storage_relative_humidity', 'JV_test_atmosphere', 'JV_test_relative_humidity', 'JV_test_temperature', 'JV_light_source_type', 'JV_light_source_brand_name', 'JV_light_source_simulator_class', 'JV_light_intensity', 'JV_light_spectra', 'JV_light_wavelength_range', 'JV_light_illumination_direction', 'JV_light_masked_cell', 'JV_light_mask_area', 'JV_scan_speed', 'JV_scan_delay_time', 'JV_scan_integration_time', 'JV_scan_voltage_step', 'JV_preconditioning_protocol', 'JV_preconditioning_time', 'JV_preconditioning_potential', 'JV_preconditioning_light_intensity', 'JV_reverse_scan_Voc', 'JV_reverse_scan_Jsc', 'JV_reverse_scan_FF', 'JV_reverse_scan_PCE', 'JV_reverse_scan_Vmp', 'JV_reverse_scan_Jmp', 'JV_reverse_scan_series_resistance', 'JV_reverse_scan_shunt_resistance', 'JV_forward_scan_Voc', 'JV_forward_scan_Jsc', 'JV_forward_scan_FF', 'JV_forward_scan_PCE', 'JV_forward_scan_Vmp', 'JV_forward_scan_Jmp', 'JV_forward_scan_series_resistance', 'JV_forward_scan_shunt_resistance', 'JV_link_raw_data', 'JV_default_Voc', 'JV_default_Jsc', 'JV_default_FF', 'JV_default_PCE', 'JV_default_Voc_scan_direction', 'JV_default_Jsc_scan_direction', 'JV_default_FF_scan_direction', 'JV_default_PCE_scan_direction', 'JV_hysteresis_index', 'Stabilised_performance_measured', 'Stabilised_performance_procedure', 'Stabilised_performance_procedure_metrics', 'Stabilised_performance_measurement_time', 'Stabilised_performance_PCE', 'Stabilised_performance_Vmp', 'Stabilised_performance_Jmp', 'Stabilised_performance_link_raw_data', 'EQE_measured', 'EQE_light_bias', 'EQE_integrated_Jsc', 'EQE_link_raw_data', 'Stability_measured', 'Stability_protocol', 'Stability_average_over_n_number_of_cells', 'Stability_light_source_type', 'Stability_light_source_brand_name', 'Stability_light_source_simulator_class', 'Stability_light_intensity', 'Stability_light_spectra', 'Stability_light_wavelength_range', 'Stability_light_illumination_direction', 'Stability_light_load_condition', 'Stability_light_cycling_times', 'Stability_light_UV_filter', 'Stability_potential_bias_load_condition', 'Stability_potential_bias_range', 'Stability_potential_bias_passive_resistance', 'Stability_temperature_load_condition', 'Stability_temperature_range', 'Stability_temperature_cycling_times', 'Stability_temperature_ramp_speed', 'Stability_atmosphere', 'Stability_atmosphere_oxygen_concentration', 'Stability_relative_humidity_load_conditions', 'Stability_relative_humidity_range', 'Stability_relative_humidity_average_value', 'Stability_time_total_exposure', 'Stability_periodic_JV_measurements', 'Stability_periodic_JV_measurements_time_between_jv', 'Stability_PCE_initial_value', 'Stability_PCE_burn_in_observed', 'Stability_PCE_end_of_experiment', 'Stability_PCE_T95', 'Stability_PCE_Ts95', 'Stability_PCE_T80', 'Stability_PCE_Ts80', 'Stability_PCE_Te80', 'Stability_PCE_Tse80', 'Stability_PCE_after_1000_h', 'Stability_lifetime_energy_yield', 'Stability_flexible_cell_number_of_bending_cycles', 'Stability_flexible_cell_bending_radius', 'Stability_flexible_cell_PCE_initial_value', 'Stability_flexible_cell_PCE_end_of_experiment', 'Stability_link_raw_data_for_stability_trace', 'Outdoor_tested', 'Outdoor_protocol', 'Outdoor_average_over_n_number_of_cells', 'Outdoor_location_country', 'Outdoor_location_city', 'Outdoor_location_coordinates', 'Outdoor_location_climate_zone', 'Outdoor_installation_tilt', 'Outdoor_installation_cardinal_direction', 'Outdoor_installation_number_of_solar_tracking_axis', 'Outdoor_time_season', 'Outdoor_time_start', 'Outdoor_time_end', 'Outdoor_time_total_exposure', 'Outdoor_potential_bias_load_condition', 'Outdoor_potential_bias_range', 'Outdoor_potential_bias_passive_resistance', 'Outdoor_temperature_load_condition', 'Outdoor_temperature_range', 'Outdoor_temperature_tmodule', 'Outdoor_periodic_JV_measurements', 'Outdoor_periodic_JV_measurements_time_between_measurements', 'Outdoor_PCE_initial_value', 'Outdoor_PCE_burn_in_observed', 'Outdoor_PCE_end_of_experiment', 'Outdoor_PCE_T95', 'Outdoor_PCE_Ts95', 'Outdoor_PCE_T80', 'Outdoor_PCE_Ts80', 'Outdoor_PCE_Te80', 'Outdoor_PCE_Tse80', 'Outdoor_PCE_after_1000_h', 'Outdoor_power_generated', 'Outdoor_link_raw_data_for_outdoor_trace', 'Outdoor_detaild_weather_data_available', 'Outdoor_link_detailed_weather_data', 'Outdoor_spectral_data_available', 'Outdoor_link_spectral_data', 'Outdoor_irradiance_measured', 'Outdoor_link_irradiance_data'], 'n_rows': 5, 'rows': [{'Ref_ID': 1.0, 'Ref_ID_temp': 1.0, 'Ref_name_of_person_entering_the_data': 'Adam Hultqvist', 'Ref_data_entered_by_author': 0.0, 'Ref_DOI_number': '10.1021/jp5126624', 'Ref_lead_author': 'Sabba et al.', 'Ref_publication_date': '2015-01-06', 'Ref_journal': 'The Journal of Physical Chemistry C', 'Ref_part_of_initial_dataset': 1.0, 'Ref_original_filename_data_upload': 'Historic dataset on 2020 11 22_v7.xlsx', 'Ref_free_text_comment': None, 'Ref_internal_sample_id': None, 'Cell_stack_sequence': 'SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Au', 'Cell_area_total': None, 'Cell_area_measured': 0.2, 'Cell_number_of_cells_per_substrate': 0.0, 'Cell_architecture': 'nip', 'Cell_flexible': 0.0, 'Cell_flexible_min_bending_radius': None, 'Cell_semitransparent': 0.0, 'Cell_semitransparent_AVT': None, 'Cell_semitransparent_wavelength_range': 'nan; nan', 'Cell_semitransparent_raw_data': None, 'Module': 0.0, 'Module_number_of_cells_in_module': 0.0, 'Module_area_total': None, 'Module_area_effective': None, 'Module_JV_data_recalculated_per_cell': 0.0, 'Substrate_stack_sequence': 'SLG | FTO', 'Substrate_thickness': None, 'Substrate_area': None, 'Substrate_supplier': None, 'Substrate_brand_name': None, 'Substrate_deposition_procedure': 'Unknown', 'Substrate_surface_roughness_rms': None, 'Substrate_etching_procedure': None, 'Substrate_cleaning_procedure': None, 'ETL_stack_sequence': 'TiO2-c | TiO2-mp', 'ETL_thickness': '65.0 | nan', 'ETL_additives_compounds': 'Unknown', 'ETL_additives_concentrations': None, 'ETL_deposition_procedure': 'Spray-pyrolys | Spin-coating', 'ETL_deposition_aggregation_state_of_reactants': 'Unknown', 'ETL_deposition_synthesis_atmosphere': 'Unknown', 'ETL_deposition_synthesis_atmosphere_pressure_total': None, 'ETL_deposition_synthesis_atmosphere_pressure_partial': None, 'ETL_deposition_synthesis_atmosphere_relative_humidity': None, 'ETL_deposition_solvents': 'Unknown', 'ETL_deposition_solvents_mixing_ratios': None, 'ETL_deposition_solvents_supplier': 'Unknown', 'ETL_deposition_solvents_purity': 'Unknown', 'ETL_deposition_reaction_solutions_compounds': None, 'ETL_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'ETL_deposition_reaction_solutions_compounds_purity': 'Unknown', 'ETL_deposition_reaction_solutions_concentrations': None, 'ETL_deposition_reaction_solutions_volumes': 'Unknown', 'ETL_deposition_reaction_solutions_age': 'Unknown', 'ETL_deposition_reaction_solutions_temperature': 'Unknown', 'ETL_deposition_substrate_temperature': 'Unknown', 'ETL_deposition_thermal_annealing_temperature': 'Unknown', 'ETL_deposition_thermal_annealing_time': 'Unknown', 'ETL_deposition_thermal_annealing_atmosphere': 'Unknown', 'ETL_storage_time_until_next_deposition_step': None, 'ETL_storage_atmosphere': 'Unknown', 'ETL_storage_relative_humidity': None, 'ETL_surface_treatment_before_next_deposition_step': None, 'Perovskite_single_crystal': 0.0, 'Perovskite_dimension_0D': 0.0, 'Perovskite_dimension_2D': 0.0, 'Perovskite_dimension_2D3D_mixture': 0.0, 'Perovskite_dimension_3D': 1.0, 'Perovskite_dimension_3D_with_2D_capping_layer': 0.0, 'Perovskite_dimension_list_of_layers': '3.0', 'Perovskite_composition_perovskite_ABC3_structure': 1.0, 'Perovskite_composition_perovskite_inspired_structure': 0.0, 'Perovskite_composition_a_ions': 'Cs', 'Perovskite_composition_a_ions_coefficients': '1', 'Perovskite_composition_b_ions': 'Sn', 'Perovskite_composition_b_ions_coefficients': '1', 'Perovskite_composition_c_ions': 'I', 'Perovskite_composition_c_ions_coefficients': '3', 'Perovskite_composition_none_stoichiometry_components_in_excess': None, 'Perovskite_composition_short_form': 'CsSnI', 'Perovskite_composition_long_form': 'CsSnI3', 'Perovskite_composition_assumption': None, 'Perovskite_composition_inorganic': 1.0, 'Perovskite_composition_leadfree': 1.0, 'Perovskite_additives_compounds': None, 'Perovskite_additives_concentrations': None, 'Perovskite_thickness': None, 'Perovskite_band_gap': '1.27', 'Perovskite_band_gap_graded': 0.0, 'Perovskite_band_gap_estimation_basis': None, 'Perovskite_pl_max': None, 'Perovskite_deposition_number_of_deposition_steps': 1.0, 'Perovskite_deposition_procedure': 'Spin-coating', 'Perovskite_deposition_aggregation_state_of_reactants': 'Liquid', 'Perovskite_deposition_synthesis_atmosphere': 'N2', 'Perovskite_deposition_synthesis_atmosphere_pressure_total': None, 'Perovskite_deposition_synthesis_atmosphere_pressure_partial': None, 'Perovskite_deposition_synthesis_atmosphere_relative_humidity': None, 'Perovskite_deposition_solvents': 'DMSO', 'Perovskite_deposition_solvents_mixing_ratios': '1', 'Perovskite_deposition_solvents_supplier': 'Unknown', 'Perovskite_deposition_solvents_purity': 'Unknown', 'Perovskite_deposition_reaction_solutions_compounds': None, 'Perovskite_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Perovskite_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Perovskite_deposition_reaction_solutions_concentrations': None, 'Perovskite_deposition_reaction_solutions_volumes': 'Unknown', 'Perovskite_deposition_reaction_solutions_age': 'Unknown', 'Perovskite_deposition_reaction_solutions_temperature': 'Unknown', 'Perovskite_deposition_substrate_temperature': 'Unknown', 'Perovskite_deposition_quenching_induced_crystallisation': 0.0, 'Perovskite_deposition_quenching_media': 'Unknown', 'Perovskite_deposition_quenching_media_mixing_ratios': None, 'Perovskite_deposition_quenching_media_volume': 'Unknown', 'Perovskite_deposition_quenching_media_additives_compounds': None, 'Perovskite_deposition_quenching_media_additives_concentrations': None, 'Perovskite_deposition_thermal_annealing_temperature': '100', 'Perovskite_deposition_thermal_annealing_time': '10.0', 'Perovskite_deposition_thermal_annealing_atmosphere': 'Unknown', 'Perovskite_deposition_thermal_annealing_relative_humidity': None, 'Perovskite_deposition_thermal_annealing_pressure': None, 'Perovskite_deposition_solvent_annealing': 0.0, 'Perovskite_deposition_solvent_annealing_timing': None, 'Perovskite_deposition_solvent_annealing_solvent_atmosphere': 'Unknown', 'Perovskite_deposition_solvent_annealing_time': 'Unknown', 'Perovskite_deposition_solvent_annealing_temperature': 'Unknown', 'Perovskite_deposition_after_treatment_of_formed_perovskite': None, 'Perovskite_deposition_after_treatment_of_formed_perovskite_met': None, 'Perovskite_storage_time_until_next_deposition_step': 'Unknown', 'Perovskite_storage_atmosphere': 'Unknown', 'Perovskite_storage_relative_humidity': None, 'Perovskite_surface_treatment_before_next_deposition_step': None, 'HTL_stack_sequence': 'Spiro-MeOTAD', 'HTL_thickness_list': None, 'HTL_additives_compounds': 'Li(CF3SO2)2N; TBP', 'HTL_additives_concentrations': None, 'HTL_deposition_procedure': 'Spin-coating', 'HTL_deposition_aggregation_state_of_reactants': 'Unknown', 'HTL_deposition_synthesis_atmosphere': 'Unknown', 'HTL_deposition_synthesis_atmosphere_pressure_total': None, 'HTL_deposition_synthesis_atmosphere_pressure_partial': None, 'HTL_deposition_synthesis_atmosphere_relative_humidity': None, 'HTL_deposition_solvents': 'Unknown', 'HTL_deposition_solvents_mixing_ratios': None, 'HTL_deposition_solvents_supplier': 'Unknown', 'HTL_deposition_solvents_purity': 'Unknown', 'HTL_deposition_reaction_solutions_compounds': None, 'HTL_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'HTL_deposition_reaction_solutions_compounds_purity': 'Unknown', 'HTL_deposition_reaction_solutions_concentrations': None, 'HTL_deposition_reaction_solutions_volumes': 'Unknown', 'HTL_deposition_reaction_solutions_age': 'Unknown', 'HTL_deposition_reaction_solutions_temperature': 'Unknown', 'HTL_deposition_substrate_temperature': 'Unknown', 'HTL_deposition_thermal_annealing_temperature': 'Unknown', 'HTL_deposition_thermal_annealing_time': 'Unknown', 'HTL_deposition_thermal_annealing_atmosphere': 'Unknown', 'HTL_storage_time_until_next_deposition_step': 'Unknown', 'HTL_storage_atmosphere': 'Unknown', 'HTL_storage_relative_humidity': None, 'HTL_surface_treatment_before_next_deposition_step': None, 'Backcontact_stack_sequence': 'Au', 'Backcontact_thickness_list': '90.0', 'Backcontact_additives_compounds': None, 'Backcontact_additives_concentrations': None, 'Backcontact_deposition_procedure': 'Evaporation', 'Backcontact_deposition_aggregation_state_of_reactants': 'Unknown', 'Backcontact_deposition_synthesis_atmosphere': 'Unknown', 'Backcontact_deposition_synthesis_atmosphere_pressure_total': None, 'Backcontact_deposition_synthesis_atmosphere_pressure_partial': None, 'Backcontact_deposition_synthesis_atmosphere_relative_humidity': None, 'Backcontact_deposition_solvents': 'Unknown', 'Backcontact_deposition_solvents_mixing_ratios': None, 'Backcontact_deposition_solvents_supplier': 'Unknown', 'Backcontact_deposition_solvents_purity': 'Unknown', 'Backcontact_deposition_reaction_solutions_compounds': None, 'Backcontact_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Backcontact_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Backcontact_deposition_reaction_solutions_concentrations': None, 'Backcontact_deposition_reaction_solutions_volumes': 'Unknown', 'Backcontact_deposition_reaction_solutions_age': 'Unknown', 'Backcontact_deposition_reaction_solutions_temperature': 'Unknown', 'Backcontact_deposition_substrate_temperature': 'Unknown', 'Backcontact_deposition_thermal_annealing_temperature': 'Unknown', 'Backcontact_deposition_thermal_annealing_time': 'Unknown', 'Backcontact_deposition_thermal_annealing_atmosphere': 'Unknown', 'Backcontact_storage_time_until_next_deposition_step': 'Unknown', 'Backcontact_storage_atmosphere': 'Unknown', 'Backcontact_storage_relative_humidity': None, 'Backcontact_surface_treatment_before_next_deposition_step': None, 'Add_lay_front': 0.0, 'Add_lay_front_function': None, 'Add_lay_front_stack_sequence': 'Unknown', 'Add_lay_front_thickness_list': None, 'Add_lay_front_additives_compounds': None, 'Add_lay_front_additives_concentrations': None, 'Add_lay_front_deposition_procedure': 'Unknown', 'Add_lay_front_deposition_aggregation_state_of_reactants': 'Unknown', 'Add_lay_front_deposition_synthesis_atmosphere': 'Unknown', 'Add_lay_front_deposition_synthesis_atmosphere_pressure_total': None, 'Add_lay_front_deposition_synthesis_atmosphere_pressure_partial': None, 'Add_lay_front_deposition_synthesis_atmosphere_relative_humidity': None, 'Add_lay_front_deposition_solvents': 'Unknown', 'Add_lay_front_deposition_solvents_mixing_ratios': None, 'Add_lay_front_deposition_solvents_supplier': 'Unknown', 'Add_lay_front_deposition_solvents_purity': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_compounds': None, 'Add_lay_front_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_concentrations': None, 'Add_lay_front_deposition_reaction_solutions_volumes': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_age': 'Unknown', 'Add_lay_front_deposition_reaction_solutions_temperature': 'Unknown', 'Add_lay_front_deposition_substrate_temperature': 'Unknown', 'Add_lay_front_deposition_thermal_annealing_temperature': 'Unknown', 'Add_lay_front_deposition_thermal_annealing_time': 'Unknown', 'Add_lay_front_deposition_thermal_annealing_atmosphere': 'Unknown', 'Add_lay_front_storage_time_until_next_deposition_step': 'Unknown', 'Add_lay_front_storage_atmosphere': 'Unknown', 'Add_lay_front_storage_relative_humidity': None, 'Add_lay_front_surface_treatment_before_next_deposition_step': None, 'Add_lay_back': 0.0, 'Add_lay_back_function': None, 'Add_lay_back_stack_sequence': 'Unknown', 'Add_lay_back_thickness_list': None, 'Add_lay_back_additives_compounds': None, 'Add_lay_back_additives_concentrations': None, 'Add_lay_back_deposition_procedure': 'Unknown', 'Add_lay_back_deposition_aggregation_state_of_reactants': 'Unknown', 'Add_lay_back_deposition_synthesis_atmosphere': 'Unknown', 'Add_lay_back_deposition_synthesis_atmosphere_pressure_total': None, 'Add_lay_back_deposition_synthesis_atmosphere_pressure_partial': None, 'Add_lay_back_deposition_synthesis_atmosphere_relative_humidity': None, 'Add_lay_back_deposition_solvents': 'Unknown', 'Add_lay_back_deposition_solvents_mixing_ratios': None, 'Add_lay_back_deposition_solvents_supplier': 'Unknown', 'Add_lay_back_deposition_solvents_purity': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_compounds': None, 'Add_lay_back_deposition_reaction_solutions_compounds_supplier': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_compounds_purity': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_concentrations': None, 'Add_lay_back_deposition_reaction_solutions_volumes': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_age': 'Unknown', 'Add_lay_back_deposition_reaction_solutions_temperature': 'Unknown', 'Add_lay_back_deposition_substrate_temperature': 'Unknown', 'Add_lay_back_deposition_thermal_annealing_temperature': 'Unknown', 'Add_lay_back_deposition_thermal_annealing_time': 'Unknown', 'Add_lay_back_deposition_thermal_annealing_atmosphere': 'Unknown', 'Add_lay_back_storage_time_until_next_deposition_step': 'Unknown', 'Add_lay_back_storage_atmosphere': 'Unknown', 'Add_lay_back_storage_relative_humidity': None, 'Add_lay_back_surface_treatment_before_next_deposition_step': None, 'Encapsulation': 0.0, 'Encapsulation_stack_sequence': 'Unknown', 'Encapsulation_edge_sealing_materials': 'Unknown', 'Encapsulation_atmosphere_for_encapsulation': 'Unknown', 'Encapsulation_water_vapour_transmission_rate': None, 'Encapsulation_oxygen_transmission_rate': None, 'JV_measured': 1.0, 'JV_average_over_n_number_of_cells': 1.0, 'JV_certified_values': 0.0, 'JV_certification_institute': None, 'JV_storage_age_of_cell': 'Unknown', 'JV_storage_atmosphere': 'Unknown', 'JV_storage_relative_humidity': None, 'JV_test_atmosphere': 'Air', 'JV_test_relative_humidity': None, 'JV_test_temperature': None, 'JV_light_source_type': None, 'JV_light_source_brand_name': None, 'JV_light_source_simulator_class': None, 'JV_light_intensity': 100.0, 'JV_light_spectra': 'AM 1.5', 'JV_light_wav",
+   "result_chars": 111938,
+   "seconds": 0.001,
+   "t_offset_s": 26.59,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "PCE"
+   },
+   "result": "['JV_reverse_scan_PCE', 'JV_forward_scan_PCE', 'JV_default_PCE', 'JV_default_PCE_scan_direction', 'Stabilised_performance_PCE', 'Stability_PCE_initial_value', 'Stability_PCE_burn_in_observed', 'Stability_PCE_end_of_experiment', 'Stability_PCE_T95', 'Stability_PCE_Ts95', 'Stability_PCE_T80', 'Stability_PCE_Ts80', 'Stability_PCE_Te80', 'Stability_PCE_Tse80', 'Stability_PCE_after_1000_h', 'Stability_flexible_cell_PCE_initial_value', 'Stability_flexible_cell_PCE_end_of_experiment', 'Outdoor_PCE_initial_value', 'Outdoor_PCE_burn_in_observed', 'Outdoor_PCE_end_of_experiment', 'Outdoor_PCE_T95', 'Outdoor_PCE_Ts95', 'Outdoor_PCE_T80', 'Outdoor_PCE_Ts80', 'Outdoor_PCE_Te80', 'Outdoor_PCE_Tse80', 'Outdoor_PCE_after_1000_h']",
+   "result_chars": 723,
+   "seconds": 0.0,
+   "t_offset_s": 48.58,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "column_values",
+   "args": {
+    "column": "ETL_stack_sequence",
+    "top": 30
+   },
+   "result": "[('TiO2-c | TiO2-mp', 11786), ('TiO2-c', 6883), ('PCBM-60', 3285), ('PCBM-60 | BCP', 2711), ('C60 | BCP', 1864), ('SnO2-np', 1702), ('SnO2-c', 1408), ('TiO2-c | TiO2-mp | ZrO2-mp', 649), ('ZnO-c', 484), ('PCBM-60 | C60 | BCP', 461), ('PCBM-60 | LiF', 425), ('PCBM-60 | Bphen', 424), ('ZnO-np', 357), ('C60', 346), ('TiO2-c | TiO2-nw', 311), ('PCBM-60 | ZnO-np', 306), ('TiO2-c | PCBM-60', 288), ('none', 281), ('TiO2-np', 261), ('PCBM-60 | PEI', 215), ('PCBM-60 | bis-C60', 202), ('TiO2-c | TiO2-mp | Al2O3-mp', 193), ('TiO2-c | Al2O3-mp', 185), ('SnO2-c | PCBM-60', 176), ('Unknown', 149), ('TiO2-c | C60', 131), ('ZnO-c | ZnO-nw', 129), ('PCBM-70', 116), ('SnO2-c | C60-SAM', 100), ('PCBM-60 | Zr(acac)4', 100)]",
+   "result_chars": 713,
+   "seconds": 0.056,
+   "t_offset_s": 62.25,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "column_values",
+   "args": {
+    "column": "Cell_architecture",
+    "top": 20
+   },
+   "result": "[('nip', 29897), ('pin', 13342), ('Unknown', 103), ('Back contacted', 33), ('Front contacted', 7), ('Schottky', 5), ('Pn-Heterojunction', 1)]",
+   "result_chars": 141,
+   "seconds": 0.022,
+   "t_offset_s": 92.66,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "HTL"
+   },
+   "result": "['HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step']",
+   "result_chars": 1203,
+   "seconds": 0.0,
+   "t_offset_s": 115.69,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT HTL_stack_sequence, COUNT(*) AS n FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence = 'TiO2-c | TiO2-mp' GROUP BY HTL_stack_sequence ORDER BY n DESC LIMIT 30"
+   },
+   "result": "{'columns': ['HTL_stack_sequence', 'n'], 'n_rows': 30, 'rows': [{'HTL_stack_sequence': 'Spiro-MeOTAD', 'n': 7860}, {'HTL_stack_sequence': 'none', 'n': 983}, {'HTL_stack_sequence': 'PTAA', 'n': 398}, {'HTL_stack_sequence': 'P3HT', 'n': 339}, {'HTL_stack_sequence': 'CuSCN', 'n': 86}, {'HTL_stack_sequence': 'CuI', 'n': 34}, {'HTL_stack_sequence': 'PDBD-T', 'n': 29}, {'HTL_stack_sequence': 'TT1', 'n': 26}, {'HTL_stack_sequence': 'asy-PBTBDT', 'n': 22}, {'HTL_stack_sequence': 'EH44', 'n': 22}, {'HTL_stack_sequence': 'PEDOT', 'n': 20}, {'HTL_stack_sequence': 'BDTT:DPPD:TT', 'n': 20}, {'HTL_stack_sequence': 'BDT:TT', 'n': 20}, {'HTL_stack_sequence': 'CuPc', 'n': 18}, {'HTL_stack_sequence': 'Carbon', 'n': 16}, {'HTL_stack_sequence': 'Al2O3-c', 'n': 16}, {'HTL_stack_sequence': 'NiO', 'n': 15}, {'HTL_stack_sequence': 'TT80', 'n': 14}, {'HTL_stack_sequence': 'A102', 'n': 14}, {'HTL_stack_sequence': 'PTB7', 'n': 13}, {'HTL_stack_sequence': 'HTM', 'n': 13}, {'HTL_stack_sequence': 'HS-Ph-CN | Spiro-MeOTAD', 'n': 13}, {'HTL_stack_sequence': 'A101', 'n': 13}, {'HTL_stack_sequence': 'cyclopenta[2,1-b; 3,4-b\u2032]dithiophene', 'n': 12}, {'HTL_stack_sequence': 'P3TAA-co-P3HT', 'n': 12}, {'HTL_stack_sequence': 'DM', 'n': 12}, {'HTL_stack_sequence': 'PMMA | Spiro-MeOTAD', 'n': 11}, {'HTL_stack_sequence': 'Ethyl acetate; I2; LiI; TBP; Urea', 'n': 11}, {'HTL_stack_sequence': 'PFB', 'n': 10}, {'HTL_stack_sequence': 'PCPDTBT', 'n': 10}]}",
+   "result_chars": 1432,
+   "seconds": 0.052,
+   "t_offset_s": 230.83,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) AS n_total, COUNT(JV_default_PCE) AS n_def, AVG(JV_default_PCE) AS mean_def, COUNT(JV_reverse_scan_PCE) AS n_rev, AVG(JV_reverse_scan_PCE) AS mean_rev, COUNT(JV_forward_scan_PCE) AS n_fwd, AVG(JV_forward_scan_PCE) AS mean_fwd, COUNT(Stabilised_performance_PCE) AS n_stab, AVG(Stabilised_performance_PCE) AS mean_stab, SUM(CASE WHEN HTL_stack_sequence LIKE '%Spiro-MeOTAD%' THEN 1 ELSE 0 END) AS n_like FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence = 'TiO2-c | TiO2-mp'"
+   },
+   "result": "{'columns': ['n_total', 'n_def', 'mean_def', 'n_rev', 'mean_rev', 'n_fwd', 'mean_fwd', 'n_stab', 'mean_stab', 'n_like'], 'n_rows': 1, 'rows': [{'n_total': 11719, 'n_def': 11442, 'mean_def': 11.462244550193835, 'n_rev': 11200, 'mean_rev': 11.587367346196428, 'n_fwd': 2495, 'mean_fwd': 11.657039639278558, 'n_stab': 786, 'mean_stab': 13.667529091498556, 'n_like': 8062}]}",
+   "result_chars": 370,
+   "seconds": 0.02,
+   "t_offset_s": 247.18,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) AS n_total, COUNT(JV_default_PCE) AS n_def, AVG(JV_default_PCE) AS mean_def, MIN(JV_default_PCE) AS min_def, MAX(JV_default_PCE) AS max_def, SUM(CASE WHEN JV_default_PCE<=0 THEN 1 ELSE 0 END) AS n_nonpos_def, COUNT(JV_reverse_scan_PCE) AS n_rev, AVG(JV_reverse_scan_PCE) AS mean_rev, COUNT(JV_forward_scan_PCE) AS n_fwd, AVG(JV_forward_scan_PCE) AS mean_fwd, COUNT(Stabilised_performance_PCE) AS n_stab, AVG(Stabilised_performance_PCE) AS mean_stab FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD'"
+   },
+   "result": "{'columns': ['n_total', 'n_def', 'mean_def', 'min_def', 'max_def', 'n_nonpos_def', 'n_rev', 'mean_rev', 'n_fwd', 'mean_fwd', 'n_stab', 'mean_stab'], 'n_rows': 1, 'rows': [{'n_total': 7860, 'n_def': 7660, 'mean_def': 12.150083587247764, 'min_def': 0.0, 'max_def': 30.3, 'n_nonpos_def': 7, 'n_rev': 7560, 'mean_rev': 12.259360107460317, 'n_fwd': 1762, 'mean_fwd': 11.997996538024971, 'n_stab': 490, 'mean_stab': 14.257832379424217}]}",
+   "result_chars": 431,
+   "seconds": 0.062,
+   "t_offset_s": 279.37,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT 'spiro_exact' AS grp, COUNT(*) AS n_total, COUNT(JV_default_PCE) AS n_pce, AVG(JV_default_PCE) AS mean_pce FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD' UNION ALL SELECT 'spiro_contains' AS grp, COUNT(*), COUNT(JV_default_PCE), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence LIKE '%Spiro-MeOTAD%' UNION ALL SELECT 'scan_dir_'||COALESCE(JV_default_PCE_scan_direction,'NA'), COUNT(*), COUNT(JV_default_PCE), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD' GROUP BY JV_default_PCE_scan_direction"
+   },
+   "result": "{'columns': ['grp', 'n_total', 'n_pce', 'mean_pce'], 'n_rows': 6, 'rows': [{'grp': 'spiro_exact', 'n_total': 7860, 'n_pce': 7660, 'mean_pce': 12.150083587247764}, {'grp': 'spiro_contains', 'n_total': 8062, 'n_pce': 7856, 'mean_pce': 12.215696318523149}, {'grp': 'scan_dir_NA', 'n_total': 200, 'n_pce': 0, 'mean_pce': None}, {'grp': 'scan_dir_Forward', 'n_total': 88, 'n_pce': 88, 'mean_pce': 7.706590909090909}, {'grp': 'scan_dir_Reversed', 'n_total': 7082, 'n_pce': 7082, 'mean_pce': 12.05946376904829}, {'grp': 'scan_dir_Stabilised', 'n_total': 490, 'n_pce': 490, 'mean_pce': 14.257832379424217}]}",
+   "result_chars": 599,
+   "seconds": 0.055,
+   "t_offset_s": 294.9,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT ETL_stack_sequence, COUNT(*) AS n FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%TiO2%' GROUP BY ETL_stack_sequence ORDER BY n DESC"
+   },
+   "result": "{'columns': ['ETL_stack_sequence', 'n'], 'n_rows': 200, 'rows': [{'ETL_stack_sequence': 'TiO2-c | TiO2-mp', 'n': 11719}, {'ETL_stack_sequence': 'TiO2-c', 'n': 6817}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | ZrO2-mp', 'n': 643}, {'ETL_stack_sequence': 'TiO2-c | TiO2-nw', 'n': 307}, {'ETL_stack_sequence': 'TiO2-c | PCBM-60', 'n': 288}, {'ETL_stack_sequence': 'TiO2-np', 'n': 250}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | Al2O3-mp', 'n': 193}, {'ETL_stack_sequence': 'TiO2-c | Al2O3-mp', 'n': 180}, {'ETL_stack_sequence': 'TiO2-c | C60', 'n': 131}, {'ETL_stack_sequence': 'TiO2-mp', 'n': 91}, {'ETL_stack_sequence': 'TiO2-nw', 'n': 79}, {'ETL_stack_sequence': 'TiO2-c | SnO2-np', 'n': 71}, {'ETL_stack_sequence': 'TiO2-c | PCBA', 'n': 50}, {'ETL_stack_sequence': 'SnO2-c | TiO2-mp', 'n': 48}, {'ETL_stack_sequence': 'TiO2-c | TiO2-np', 'n': 47}, {'ETL_stack_sequence': 'TiO2-c | SnO2-c', 'n': 44}, {'ETL_stack_sequence': 'TiO2-nt', 'n': 40}, {'ETL_stack_sequence': 'ZnO-c | ZnO-nw | TiO2-c', 'n': 35}, {'ETL_stack_sequence': 'ZnO-c | TiO2-c', 'n': 33}, {'ETL_stack_sequence': 'TiO2-c | TiO2-nanofibers', 'n': 33}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | SnO2-c', 'n': 32}, {'ETL_stack_sequence': 'TiO2-c | ZnO-c', 'n': 31}, {'ETL_stack_sequence': 'SnO2-c | TiO2-mp | ZrO2-mp', 'n': 25}, {'ETL_stack_sequence': 'TiO2-c | ZrO2-mp', 'n': 24}, {'ETL_stack_sequence': 'TiO2-c | TiO2-np | ZrO2-mp', 'n': 24}, {'ETL_stack_sequence': 'TiO2-c | SnO2-mp', 'n': 24}, {'ETL_stack_sequence': 'ZnO-c | TiO2-mp', 'n': 22}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | PCBM-60; PMMA', 'n': 20}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | ZrO2-mp | Carbon-mp', 'n': 19}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | SiO2-mp', 'n': 19}]}",
+   "result_chars": 1722,
+   "seconds": 0.052,
+   "t_offset_s": 329.26,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "WITH base AS (SELECT ROW_NUMBER() OVER (ORDER BY JV_default_PCE) AS rn, COUNT(*) OVER () AS tot, JV_default_PCE AS v, Ref_ID AS rid, Ref_DOI_number AS doi FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD' AND JV_default_PCE IS NOT NULL) SELECT (SELECT COUNT(*) FROM base) AS n_pce_rows, (SELECT COUNT(DISTINCT rid) FROM base) AS n_distinct_refid, (SELECT COUNT(DISTINCT doi) FROM base) AS n_distinct_doi, (SELECT AVG(v) FROM base WHERE v>0) AS mean_positive_only, (SELECT AVG(v) FROM base WHERE tot%2=1 AND rn=(tot+1)/2) AS median_odd_tot, (SELECT AVG(v) FROM base WHERE tot%2=0 AND rn IN (tot/2, tot/2+1)) AS median_even_tot"
+   },
+   "result": "{'columns': ['n_pce_rows', 'n_distinct_refid', 'n_distinct_doi', 'mean_positive_only', 'median_odd_tot', 'median_even_tot'], 'n_rows': 1, 'rows': [{'n_pce_rows': 7660, 'n_distinct_refid': 7660, 'n_distinct_doi': 1801, 'mean_positive_only': 12.161196952609155, 'median_odd_tot': None, 'median_even_tot': 13.1}]}",
+   "result_chars": 310,
+   "seconds": 0.031,
+   "t_offset_s": 361.76,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 11,
+ "n_model_calls": 12,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 12,
+  "prompt_chars": 104756,
+  "completion_chars": 6224,
+  "real_prompt_tokens": 322146,
+  "real_completion_tokens": 22314,
+  "usage_reported_calls": 12,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 361.4,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "todowrite",
+     "glob",
+     "glob",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "glob",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "invalid",
+     "glob",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "grep",
+     "grep",
+     "read",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "glob",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 6,
+    "opencode_tools_used": [
+     "todowrite",
+     "read",
+     "grep",
+     "grep",
+     "read",
+     "todowrite",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "read",
+     "grep",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "read",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "grep",
+     "read",
+     "invalid"
+    ]
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "sql({'query': \"SELECT COUNT(*) AS n_total, COUNT(JV_default_PCE) AS n_def, AVG(JV_default_PCE) AS mean_def, MIN(JV_default_PCE) AS min_def, MAX(JV_default_PCE) AS max_def, SUM(CASE WHEN JV_default_PCE<=0 THEN 1 ELSE 0 END) AS n_nonpos_def, COUNT(JV_reverse_scan_PCE) AS n_rev, AVG(JV_reverse_scan_PCE) AS mean_rev, COUNT(JV_forward_scan_PCE) AS n_fwd, AVG(JV_forward_scan_PCE) AS mean_fwd, COUNT(Stabilised_performance_PCE) AS n_stab, AVG(Stabilised_performance_PCE) AS mean_stab FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD'\"})",
+    "{'columns': ['n_total', 'n_def', 'mean_def', 'min_def', 'max_def', 'n_nonpos_def', 'n_rev', 'mean_rev', 'n_fwd', 'mean_fwd', 'n_stab', 'mean_stab'], 'n_rows': 1, 'rows': [{'n_total': 7860, 'n_def': 7660, 'mean_def': 12.150083587247764, 'min_def': 0.0, 'max_def': 30.3, 'n_nonpos_def': 7, 'n_rev': 7560, 'mean_rev': 12.259360107460317, 'n_fwd': 1762, 'mean_fwd': 11.997996538024971, 'n_stab': 490, 'mean_stab': 14.257832379424217}]}"
+   ],
+   [
+    "sql({'query': \"SELECT 'spiro_exact' AS grp, COUNT(*) AS n_total, COUNT(JV_default_PCE) AS n_pce, AVG(JV_default_PCE) AS mean_pce FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD' UNION ALL SELECT 'spiro_contains' AS grp, COUNT(*), COUNT(JV_default_PCE), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence LIKE '%Spiro-MeOTAD%' UNION ALL SELECT 'scan_dir_'||COALESCE(JV_default_PCE_scan_direction,'NA'), COUNT(*), COUNT(JV_default_PCE), AVG(JV_default_PCE) FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD' GROUP BY JV_default_PCE_scan_direction\"})",
+    "{'columns': ['grp', 'n_total', 'n_pce', 'mean_pce'], 'n_rows': 6, 'rows': [{'grp': 'spiro_exact', 'n_total': 7860, 'n_pce': 7660, 'mean_pce': 12.150083587247764}, {'grp': 'spiro_contains', 'n_total': 8062, 'n_pce': 7856, 'mean_pce': 12.215696318523149}, {'grp': 'scan_dir_NA', 'n_total': 200, 'n_pce': 0, 'mean_pce': None}, {'grp': 'scan_dir_Forward', 'n_total': 88, 'n_pce': 88, 'mean_pce': 7.706590909090909}, {'grp': 'scan_dir_Reversed', 'n_total': 7082, 'n_pce': 7082, 'mean_pce': 12.05946376904829}, {'grp': 'scan_dir_Stabilised', 'n_total': 490, 'n_pce': 490, 'mean_pce': 14.257832379424217}]}"
+   ],
+   [
+    "sql({'query': \"SELECT ETL_stack_sequence, COUNT(*) AS n FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%TiO2%' GROUP BY ETL_stack_sequence ORDER BY n DESC\"})",
+    "{'columns': ['ETL_stack_sequence', 'n'], 'n_rows': 200, 'rows': [{'ETL_stack_sequence': 'TiO2-c | TiO2-mp', 'n': 11719}, {'ETL_stack_sequence': 'TiO2-c', 'n': 6817}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | ZrO2-mp', 'n': 643}, {'ETL_stack_sequence': 'TiO2-c | TiO2-nw', 'n': 307}, {'ETL_stack_sequence': 'TiO2-c | PCBM-60', 'n': 288}, {'ETL_stack_sequence': 'TiO2-np', 'n': 250}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | Al2O3-mp', 'n': 193}, {'ETL_stack_sequence': 'TiO2-c | Al2O3-mp', 'n': 180}, {'ETL_stack_sequence': 'TiO2-c | C60', 'n': 131}, {'ETL_stack_sequence': 'TiO2-mp', 'n': 91}, {'ETL_stack_sequence': 'TiO2-nw', 'n': 79}, {'ETL_stack_sequence': 'TiO2-c | SnO2-np', 'n': 71}, {'ETL_stack_sequence': 'TiO2-c | PCBA', 'n': 50}, {'ETL_stack_sequence': 'SnO2-c | TiO2-mp', 'n': 48}, {'ETL_stack_sequence': 'TiO2-c | TiO2-np', 'n': 47}, {'ETL_stack_sequence': 'TiO2-c | SnO2-c', 'n': 44}, {'ETL_stack_sequence': 'TiO2-nt', 'n': 40}, {'ETL_stack_sequence': 'ZnO-c | ZnO-nw | TiO2-c', 'n': 35}, {'ETL_stack_sequence': 'ZnO-c | TiO2-c', 'n': 33}, {'ETL_stack_sequence': 'TiO2-c | TiO2-nanofibers', 'n': 33}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | SnO2-c', 'n': 32}, {'ETL_stack_sequence': 'TiO2-c | ZnO-c', 'n': 31}, {'ETL_stack_sequence': 'SnO2-c | TiO2-mp | ZrO2-mp', 'n': 25}, {'ETL_stack_sequence': 'TiO2-c | ZrO2-mp', 'n': 24}, {'ETL_stack_sequence': 'TiO2-c | TiO2-np | ZrO2-mp', 'n': 24}, {'ETL_stack_sequence': 'TiO2-c | SnO2-mp', 'n': 24}, {'ETL_stack_sequence': 'ZnO-c | TiO2-mp', 'n': 22}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | PCBM-60; PMMA', 'n': 20}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | ZrO2-mp | Carbon-mp', 'n': 19}, {'ETL_stack_sequence': 'TiO2-c | TiO2-mp | SiO2-mp', 'n': 19}]}"
+   ],
+   [
+    "sql({'query': \"WITH base AS (SELECT ROW_NUMBER() OVER (ORDER BY JV_default_PCE) AS rn, COUNT(*) OVER () AS tot, JV_default_PCE AS v, Ref_ID AS rid, Ref_DOI_number AS doi FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence='TiO2-c | TiO2-mp' AND HTL_stack_sequence='Spiro-MeOTAD' AND JV_default_PCE IS NOT NULL) SELECT (SELECT COUNT(*) FROM base) AS n_pce_rows, (SELECT COUNT(DISTINCT rid) FROM base) AS n_distinct_refid, (SELECT COUNT(DISTINCT doi) FROM base) AS n_distinct_doi, (SELECT AVG(v) FROM base WHERE v>0) AS mean_positive_only, (SELECT AVG(v) FROM base WHERE tot%2=1 AND rn=(tot+1)/2) AS median_odd_tot, (SELECT AVG(v) FROM base WHERE tot%2=0 AND rn IN (tot/2, tot/2+1)) AS median_even_tot\"})",
+    "{'columns': ['n_pce_rows', 'n_distinct_refid', 'n_distinct_doi', 'mean_positive_only', 'median_odd_tot', 'median_even_tot'], 'n_rows': 1, 'rows': [{'n_pce_rows': 7660, 'n_distinct_refid': 7660, 'n_distinct_doi': 1801, 'mean_positive_only': 12.161196952609155, 'median_odd_tot': None, 'median_even_tot': 13.1}]}"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

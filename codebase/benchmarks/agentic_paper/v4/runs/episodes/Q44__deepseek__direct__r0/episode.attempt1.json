@@ -1,0 +1,218 @@
+{
+ "episode_id": "Q44__deepseek__direct__r0",
+ "qid": "Q44",
+ "category": "multi_tool",
+ "condition": "direct",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:35:13",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "Find the paper on poly-TPD doped PTAA hole-transport layers in the literature collection and report its DOI and the control and optimised PCE. Then use the ML model to predict the PCE of a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 (450 nm).",
+ "finished_at": "2026-10-22T00:35:13",
+ "seconds": 0.0,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 0,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 0,
+  "prompt_chars": 0,
+  "completion_chars": 0,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 1,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 0,
+  "infra_failed": true,
+  "infra_reason": "rate_limit: free usage exceeded (quota resets at epoch 1792627201)",
+  "provider_events": [
+   {
+    "type": "rate_limit",
+    "detail": "free usage exceeded (quota resets at epoch 1792627201)"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "rate_limit: free usage exceeded (quota resets at epoch 1792627201)"
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5209,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 2,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5290,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 3,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5373,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 4,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5456,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 5,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5539,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 6,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5622,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 7,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5705,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 8,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5788,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 9,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5871,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 10,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5954,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 11,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6037,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   },
+   {
+    "i": 12,
+    "t_offset_s": 0.0,
+    "latency_s": 0.0,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 6120,
+    "text_len": 0,
+    "empty": false,
+    "provider_failure": true
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 12
+ },
+ "infra_failure": true,
+ "validity": "infra_invalid",
+ "validity_evidence": {
+  "model_calls": 12,
+  "replies": 0,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 12,
+  "reason": "provider failure: rate_limit: free usage exceeded (quota resets at epoch 1792627201)"
+ },
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

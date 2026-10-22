@@ -1,0 +1,175 @@
+{
+ "episode_id": "Q06__gemini__perovagents__r0",
+ "qid": "Q06",
+ "category": "literature",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:50:46",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Find a paper supporting an experimentally demonstrated method to improve SnO2-based n-i-p perovskite solar-cell performance. Verify that the paper actually studies an n-i-p SnO2 device before using it as evidence.",
+ "finished_at": "2026-10-21T19:58:24",
+ "seconds": 457.6,
+ "termination": "answer",
+ "final_answer": "Based on the Perovskite Database (pdb), several experimental n-i-p perovskite solar cells utilizing $\\text{SnO}_2$ as an electron transport layer are documented, including devices associated with DOI `10.1038/s41586-021-03285-w` (which achieves a PCE of 25.2%) and DOI `10.1039/d0ta04721j`. \n\nHowever, the literature agent was unable to extract and verify verbatim text quotes confirming the specific experimental modification methods and device architecture details directly from the papers due to retrieval limitations (returning INCOMPLETE status for the required text evidence). Therefore, while database records confirm the existence of these $\\text{SnO}_2$-based n-i-p devices, specific verbatim textual quotes supporting the improvement method from the literature could not be established.",
+ "tool_calls": [
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 n-i-p perovskite solar cell"
+   },
+   "result": "{'query': 'SnO2 n-i-p perovskite solar cell', 'method': 'semantic', 'n_hits': 6, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.771, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1428, 'score': 0.754, 'text': ' SnF_2}$ (20 mol %) with the resultant photovoltaic parameters attained shown in Table 1 and Figure 2a. Short-circuit photocurrent density $(J_{sc})$ of 27.67 mA/cm<sup>2</sup> under AM 1.5G solar illumination has been observed for CsSnI<sub>3</sub> (with SnF<sub>2</sub>) solar cell, owing to the smaller band gap and better crystal quality attained by annealing the perovskite loaded TiO<sub>2</sub> films at 100 \u00b0C. The quality of the perovskite film is highly critical in affecting the cell performance as has been reported by other research groups and as such perovskite annealing temperatures a'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 595, 'score': 0.741, 'text': '7/sref54) [solar cells, Nano Energy 11 \\\\(2015\\\\) 409](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref54)e[418.](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref54) - [55] [Q. Dong, Y. Shi, K. Wang, Y. Li, S. Wang, H. Zhang, Y. Xing, Y. Du, X. Bai, T. Ma,](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [Insight into perovskite solar cells based on SnO2](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [compact electron-selective](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [layer, J. Phys. Chem. C 119 \\\\(2015\\\\) 10212](http://refhub.elsevier.com/S0013-4686'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '1. Introduction', 'passage_id': 856, 'score': 0.733, 'text': 'n perovskite solar cells to access macroscopic physical device changes. The findings provide insights into the physical and chemical change of such triple-cation perovskite layers and address that more efforts should be invested to enhance its thermal stability for the future device commercialization.'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': 'INTRODUCTION', 'passage_id': 1396, 'score': 0.727, 'text': 'The emergence of lead perovskite solar cells has had a major impact in the field of photovoltaic research as the power conversion efficiencies achieved until date are more than 19%. These solar cells which are processed completely by solutionbased methods make them amenable for low cost commercialization.<sup>2-7</sup> A key factor in making these solar cells commercially viable, are the efforts to replace toxic Pb with alternatives such as Sn. 8-10 High short-circuit current densities can be attained by Sn perovskites compared to the contemporary Pb-based perovskites owing to the small bandga'}, {'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': 'References', 'passage_id': 2034, 'score': 0.723, 'text': '. Jpn., 2015, 88(9), 1250\u20131255. - 17 G. E. Eperon, V. M. Burlakov, P. Docampo, A. Goriely and H. J. Snaith, Morphological Control for High Performance, Solution-Processed Planar Heterojunction Perovskite Solar Cells, Adv. Funct. Mater., 2014, 24(1), 151\u2013157. - 18 B. Saparov, J.-P. Sun, W. Meng, Z. Xiao, H.-S. Duan, O. Gunawan, D. Shin, I. G. Hill, Y. Yan and D. B. Mitzi, Thin-Film Deposition and Characterization of a Sn-Deficient Perovskite Derivative Cs<sub>2</sub>SnI<sub>6</sub>, *Chem. Mater.*, 2016, 28(7), 2315\u20132322. - 19 A. E. Maughan, A. M. Ganose, M. M. Bordelon, E. M. Miller, D. O. Sca'}]}",
+   "result_chars": 4239,
+   "seconds": 14.226,
+   "t_offset_s": 45.52,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "n-i-p perovskite solar cell, SnO2 ETL, MAPbI3 perovskite 500 nm, Spiro-MeOTAD HTL",
+    "architecture": "nip"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'NIP', 'predicted_pce': 12.34, 'pce_95_interval': [10.91, 13.78], 'interval_spread_percent': 2.87, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'SnO2', 'HTL': 'Spiro-MeOTAD', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_NIP.cbm', 'target': 'PCE'}}",
+   "result_chars": 453,
+   "seconds": 1.147,
+   "t_offset_s": 78.04,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": [],
+   "result": "ERROR: TypeError: pdb_agent.<locals>.sql() missing 1 required positional argument: 'query'",
+   "result_chars": 90,
+   "seconds": 0.0,
+   "t_offset_s": 92.71,
+   "error": true
+  },
+  {
+   "agent": "ml",
+   "tool": "explain_local",
+   "args": {
+    "description": "n-i-p perovskite solar cell, SnO2 ETL, MAPbI3 perovskite 500 nm, Spiro-MeOTAD HTL",
+    "architecture": "nip"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'local', 'method': 'shap', 'architecture': 'NIP', 'features': [{'name': 'Perovskite_deposition_solvents', 'importance': 0.0611, 'direction': 'positive', 'shap': 0.0611}, {'name': 'Perovskite', 'importance': 0.0087, 'direction': 'positive', 'shap': 0.0087}, {'name': 'Perovskite_deposition_synthesis_atmosphere', 'importance': 0.721, 'direction': 'negative', 'shap': -0.721}, {'name': 'Perov_quenching_crystallisation', 'importance': 0.0, 'direction': 'positive', 'shap': 0.0}, {'name': 'ETL_deposition_method', 'importance': 0.4821, 'direction': 'positive', 'shap': 0.4821}, {'name': 'HTL_additives_compounds', 'importance': 0.3598, 'direction': 'positive', 'shap': 0.3598}, {'name': 'gap_diff_HTL_Pvk', 'importance': 0.0702, 'direction': 'positive', 'shap': 0.0702}, {'name': 'Perovskite_dielectric_constant', 'importance': 0.0582, 'direction': 'positive', 'shap': 0.0582}, {'name': 'HTL_deposition_method', 'importance': 0.0195, 'direction': 'positive', 'shap': 0.0195}, {'name': 'Substrate_stack_sequence', 'importance': 0.0095, 'direction': 'negative', 'shap': -0.0095}], 'controllable': {'Perovskite_deposition_solvents': True, 'Perovskite': True, 'Perovskite_deposition_synthesis_atmosphere': True, 'Perov_quenching_crystallisation': True, 'ETL_deposition_method': True, 'HTL_additives_compounds': True, 'gap_diff_HTL_Pvk': True, 'Perovskite_dielectric_constant': True, 'HTL_deposition_method': True, 'Substrate_stack_sequence': True}, 'resolved_materials': {'ETL': 'SnO2', 'HTL': 'Spiro-MeOTAD', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_NIP.cbm', 'scope': 'local'}}",
+   "result_chars": 1655,
+   "seconds": 0.307,
+   "t_offset_s": 109.5,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT count(*) AS total_devices, count(DISTINCT Ref_DOI_number) AS total_papers FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0"
+   },
+   "result": "{'columns': ['total_devices', 'total_papers'], 'n_rows': 1, 'rows': [{'total_devices': 4299, 'total_papers': 789}]}",
+   "result_chars": 115,
+   "seconds": 0.063,
+   "t_offset_s": 123.11,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF, Ref_DOI_number FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0 ORDER BY JV_default_PCE DESC LIMIT 5"
+   },
+   "result": "{'columns': ['JV_default_PCE', 'JV_default_Voc', 'JV_default_Jsc', 'JV_default_FF', 'Ref_DOI_number'], 'n_rows': 5, 'rows': [{'JV_default_PCE': 35.9, 'JV_default_Voc': 0.98, 'JV_default_Jsc': 0.158, 'JV_default_FF': 0.72, 'Ref_DOI_number': '10.1039/d0ta04721j'}, {'JV_default_PCE': 34.8, 'JV_default_Voc': 0.95, 'JV_default_Jsc': 0.158, 'JV_default_FF': 0.72, 'Ref_DOI_number': '10.1039/d0ta04721j'}, {'JV_default_PCE': 33.4, 'JV_default_Voc': 0.97, 'JV_default_Jsc': 0.077, 'JV_default_FF': 0.7, 'Ref_DOI_number': '10.1039/d0ta04721j'}, {'JV_default_PCE': 32.3, 'JV_default_Voc': 0.93, 'JV_default_Jsc': 0.077, 'JV_default_FF': 0.71, 'Ref_DOI_number': '10.1039/d0ta04721j'}, {'JV_default_PCE': 25.2, 'JV_default_Voc': 1.194, 'JV_default_Jsc': 25.09, 'JV_default_FF': 0.847, 'Ref_DOI_number': '10.1038/s41586-021-03285-w'}]}",
+   "result_chars": 824,
+   "seconds": 0.039,
+   "t_offset_s": 150.15,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "10.1038/s41586-021-03285-w"
+   },
+   "result": "{'query': '10.1038/s41586-021-03285-w', 'method': 'semantic', 'n_hits': 6, 'hits': [{'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1420, 'score': 0.329, 'text': 'b> (mV) | $J_{sc}$ (mA/cm <sup>2</sup> ) | FF | \u03b7 (%) | carrier<br>density<br>(cm <sup>-3</sup> ) | |----------------------------------------------------------|----------------------|--------------------------------|------|-----------------------|-------------------------------------------| | CsSnI <sub>3</sub> | 2.30 | 0.22 | 0.57 | $3.02 \\\\times 10^{-4}$ | _ | | CsSnI <sub>3</sub> :<br>CsSnBr <sub>3</sub><br>(9:1) | 120 | 0.49 | 0.25 | 0.002 | _ | | CsSnI <sub>3</sub> :<br>CsSnBr <sub>3</sub><br>(1:1) | 135 | 3.69 | 0.26 | 0.13 | _ | | CsSnI <sub>3</sub> :<br>CsSnBr <sub>3</sub><br>(1:9) | 22'}, {'doi': '10.1016/j.joule.2018.06.009', 'paper_title': 'Gas Quenching for Perovskite Thin Film Deposition', 'section': 'Solvent Quenching versus Gas', 'passage_id': 666, 'score': 0.324, 'text': 'm/S2542-4351(18)30245-9/sref1) 358, [739\u2013744](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref1). - <span id=\"page-4-3\"></span>2. Eperon, G.E., Ho\u00a8 [rantner, M.T., and Snaith,](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) [H.J. \\\\(2017\\\\). Metal halide perovskite tandem](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) [and multiple-junction photovoltaics. Nat.](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) [Rev. Chem.](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) 1, 0095. - <span id=\"page-4-4\"></span>3. [Babayigit, A., Ethirajan, A., Muller, M., and]('}, {'doi': '10.1016/j.jpowsour.2018.08.070', 'paper_title': 'Journal of Power Sources', 'section': '2. Results and discussion', 'passage_id': 759, 'score': 0.32, 'text': '-------|---------------------------------------------| | BDT0FMeDPA<br>BDT2FMeDPA | 414<br>419 | 483<br>496 | 2.74<br>2.70 | -5.10<br>-5.18 | -2.36<br>-2.48 | 399\u00b0<br>345 | $1.52 \\\\times 10^{-5} $ $4.30 \\\\times 10^{-4}$ | $2.22 \\\\times 10^{-6}$ $7.76 \\\\times 10^{-6}$ | - <span id=\"page-4-2\"></span><sup>a</sup> Absorption and PL spectra were measured in CH<sub>2</sub>Cl<sub>2</sub>. - <span id=\"page-4-3\"></span>b The optical band gap $(E_g^{\\\\text{opt}})$ are calculated from the intersections of normalized absorption and PL spectra. - <span id=\"page-4-4\"></span><sup>c</sup> The HOMO is calculated fr'}, {'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': '2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films', 'passage_id': 1887, 'score': 0.311, 'text': ' | EDS (at wt%) | | | | | | | |--------|-----------------|-------------------|------------------------------------------|-----------------------------------------|--------------|-------|-------|-------|-------------|----------------------------------------------------------|----------------------------------------------------------------| | | CsI<br>(110) | $Cs_2SnI_6$ (222) | CsI/<br>Cs <sub>2</sub> SnI <sub>6</sub> | Composition region | Cs | Sn | I | Cs/Sn | $E_{\\\\rm g}$ | Carrier concentration $(\\\\times 10^{15} \\\\text{ cm}^{-3})$ | Mobility<br>(cm <sup>2</sup> V <sup>-1</sup> s <sup>-1</sup> '}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '2.4. Characterization', 'passage_id': 358, 'score': 0.309, 'text': '------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------------------------------------| | un-doped TiO <sub>2</sub> 13% Er:TiO <sub>2</sub> 13% Er-6% Yb-TiO <sub>2</sub> | $0.80 \\\\pm 0.04$ $0.83 \\\\pm 0.03$ | $20.4 \\\\pm 0.3$ $21.3 \\\\pm 0.3$ $21.7 + 0.4$ | $0.63 \\\\pm 0.03$<br>$0.64 \\\\pm 0.02$ | $10.3 \\\\pm 0.6$<br>$11.5 \\\\pm 0.6$<br>$12.9 \\\\pm 0.5$ | | 13% Er-6% YD-11O <sub>2</sub> | $\\\\boldsymbol{0.87 \\\\pm 0.04}$ | $21.7 \\\\pm 0.4$ | $\\\\boldsymbol{0.66 \\\\pm 0.02}$ | $12.9 \\\\pm 0.5$ | efficiency'}, {'doi': '10.1021/acs.jpclett.5b01716', 'paper_title': 'Mixed Iodide-Bromide Methylammonium Lead Perovskite-based **Diodes for Light Emission and Photovoltaics**', 'section': 'Mixed Iodide-Bromide Methylammonium Lead Perovskite-based **Diodes for Light Emission and Photovoltaics', 'passage_id': 1311, 'score': 0.305, 'text': '\\\\rm mA/cm}^2 \\\\right)$ | FF (%) | PCE (%) | |------------------------------------|-------------------------|------------------|-------------------------|-------------------------------------------|--------|---------| | 0 | 0 | 1.58 | 1079 | 16.34 | 73 | 12.9 | | 20 | 0.03 | 1.61 | 1114 | 14.14 | 65 | 10.2 | | 40 | 0.1 | 1.64 | 1139 | 13.14 | 72 | 10.8 | | 60 | 0.2 | 1.70 | 1129 | 11.72 | 70 | 9.3 | | 100 | 0.4 | 1.80 | 1175 | 3.01 | 71 | 2.5 | | 200 | 0.6 | 1.92 | 1182 | 1.78 | 55 | 1.2 | <sup>&</sup>lt;sup>a</sup>Bromide concentration in MAPb( $I_{1-x}Br_x$ )<sub>3</sub>, x, bandgap energy, $E'}]}",
+   "result_chars": 5090,
+   "seconds": 0.23,
+   "t_offset_s": 192.62,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1038/s41586-021-03285-w"
+   },
+   "result": "{'error': \"no paper with DOI '10.1038/s41586-021-03285-w' in the corpus; use list_papers\"}",
+   "result_chars": 90,
+   "seconds": 0.0,
+   "t_offset_s": 412.52,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "10.1038/s41586-021-03285-w"
+   },
+   "result": "{'query': '10.1038/s41586-021-03285-w', 'method': 'semantic', 'n_hits': 6, 'hits': [{'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1420, 'score': 0.329, 'text': 'b> (mV) | $J_{sc}$ (mA/cm <sup>2</sup> ) | FF | \u03b7 (%) | carrier<br>density<br>(cm <sup>-3</sup> ) | |----------------------------------------------------------|----------------------|--------------------------------|------|-----------------------|-------------------------------------------| | CsSnI <sub>3</sub> | 2.30 | 0.22 | 0.57 | $3.02 \\\\times 10^{-4}$ | _ | | CsSnI <sub>3</sub> :<br>CsSnBr <sub>3</sub><br>(9:1) | 120 | 0.49 | 0.25 | 0.002 | _ | | CsSnI <sub>3</sub> :<br>CsSnBr <sub>3</sub><br>(1:1) | 135 | 3.69 | 0.26 | 0.13 | _ | | CsSnI <sub>3</sub> :<br>CsSnBr <sub>3</sub><br>(1:9) | 22'}, {'doi': '10.1016/j.joule.2018.06.009', 'paper_title': 'Gas Quenching for Perovskite Thin Film Deposition', 'section': 'Solvent Quenching versus Gas', 'passage_id': 666, 'score': 0.324, 'text': 'm/S2542-4351(18)30245-9/sref1) 358, [739\u2013744](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref1). - <span id=\"page-4-3\"></span>2. Eperon, G.E., Ho\u00a8 [rantner, M.T., and Snaith,](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) [H.J. \\\\(2017\\\\). Metal halide perovskite tandem](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) [and multiple-junction photovoltaics. Nat.](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) [Rev. Chem.](http://refhub.elsevier.com/S2542-4351(18)30245-9/sref2) 1, 0095. - <span id=\"page-4-4\"></span>3. [Babayigit, A., Ethirajan, A., Muller, M., and]('}, {'doi': '10.1016/j.jpowsour.2018.08.070', 'paper_title': 'Journal of Power Sources', 'section': '2. Results and discussion', 'passage_id': 759, 'score': 0.32, 'text': '-------|---------------------------------------------| | BDT0FMeDPA<br>BDT2FMeDPA | 414<br>419 | 483<br>496 | 2.74<br>2.70 | -5.10<br>-5.18 | -2.36<br>-2.48 | 399\u00b0<br>345 | $1.52 \\\\times 10^{-5} $ $4.30 \\\\times 10^{-4}$ | $2.22 \\\\times 10^{-6}$ $7.76 \\\\times 10^{-6}$ | - <span id=\"page-4-2\"></span><sup>a</sup> Absorption and PL spectra were measured in CH<sub>2</sub>Cl<sub>2</sub>. - <span id=\"page-4-3\"></span>b The optical band gap $(E_g^{\\\\text{opt}})$ are calculated from the intersections of normalized absorption and PL spectra. - <span id=\"page-4-4\"></span><sup>c</sup> The HOMO is calculated fr'}, {'doi': '10.1039/c7se00100b', 'paper_title': 'Sustainable Energy & Fuels', 'section': '2.1. Optimization of the two-step solution processes for Cs<sub>2</sub>SnI<sub>6</sub> thin films', 'passage_id': 1887, 'score': 0.311, 'text': ' | EDS (at wt%) | | | | | | | |--------|-----------------|-------------------|------------------------------------------|-----------------------------------------|--------------|-------|-------|-------|-------------|----------------------------------------------------------|----------------------------------------------------------------| | | CsI<br>(110) | $Cs_2SnI_6$ (222) | CsI/<br>Cs <sub>2</sub> SnI <sub>6</sub> | Composition region | Cs | Sn | I | Cs/Sn | $E_{\\\\rm g}$ | Carrier concentration $(\\\\times 10^{15} \\\\text{ cm}^{-3})$ | Mobility<br>(cm <sup>2</sup> V <sup>-1</sup> s <sup>-1</sup> '}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '2.4. Characterization', 'passage_id': 358, 'score': 0.309, 'text': '------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------------------------------------| | un-doped TiO <sub>2</sub> 13% Er:TiO <sub>2</sub> 13% Er-6% Yb-TiO <sub>2</sub> | $0.80 \\\\pm 0.04$ $0.83 \\\\pm 0.03$ | $20.4 \\\\pm 0.3$ $21.3 \\\\pm 0.3$ $21.7 + 0.4$ | $0.63 \\\\pm 0.03$<br>$0.64 \\\\pm 0.02$ | $10.3 \\\\pm 0.6$<br>$11.5 \\\\pm 0.6$<br>$12.9 \\\\pm 0.5$ | | 13% Er-6% YD-11O <sub>2</sub> | $\\\\boldsymbol{0.87 \\\\pm 0.04}$ | $21.7 \\\\pm 0.4$ | $\\\\boldsymbol{0.66 \\\\pm 0.02}$ | $12.9 \\\\pm 0.5$ | efficiency'}, {'doi': '10.1021/acs.jpclett.5b01716', 'paper_title': 'Mixed Iodide-Bromide Methylammonium Lead Perovskite-based **Diodes for Light Emission and Photovoltaics**', 'section': 'Mixed Iodide-Bromide Methylammonium Lead Perovskite-based **Diodes for Light Emission and Photovoltaics', 'passage_id': 1311, 'score': 0.305, 'text': '\\\\rm mA/cm}^2 \\\\right)$ | FF (%) | PCE (%) | |------------------------------------|-------------------------|------------------|-------------------------|-------------------------------------------|--------|---------| | 0 | 0 | 1.58 | 1079 | 16.34 | 73 | 12.9 | | 20 | 0.03 | 1.61 | 1114 | 14.14 | 65 | 10.2 | | 40 | 0.1 | 1.64 | 1139 | 13.14 | 72 | 10.8 | | 60 | 0.2 | 1.70 | 1129 | 11.72 | 70 | 9.3 | | 100 | 0.4 | 1.80 | 1175 | 3.01 | 71 | 2.5 | | 200 | 0.6 | 1.92 | 1182 | 1.78 | 55 | 1.2 | <sup>&</sup>lt;sup>a</sup>Bromide concentration in MAPb( $I_{1-x}Br_x$ )<sub>3</sub>, x, bandgap energy, $E'}]}",
+   "result_chars": 5090,
+   "seconds": 0.473,
+   "t_offset_s": 427.91,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 9,
+ "n_model_calls": 21,
+ "repeated_tool_calls": 1,
+ "tool_errors": 1,
+ "retries": 1,
+ "provider": {
+  "model_calls": 21,
+  "prompt_chars": 178042,
+  "completion_chars": 8336,
+  "real_prompt_tokens": 51558,
+  "real_completion_tokens": 2886,
+  "usage_reported_calls": 21,
+  "rate_limit_events": 0,
+  "provider_error_events": 1,
+  "pool_wait_s": 0,
+  "llm_latency_s": 502.1,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "provider_error",
+    "slot": 15,
+    "detail": ""
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_195046_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 5,
+  "escalations": 3
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

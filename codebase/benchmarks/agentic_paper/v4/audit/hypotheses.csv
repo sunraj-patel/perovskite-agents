@@ -1,0 +1,15 @@
+backbone,quantity,value,unit,denominator
+deepseek,valid_pairs,4,,
+deepseek,mean_model_calls_perovagents_valid,5.2,n,4
+deepseek,mean_model_calls_direct_valid,4.2,n,4
+deepseek,perov_episodes_with_escalation,2,of,4
+deepseek,escalated_and_correct,2,of,2
+deepseek,non_escalated_and_correct,2,of,2
+deepseek,perov_zero_ask_episodes(orchestrator answered without dispatch),0,of,4
+gemini,valid_pairs,12,,
+gemini,mean_model_calls_perovagents_valid,6.9,n,12
+gemini,mean_model_calls_direct_valid,8.8,n,12
+gemini,perov_episodes_with_escalation,2,of,12
+gemini,escalated_and_correct,1,of,2
+gemini,non_escalated_and_correct,8,of,10
+gemini,perov_zero_ask_episodes(orchestrator answered without dispatch),0,of,12

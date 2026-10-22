@@ -1,0 +1,3 @@
+{"ts": 1792588266.899, "event": "question", "text": "[agentic_paper] What is the average reported PCE of n-i-p perovskite solar cells using SnO2 as the ETL?"}
+{"ts": 1792588417.126, "event": "llm_reply", "agent": "orchestrator", "turn": "1", "text": "[PROVIDER FAILURE] backbone unavailable; episode aborted."}
+{"ts": 1792588417.126, "event": "answer", "text": "[PROVIDER FAILURE] backbone unavailable; episode aborted."}

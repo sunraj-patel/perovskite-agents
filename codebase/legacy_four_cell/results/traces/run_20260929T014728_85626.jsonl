@@ -1,0 +1,5 @@
+{"t": 1790646448.956817, "event": "plan", "run_id": "20260929T014728_85626", "seed": 42, "tasks": [{"id": "t1", "cell": "literature", "request": "Find papers on buried interface passivation for p-i-n perovskite cells.", "params": {"query": "buried interface passivation p-i-n perovskite solar cells", "k": 5, "question_ctx": {"architecture": "p-i-n"}}, "depends_on": []}]}
+{"t": 1790646448.956835, "event": "dispatch", "task": "t1", "cell": "literature"}
+{"t": 1790647284.070407, "event": "timeout", "task": "t1"}
+{"t": 1790647284.070442, "event": "failed", "task": "t1", "cell": "literature", "reason": "timeout"}
+{"t": 1790647324.164957, "event": "done", "run_id": "20260929T014728_85626", "summary": {"run_id": "20260929T014728_85626", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "timeout"}, "skipped": []}}

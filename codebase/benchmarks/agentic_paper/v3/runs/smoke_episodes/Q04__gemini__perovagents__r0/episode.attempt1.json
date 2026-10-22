@@ -1,0 +1,547 @@
+{
+ "episode_id": "Q04__gemini__perovagents__r0",
+ "qid": "Q04",
+ "category": "pdb",
+ "condition": "perovagents",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T21:45:53",
+ "config_version": "v3",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "Among n-i-p perovskite solar cells using SnO2 as the ETL, identify the highest-PCE reported devices and report their HTL, absorber/material stack, PCE, Voc, Jsc and FF.",
+ "finished_at": "2026-10-21T21:47:42",
+ "seconds": 108.4,
+ "termination": "answer",
+ "final_answer": "Among n-i-p perovskite solar cells using $\\text{SnO}_2$ as the ETL, the database identifies several top-performing devices with high PCE values. Based on the experimental records from the Perovskite Database:\n\n1. **DOI**: `10.1038/s41586-021-03285-w`\n   - **ETL Stack**: `SnO2`\n   - **HTL Stack**: `alkylammonium bromide | Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `nannannan` (database placeholder)\n   - **PCE**: **25.2%**\n   - **Voc**: 1.194 V\n   - **Jsc**: 25.09 $\\text{mA/cm}^2$\n   - **FF**: 0.847\n\n2. **DOI**: `10.1038/s41586-021-03285-w`\n   - **ETL Stack**: `SnO2-c`\n   - **HTL Stack**: `Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `FAMAPbBrI`\n   - **PCE**: **25.2%**\n   - **Voc**: 1.18 V\n   - **Jsc**: 25.15 $\\text{mA/cm}^2$\n   - **FF**: 0.848\n\n3. **DOI**: `10.1126/science.abf7652`\n   - **ETL Stack**: `SnO2`\n   - **HTL Stack**: `Spiro-MeOTAD | MoO3`\n   - **Absorber/Perovskite**: `nannannan` (database placeholder)\n   - **PCE**: **23.7%**\n   - **Voc**: 1.17 V\n   - **Jsc**: 25.34 $\\text{mA/cm}^2$\n   - **FF**: 0.814\n\n4. **DOI**: `10.1038/s41566-019-0398-2`\n   - **ETL Stack**: `SnO2-c`\n   - **HTL Stack**: `PEAI | Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `FAMAPbI`\n   - **PCE**: **23.53%**\n   - **Voc**: 1.15 V\n   - **Jsc**: 24.96 $\\text{mA/cm}^2$\n   - **FF**: 0.820\n\n*(Note: Certain database absorber entries use short-form placeholders such as `nannannan`, which stem from automated parsing of specific literature entries.)*",
+ "tool_calls": [
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_DOI_number, Cell_architecture, ETL_stack_sequence, HTL_stack_sequence, Perovskite_composition_short_form, JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0 AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 10"
+   },
+   "result": "{'columns': ['Ref_DOI_number', 'Cell_architecture', 'ETL_stack_sequence', 'HTL_stack_sequence', 'Perovskite_composition_short_form', 'JV_default_PCE', 'JV_default_Voc', 'JV_default_Jsc', 'JV_default_FF'], 'n_rows': 10, 'rows': [{'Ref_DOI_number': '10.1039/d0ta04721j', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'ZnO-np | SnO2-np', 'HTL_stack_sequence': 'Spiro-MeOTAD', 'Perovskite_composition_short_form': 'MAPbI', 'JV_default_PCE': 35.9, 'JV_default_Voc': 0.98, 'JV_default_Jsc': 0.158, 'JV_default_FF': 0.72}, {'Ref_DOI_number': '10.1039/d0ta04721j', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'ZnO-np | SnO2-np', 'HTL_stack_sequence': 'Spiro-MeOTAD', 'Perovskite_composition_short_form': 'MAPbI', 'JV_default_PCE': 34.8, 'JV_default_Voc': 0.95, 'JV_default_Jsc': 0.158, 'JV_default_FF': 0.72}, {'Ref_DOI_number': '10.1039/d0ta04721j', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'ZnO-np | SnO2-np', 'HTL_stack_sequence': 'Spiro-MeOTAD', 'Perovskite_composition_short_form': 'MAPbI', 'JV_default_PCE': 33.4, 'JV_default_Voc': 0.97, 'JV_default_Jsc': 0.077, 'JV_default_FF': 0.7}, {'Ref_DOI_number': '10.1039/d0ta04721j', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'ZnO-np | SnO2-np', 'HTL_stack_sequence': 'Spiro-MeOTAD', 'Perovskite_composition_short_form': 'MAPbI', 'JV_default_PCE': 32.3, 'JV_default_Voc': 0.93, 'JV_default_Jsc': 0.077, 'JV_default_FF': 0.71}, {'Ref_DOI_number': '10.1038/s41586-021-03285-w', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'SnO2', 'HTL_stack_sequence': 'alkylammonium bromide | Spiro-MeOTAD', 'Perovskite_composition_short_form': 'nannannan', 'JV_default_PCE': 25.2, 'JV_default_Voc': 1.194, 'JV_default_Jsc': 25.09, 'JV_default_FF': 0.847}, {'Ref_DOI_number': '10.1038/s41586-021-03285-w', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'SnO2-c', 'HTL_stack_sequence': 'Spiro-MeOTAD', 'Perovskite_composition_short_form': 'FAMAPbBrI', 'JV_default_PCE': 25.2, 'JV_default_Voc': 1.18, 'JV_default_Jsc': 25.15, 'JV_default_FF': 0.848}, {'Ref_DOI_number': '10.1039/d0ta04721j', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'SnO2-np', 'HTL_stack_sequence': 'Spiro-MeOTAD', 'Perovskite_composition_short_form': 'MAPbI', 'JV_default_PCE': 24.7, 'JV_default_Voc': 0.89, 'JV_default_Jsc': 0.15, 'JV_default_FF': 0.52}, {'Ref_DOI_number': '10.1126/science.abf7652', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'SnO2', 'HTL_stack_sequence': 'Spiro-MeOTAD | MoO3', 'Perovskite_composition_short_form': 'nannannan', 'JV_default_PCE': 23.7, 'JV_default_Voc': 1.17, 'JV_default_Jsc': 25.34, 'JV_default_FF': 0.8140000000000001}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'SnO2-c', 'HTL_stack_sequence': 'PEAI | Spiro-MeOTAD', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.53, 'JV_default_Voc': 1.15, 'JV_default_Jsc': 24.96, 'JV_default_FF': 0.82}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Cell_architecture': 'nip', 'ETL_stack_sequence': 'SnO2-np', 'HTL_stack_sequence': 'PEAI | Spiro-MeOTAD', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.4, 'JV_default_Voc': 1.15, 'JV_default_Jsc': 24.96, 'JV_default_FF': 0.82}]}",
+   "result_chars": 3198,
+   "seconds": 0.052,
+   "t_offset_s": 45.54,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) as total_devices, COUNT(DISTINCT Ref_DOI_number) as total_papers FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0 AND JV_default_PCE IS NOT NULL"
+   },
+   "result": "{'columns': ['total_devices', 'total_papers'], 'n_rows': 1, 'rows': [{'total_devices': 4299, 'total_papers': 789}]}",
+   "result_chars": 115,
+   "seconds": 0.041,
+   "t_offset_s": 60.32,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": [],
+   "result": "ERROR: TypeError: literature_agent.<locals>.search() missing 1 required positional argument: 'query'",
+   "result_chars": 100,
+   "seconds": 0.0,
+   "t_offset_s": 74.83,
+   "error": true
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "absorber perovskite composition material stack 10.1038/s41586-021-03285-w"
+   },
+   "result": "{'query': 'absorber perovskite composition material stack 10.1038/s41586-021-03285-w', 'method': 'semantic', 'n_hits': 6, 'hits': [{'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 22, 'score': 0.65, 'text': 'to *n* = 60 and *n* = \u221e, which is the 3D perovskite. The absorbance spectra of the various *n* values are shown in Figure S1A in the Supporting Information for 1 \u2264 *n* \u2264 10 and in **Figure 2**A for 20 \u2264 *n* \u2264 \u221e. At low *n* values the perovskite energy band gap (Eg) decreases, starting from Eg = 3 eV for *n* = 1 (described by the formula (PEA)2(MA)PbBr4) through Eg = 2.3 eV for *n* = 10 (described by the formula (PEA)2(MA)9Pb10Br28). It was previously reported that low *n* values provide much more stable perovskite structures compared to their 3D perovskite counterparts.[10] However, their tran'}, {'doi': '10.1021/acs.jpcc.5b06269', 'paper_title': 'Photodecomposition and Morphology Evolution of Organometal Halide Perovskite Solar Cells', 'section': 'INTRODUCTION', 'passage_id': 1031, 'score': 0.638, 'text': 'techniques, we relate the stability of the perovskite material to its performance in a completed device. Received: June 30, 2015 August 16, 2015 Published: August 24, 2015 ![](_page_0_Picture_17.jpeg) <sup>&</sup>lt;sup>\u2020</sup>Osaka Municipal Technical Research Institute, 1-6-50, Morinomiya, Joto-ku, Osaka 536-8553, Japan <sup>&</sup>lt;sup>\u2021</sup>Department of Chemistry, University of Washington, P.O. Box 351700, Seattle, Washington 98195-1700, United States'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 24, 'score': 0.62, 'text': 'sport properties are not as good as the 3D perovskite (the PV performance of low *n* values are discussed below). Therefore, we were motivated to fabricate higher *n* values in order to have good perovskite stability[10] but with transport properties close to the 3D perovskite (referred to as quasi-2D). Figure 2A presents the absorbance of high *n* ![](_page_1_Figure_8.jpeg) **Figure 1.** Schematic illustration of different dimensions in the organic\u2013inorganic perovskite structure. The barrier is phenyl-ethyl-ammonium bromide (PEABr). values (i.e., 40, 50, 60, and \u221e). It can be seen that the ab'}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 36, 'score': 0.614, 'text': 'and 2D perovskites is present in the same sample. Figure S1B (in the Supporting Information) shows the XRD pattern of the 2D perovskite with low *n* values, in contrast to the high *n* values; more reflections are observed at low angles (i.e., below 2\u00d8 = 15\u00b0), indicating that at low *n* values, the 2D nature is more pronounced, compared to the 3D perovskite. **full paper** **Figure 2.** A) Absorbance spectra of *n* = 40, 50, 60 and *n* = \u221e; B) PL lifetime of the corresponding samples (*n* = 40, 50, 60, \u221e). Inset: PL and absorbance of the samples. Figure 3B,C presents optical microscope images '}, {'doi': '10.1002/adfm.201604733', 'paper_title': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells**', 'section': 'High Efficiency and High Open Circuit Voltage in Quasi 2D Perovskite Based Solar Cells', 'passage_id': 0, 'score': 0.611, 'text': '*Bat-El Cohen, Ma\u0142gorzata Wierzbowska, and Lioz Etgar\\\\** **An important property of hybrid layered perovskite is the possibility to reduce its dimensionality to provide wider band gap and better stability. In this work, 2D perovskite of the structure (PEA)2(MA)***n***\u20131Pb***n***Br3***n***<sup>+</sup>1 has been sensitized, where PEA is phenyl ethyl-ammonium, MA is methyl-ammonium, and using only bromide as the halide. The number of the perovskite layers has been varied (***n***) from** *n* **= 1 through** *n* **= \u221e. Optical and physical characterization verify the layered structure and the incr'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1402, 'score': 0.607, 'text': 'The thin film X-ray diffraction patterns for each of the synthesized perovskites are shown in Figure 1a (for ease of readability, only four compositions have been highlighted in the main text while the other compositions have been included in the Supporting Information). XRD analysis has been conducted for samples with and without the addition of SnF<sub>2</sub> (Figure S1, Supporting Information), and it is observed that with SnF<sub>2</sub>, a pure CsSnBr3 phase is attained (Figure 1a). This again demonstrates the beneficial effect of adding SnF<sub>2</sub> in the system. For CsSnI<sub>3</su'}]}",
+   "result_chars": 5061,
+   "seconds": 12.337,
+   "t_offset_s": 79.27,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 4,
+ "n_model_calls": 12,
+ "repeated_tool_calls": 0,
+ "tool_errors": 1,
+ "retries": 2,
+ "provider": {
+  "model_calls": 12,
+  "prompt_chars": 141559,
+  "completion_chars": 6454,
+  "real_prompt_tokens": 27256,
+  "real_completion_tokens": 2476,
+  "usage_reported_calls": 9,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 91.5,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.43,
+    "latency_s": 17.36,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 3431,
+    "text_len": 176,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "O-XYareZLYPYg8UPuY6uyA8",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 802,
+      "completion_tokens": 50,
+      "thinking_tokens": null,
+      "total_tokens": 852
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 16.72,
+     "text_len": 176,
+     "raw_text": "ASK pdb: Find the highest-PCE n-i-p perovskite solar cells using SnO2 as the ETL, and return their device details including HTL, absorber/material stack, PCE, Voc, Jsc, and FF."
+    }
+   },
+   {
+    "i": 2,
+    "t_offset_s": 17.79,
+    "latency_s": 6.53,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 16335,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "TOXYar_5M83vg8UPwZu1wQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 4344,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 4344
+     },
+     "slot": 12,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 6.53,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 3,
+    "t_offset_s": 26.33,
+    "latency_s": 6.55,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 16335,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "VeXYat-XE9CyjuMPm-LTaQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 4344,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 4344
+     },
+     "slot": 15,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 6.55,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 4,
+    "t_offset_s": 34.88,
+    "latency_s": 5.57,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 16335,
+    "text_len": 0,
+    "empty": true,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "XeXYapafJ96kg8UPoMuVkQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "MALFORMED_FUNCTION_CALL",
+     "part_kinds": [
+      "other"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 4344,
+      "completion_tokens": null,
+      "thinking_tokens": null,
+      "total_tokens": 4344
+     },
+     "slot": 0,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 5.57,
+     "text_len": 0
+    },
+    "empty_class": "provider_anomaly"
+   },
+   {
+    "i": 5,
+    "t_offset_s": 40.46,
+    "latency_s": 5.07,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 16480,
+    "text_len": 402,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "Y-XYav3aC5KxmNMPz7ShoAU",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 4388,
+      "completion_tokens": 133,
+      "thinking_tokens": null,
+      "total_tokens": 4521
+     },
+     "slot": 8,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 5.07,
+     "text_len": 402,
+     "raw_text": "```json\n{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT Ref_DOI_number, Cell_architecture, ETL_stack_sequence, HTL_stack_sequence, Perovskite_composition_short_form, JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0 AND JV_default_PCE IS NOT NULL ORDER BY JV_default_PCE DESC LIMIT 10\"}}\n```"
+    }
+   },
+   {
+    "i": 6,
+    "t_offset_s": 45.58,
+    "latency_s": 14.73,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 19855,
+    "text_len": 266,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "aOXYaqubCv2d4-EP_56QcA",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 5932,
+      "completion_tokens": 83,
+      "thinking_tokens": null,
+      "total_tokens": 6015
+     },
+     "slot": 11,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 14.72,
+     "text_len": 266,
+     "raw_text": "```json\n{\"tool\": \"sql\", \"args\": {\"query\": \"SELECT COUNT(*) as total_devices, COUNT(DISTINCT Ref_DOI_number) as total_papers FROM devices WHERE Cell_architecture = 'nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE > 0 AND JV_default_PCE IS NOT NULL\"}}\n```"
+    }
+   },
+   {
+    "i": 7,
+    "t_offset_s": 60.35,
+    "latency_s": 10.59,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 20209,
+    "text_len": 2554,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "d-XYarrID6Tl4-EPp4vcYQ",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 6050,
+      "completion_tokens": 968,
+      "thinking_tokens": null,
+      "total_tokens": 7018
+     },
+     "slot": 14,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 10.59,
+     "text_len": 2554,
+     "raw_text": "FINAL ANSWER: \n### Report: Highest-PCE n-i-p Perovskite Solar Cells with $\\text{SnO}_2$ as ETL\n\nWe investigated the Perovskite Database to find the highest-PCE experimental $n-i-p$ perovskite solar cells utilizing tin oxide ($\\text{SnO}_2$) as the electron transport layer (ETL).\n\n#### Methodology & Filters\n- **Architecture**: `Cell_architecture = 'nip'`\n- **ETL**: `ETL_stack_sequence LIKE '%SnO2%'`\n- **PCE filter**: `JV_default_PCE > 0` (to exclude missing, zero, or unphysical negative values/outliers).\n- **Dataset Scope**: Across the entire database, this filter combination yields **4,299 devices** from **789 distinct papers** with valid PCE entries.\n\n#### Top-Performing Devices\nWhen querying for the highest default PCE values under these criteria, we observed a few entries with unusually high reported PCEs up to 35.9% (e.g., paper DOI: `10.1039/d0ta04721j`), which exhibit very low $J_{sc}$ values ($\\sim 0.08 - 0.16\\text{ mA/cm}^2$) or atypical compositions (`MAPbI` with short-form naming quirks), suggesting potential data entry artifacts or outliers in specific literature uploads. \n\nBelow are the top realistic, state-of-the-art entries along with their detailed stack configurations:\n\n1. **DOI**: `10.1038/s41586-021-03285-w`\n   - **ETL Stack**: `SnO2`\n   - **HTL Stack**: `alkylammonium bromide | Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `nannannan` (placeholder/unspecified short form)\n   - **PCE**: **25.2%**\n   - **Voc**: 1.194 V\n   - **Jsc**: 25.09 $\\text{mA/cm}^2$\n   - **FF**: 0.847\n\n2. **DOI**: `10.1038/s41586-021-03285-w`\n   - **ETL Stack**: `SnO2-c`\n   - **HTL Stack**: `Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `FAMAPbBrI`\n   - **PCE**: **25.2%**\n   - **Voc**: 1.18 V\n   - **Jsc**: 25.15 $\\text{mA/cm}^2$\n   - **FF**: 0.848\n\n3. **DOI**: `10.1126/science.abf7652`\n   - **ETL Stack**: `SnO2`\n   - **HTL Stack**: `Spiro-MeOTAD | MoO3`\n   - **Absorber/Perovskite**: `nannannan`\n   - **PCE**: **23.7%**\n   - **Voc**: 1.17 V\n   - **Jsc**: 25.34 $\\text{mA/cm}^2$\n   - **FF**: 0.814\n\n4. **DOI**: `10.1038/s41566-019-0398-2`\n   - **ETL Stack**: `SnO2-c`\n   - **HTL Stack**: `PEAI | Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `FAMAPbI`\n   - **PCE**: **23.53%**\n   - **Voc**: 1.15 V\n   - **Jsc**: 24.96 $\\text{mA/cm}^2$\n   - **FF**: 0.820\n\n#### What Could Not Be Found\n- Some entries in the database utilize generic short-form placeholders (e.g., `nannannan` due to parsing or data entry limitations) for specific perovskite compositions, requiring cross-reference with the original publication DOI for exact precursor ratios."
+    }
+   },
+   {
+    "i": 8,
+    "t_offset_s": 70.94,
+    "latency_s": 2.56,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 6169,
+    "text_len": 257,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "geXYauaXHaGr4-EP8c2JeA",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1824,
+      "completion_tokens": 106,
+      "thinking_tokens": null,
+      "total_tokens": 1930
+     },
+     "slot": 17,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.56,
+     "text_len": 257,
+     "raw_text": "ASK literature: Find the papers with DOIs 10.1038/s41586-021-03285-w, 10.1126/science.abf7652, and 10.1038/s41566-019-0398-2, and report their exact absorber/perovskite compositions and material stacks to clarify the placeholder names found in the database."
+    }
+   },
+   {
+    "i": 9,
+    "t_offset_s": 73.5,
+    "latency_s": 1.32,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 4930,
+    "text_len": 80,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "hOXYatebAZ3-4-EPmpOxiQ4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1535,
+      "completion_tokens": 22,
+      "thinking_tokens": null,
+      "total_tokens": 1557
+     },
+     "slot": 18,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 1.32,
+     "text_len": 80,
+     "raw_text": "```json\n{\"tool\": \"search\", \"query\": \"perovskite composition material stack\"}\n```"
+    }
+   },
+   {
+    "i": 10,
+    "t_offset_s": 74.82,
+    "latency_s": 4.44,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 5043,
+    "text_len": 126,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "heXYaoadMoPYg8UPuY6uyA8",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 1562,
+      "completion_tokens": 53,
+      "thinking_tokens": null,
+      "total_tokens": 1615
+     },
+     "slot": 2,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 4.44,
+     "text_len": 126,
+     "raw_text": "```json\n{\"tool\": \"search\", \"args\": {\"query\": \"absorber perovskite composition material stack 10.1038/s41586-021-03285-w\"}}\n```"
+    }
+   },
+   {
+    "i": 11,
+    "t_offset_s": 91.61,
+    "latency_s": 2.72,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 8142,
+    "text_len": 1139,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "luXYarfPIuSb4-EPvOK0sA4",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2593,
+      "completion_tokens": 403,
+      "thinking_tokens": null,
+      "total_tokens": 2996
+     },
+     "slot": 10,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 2.71,
+     "text_len": 1139,
+     "raw_text": "FINAL ANSWER: \n### Report on Target Papers\n\n**Task:** Find the papers with DOIs `10.1038/s41586-021-03285-w`, `10.1126/science.abf7652`, and `10.1038/s41566-019-0398-2`, and report their exact absorber/perovskite compositions and material stacks to clarify placeholder names found in the database.\n\n**Search & Collection Analysis:**\n- We searched the provided fixed collection of 22 perovskite solar-cell papers for the requested DOIs and related terms (absorber, perovskite composition, material stack).\n- **Filter/Sample Size:** The collection contains exactly 22 papers (listed in the prompt), none of which match the requested DOIs (`10.1038/s41586-021-03285-w`, `10.1126/science.abf7652`, or `10.1038/s41566-019-0398-2`). \n\n**What could NOT be found:**\n- None of the three requested papers (`10.1038/s41586-021-03285-w`, `10.1126/science.abf7652`, `10.1038/s41566-019-0398-2`) are present in the provided collection of papers. \n- Consequently, no verbatim quotes or specific absorber compositions/material stacks could be retrieved for these three DOIs from this collection. Per instructions, 'Not found' means not in this collection."
+    }
+   },
+   {
+    "i": 12,
+    "t_offset_s": 94.34,
+    "latency_s": 14.1,
+    "model": "gemini-3.5-flash-lite",
+    "prompt_chars": 8295,
+    "text_len": 1454,
+    "empty": false,
+    "provider_failure": false,
+    "detail": {
+     "status": "ok",
+     "response_id": "meXYapSAEdWwmNMPlu-WkQs",
+     "model_version": "gemini-3.5-flash-lite",
+     "block_reason": null,
+     "n_candidates": 1,
+     "finish_reason": "STOP",
+     "part_kinds": [
+      "text"
+     ],
+     "finish_message": null,
+     "content_is_none": false,
+     "usage": {
+      "prompt_tokens": 2570,
+      "completion_tokens": 658,
+      "thinking_tokens": null,
+      "total_tokens": 3228
+     },
+     "slot": 11,
+     "attempts": 1,
+     "attempt_log": [],
+     "latency_s": 14.1,
+     "text_len": 1454,
+     "raw_text": "FINAL ANSWER: Among n-i-p perovskite solar cells using $\\text{SnO}_2$ as the ETL, the database identifies several top-performing devices with high PCE values. Based on the experimental records from the Perovskite Database:\n\n1. **DOI**: `10.1038/s41586-021-03285-w`\n   - **ETL Stack**: `SnO2`\n   - **HTL Stack**: `alkylammonium bromide | Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `nannannan` (database placeholder)\n   - **PCE**: **25.2%**\n   - **Voc**: 1.194 V\n   - **Jsc**: 25.09 $\\text{mA/cm}^2$\n   - **FF**: 0.847\n\n2. **DOI**: `10.1038/s41586-021-03285-w`\n   - **ETL Stack**: `SnO2-c`\n   - **HTL Stack**: `Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `FAMAPbBrI`\n   - **PCE**: **25.2%**\n   - **Voc**: 1.18 V\n   - **Jsc**: 25.15 $\\text{mA/cm}^2$\n   - **FF**: 0.848\n\n3. **DOI**: `10.1126/science.abf7652`\n   - **ETL Stack**: `SnO2`\n   - **HTL Stack**: `Spiro-MeOTAD | MoO3`\n   - **Absorber/Perovskite**: `nannannan` (database placeholder)\n   - **PCE**: **23.7%**\n   - **Voc**: 1.17 V\n   - **Jsc**: 25.34 $\\text{mA/cm}^2$\n   - **FF**: 0.814\n\n4. **DOI**: `10.1038/s41566-019-0398-2`\n   - **ETL Stack**: `SnO2-c`\n   - **HTL Stack**: `PEAI | Spiro-MeOTAD`\n   - **Absorber/Perovskite**: `FAMAPbI`\n   - **PCE**: **23.53%**\n   - **Voc**: 1.15 V\n   - **Jsc**: 24.96 $\\text{mA/cm}^2$\n   - **FF**: 0.820\n\n*(Note: Certain database absorber entries use short-form placeholders such as `nannannan`, which stem from automated parsing of specific literature entries.)*"
+    }
+   }
+  ],
+  "empty_reply_calls": 3,
+  "empty_reply_classes": {
+   "provider_anomaly": 3
+  },
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 12,
+  "empty_replies": 3,
+  "empty_classes": {
+   "provider_anomaly": 3
+  },
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_214554_0a5e.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 2,
+  "n_asks": 2,
+  "n_format_errors": 0,
+  "escalations": 1
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

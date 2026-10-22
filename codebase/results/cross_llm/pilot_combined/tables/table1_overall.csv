@@ -1,0 +1,3 @@
+system,n,completion,contract,tool_f1,scientific,recovery_rate,repeat_rate,mean_tool_calls,mean_llm_calls,mean_tokens,mean_seconds
+gemini,1,1.0,1.0,1.0,1.0,,0.0,6.0,9.0,15684.0,274.8
+mrs,7,0.286,0.167,0.555,0.167,0.0,0.166,6.857,13.714,33818.857,384.257

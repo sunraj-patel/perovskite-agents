@@ -1,0 +1,231 @@
+{
+ "episode_id": "Q03__gemini__direct__r0",
+ "qid": "Q03",
+ "category": "pdb",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.8-flash",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:05:35",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Compare the reported PCE distributions of p-i-n and n-i-p perovskite solar cells in the database. Report the number of records and the mean and median PCE for each architecture.",
+ "finished_at": "2026-10-21T19:13:42",
+ "seconds": 486.9,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "architecture"
+   },
+   "result": "['Cell_architecture']",
+   "result_chars": 21,
+   "seconds": 0.0,
+   "t_offset_s": 129.65,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 2,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 2,
+  "prompt_chars": 9973,
+  "completion_chars": 62,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 13,
+  "provider_error_events": 1,
+  "pool_wait_s": 347.0,
+  "llm_latency_s": 229.1,
+  "infra_failed": true,
+  "infra_reason": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'YOU EXCEEDED YOUR CURRENT QUOTA, PLEASE CHECK YOUR PLAN AND ",
+  "provider_events": [
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 4.7
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 3.4
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 7.6
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": true
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "provider_error",
+    "slot": 0,
+    "detail": "[ERRNO 54] CONNECTION RESET BY PEER"
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 5.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": true
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 5.2
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 7.1
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 5.5
+   },
+   {
+    "type": "rate_limit",
+    "slot": 9,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 8.5
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "episode_abort",
+    "detail": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'YOU EXCEEDED YOUR CURRENT QUOTA, PLEASE CHECK YOUR PLAN AND "
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

@@ -1,0 +1,382 @@
+{
+ "episode_id": "Q29__minimax__perovagents__r0",
+ "qid": "Q29",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T18:43:16",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What PCE does the ML model predict for a p-i-n cell with PTAA HTL, PCBM ETL and MAPbI3 perovskite of 450 nm thickness? Report the prediction with its 95% interval.",
+ "finished_at": "2026-10-21T19:02:50",
+ "seconds": 1174.6,
+ "termination": "answer",
+ "final_answer": "**ML prediction for p-i-n / PTAA / PCBM / MAPbI3 @ 450 nm: 13.46 % PCE, 95 % prediction interval 12.27 \u2013 14.66 %** (architecture-specific model `model_PIN.cbm`, 3-bag ensemble; parsed features = architecture p-i-n, HTL PTAA, ETL PCBM, perovskite MAPbI3, thickness 450 nm).\n\nCross-check (cross-architecture `model_Overall.cbm`, same device): **13.78 %, 12.78 \u2013 14.78 %** \u2014 +0.32 pp vs PIN, intervals overlap on 12.78\u201314.66 %, so the two models agree well within their own error.\n\nCaveats you should carry with the number:\n- The PIN model's typical error is RMSE \u2248 3.98 pp, R\u00b20.38 (grouped 5-fold CV); the \u00b11.2 pp interval is narrower than the real error, so differences below ~4 PCE points are not resolved.\n- ~13 feature cells were filled with training-population defaults rather than specified (annealing temp/time, HTL & ETL thickness, deposition solvent, band gap, LUMO, HTL hole mobility, contact stacks). The tools do not expose those numeric default values, so the figure is not fully auditable. Making annealing explicit (100 \u00b0C, 10 min) moved the prediction by 0.00 pp; the top default-driven SHAP term was deposition solvent (+0.23 pp), with backcontact stack sequence the largest negative term (\u22120.60). Model's perovskite-swap suggestion (MAPbI3 \u2192 CsMAFA/FAPbI3/FA_MA) was worth +2.29 pp (15.75 %, 14.97\u201316.53).\n- Thickness is not a driver here: 350\u2013600 nm spans only 13.17 \u2192 13.52 %.\n- The out-of-domain check was vacuous (`n_features_checked = 0`), so \"not OOD\" is not evidence of in-domain validity.\n\nNot established: the numeric values behind each imputed feature, and any independent NIP-model comparison (blocked as a repeated action).",
+ "tool_calls": [
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.46, 'pce_95_interval': [12.27, 14.66], 'interval_spread_percent': 2.38, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}",
+   "result_chars": 445,
+   "seconds": 1.166,
+   "t_offset_s": 191.74,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "explain_local",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'local', 'method': 'shap', 'architecture': 'PIN', 'features': [{'name': 'Perovskite_deposition_solvents', 'importance': 0.227, 'direction': 'positive', 'shap': 0.227}, {'name': 'Perovskite', 'importance': 0.2345, 'direction': 'positive', 'shap': 0.2345}, {'name': 'Backcontact_stack_sequence', 'importance': 0.6042, 'direction': 'negative', 'shap': -0.6042}, {'name': 'HTL_deposition_method', 'importance': 0.0, 'direction': 'positive', 'shap': 0.0}, {'name': 'HTL_hole_mobility', 'importance': 0.0873, 'direction': 'positive', 'shap': 0.0873}, {'name': 'Perovskite_band_gap', 'importance': 0.3816, 'direction': 'positive', 'shap': 0.3816}, {'name': 'Perovskite_LUMO', 'importance': 0.1232, 'direction': 'positive', 'shap': 0.1232}, {'name': 'Substrate_stack_sequence', 'importance': 0.0148, 'direction': 'negative', 'shap': -0.0148}, {'name': 'Perov_quenching_crystallisation', 'importance': 0.0152, 'direction': 'positive', 'shap': 0.0152}, {'name': 'HTL_LUMO', 'importance': 0.0008, 'direction': 'negative', 'shap': -0.0008}], 'controllable': {'Perovskite_deposition_solvents': True, 'Perovskite': True, 'Backcontact_stack_sequence': True, 'HTL_deposition_method': True, 'HTL_hole_mobility': True, 'Perovskite_band_gap': True, 'Perovskite_LUMO': True, 'Substrate_stack_sequence': True, 'Perov_quenching_crystallisation': True, 'HTL_LUMO': True}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_PIN.cbm', 'scope': 'local'}}",
+   "result_chars": 1554,
+   "seconds": 1.99,
+   "t_offset_s": 362.84,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "what_if",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "parameter": "perovskite thickness",
+    "values": [
+     350,
+     400,
+     450,
+     500,
+     600
+    ],
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'what_if', 'architecture': 'PIN', 'parameter': 'Perovskite_thickness_nm', 'category': 'processing_parameter', 'controllable': True, 'valid_range': [50.0, 1200.0], 'clamped_to_valid_range': False, 'base_value': 450.0, 'data': [{'parameter_value': 350.0, 'predicted_pce': 13.17, 'interval_lo': 11.89, 'interval_hi': 14.46, 'hood': False}, {'parameter_value': 400.0, 'predicted_pce': 13.45, 'interval_lo': 12.28, 'interval_hi': 14.61, 'hood': False}, {'parameter_value': 450.0, 'predicted_pce': 13.46, 'interval_lo': 12.27, 'interval_hi': 14.66, 'hood': False}, {'parameter_value': 500.0, 'predicted_pce': 13.47, 'interval_lo': 12.4, 'interval_hi': 14.54, 'hood': False}, {'parameter_value': 600.0, 'predicted_pce': 13.52, 'interval_lo': 12.43, 'interval_hi': 14.62, 'hood': False}], 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'provenance': {'kind': 'ml_what_if', 'model': 'model_PIN.cbm', 'parameter': 'Perovskite_thickness_nm', 'target': 'PCE'}}",
+   "result_chars": 1043,
+   "seconds": 0.017,
+   "t_offset_s": 656.66,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n cell; HTL PTAA; ETL PCBM; absorber MAPbI3; absorber thickness 450 nm",
+    "architecture": "overall"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'Overall', 'predicted_pce': 13.78, 'pce_95_interval': [12.78, 14.78], 'interval_spread_percent': 2.0, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_Overall.cbm', 'target': 'PCE'}}",
+   "result_chars": 452,
+   "seconds": 1.325,
+   "t_offset_s": 726.68,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.46, 'pce_95_interval': [12.27, 14.66], 'interval_spread_percent': 2.38, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}",
+   "result_chars": 445,
+   "seconds": 0.004,
+   "t_offset_s": 737.22,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "explain_local",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'explanation', 'scope': 'local', 'method': 'shap', 'architecture': 'PIN', 'features': [{'name': 'Perovskite_deposition_solvents', 'importance': 0.227, 'direction': 'positive', 'shap': 0.227}, {'name': 'Perovskite', 'importance': 0.2345, 'direction': 'positive', 'shap': 0.2345}, {'name': 'Backcontact_stack_sequence', 'importance': 0.6042, 'direction': 'negative', 'shap': -0.6042}, {'name': 'HTL_deposition_method', 'importance': 0.0, 'direction': 'positive', 'shap': 0.0}, {'name': 'HTL_hole_mobility', 'importance': 0.0873, 'direction': 'positive', 'shap': 0.0873}, {'name': 'Perovskite_band_gap', 'importance': 0.3816, 'direction': 'positive', 'shap': 0.3816}, {'name': 'Perovskite_LUMO', 'importance': 0.1232, 'direction': 'positive', 'shap': 0.1232}, {'name': 'Substrate_stack_sequence', 'importance': 0.0148, 'direction': 'negative', 'shap': -0.0148}, {'name': 'Perov_quenching_crystallisation', 'importance': 0.0152, 'direction': 'positive', 'shap': 0.0152}, {'name': 'HTL_LUMO', 'importance': 0.0008, 'direction': 'negative', 'shap': -0.0008}], 'controllable': {'Perovskite_deposition_solvents': True, 'Perovskite': True, 'Backcontact_stack_sequence': True, 'HTL_deposition_method': True, 'HTL_hole_mobility': True, 'Perovskite_band_gap': True, 'Perovskite_LUMO': True, 'Substrate_stack_sequence': True, 'Perov_quenching_crystallisation': True, 'HTL_LUMO': True}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'shap_explanation', 'model': 'model_PIN.cbm', 'scope': 'local'}}",
+   "result_chars": 1554,
+   "seconds": 0.109,
+   "t_offset_s": 753.06,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "what_if",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "parameter": "Perov_anneal_temp_C",
+    "values": [
+     50,
+     60,
+     75,
+     90,
+     100,
+     110,
+     120,
+     140,
+     160,
+     180,
+     220
+    ],
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'what_if', 'architecture': 'PIN', 'parameter': 'Perov_anneal_temp_C', 'category': 'processing_parameter', 'controllable': True, 'valid_range': [50.0, 220.0], 'clamped_to_valid_range': False, 'base_value': None, 'data': [{'parameter_value': 50.0, 'predicted_pce': 13.52, 'interval_lo': 12.16, 'interval_hi': 14.87, 'hood': False}, {'parameter_value': 60.0, 'predicted_pce': 13.6, 'interval_lo': 12.21, 'interval_hi': 14.99, 'hood': False}, {'parameter_value': 75.0, 'predicted_pce': 13.47, 'interval_lo': 12.24, 'interval_hi': 14.71, 'hood': False}, {'parameter_value': 90.0, 'predicted_pce': 13.49, 'interval_lo': 12.28, 'interval_hi': 14.71, 'hood': False}, {'parameter_value': 100.0, 'predicted_pce': 13.46, 'interval_lo': 12.27, 'interval_hi': 14.66, 'hood': False}, {'parameter_value': 110.0, 'predicted_pce': 13.46, 'interval_lo': 12.36, 'interval_hi': 14.55, 'hood': False}, {'parameter_value': 120.0, 'predicted_pce': 13.34, 'interval_lo': 12.28, 'interval_hi': 14.39, 'hood': False}, {'parameter_value': 140.0, 'predicted_pce': 13.39, 'interval_lo': 12.35, 'interval_hi': 14.44, 'hood': False}, {'parameter_value': 160.0, 'predicted_pce': 13.36, 'interval_lo': 12.33, 'interval_hi': 14.39, 'hood': False}, {'parameter_value': 180.0, 'predicted_pce': 13.36, 'interval_lo': 12.33, 'interval_hi': 14.39, 'hood': False}, {'parameter_value': 220.0, 'predicted_pce': 13.36, 'interval_lo': 12.33, 'interval_hi': 14.39, 'hood': False}], 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'provenance': {'kind': 'ml_what_if', 'model': 'model_PIN.cbm', 'parameter': 'Perov_anneal_temp_C', 'target': 'PCE'}}",
+   "result_chars": 1695,
+   "seconds": 0.029,
+   "t_offset_s": 791.18,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "what_if",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "parameter": "Perov_anneal_time_min",
+    "values": [
+     5,
+     10,
+     15,
+     20,
+     30,
+     45,
+     60,
+     90,
+     120,
+     180
+    ],
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'what_if', 'architecture': 'PIN', 'parameter': 'Perov_anneal_time_min', 'category': 'processing_parameter', 'controllable': True, 'valid_range': [5.0, 180.0], 'clamped_to_valid_range': False, 'base_value': None, 'data': [{'parameter_value': 5.0, 'predicted_pce': 13.37, 'interval_lo': 12.44, 'interval_hi': 14.3, 'hood': False}, {'parameter_value': 10.0, 'predicted_pce': 13.37, 'interval_lo': 12.37, 'interval_hi': 14.37, 'hood': False}, {'parameter_value': 15.0, 'predicted_pce': 13.46, 'interval_lo': 12.27, 'interval_hi': 14.66, 'hood': False}, {'parameter_value': 20.0, 'predicted_pce': 13.44, 'interval_lo': 12.07, 'interval_hi': 14.81, 'hood': False}, {'parameter_value': 30.0, 'predicted_pce': 13.48, 'interval_lo': 12.14, 'interval_hi': 14.83, 'hood': False}, {'parameter_value': 45.0, 'predicted_pce': 13.58, 'interval_lo': 12.33, 'interval_hi': 14.83, 'hood': False}, {'parameter_value': 60.0, 'predicted_pce': 13.53, 'interval_lo': 12.27, 'interval_hi': 14.79, 'hood': False}, {'parameter_value': 90.0, 'predicted_pce': 13.44, 'interval_lo': 12.22, 'interval_hi': 14.65, 'hood': False}, {'parameter_value': 120.0, 'predicted_pce': 13.44, 'interval_lo': 12.22, 'interval_hi': 14.65, 'hood': False}, {'parameter_value': 180.0, 'predicted_pce': 13.45, 'interval_lo': 12.2, 'interval_hi': 14.7, 'hood': False}], 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'provenance': {'kind': 'ml_what_if', 'model': 'model_PIN.cbm', 'parameter': 'Perov_anneal_time_min', 'target': 'PCE'}}",
+   "result_chars": 1580,
+   "seconds": 0.027,
+   "t_offset_s": 893.84,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm, annealed at 100 C for 10 min",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'PIN', 'predicted_pce': 13.46, 'pce_95_interval': [12.27, 14.66], 'interval_spread_percent': 2.38, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'PCBM', 'HTL': 'PTAA', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_PIN.cbm', 'target': 'PCE'}}",
+   "result_chars": 445,
+   "seconds": 0.003,
+   "t_offset_s": 938.78,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "optimize",
+   "args": {
+    "description": "p-i-n cell, PTAA HTL, PCBM ETL, MAPbI3 perovskite 450 nm",
+    "architecture": "pin"
+   },
+   "result": "{'result_type': 'optimization', 'architecture': 'PIN', 'recommendations': [{'parameter': 'Perovskite', 'kind': 'material_choice', 'category': 'material_choice', 'base_value': 'MAPbI3', 'direction': 'switch Perovskite MAPbI3 \u2192 CsMAFA', 'recommended_value': 'CsMAFA', 'base_predicted_pce': 13.46, 'best_predicted_pce': 15.75, 'delta_predicted_pce': 2.29, 'values': [{'material': 'CsMAFA', 'predicted_pce': 15.75, 'interval_lo': 14.97, 'interval_hi': 16.53}, {'material': 'FAPbI3', 'predicted_pce': 15.75, 'interval_lo': 14.97, 'interval_hi': 16.53}, {'material': 'FA_MA', 'predicted_pce': 15.75, 'interval_lo': 14.97, 'interval_hi': 16.53}]}], 'note': 'Recommendations are model-derived sensitivities over controllable inputs, not causal or experimentally verified claims', 'provenance': {'kind': 'ml_optimize', 'model': 'model_PIN.cbm', 'requires_experimental_validation': True}}",
+   "result_chars": 878,
+   "seconds": 0.414,
+   "t_offset_s": 1066.18,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 10,
+ "n_model_calls": 18,
+ "repeated_tool_calls": 2,
+ "tool_errors": 0,
+ "retries": 2,
+ "provider": {
+  "model_calls": 18,
+  "prompt_chars": 154273,
+  "completion_chars": 28691,
+  "real_prompt_tokens": 356269,
+  "real_completion_tokens": 60451,
+  "usage_reported_calls": 18,
+  "rate_limit_events": 0,
+  "provider_error_events": 4,
+  "pool_wait_s": 0,
+  "llm_latency_s": 1201.8,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "todowrite"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "provider_error",
+    "detail": "Remote end closed connection without response"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "glob",
+     "grep",
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "grep",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 6,
+    "opencode_tools_used": [
+     "glob",
+     "grep",
+     "read",
+     "read",
+     "todowrite",
+     "read",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "read",
+     "glob",
+     "read",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "glob",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "grep",
+     "grep",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_184316_b9d7.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 0,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

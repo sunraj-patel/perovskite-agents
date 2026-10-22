@@ -1,0 +1,368 @@
+{
+ "episode_id": "Q02__gemini__direct__r0",
+ "qid": "Q02",
+ "category": "pdb",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.8-flash",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:02:09",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What are the 10 most frequently reported HTL materials in n-i-p perovskite solar cells with PCE above 20%?",
+ "finished_at": "2026-10-21T19:13:13",
+ "seconds": 663.5,
+ "termination": "turn_budget",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "HTL"
+   },
+   "result": "['HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step']",
+   "result_chars": 1203,
+   "seconds": 0.0,
+   "t_offset_s": 16.53,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "architecture"
+   },
+   "result": "['Cell_architecture']",
+   "result_chars": 21,
+   "seconds": 0.0,
+   "t_offset_s": 99.5,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "PCE"
+   },
+   "result": "['JV_reverse_scan_PCE', 'JV_forward_scan_PCE', 'JV_default_PCE', 'JV_default_PCE_scan_direction', 'Stabilised_performance_PCE', 'Stability_PCE_initial_value', 'Stability_PCE_burn_in_observed', 'Stability_PCE_end_of_experiment', 'Stability_PCE_T95', 'Stability_PCE_Ts95', 'Stability_PCE_T80', 'Stability_PCE_Ts80', 'Stability_PCE_Te80', 'Stability_PCE_Tse80', 'Stability_PCE_after_1000_h', 'Stability_flexible_cell_PCE_initial_value', 'Stability_flexible_cell_PCE_end_of_experiment', 'Outdoor_PCE_initial_value', 'Outdoor_PCE_burn_in_observed', 'Outdoor_PCE_end_of_experiment', 'Outdoor_PCE_T95', 'Outdoor_PCE_Ts95', 'Outdoor_PCE_T80', 'Outdoor_PCE_Ts80', 'Outdoor_PCE_Te80', 'Outdoor_PCE_Tse80', 'Outdoor_PCE_after_1000_h']",
+   "result_chars": 723,
+   "seconds": 0.0,
+   "t_offset_s": 373.46,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "column_values",
+   "args": {
+    "column": "Cell_architecture"
+   },
+   "result": "[('nip', 29897), ('pin', 13342), ('Unknown', 103), ('Back contacted', 33), ('Front contacted', 7), ('Schottky', 5), ('Pn-Heterojunction', 1)]",
+   "result_chars": 141,
+   "seconds": 0.083,
+   "t_offset_s": 402.95,
+   "error": false
+  },
+  {
+   "agent": "direct",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT HTL_stack_sequence, count(*) as cnt FROM devices WHERE Cell_architecture = 'nip' AND JV_default_PCE > 20 GROUP BY HTL_stack_sequence ORDER BY cnt DESC LIMIT 15"
+   },
+   "result": "{'columns': ['HTL_stack_sequence', 'cnt'], 'n_rows': 15, 'rows': [{'HTL_stack_sequence': 'Spiro-MeOTAD', 'cnt': 736}, {'HTL_stack_sequence': 'PTAA', 'cnt': 33}, {'HTL_stack_sequence': 'PEAI | Spiro-MeOTAD', 'cnt': 18}, {'HTL_stack_sequence': 'DM', 'cnt': 7}, {'HTL_stack_sequence': 'TPFPB | Spiro-MeOTAD', 'cnt': 4}, {'HTL_stack_sequence': 'SrCl2 | Spiro-MeOTAD', 'cnt': 4}, {'HTL_stack_sequence': 'PMMA | Spiro-MeOTAD', 'cnt': 4}, {'HTL_stack_sequence': 'P(VDF-TrFE) | Spiro-MeOTAD', 'cnt': 4}, {'HTL_stack_sequence': 'DTP-C6Th', 'cnt': 4}, {'HTL_stack_sequence': 'CuSCN', 'cnt': 4}, {'HTL_stack_sequence': 'CH3O-PEIA | Spiro-MeOTAD', 'cnt': 4}, {'HTL_stack_sequence': 'C6Br | Spiro-MeOTAD', 'cnt': 4}, {'HTL_stack_sequence': 'Unknown', 'cnt': 3}, {'HTL_stack_sequence': 'TPA-BPFN-TPA', 'cnt': 3}, {'HTL_stack_sequence': 'PTQ10 | PTAA', 'cnt': 3}]}",
+   "result_chars": 849,
+   "seconds": 0.11,
+   "t_offset_s": 414.68,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 5,
+ "n_model_calls": 10,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 10,
+  "prompt_chars": 60529,
+  "completion_chars": 643,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 32,
+  "provider_error_events": 9,
+  "pool_wait_s": 381.7,
+  "llm_latency_s": 405.8,
+  "infra_failed": true,
+  "infra_reason": "all keys cooling/dead: 429 RESOURCE_EXHAUSTED. {'ERROR': {'CODE': 429, 'MESSAGE': 'YOU EXCEEDED YOUR CURRENT QUOTA, PLEASE CHECK YOUR PLAN AND ",
+  "provider_events": [
+   {
+    "type": "invalid_key",
+    "slot": 1
+   },
+   {
+    "type": "invalid_key",
+    "slot": 4
+   },
+   {
+    "type": "invalid_key",
+    "slot": 5
+   },
+   {
+    "type": "invalid_key",
+    "slot": 7
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 9,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 16,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 18,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 2,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 11,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 0,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 13,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "rate_limit",
+    "slot": 14,
+    "daily": true
+   },
+   {
+    "type": "provider_unavailable",
+    "slot": 8,
+    "detail": "503 UNAVAILABLE. {'ERROR': {'CODE': 503, 'MESSAGE': 'THIS MO"
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 6.1
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 20.4
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 21.2
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 2,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 5.2
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 3.7
+   },
+   {
+    "type": "rate_limit",
+    "slot": 15,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 30.0
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 8.9
+   },
+   {
+    "type": "rate_limit",
+    "slot": 16,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 3,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 18,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 8,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 11,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 12,
+    "daily": false
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 2.0
+   },
+   {
+    "type": "rate_limit",
+    "slot": 17,
+    "daily": false
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 3.4
+   },
+   {
+    "type": "rate_limit",
+    "slot": 0,
+    "daily": true
+   },
+   {
+    "type": "rate_limit",
+    "slot": 10,
+    "daily": true
+   },
+   {
+    "type": "pool_wait",
+    "seconds": 3.8
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

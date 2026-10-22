@@ -1,0 +1,98 @@
+{
+ "episode_id": "Q07__minimax__perovagents__r0",
+ "qid": "Q07",
+ "category": "literature",
+ "set": "main",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "perovagents",
+ "rep": 0,
+ "started_at": "2026-10-22T09:44:35.777625",
+ "finished_at": "2026-10-22T09:45:13.977625",
+ "seconds": 38.2,
+ "termination": "answer",
+ "question": "Find a relevant paper reporting a quantitative performance improvement for an SnO2-based n-i-p perovskite solar cell. Report the baseline/result value, the intervention, the quantitative improvement, and the DOI.",
+ "final_answer": "Baseline 19.43%, FACl-only 20.52%, champion 21.2% with FACl plus ADAHCl. The intervention therefore adds 1.77 percentage points absolute (+9.1% relative). DOI 10.1002/aenm.201803587.",
+ "tool_calls": [
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 n-i-p quantitative performance improvement chloride additive",
+    "k": 8
+   },
+   "result": "{'query': 'SnO2 n-i-p quantitative performance improvement chloride additive', 'method': 'semantic', 'n_hits': 1, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'section': 'Table 1', 'passage_id': 184, 'score': 0.821, 'text': 'Reference 19.43%, FACl 20.52%, champion 21.2%.'}]}",
+   "result_chars": 433,
+   "seconds": 0.49,
+   "t_offset_s": 4.2,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1002/aenm.201803587",
+    "query": "Table 1 baseline result intervention PCE"
+   },
+   "result": "{'doi': '10.1002/aenm.201803587', 'title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'n_passages_total': 144, 'n_passages_returned': 1, 'passages': [{'section': 'Table 1', 'text': 'The reference cell reaches 19.43% PCE. FACl addition raises it to 20.52%; adding ADAHCl passivation gives a champion PCE of 21.2%.'}]}",
+   "result_chars": 418,
+   "seconds": 0.78,
+   "t_offset_s": 9.6,
+   "error": false
+  },
+  {
+   "agent": "calculator",
+   "tool": "_calc",
+   "args": {
+    "expression": "(21.2 - 19.43) / 19.43 * 100"
+   },
+   "result": "9.11",
+   "result_chars": 4,
+   "seconds": 0.02,
+   "t_offset_s": 12.9,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1002/aenm.201803587",
+    "query": "intervention FACl ADAHCl mechanism"
+   },
+   "result": "{'doi': '10.1002/aenm.201803587', 'title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells', 'n_passages_total': 144, 'n_passages_returned': 1, 'passages': [{'section': '3.2 Surface passivation', 'text': 'The intervention is FACl in the precursor plus ADAHCl surface passivation; both improve crystallization and reduce recombination.'}]}",
+   "result_chars": 433,
+   "seconds": 0.7,
+   "t_offset_s": 16.1,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 4,
+ "n_model_calls": 7,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 7,
+  "real_prompt_tokens": 8172,
+  "real_completion_tokens": 550,
+  "usage_reported_calls": 7,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "framework": "perovagents",
+  "handoffs": [
+   "literature",
+   "literature",
+   "calculator",
+   "literature"
+  ]
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "episode_id": "Q06__gemini__direct__r0",
+ "qid": "Q06",
+ "category": "literature",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:45:19",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Find a paper supporting an experimentally demonstrated method to improve SnO2-based n-i-p perovskite solar-cell performance. Verify that the paper actually studies an n-i-p SnO2 device before using it as evidence.",
+ "finished_at": "2026-10-21T20:05:33",
+ "seconds": 1213.9,
+ "termination": "timeout",
+ "final_answer": "",
+ "tool_calls": [],
+ "n_tool_calls": 0,
+ "n_model_calls": 24,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 24,
+  "prompt_chars": 126690,
+  "completion_chars": 0,
+  "real_prompt_tokens": null,
+  "real_completion_tokens": null,
+  "usage_reported_calls": 0,
+  "rate_limit_events": 0,
+  "provider_error_events": 2,
+  "pool_wait_s": 0,
+  "llm_latency_s": 1181.7,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "provider_error",
+    "slot": 3,
+    "detail": "[ERRNO 54] CONNECTION RESET BY PEER"
+   },
+   {
+    "type": "provider_error",
+    "slot": 8,
+    "detail": ""
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

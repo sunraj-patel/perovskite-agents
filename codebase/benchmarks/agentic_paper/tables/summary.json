@@ -1,0 +1,717 @@
+{
+ "n_episodes_scored": 53,
+ "n_infra_or_harness_rows": 12,
+ "overall": {
+  "gemini": {
+   "completed": {
+    "direct": [
+     0.3333333333333333,
+     0.08333333333333333,
+     0.5833333333333334
+    ],
+    "perovagents": [
+     0.5833333333333334,
+     0.3333333333333333,
+     0.8333333333333334
+    ],
+    "diff": [
+     0.25,
+     0.0,
+     0.5
+    ],
+    "wins": 3,
+    "losses": 0,
+    "ties": 9,
+    "n_questions": 12
+   },
+   "correct": {
+    "direct": [
+     0.3333333333333333,
+     0.08333333333333333,
+     0.5833333333333334
+    ],
+    "perovagents": [
+     0.4166666666666667,
+     0.16666666666666666,
+     0.6666666666666666
+    ],
+    "diff": [
+     0.08333333333333333,
+     -0.16666666666666666,
+     0.3333333333333333
+    ],
+    "wins": 2,
+    "losses": 1,
+    "ties": 9,
+    "n_questions": 12
+   },
+   "tool_f1": {
+    "direct": [
+     0.4166666666666667,
+     0.16666666666666666,
+     0.6666666666666666
+    ],
+    "perovagents": [
+     0.9285,
+     0.8212499999999999,
+     1.0
+    ],
+    "diff": [
+     0.5118333333333333,
+     0.2618333333333333,
+     0.7618333333333333
+    ],
+    "wins": 7,
+    "losses": 0,
+    "ties": 5,
+    "n_questions": 12
+   },
+   "partial": {
+    "direct": [
+     0.3333333333333333,
+     0.08333333333333333,
+     0.5833333333333334
+    ],
+    "perovagents": [
+     0.5916666666666667,
+     0.36108333333333337,
+     0.8139166666666666
+    ],
+    "diff": [
+     0.2583333333333333,
+     0.041666666666666664,
+     0.5083333333333333
+    ],
+    "wins": 5,
+    "losses": 1,
+    "ties": 6,
+    "n_questions": 12
+   }
+  },
+  "deepseek": {},
+  "minimax": {
+   "completed": {
+    "direct": [
+     0.875,
+     0.625,
+     1.0
+    ],
+    "perovagents": [
+     0.25,
+     0.0,
+     0.625
+    ],
+    "diff": [
+     -0.625,
+     -0.875,
+     -0.25
+    ],
+    "wins": 0,
+    "losses": 5,
+    "ties": 3,
+    "n_questions": 8
+   },
+   "correct": {
+    "direct": [
+     0.75,
+     0.375,
+     1.0
+    ],
+    "perovagents": [
+     0.25,
+     0.0,
+     0.625
+    ],
+    "diff": [
+     -0.5,
+     -0.875,
+     0.0
+    ],
+    "wins": 1,
+    "losses": 5,
+    "ties": 2,
+    "n_questions": 8
+   },
+   "tool_f1": {
+    "direct": [
+     0.933375,
+     0.84175,
+     1.0
+    ],
+    "perovagents": [
+     0.40475,
+     0.125,
+     0.708375
+    ],
+    "diff": [
+     -0.528625,
+     -0.875,
+     -0.18225000000000002
+    ],
+    "wins": 0,
+    "losses": 5,
+    "ties": 3,
+    "n_questions": 8
+   },
+   "partial": {
+    "direct": [
+     0.833375,
+     0.583375,
+     1.0
+    ],
+    "perovagents": [
+     0.25,
+     0.0,
+     0.625
+    ],
+    "diff": [
+     -0.583375,
+     -0.875,
+     -0.16675
+    ],
+    "wins": 1,
+    "losses": 5,
+    "ties": 2,
+    "n_questions": 8
+   }
+  }
+ },
+ "category": {
+  "gemini": {
+   "pdb": {
+    "completed": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "diff": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "wins": 3,
+     "losses": 0,
+     "ties": 1,
+     "n_questions": 4
+    },
+    "correct": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "diff": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "wins": 2,
+     "losses": 0,
+     "ties": 2,
+     "n_questions": 4
+    },
+    "tool_f1": {
+     "direct": [
+      0.25,
+      0.0,
+      0.75
+     ],
+     "perovagents": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "diff": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "wins": 3,
+     "losses": 0,
+     "ties": 1,
+     "n_questions": 4
+    },
+    "partial": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.7332500000000001,
+      0.46649999999999997,
+      1.0
+     ],
+     "diff": [
+      0.7332500000000001,
+      0.46649999999999997,
+      1.0
+     ],
+     "wins": 4,
+     "losses": 0,
+     "ties": 0,
+     "n_questions": 4
+    }
+   },
+   "literature": {
+    "completed": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "diff": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 0,
+     "ties": 4,
+     "n_questions": 4
+    },
+    "correct": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "diff": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 0,
+     "ties": 4,
+     "n_questions": 4
+    },
+    "tool_f1": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.7855,
+      0.571,
+      1.0
+     ],
+     "diff": [
+      0.7855,
+      0.571,
+      1.0
+     ],
+     "wins": 4,
+     "losses": 0,
+     "ties": 0,
+     "n_questions": 4
+    },
+    "partial": {
+     "direct": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "perovagents": [
+      0.125,
+      0.0,
+      0.375
+     ],
+     "diff": [
+      0.125,
+      0.0,
+      0.375
+     ],
+     "wins": 1,
+     "losses": 0,
+     "ties": 3,
+     "n_questions": 4
+    }
+   },
+   "ml": {
+    "completed": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "diff": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 0,
+     "ties": 4,
+     "n_questions": 4
+    },
+    "correct": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "diff": [
+      -0.25,
+      -0.75,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 1,
+     "ties": 3,
+     "n_questions": 4
+    },
+    "tool_f1": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "diff": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 0,
+     "ties": 4,
+     "n_questions": 4
+    },
+    "partial": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.91675,
+      0.7502500000000001,
+      1.0
+     ],
+     "diff": [
+      -0.08324999999999999,
+      -0.24974999999999997,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 1,
+     "ties": 3,
+     "n_questions": 4
+    }
+   },
+   "scaps": {},
+   "multi_tool": {}
+  },
+  "deepseek": {
+   "pdb": {},
+   "literature": {},
+   "ml": {},
+   "scaps": {},
+   "multi_tool": {}
+  },
+  "minimax": {
+   "pdb": {
+    "completed": {
+     "direct": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "perovagents": [
+      0.25,
+      0.0,
+      0.75
+     ],
+     "diff": [
+      -0.5,
+      -1.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 2,
+     "ties": 2,
+     "n_questions": 4
+    },
+    "correct": {
+     "direct": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "perovagents": [
+      0.25,
+      0.0,
+      0.75
+     ],
+     "diff": [
+      -0.5,
+      -1.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 2,
+     "ties": 2,
+     "n_questions": 4
+    },
+    "tool_f1": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.25,
+      0.0,
+      0.75
+     ],
+     "diff": [
+      -0.75,
+      -1.0,
+      -0.25
+     ],
+     "wins": 0,
+     "losses": 3,
+     "ties": 1,
+     "n_questions": 4
+    },
+    "partial": {
+     "direct": [
+      0.75,
+      0.25,
+      1.0
+     ],
+     "perovagents": [
+      0.25,
+      0.0,
+      0.75
+     ],
+     "diff": [
+      -0.5,
+      -1.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 2,
+     "ties": 2,
+     "n_questions": 4
+    }
+   },
+   "literature": {
+    "completed": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "diff": [
+      -0.5,
+      -1.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 1,
+     "ties": 1,
+     "n_questions": 2
+    },
+    "correct": {
+     "direct": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "perovagents": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "diff": [
+      0.0,
+      -1.0,
+      1.0
+     ],
+     "wins": 1,
+     "losses": 1,
+     "ties": 0,
+     "n_questions": 2
+    },
+    "tool_f1": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "diff": [
+      -0.5,
+      -1.0,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 1,
+     "ties": 1,
+     "n_questions": 2
+    },
+    "partial": {
+     "direct": [
+      0.8335,
+      0.667,
+      1.0
+     ],
+     "perovagents": [
+      0.5,
+      0.0,
+      1.0
+     ],
+     "diff": [
+      -0.3335,
+      -1.0,
+      0.33299999999999996
+     ],
+     "wins": 1,
+     "losses": 1,
+     "ties": 0,
+     "n_questions": 2
+    }
+   },
+   "ml": {
+    "completed": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "diff": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "wins": 0,
+     "losses": 2,
+     "ties": 0,
+     "n_questions": 2
+    },
+    "correct": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "diff": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "wins": 0,
+     "losses": 2,
+     "ties": 0,
+     "n_questions": 2
+    },
+    "tool_f1": {
+     "direct": [
+      0.7335,
+      0.667,
+      0.8
+     ],
+     "perovagents": [
+      0.619,
+      0.571,
+      0.667
+     ],
+     "diff": [
+      -0.11450000000000005,
+      -0.2290000000000001,
+      0.0
+     ],
+     "wins": 0,
+     "losses": 1,
+     "ties": 1,
+     "n_questions": 2
+    },
+    "partial": {
+     "direct": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "perovagents": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "diff": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "wins": 0,
+     "losses": 2,
+     "ties": 0,
+     "n_questions": 2
+    }
+   },
+   "scaps": {},
+   "multi_tool": {}
+  }
+ },
+ "model_names": {
+  "gemini": "Gemini 3.5 Flash-Lite",
+  "deepseek": "DeepSeek V4.1 Flash",
+  "minimax": "MiniMax M3.1 Flash"
+ }
+}

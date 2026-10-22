@@ -1,0 +1,15 @@
+backbone,quantity,value,unit,denominator
+gemini,valid_pairs,6,,
+gemini,mean_model_calls_perovagents_valid,10.4,n,13
+gemini,mean_model_calls_direct_valid,12.8,n,6
+gemini,perov_episodes_with_escalation,6,of,13
+gemini,escalated_and_correct,0,of,6
+gemini,non_escalated_and_correct,5,of,7
+gemini,perov_zero_ask_episodes(orchestrator answered without dispatch),0,of,13
+minimax,valid_pairs,6,,
+minimax,mean_model_calls_perovagents_valid,3.0,n,6
+minimax,mean_model_calls_direct_valid,6.5,n,22
+minimax,perov_episodes_with_escalation,0,of,6
+minimax,escalated_and_correct,0,of,0
+minimax,non_escalated_and_correct,2,of,6
+minimax,perov_zero_ask_episodes(orchestrator answered without dispatch),4,of,6

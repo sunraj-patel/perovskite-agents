@@ -1,0 +1,9 @@
+backbone,model_label,metric,n_questions,diff_perovagents_minus_direct,ci95_lo,ci95_hi,questions_perovagents_better,ties,questions_direct_better,ci_excludes_zero
+gemini,Gemini 3.5 Flash-Lite,completed,12,0.25,0.0,0.5,3,9,0,no
+gemini,Gemini 3.5 Flash-Lite,correct,12,0.083,-0.167,0.333,2,9,1,no
+gemini,Gemini 3.5 Flash-Lite,tool_f1,12,0.512,0.262,0.762,7,5,0,yes
+gemini,Gemini 3.5 Flash-Lite,partial,12,0.258,0.042,0.508,5,6,1,yes
+minimax,MiniMax M3.1 Flash,completed,8,-0.625,-0.875,-0.25,0,3,5,yes
+minimax,MiniMax M3.1 Flash,correct,8,-0.5,-0.875,0.0,1,2,5,no
+minimax,MiniMax M3.1 Flash,tool_f1,8,-0.529,-0.875,-0.182,0,3,5,yes
+minimax,MiniMax M3.1 Flash,partial,8,-0.583,-0.875,-0.167,1,2,5,yes

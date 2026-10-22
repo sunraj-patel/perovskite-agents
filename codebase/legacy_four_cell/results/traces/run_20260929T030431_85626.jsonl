@@ -1,0 +1,5 @@
+{"t": 1790651071.755031, "event": "plan", "run_id": "20260929T030431_85626", "seed": 42, "tasks": [{"id": "t1", "cell": "pdb_sql", "request": "Compare the average PCE of p-i-n vs n-i-p devices in the database", "params": {"sql": "SELECT Cell_architecture, AVG(JV_default_PCE) AS avg_pce, COUNT(*) AS n FROM perovskite_db WHERE Cell_architecture IN ('p-i-n', 'n-i-p') GROUP BY Cell_architecture"}, "depends_on": []}]}
+{"t": 1790651071.75507, "event": "dispatch", "task": "t1", "cell": "pdb_sql"}
+{"t": 1790651393.1403039, "event": "timeout", "task": "t1"}
+{"t": 1790651393.140332, "event": "failed", "task": "t1", "cell": "pdb_sql", "reason": "timeout"}
+{"t": 1790651900.076959, "event": "done", "run_id": "20260929T030431_85626", "summary": {"run_id": "20260929T030431_85626", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "timeout"}, "skipped": []}}

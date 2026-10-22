@@ -1,0 +1,181 @@
+{
+ "episode_id": "Q31__deepseek__perovagents__r0",
+ "qid": "Q31",
+ "category": "ml",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "opencode/deepseek-v4.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-22T00:31:13",
+ "config_version": "v4",
+ "baseline_protocol": "direct_v4_neutral_json",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200,
+  "agent_extra_turns_large_task": 6,
+  "orchestrator_extra_rounds_multi_part": 2
+ },
+ "question": "For an n-i-p cell with SnO2 ETL, Spiro-MeOTAD HTL and MAPbI3 perovskite, what does the ML model predict for the PCE when the perovskite thickness is 300 nm and when it is 500 nm?",
+ "finished_at": "2026-10-22T00:31:32",
+ "seconds": 19.9,
+ "termination": "answer",
+ "final_answer": "The NIP CatBoost model predicts 12.29% PCE (95% interval 10.70\u201313.89%) at 300 nm and 12.34% (10.91\u201313.78%) at 500 nm for the n-i-p SnO2 / Spiro-MeOTAD / MAPbI3 device, holding other parameters at the parser's typical training values. The two are effectively indistinguishable given model error (RMSE 3.89 PCE points, R\u00b2 0.47). Note these are model associations from pre-fabrication descriptions, not measured values; the unspecified ETL/HTL thicknesses and annealing conditions were silently defaulted and not exposed, and the out-of-domain check covered 0 features.",
+ "tool_calls": [
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "n-i-p cell, SnO2 ETL, Spiro-MeOTAD HTL, MAPbI3 perovskite 300 nm",
+    "architecture": "nip"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'NIP', 'predicted_pce': 12.29, 'pce_95_interval': [10.7, 13.89], 'interval_spread_percent': 3.19, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'SnO2', 'HTL': 'Spiro-MeOTAD', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_NIP.cbm', 'target': 'PCE'}}",
+   "result_chars": 452,
+   "seconds": 1.637,
+   "t_offset_s": 6.74,
+   "error": false
+  },
+  {
+   "agent": "ml",
+   "tool": "predict",
+   "args": {
+    "description": "n-i-p cell, SnO2 ETL, Spiro-MeOTAD HTL, MAPbI3 perovskite 500 nm",
+    "architecture": "nip"
+   },
+   "result": "{'result_type': 'prediction', 'architecture': 'NIP', 'predicted_pce': 12.34, 'pce_95_interval': [10.91, 13.78], 'interval_spread_percent': 2.87, 'n_bags': 3, 'hood': {'applied': True, 'n_out_of_envelope': 0, 'n_features_checked': 0, 'fraction_out': 0.0, 'ood': False, 'details': []}, 'resolved_materials': {'ETL': 'SnO2', 'HTL': 'Spiro-MeOTAD', 'Perovskite': 'MAPbI3'}, 'provenance': {'kind': 'ml_prediction', 'model': 'model_NIP.cbm', 'target': 'PCE'}}",
+   "result_chars": 453,
+   "seconds": 0.004,
+   "t_offset_s": 10.66,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 2,
+ "n_model_calls": 5,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 5,
+  "prompt_chars": 23550,
+  "completion_chars": 2153,
+  "real_prompt_tokens": 27364,
+  "real_completion_tokens": 1418,
+  "usage_reported_calls": 5,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 18.2,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   }
+  ],
+  "call_log": [
+   {
+    "i": 1,
+    "t_offset_s": 0.1,
+    "latency_s": 2.79,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 3441,
+    "text_len": 367,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 2,
+    "t_offset_s": 2.89,
+    "latency_s": 3.85,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4548,
+    "text_len": 135,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 3,
+    "t_offset_s": 8.38,
+    "latency_s": 2.28,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5118,
+    "text_len": 135,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 4,
+    "t_offset_s": 10.66,
+    "latency_s": 6.45,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 5691,
+    "text_len": 936,
+    "empty": false,
+    "provider_failure": false
+   },
+   {
+    "i": 5,
+    "t_offset_s": 17.12,
+    "latency_s": 2.79,
+    "model": "opencode/deepseek-v4.1-flash-free",
+    "prompt_chars": 4752,
+    "text_len": 580,
+    "empty": false,
+    "provider_failure": false
+   }
+  ],
+  "empty_reply_calls": 0,
+  "empty_reply_classes": {},
+  "provider_failure_calls": 0
+ },
+ "infra_failure": false,
+ "validity": "valid",
+ "validity_evidence": {
+  "model_calls": 5,
+  "replies": 5,
+  "empty_replies": 0,
+  "empty_classes": {},
+  "provider_failure_calls": 0
+ },
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261022_003113_426c.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 1,
+  "n_format_errors": 0,
+  "escalations": 0
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

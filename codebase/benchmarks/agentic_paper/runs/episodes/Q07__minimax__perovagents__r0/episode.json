@@ -1,0 +1,478 @@
+{
+ "episode_id": "Q07__minimax__perovagents__r0",
+ "qid": "Q07",
+ "category": "literature",
+ "condition": "perovagents",
+ "backbone": "minimax",
+ "model": "opencode/minimax-m3.1-flash-free",
+ "route": "opencode serve (free model, locked plan agent)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:25:57",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Find a relevant paper reporting a quantitative performance improvement for an SnO2-based n-i-p perovskite solar cell. Report the baseline/result value, the intervention, the quantitative improvement, and the DOI.",
+ "finished_at": "2026-10-21T19:43:34",
+ "seconds": 1057.3,
+ "termination": "answer",
+ "final_answer": "[PROVIDER FAILURE] backbone unavailable; episode aborted.",
+ "tool_calls": [
+  {
+   "agent": "pdb",
+   "tool": "column_values",
+   "args": {
+    "column": "Cell_architecture",
+    "top": 15
+   },
+   "result": "[('nip', 29897), ('pin', 13342), ('Unknown', 103), ('Back contacted', 33), ('Front contacted', 7), ('Schottky', 5), ('Pn-Heterojunction', 1)]",
+   "result_chars": 141,
+   "seconds": 0.033,
+   "t_offset_s": 64.24,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "column_values",
+   "args": {
+    "column": "ETL_stack_sequence",
+    "top": 20
+   },
+   "result": "[('TiO2-c | TiO2-mp', 11786), ('TiO2-c', 6883), ('PCBM-60', 3285), ('PCBM-60 | BCP', 2711), ('C60 | BCP', 1864), ('SnO2-np', 1702), ('SnO2-c', 1408), ('TiO2-c | TiO2-mp | ZrO2-mp', 649), ('ZnO-c', 484), ('PCBM-60 | C60 | BCP', 461), ('PCBM-60 | LiF', 425), ('PCBM-60 | Bphen', 424), ('ZnO-np', 357), ('C60', 346), ('TiO2-c | TiO2-nw', 311), ('PCBM-60 | ZnO-np', 306), ('TiO2-c | PCBM-60', 288), ('none', 281), ('TiO2-np', 261), ('PCBM-60 | PEI', 215)]",
+   "result_chars": 451,
+   "seconds": 0.095,
+   "t_offset_s": 91.9,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transport layer n-i-p perovskite solar cell power conversion efficiency improvement",
+    "k": 8
+   },
+   "result": "{'query': 'SnO2 electron transport layer n-i-p perovskite solar cell power conversion efficiency improvement', 'method': 'semantic', 'n_hits': 8, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.72, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.701, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2685, 'score': 0.699, 'text': 'n cadmium sulfide Over the past several years, organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising candidates for low-cost, high-efficiency solar cells.<sup>1-3</sup> By virtue of the attractive characteristics of perovskite materials, such as high absorption coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture '}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 339, 'score': 0.692, 'text': 'Recently, perovskite solar cells (PSCs) have been paid more attentions due to its low cost, long charge diffusion length, and high efficiency [1\u20134]. In 2009, Tsutomu Miyasaka et al. applied perovskte material to solar cells for the first time and obtained the power conversion efficiency (PCE) of 3.8% [5]. In the past few years, the PCE of perovskite solar cells has reached 22.1% [6]. However, the perovskite solar cells only absorbs a small portion of incident light in the visible range [7,8], and a large portion of incident light energy is lost due to non-absorption of near infrared (NIR) ligh'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 575, 'score': 0.691, 'text': 'Wang, J. He, W. Li, Improved charge transport of Nb-doped TiO<sub>2</sub> nanorods in methylammonium lead iodide bromide perovskite solar cells, J. Mater. Chem. 2 (2014) 19616\u201419622. - [35] H. Zhou, Q. Chen, G. Li, S. Luo, T.B. Song, H.-S. Duan, Z. Hong, J. You, Y. Liu, Y. Yang, Interface engineering of highly efficient perovskite solar cells, Science 345 (2014) 542\u2013546. - [36] H. Zhang, J. Shi, X. Xu, L. Zhu, Y. Luo, D. Li, Q. Meng, Mg-doped TiO<sub>2</sub> boosts the efficiency of planar perovskite solar cells to exceed 19%, J. Mater. Chem. 4 (2016) 15383\u201315389. - [37] X.X. Gao, Q.Q. Ge, D.J'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 561, 'score': 0.688, 'text': '.I. Seok, High-performance photovoltaic perovskite layers fabricated through intramolecular exchange, Science 348 (2015) 1234\u20131237. - change, Science 348 (2015) 1234\u20131237. [16] N.J. Jeon, J.H. Noh, W.S. Yang, Y.C. Kim, S. Ryu, J. Seo, S.I. Seok, Compositional engineering of perovskite materials for high-performance solar cells, Nature 517 (2015) 476\u2013480. - [17] W. Chen, Y. Wu, Y. Yue, J. Liu, W. Zhang, X. Yang, H. Chen, E. Bi, I. Ashraful, M. Gr\u00e4tzel, Efficient and stable large-area perovskite solar cells with inorganic charge extraction layers, Science 350 (2015) 944\u2013948. - [18] Efficiency Re'}, {'doi': '10.1117/12.2506443', 'paper_title': 'Efficient Perovskite Solar Cells by Doping Poly-TPD into PTAA as Hole Transporting Layer**', 'section': 'ABSTRACT', 'passage_id': 2593, 'score': 0.687, 'text': 'plained to the improved perovskite grain size and the increased electron transfer of mixed HTL. As a result, by incorporating poly-TPD with PTAA as the HTL, it provides an effective approach to reach high performance p-i-n PVSCs. **Keywords:** Perovskite solar cells, polymer, hole transport layer, efficiency'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2686, 'score': 0.684, 'text': 'tion coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture for an efficient PSC with n-i-p configuration can be summarized as follows: transparent conductive oxide (TCO) as the electron-collecting layer/ n-type semiconductor for the electron-transporting layer (ETL)/ perovskite as the intrinsic material/p-type semiconductor for the hole-transporting layer ('}]}",
+   "result_chars": 5885,
+   "seconds": 16.364,
+   "t_offset_s": 88.07,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) AS total_devices, COUNT(DISTINCT Ref_DOI_number) AS total_papers, SUM(CASE WHEN ETL_stack_sequence LIKE '%SnO2%' THEN 1 ELSE 0 END) AS sno2_devices, SUM(CASE WHEN ETL_stack_sequence LIKE '%TiO2%' THEN 1 ELSE 0 END) AS tio2_devices, SUM(CASE WHEN ETL_stack_sequence IS NULL OR ETL_stack_sequence='' THEN 1 ELSE 0 END) AS etl_null_or_empty, SUM(CASE WHEN ETL_stack_sequence IS NOT NULL AND ETL_stack_sequence<>'' AND ETL_stack_sequence NOT LIKE '%SnO2%' AND ETL_stack_sequence NOT LIKE '%TiO2%' THEN 1 ELSE 0 END) AS other_etl_devices FROM devices"
+   },
+   "result": "{'columns': ['total_devices', 'total_papers', 'sno2_devices', 'tio2_devices', 'etl_null_or_empty', 'other_etl_devices'], 'n_rows': 1, 'rows': [{'total_devices': 43398, 'total_papers': 7499, 'sno2_devices': 4567, 'tio2_devices': 23049, 'etl_null_or_empty': 0, 'other_etl_devices': 16140}]}",
+   "result_chars": 288,
+   "seconds": 0.04,
+   "t_offset_s": 123.66,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 tin dioxide electron transport layer n-i-p perovskite solar cell power conversion efficiency stability",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 tin dioxide electron transport layer n-i-p perovskite solar cell power conversion efficiency stability', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.707, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.698, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 575, 'score': 0.671, 'text': 'Wang, J. He, W. Li, Improved charge transport of Nb-doped TiO<sub>2</sub> nanorods in methylammonium lead iodide bromide perovskite solar cells, J. Mater. Chem. 2 (2014) 19616\u201419622. - [35] H. Zhou, Q. Chen, G. Li, S. Luo, T.B. Song, H.-S. Duan, Z. Hong, J. You, Y. Liu, Y. Yang, Interface engineering of highly efficient perovskite solar cells, Science 345 (2014) 542\u2013546. - [36] H. Zhang, J. Shi, X. Xu, L. Zhu, Y. Luo, D. Li, Q. Meng, Mg-doped TiO<sub>2</sub> boosts the efficiency of planar perovskite solar cells to exceed 19%, J. Mater. Chem. 4 (2016) 15383\u201315389. - [37] X.X. Gao, Q.Q. Ge, D.J'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1428, 'score': 0.656, 'text': ' SnF_2}$ (20 mol %) with the resultant photovoltaic parameters attained shown in Table 1 and Figure 2a. Short-circuit photocurrent density $(J_{sc})$ of 27.67 mA/cm<sup>2</sup> under AM 1.5G solar illumination has been observed for CsSnI<sub>3</sub> (with SnF<sub>2</sub>) solar cell, owing to the smaller band gap and better crystal quality attained by annealing the perovskite loaded TiO<sub>2</sub> films at 100 \u00b0C. The quality of the perovskite film is highly critical in affecting the cell performance as has been reported by other research groups and as such perovskite annealing temperatures a'}, {'doi': '10.1246/cl.180616', 'paper_title': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'section': 'Ultra-thin Cadmium Sulfide Electron-transporting Layer for Planar Perovskite Solar Cell', 'passage_id': 2685, 'score': 0.65, 'text': 'n cadmium sulfide Over the past several years, organic-inorganic hybrid perovskite solar cells (PSCs) have emerged as one of the most promising candidates for low-cost, high-efficiency solar cells.<sup>1-3</sup> By virtue of the attractive characteristics of perovskite materials, such as high absorption coefficient, 4,5 high carrier mobility, 6 long diffusion length, <sup>7</sup> self-organized superlattice, <sup>8</sup> and tunable bandgap $(E_g)$ , excellent photovoltaic performance has been obtained, with power-conversion efficiency (PCE) of over 22%. 10 Currently, the general architecture '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 561, 'score': 0.647, 'text': '.I. Seok, High-performance photovoltaic perovskite layers fabricated through intramolecular exchange, Science 348 (2015) 1234\u20131237. - change, Science 348 (2015) 1234\u20131237. [16] N.J. Jeon, J.H. Noh, W.S. Yang, Y.C. Kim, S. Ryu, J. Seo, S.I. Seok, Compositional engineering of perovskite materials for high-performance solar cells, Nature 517 (2015) 476\u2013480. - [17] W. Chen, Y. Wu, Y. Yue, J. Liu, W. Zhang, X. Yang, H. Chen, E. Bi, I. Ashraful, M. Gr\u00e4tzel, Efficient and stable large-area perovskite solar cells with inorganic charge extraction layers, Science 350 (2015) 944\u2013948. - [18] Efficiency Re'}, {'doi': '10.1038/ncomms15330', 'paper_title': 'ARTICLE', 'section': 'References', 'passage_id': 1798, 'score': 0.647, 'text': 's, T. et al. Stability of metal halide perovskite solar cells. Adv. Energy Mater. 5, 23 (2015). - 19. You, J. et al. Improved air stability of perovskite solar cells via solutionprocessed metal oxide transport layers. Nat. Nanotechnol. 11, 75\u201381 (2016). - 20. Liu, J. et al. A dopant-free hole-transporting material for efficient and stable perovskite solar cells. Energy Environ. Sci. 7, 2963\u20132967 (2014). - 21. Leijtens, T. et al. Overcoming ultraviolet light instability of sensitized TiO2 with meso-superstructured organometal tri-halide perovskite solar cells. Nat. Commun. 4, 2885 (2013). - 22.'}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 339, 'score': 0.646, 'text': 'Recently, perovskite solar cells (PSCs) have been paid more attentions due to its low cost, long charge diffusion length, and high efficiency [1\u20134]. In 2009, Tsutomu Miyasaka et al. applied perovskte material to solar cells for the first time and obtained the power conversion efficiency (PCE) of 3.8% [5]. In the past few years, the PCE of perovskite solar cells has reached 22.1% [6]. However, the perovskite solar cells only absorbs a small portion of incident light in the visible range [7,8], and a large portion of incident light energy is lost due to non-absorption of near infrared (NIR) ligh'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '2.1. Effect of annealed perovskite film on device degradation', 'passage_id': 857, 'score': 0.644, 'text': 'We conducted the study using the triple cation perovskite Cs0.05(MA0.17FA0.83)0.95Pb(I0.83Br0.17)3 and the p-i-n solar cell devices with ITO/PEDOT: PSS/perovskite/PCBM/Ag architecture ([Fig. 1](#page-1-0)b). To rule out the possible degradation caused by the upper stacked layers of electron transporting layer and metallic cathode, the heating processes were only applied on semi-finished cells of ITO/PEDOT:PSS/perovskite films. [Fig. 1](#page-1-0)c shows the J-V characteristics of the devices with freshly prepared as well as annealed (85 \u00b0C) perovskite films for different durations. The pristin'}, {'doi': '10.1016/j.electacta.2017.06.032', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 343, 'score': 0.644, 'text': ' NaYF<sub>4</sub> [8,12]. Until now, there are few reports on the application of $TiO_2$ based upconversion materials to perovskite solar cells. In the present study, we synthesized Er and Yb co-doped $TiO_2$ (Er-Yb:TiO<sub>2</sub>) nanorod arrays with an hydrothermal method, and fabricated perovskite solar cells using them as an electron transfer layer. The power conversion efficiency of solar cells based on Er-Yb: $TiO_2$ presents an enhancement of 20.8% compared with that of the solar cells based on un-doped $TiO_2$ .'}]}",
+   "result_chars": 7607,
+   "seconds": 0.342,
+   "t_offset_s": 198.67,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 electron transport layer n-i-p perovskite solar cell efficiency",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 electron transport layer n-i-p perovskite solar cell efficiency', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ARTICLE INFO', 'passage_id': 437, 'score': 0.753, 'text': 'Article history: Received 12 September 2017 Received in revised form 24 November 2017 Accepted 16 December 2017 Available online 19 December 2017 Keywords: Perovskite solar cells Sn-doped TiO<sub>2</sub> Electron transporting layers Low-temperature solution method'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'ABSTRACT', 'passage_id': 438, 'score': 0.731, 'text': 'Sn-doped $TiO_2$ films were successfully deposited by low-temperature solution method as electron transport layer (ETL), whose influence on the performance of perovskite solar cell (PSC) was investigated. In this work, X-ray photoelectron spectroscopy and X-ray diffraction revealed that $Sn^{4+}$ was successfully incorporated into the $TiO_2$ lattice as an effective metal ion dopant without forming secondary phases. Compared with pristine $TiO_2$ , the Sn-doped $TiO_2$ is more efficient for photogenerated electron extraction and transport, showing lower trap-state density and higher conductivi'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 143, 'score': 0.722, 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '2.1. Effect of annealed perovskite film on device degradation', 'passage_id': 857, 'score': 0.716, 'text': 'We conducted the study using the triple cation perovskite Cs0.05(MA0.17FA0.83)0.95Pb(I0.83Br0.17)3 and the p-i-n solar cell devices with ITO/PEDOT: PSS/perovskite/PCBM/Ag architecture ([Fig. 1](#page-1-0)b). To rule out the possible degradation caused by the upper stacked layers of electron transporting layer and metallic cathode, the heating processes were only applied on semi-finished cells of ITO/PEDOT:PSS/perovskite films. [Fig. 1](#page-1-0)c shows the J-V characteristics of the devices with freshly prepared as well as annealed (85 \u00b0C) perovskite films for different durations. The pristin'}, {'doi': '10.1021/jp5126624', 'paper_title': 'Impact of Anionic Br<sup>-</sup> Substitution on Open Circuit Voltage in Lead Free Perovskite (CsSnl<sub>3-x</sub>Br<sub>x</sub>) Solar Cells', 'section': '\u25a0 RESULTS AND DISCUSSION', 'passage_id': 1428, 'score': 0.714, 'text': ' SnF_2}$ (20 mol %) with the resultant photovoltaic parameters attained shown in Table 1 and Figure 2a. Short-circuit photocurrent density $(J_{sc})$ of 27.67 mA/cm<sup>2</sup> under AM 1.5G solar illumination has been observed for CsSnI<sub>3</sub> (with SnF<sub>2</sub>) solar cell, owing to the smaller band gap and better crystal quality attained by annealing the perovskite loaded TiO<sub>2</sub> films at 100 \u00b0C. The quality of the perovskite film is highly critical in affecting the cell performance as has been reported by other research groups and as such perovskite annealing temperatures a'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '3. Discussion', 'passage_id': 916, 'score': 0.713, 'text': 'I2) near the interface between the perovskite and the top electron transporting layer [\\\\(Figs. 1 and 3](#page-1-0)). The detachment behavior between the perovskite and the bottom hole transporting layer also limits the photogenerated carrier collection at the contact ([Fig. 2](#page-2-0)). In addition, the surface electronic structure of the perovskite film significantly is modified with an increased hole extraction barrier that leads to energy loss for the solar cell [\\\\(Fig. 4](#page-4-0)). From the proposed degradation mechanism and the impact on the device performance it is easy to understa'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 595, 'score': 0.704, 'text': '7/sref54) [solar cells, Nano Energy 11 \\\\(2015\\\\) 409](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref54)e[418.](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref54) - [55] [Q. Dong, Y. Shi, K. Wang, Y. Li, S. Wang, H. Zhang, Y. Xing, Y. Du, X. Bai, T. Ma,](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [Insight into perovskite solar cells based on SnO2](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [compact electron-selective](http://refhub.elsevier.com/S0013-4686(17)32673-7/sref55) [layer, J. Phys. Chem. C 119 \\\\(2015\\\\) 10212](http://refhub.elsevier.com/S0013-4686'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': 'References', 'passage_id': 575, 'score': 0.704, 'text': 'Wang, J. He, W. Li, Improved charge transport of Nb-doped TiO<sub>2</sub> nanorods in methylammonium lead iodide bromide perovskite solar cells, J. Mater. Chem. 2 (2014) 19616\u201419622. - [35] H. Zhou, Q. Chen, G. Li, S. Luo, T.B. Song, H.-S. Duan, Z. Hong, J. You, Y. Liu, Y. Yang, Interface engineering of highly efficient perovskite solar cells, Science 345 (2014) 542\u2013546. - [36] H. Zhang, J. Shi, X. Xu, L. Zhu, Y. Luo, D. Li, Q. Meng, Mg-doped TiO<sub>2</sub> boosts the efficiency of planar perovskite solar cells to exceed 19%, J. Mater. Chem. 4 (2016) 15383\u201315389. - [37] X.X. Gao, Q.Q. Ge, D.J'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 140, 'score': 0.699, 'text': 'the perovskite underlayer and without contributing to parasitic absorption in perovskite solar cells. We observe that subsequent passivation of the perovskite surface with 1-adamantylamine hydrochloride (ADAHCl) further improves the perovskite film quality by retarding surface recombination, as shown by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h a'}, {'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '2. Results and Discussion', 'passage_id': 142, 'score': 0.697, 'text': 'The triple A-cation mixed-halide (ABX3) perovskite composition \"CsMAFA\" (cesium, methylammonium, and formamidinium) is employed as a reference system and deposited using the antisolvent technique. Here, we study the effect of chloride additives on the surface morphology and the photovoltaic performance of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the sur'}]}",
+   "result_chars": 7932,
+   "seconds": 0.174,
+   "t_offset_s": 217.28,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Cell_architecture, COUNT(*) AS n_devices, COUNT(DISTINCT Ref_DOI_number) AS n_papers FROM devices WHERE ETL_stack_sequence LIKE '%SnO2%' GROUP BY Cell_architecture ORDER BY n_devices DESC"
+   },
+   "result": "{'columns': ['Cell_architecture', 'n_devices', 'n_papers'], 'n_rows': 4, 'rows': [{'Cell_architecture': 'nip', 'n_devices': 4422, 'n_papers': 794}, {'Cell_architecture': 'pin', 'n_devices': 143, 'n_papers': 39}, {'Cell_architecture': 'Unknown', 'n_devices': 1, 'n_papers': 1}, {'Cell_architecture': 'Back contacted', 'n_devices': 1, 'n_papers': 1}]}",
+   "result_chars": 349,
+   "seconds": 0.113,
+   "t_offset_s": 238.58,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "search",
+   "args": {
+    "query": "SnO2 ETL doped interlayer surface treatment n-i-p device PCE increase",
+    "k": 10
+   },
+   "result": "{'query': 'SnO2 ETL doped interlayer surface treatment n-i-p device PCE increase', 'method': 'semantic', 'n_hits': 10, 'hits': [{'doi': '10.1002/aenm.201803587', 'paper_title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'section': '1. Introduction', 'passage_id': 141, 'score': 0.57, 'text': 'n by photoluminescence (PL) and electrochemical impedance spectroscopy (EIS) measurements. Based on these modifications, a SnO2-based planar PSC was achieved with a PCE of 21.2%, low hysteresis, and high open circuit voltage of 1152 mV. The Cl treated PSC retains 88% of its initial PCE after 700 h aging under continuous illumination, which is much better than the reference device, maintaining 67% of its initial PCE value.'}, {'doi': '10.1016/j.nanoen.2018.10.011', 'paper_title': 'Contents lists available at ScienceDirect', 'section': '5.2. Device fabrication and characterization', 'passage_id': 935, 'score': 0.566, 'text': 'ealed at 140 \u00b0C for 10 min in ambient air. The perovskite layers were spin coated on ITO/PEDOT:PSS. 20 mg/Ml and PCBM in chlorobenzene solution was deposited on the top perovskite films at 1500 rpm for 30 s as electron transporting layer. After that, Ag (100 nm) layer was thermally evaporated with a shadow mask at the pressure of 2 \u00d7 10-6 Torr. For the SnO2 based device, the SnO2 colloid precursor was diluted by ultrapure H2O to achieve a concentration of 2.67%. The dilute solution was spin coated on ITO substrates at 3000 rpm for 30 s followed by annealed at 150 \u00b0C for 30 min in ambient air. '}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 505, 'score': 0.565, 'text': 'ng results of Sn-doped device demonstrated higher IPCE intensity over the entire wavelength range from 300 nm to 780 nm. The integrated I<sub>sc</sub> from IPCE spectra for pristine and 3.5% Sn-doped TiO<sub>2</sub> are 18.3 mA/ cm<sup>2</sup> and 20.7 mA/cm<sup>2</sup>, respectively, in good agreement with the J-V measurement value. To study the reproducibility of the materials and processes, we prepared more than 25 individual devices each based on pristine or Sn-doped TiO<sub>2</sub> compact layers. As shown in Fig. 4c and d. in comparison with the control device. PCE value for Sn-doped dev'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 457, 'score': 0.56, 'text': 'ort a low-cost and low-temperature solution processed method for Sn-doped TiO<sub>2</sub> film as an ETL for high-performance planar PSCs. The best-performing planar cell using a Sn-doped TiO<sub>2</sub> ETL has achieved PCEs of 17.2%, a 29.3% improvement compared to the PCE of pristine TiO<sub>2</sub>-based sample, providing a record efficiency at present. Sn doping resulted in an up-shift of Fermi energy level and significant improvement in film conductivity compared to undoped TiO<sub>2</sub> film. The structure and photoelectric properties of the Sn-doped TiO<sub>2</sub> as well as the cor'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 497, 'score': 0.549, 'text': ' measured under AM 1.5G illumination and (b) the corresponding IPCE curves and integrated current density of PSCs. Histograms of PCEs measured for 25 cells based on pristine TiO2 film (c) and (d)3.5% Sn-doped TiO2 film. of 1.06 V and FF of 65.4%, yielding a PCE of 13.3%. It is clear that the notable enhancement in PCE relies more on the JSC and FF upon doping with 3.5% Sn. Such an improvement in Jsc is likely to originate from two factors caused by Sn cation dopant: (1) improvement of the electron injection efficiency results from the positive shift in Fermi energy level for Sn doping (Fig. S7'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 456, 'score': 0.549, 'text': 'ding Sn-doped ones require high processing temperature of 450 \u00b0C, which prevent the doped TiO<sub>2</sub> film from application in low-temperature manufacture of PSCs. Therefore, developing an effective method to dope the TiO<sub>2</sub> layer at sub-100 \u00b0C is of significant importance. Here, we report a low-cost and low-temperature solution processed method for Sn-doped TiO<sub>2</sub> film as an ETL for high-performance planar PSCs. The best-performing planar cell using a Sn-doped TiO<sub>2</sub> ETL has achieved PCEs of 17.2%, a 29.3% improvement compared to the PCE of pristine TiO<sub>2</s'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '2. Results and discussion', 'passage_id': 506, 'score': 0.532, 'text': 'ent with the J-V measurement value. To study the reproducibility of the materials and processes, we prepared more than 25 individual devices each based on pristine or Sn-doped TiO<sub>2</sub> compact layers. As shown in Fig. 4c and d. in comparison with the control device. PCE value for Sn-doped device displays narrower distribution with smaller standard deviation. The efficiency evolutions of the PSCs in ambient air with humidity of 36% were shown in Fig. S9. After 480 h of air exposure, the PSCs based on 3.5% Sn-doped TiO2 compact layer retained over 80% of their initial PCE, whereas the PCE'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '1. Introduction', 'passage_id': 451, 'score': 0.526, 'text': 'ation and guarantee effective interfacial electron injection in PSCs, modifying the electronic band structures and filling surface states of TiO2 layers. For instance, niobium-doped TiO<sub>2</sub> nanorods was applied to enhance the charge transport for PSCs owing to the high conductive path and good interface contact [34]. Yttrium-doped TiO<sub>2</sub> was utilized as an ETL for n-i-p PSC and realized a high PCE of 19.3% [35]. Magnesiumdoped TiO2 compact layer improved band alignment with perovskite layer, leading to higher photocurrent [36]. Lanthanum-doped TiO<sub>2</sub> have been used in'}, {'doi': '10.1007/s10118-017-1891-z', 'paper_title': 'Improved Photovoltaic Performance from High Quality Perovskite Thin Film Grown with the Assistance of PC71BM\\\\***', 'section': 'INTRODUCTION', 'passage_id': 269, 'score': 0.525, 'text': ' Besides, a lot of works have been conducted to simplify the fabrication process considering the commercialization[18\u221221]. For example, hole/electron-transporting layers (ETL/HTLs) free devices[22, 23] are widely studied to eliminate the high-temperature sintering processing of TiO2 compact/mesoporous ETLs and the expensive HTL of spiro-OMeTAD. However, this type of devices suffers severe recombination at the interface between perovskite layer and electrodes, thus limiting to improve the performance. To solve this problem, many new interfacial materials[2\u22124, 6, 21, 24\u221228] have been developed t'}, {'doi': '10.1016/j.electacta.2017.12.108', 'paper_title': 'Electrochimica Acta', 'section': '3. Conclusions', 'passage_id': 534, 'score': 0.512, 'text': 't the $\\\\rm TiO_2/perovskite$ interface. This sequentially causes significant increases in $\\\\rm J_{SC}$ and FF and improvement in stability of PSCs. In general, this low-temperature solution-processed method in this paper will pave the way for doping other lower-valency elements into $\\\\rm TiO_2$ as large-area and high-quality ETLs, because it does not need a high temperature and can easily upscale the area in a solution process. Also, since the whole fabrication procedures were conducted below $\\\\rm 100\\\\,^{\\\\circ}C$ , the PSCs based on as-prepared Sn-doped $\\\\rm TiO_2$ compact layer offer signific'}]}",
+   "result_chars": 7825,
+   "seconds": 0.054,
+   "t_offset_s": 247.3,
+   "error": false
+  },
+  {
+   "agent": "literature",
+   "tool": "read_paper",
+   "args": {
+    "doi": "10.1002/aenm.201803587",
+    "query": "SnO2 electron transport layer n-i-p device structure FACl additive reference device PCE Voc Jsc FF stability"
+   },
+   "result": "{'doi': '10.1002/aenm.201803587', 'title': 'Controllable Perovskite Crystallization via Antisolvent Technique Using Chloride Additives for Highly Efficient Planar Perovskite Solar Cells**', 'n_passages_total': 144, 'n_passages_returned': 8, 'passages': [{'section': '2. Results and Discussion', 'text': 'nce of CsMAFA perovskite. **Figure 1**a,b illustrates schematically perovskite films deposited onto a SnO2 electron transporting layer (ETL) using the antisolvent method after annealing without and with the FACl additive. The antisolvent method produces a perovskite film with small grains on the surface, as observed from the scanning electron microscopy (SEM) cross-sectional view of the reference perovskite, showing the presence of a capping layer with small grains on the top of a 300 nm thick perovskite layer (Figure 1d). We expect this morphology to increase the charge recombination rate at '}, {'section': '2. Results and Discussion', 'text': 'ing films after integration are shown in Figure 3c. The significant peaks located at 2\u03b8 = 14.24\u00b0, 28.65\u00b0, 31.92\u00b0, and 43.85\u00b0 correspond to the (110), (220), (310), and (330) planes, respectively, confirming the formation of a perovskite film with tetragonal structure[21] in the ![](_page_3_Figure_4.jpeg) **Figure 2.** Top-view SEM image of perovskite films a) reference and b) with the FACl additive. AFM images of perovskite films c) reference and d) with the FACl additive. case of both perovskite films. We find that the intensity of the diffraction peaks for the perovskite film with FACl is si'}, {'section': '2. Results and Discussion', 'text': 'jpeg) **Figure 2.** Top-view SEM image of perovskite films a) reference and b) with the FACl additive. AFM images of perovskite films c) reference and d) with the FACl additive. case of both perovskite films. We find that the intensity of the diffraction peaks for the perovskite film with FACl is significantly increased, consistent with the better crystallinity. We also observe that the (110)-to-(310) peak intensity ratio in the FACl perovskite is 1.82 compared to 0.95 for the reference sample, indicating that the FACl treated-perovskite is mostly oriented along the out-of-plane (110) directio'}, {'section': '2. Results and Discussion', 'text': 'tion and reverse scan directions (Figure 5b). The figures of merit for the corresponding devices are listed in **Table 1**. The reference device ![](_page_4_Figure_4.jpeg) ![](_page_4_Figure_5.jpeg) **Figure 3.** 2D X-ray diffraction (2D-XRD) patterns of perovskite films a) reference and b) with the FACl additive. c) Peak intensity versus 2\u03f4 by integration of the data. demonstrates a typical PCE of 19.43% with *J*sc of 22.48 mA cm<sup>\u2212</sup><sup>2</sup> , *V*oc of 1110 mV, and fill factor (FF) of 77.8%, while the FAClbased device yields an enhanced PCE of 20.52% with a higher *V*oc of 1134 mV'}, {'section': '2. Results and Discussion', 'text': 's achieving long-term stability under light and humidity, which is crucial for commercialization. We therefore examined the effect of FACl and ADAHCl additives on devices stability by keeping the PSCs in a dry air box (relative humidity, RH of 40%) and periodically recording *J\u2013V* scans over 90 d. Our results show an improved stability for FACl- and ADAHCl-treated devices (95% of initial PCE retained after 90 d) as compared to FACl-treated PSCs (91%) and reference untreated samples (86.5%) (Figure 5d). To get a better insight into the device stability after Cl treatment, we analyzed the surfac'}, {'section': '2. Results and Discussion', 'text': 'chnology, Wiley Online Library on [06/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License ![](_page_6_Figure_4.jpeg) **Figure 5.** a) SEM cross-section image of a PSC device with the FACl additive and after passivation with ADAHCl. b) *J\u2013V* curves and c) EQE spectra of champion PSC devices (reference, with FACl additive, with FACl and after passivation). d) Shelf life test of PSC devices kept in dry air box (RH = 40%) at room temperature. recom'}, {'section': '2. Results and Discussion', 'text': 'ion image of a PSC device with the FACl additive and after passivation with ADAHCl. b) *J\u2013V* curves and c) EQE spectra of champion PSC devices (reference, with FACl additive, with FACl and after passivation). d) Shelf life test of PSC devices kept in dry air box (RH = 40%) at room temperature. recombination in this device. Figure 7c shows the variation of *R*rec with respect to applied bias extracted from Nyquist spectra for both samples. A higher value of recombination resistance *R*rec for Cl-based PSCs compared to the reference PSC signifies the lower recombination in the Cl-treated devices'}, {'section': '3. Conclusions', 'text': 'In summary, we studied the role of Cl additives on the morphology and film quality of mixed cation and halide PSCs **Table 1.** Figures of merit for the champion PSC devices under reverse scan direction. | Samplea) | Voc [mV] | Jsc [mA cm\u22122] | FF [%] | PCE [%] | Jsc from EQE [mA cm\u22122] | |-------------------------------------|-------------|---------------|-------------|---------------|------------------------| | Reference | 1110 (1107) | 22.48 (22.4) | 77.8 (75.3) | 19.43 (18.65) | 21.2 | | With FACl | 1134 (1125) | 23.01 (22.82) | 78.5 (76.8) | 20.52 (19.7) | 22.12 | | With FACl and ADAHCl<br>'}]}",
+   "result_chars": 5475,
+   "seconds": 0.077,
+   "t_offset_s": 251.91,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "column_values",
+   "args": {
+    "column": "ETL_additives_compounds",
+    "top": 15
+   },
+   "result": "[('Unknown', 33689), ('Unknown | TiCl4', 1000), ('Undoped | Undoped', 589), ('Undoped', 531), ('Unknown | Li-TFSI', 529), ('TiCl4', 472), ('TiCl4 | Unknown', 334), ('Undoped | Undoped | Undoped', 93), ('nan | TiCl4', 78), ('Nb', 78), ('Li-TFSI', 45), ('TiCl4 | nan', 40), ('Ni', 37), ('TiCl4 | TiCl4', 32), ('Unknown | TiCl4 | Unknown', 31)]",
+   "result_chars": 341,
+   "seconds": 0.058,
+   "t_offset_s": 258.11,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Cell_stack_sequence, COUNT(*) AS n_devices, COUNT(DISTINCT Ref_DOI_number) AS n_papers FROM devices WHERE ETL_stack_sequence LIKE '%SnO2%' AND Cell_architecture = 'nip' GROUP BY 1 ORDER BY n_devices DESC LIMIT 15"
+   },
+   "result": "{'columns': ['Cell_stack_sequence', 'n_devices', 'n_papers'], 'n_rows': 15, 'rows': [{'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 544, 'n_papers': 123}, {'Cell_stack_sequence': 'SLG | FTO | SnO2-c | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 535, 'n_papers': 129}, {'Cell_stack_sequence': 'SLG | FTO | SnO2-np | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 305, 'n_papers': 69}, {'Cell_stack_sequence': 'SLG | ITO | SnO2-c | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 225, 'n_papers': 52}, {'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | Spiro-MeOTAD | Ag', 'n_devices': 138, 'n_papers': 27}, {'Cell_stack_sequence': 'SLG | FTO | SnO2-c | Perovskite | Spiro-MeOTAD | Ag', 'n_devices': 134, 'n_papers': 33}, {'Cell_stack_sequence': 'SLG | ITO | SnO2-c | Perovskite | Spiro-MeOTAD | Ag', 'n_devices': 124, 'n_papers': 22}, {'Cell_stack_sequence': None, 'n_devices': 90, 'n_papers': 16}, {'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | Carbon', 'n_devices': 66, 'n_papers': 6}, {'Cell_stack_sequence': 'SLG | FTO | SnO2-c | PCBM-60 | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 65, 'n_papers': 12}, {'Cell_stack_sequence': 'SLG | FTO | SnO2-c | C60-SAM | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 49, 'n_papers': 9}, {'Cell_stack_sequence': 'SLG | FTO | SnO2-np | Perovskite | Spiro-MeOTAD | Ag', 'n_devices': 48, 'n_papers': 11}, {'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | PTAA | Au', 'n_devices': 36, 'n_papers': 9}, {'Cell_stack_sequence': 'SLG | FTO | TiO2-c | SnO2-np | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 34, 'n_papers': 8}, {'Cell_stack_sequence': 'SLG | ITO | SnO2-c | PCBM-60 | Perovskite | Spiro-MeOTAD | Au', 'n_devices': 28, 'n_papers': 5}]}",
+   "result_chars": 1762,
+   "seconds": 0.075,
+   "t_offset_s": 355.82,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT Ref_DOI_number, Ref_lead_author, Ref_publication_date, Ref_journal, Cell_architecture, Cell_stack_sequence, ETL_stack_sequence, ETL_additives_compounds, Perovskite_composition_short_form, JV_default_PCE, JV_default_Voc, JV_default_Jsc, JV_default_FF FROM devices WHERE ETL_stack_sequence LIKE '%SnO2%' AND Cell_architecture = 'nip' AND JV_default_PCE > 0 AND JV_default_PCE <= 30 AND JV_default_FF BETWEEN 0.2 AND 1.0 AND JV_default_Voc BETWEEN 0.2 AND 2.0 ORDER BY JV_default_PCE DESC LIMIT 15"
+   },
+   "result": "{'columns': ['Ref_DOI_number', 'Ref_lead_author', 'Ref_publication_date', 'Ref_journal', 'Cell_architecture', 'Cell_stack_sequence', 'ETL_stack_sequence', 'ETL_additives_compounds', 'Perovskite_composition_short_form', 'JV_default_PCE', 'JV_default_Voc', 'JV_default_Jsc', 'JV_default_FF'], 'n_rows': 15, 'rows': [{'Ref_DOI_number': '10.1038/s41586-021-03285-w', 'Ref_lead_author': 'Yoo et al.', 'Ref_publication_date': '2021-02-24', 'Ref_journal': 'Nature', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | FTO | SnO2 | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2', 'ETL_additives_compounds': 'Undoped', 'Perovskite_composition_short_form': 'nannannan', 'JV_default_PCE': 25.2, 'JV_default_Voc': 1.194, 'JV_default_Jsc': 25.09, 'JV_default_FF': 0.847}, {'Ref_DOI_number': '10.1038/s41586-021-03285-w', 'Ref_lead_author': 'Yoo et al.', 'Ref_publication_date': '2021-02-24', 'Ref_journal': 'Nature', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | FTO | SnO2-c | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-c', 'ETL_additives_compounds': 'Undoped', 'Perovskite_composition_short_form': 'FAMAPbBrI', 'JV_default_PCE': 25.2, 'JV_default_Voc': 1.18, 'JV_default_Jsc': 25.15, 'JV_default_FF': 0.848}, {'Ref_DOI_number': '10.1039/d0ta04721j', 'Ref_lead_author': 'Noh et al.', 'Ref_publication_date': '2020-07-23', 'Ref_journal': 'Journal of Materials Chemistry A', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-np', 'ETL_additives_compounds': 'Undoped', 'Perovskite_composition_short_form': 'MAPbI', 'JV_default_PCE': 24.7, 'JV_default_Voc': 0.89, 'JV_default_Jsc': 0.15, 'JV_default_FF': 0.52}, {'Ref_DOI_number': '10.1126/science.abf7652', 'Ref_lead_author': 'Hui et al.', 'Ref_publication_date': '2021-03-25', 'Ref_journal': 'Science', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | FTO | SnO2 | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2', 'ETL_additives_compounds': 'Undoped', 'Perovskite_composition_short_form': 'nannannan', 'JV_default_PCE': 23.7, 'JV_default_Voc': 1.17, 'JV_default_Jsc': 25.34, 'JV_default_FF': 0.8140000000000001}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Ref_lead_author': 'Jiang et al.', 'Ref_publication_date': '2019-04-01', 'Ref_journal': 'Nature Photonics', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-c | Perovskite | PEAI | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-c', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.53, 'JV_default_Voc': 1.15, 'JV_default_Jsc': 24.96, 'JV_default_FF': 0.82}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Ref_lead_author': 'Jiang et al.', 'Ref_publication_date': '2019-04-01', 'Ref_journal': 'Nature Photonics', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | PEAI | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-np', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.4, 'JV_default_Voc': 1.15, 'JV_default_Jsc': 24.96, 'JV_default_FF': 0.82}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Ref_lead_author': 'Jiang et al.', 'Ref_publication_date': '2019-04-01', 'Ref_journal': 'Nature Photonics', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-c | Perovskite | PEAI | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-c', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.32, 'JV_default_Voc': 1.18, 'JV_default_Jsc': 25.2, 'JV_default_FF': 0.784}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Ref_lead_author': 'Jiang et al.', 'Ref_publication_date': '2019-04-01', 'Ref_journal': 'Nature Photonics', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | PEAI | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-np', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.32, 'JV_default_Voc': 1.179, 'JV_default_Jsc': 25.2, 'JV_default_FF': 0.784}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Ref_lead_author': 'Jiang et al.', 'Ref_publication_date': '2019-04-01', 'Ref_journal': 'Nature Photonics', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-c | Perovskite | PEAI | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-c', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.1, 'JV_default_Voc': 1.16, 'JV_default_Jsc': 24.02, 'JV_default_FF': 0.8290000000000001}, {'Ref_DOI_number': '10.1002/adma.201905766', 'Ref_lead_author': 'Wang et al.', 'Ref_publication_date': '2020-01-03', 'Ref_journal': 'Advanced Materials', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | In2O3-c | SnO2-c | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'In2O3-c | SnO2-c', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 23.07, 'JV_default_Voc': 1.16, 'JV_default_Jsc': 24.53, 'JV_default_FF': 0.812}, {'Ref_DOI_number': '10.1038/s41467-022-32047-z', 'Ref_lead_author': 'Li et al.', 'Ref_publication_date': '2022-07-29', 'Ref_journal': 'Nature Communications', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | FTO | TiO2-SnO2 | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'TiO2-c | SnO2-np', 'ETL_additives_compounds': None, 'Perovskite_composition_short_form': 'CsFAPbI', 'JV_default_PCE': 22.99, 'JV_default_Voc': 1.15, 'JV_default_Jsc': 24.65, 'JV_default_FF': 0.811}, {'Ref_DOI_number': '10.1002/adma.201907769', 'Ref_lead_author': 'Zhao et al.', 'Ref_publication_date': '2020-03-09', 'Ref_journal': 'Advanced Materials', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-np', 'ETL_additives_compounds': None, 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 22.95, 'JV_default_Voc': 1.145, 'JV_default_Jsc': 24.9, 'JV_default_FF': 0.8079999999999999}, {'Ref_DOI_number': '10.1038/s41467-022-32047-z', 'Ref_lead_author': 'Li et al.', 'Ref_publication_date': '2022-07-29', 'Ref_journal': 'Nature Communications', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | FTO | TiO2-SnO2 | Perovskite | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'TiO2-c | SnO2-np', 'ETL_additives_compounds': None, 'Perovskite_composition_short_form': 'CsFAPbI', 'JV_default_PCE': 22.93, 'JV_default_Voc': 1.16, 'JV_default_Jsc': 24.65, 'JV_default_FF': 0.812}, {'Ref_DOI_number': '10.1039/d0ta03376f', 'Ref_lead_author': 'Wang et al.', 'Ref_publication_date': '2020-06-05', 'Ref_journal': 'Journal of Materials Chemistry A', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-np | Perovskite | PTAA; Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-np', 'ETL_additives_compounds': 'Undoped', 'Perovskite_composition_short_form': 'CsFAMAPbBrI', 'JV_default_PCE': 22.9, 'JV_default_Voc': 1.12, 'JV_default_Jsc': 23.8, 'JV_default_FF': 0.7759999999999999}, {'Ref_DOI_number': '10.1038/s41566-019-0398-2', 'Ref_lead_author': 'Jiang et al.', 'Ref_publication_date': '2019-04-01', 'Ref_journal': 'Nature Photonics', 'Cell_architecture': 'nip', 'Cell_stack_sequence': 'SLG | ITO | SnO2-c | Perovskite | PEAI | Spiro-MeOTAD | Au', 'ETL_stack_sequence': 'SnO2-c', 'ETL_additives_compounds': 'Unknown', 'Perovskite_composition_short_form': 'FAMAPbI', 'JV_default_PCE': 22.85, 'JV_default_Voc': 1.15, 'JV_default_Jsc': 24.26, 'JV_default_FF': 0.8190000000000001}]}",
+   "result_chars": 7623,
+   "seconds": 0.079,
+   "t_offset_s": 639.74,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT SUM(CASE WHEN Cell_architecture='nip' THEN 1 ELSE 0 END) AS nip_all_etl, SUM(CASE WHEN Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' THEN 1 ELSE 0 END) AS nip_sno2, SUM(CASE WHEN Cell_architecture='nip' AND ETL_stack_sequence LIKE '%TiO2%' THEN 1 ELSE 0 END) AS nip_tio2, SUM(CASE WHEN Cell_architecture='nip' AND ETL_stack_sequence NOT LIKE '%SnO2%' AND ETL_stack_sequence NOT LIKE '%TiO2%' THEN 1 ELSE 0 END) AS nip_other_etl, COUNT(DISTINCT CASE WHEN ETL_stack_sequence LIKE '%SnO2%' AND Cell_architecture='nip' THEN Ref_DOI_number END) AS nip_sno2_papers, COUNT(DISTINCT CASE WHEN ETL_stack_sequence LIKE '%TiO2%' AND Cell_architecture='nip' THEN Ref_DOI_number END) AS nip_tio2_papers, SUM(CASE WHEN ETL_stack_sequence LIKE '%SnO2%' AND Cell_architecture='nip' AND JV_default_PCE IS NOT NULL AND JV_default_PCE>0 THEN 1 ELSE 0 END) AS nip_sno2_with_pce, AVG(CASE WHEN ETL_stack_sequence LIKE '%SnO2%' AND Cell_architecture='nip' THEN JV_default_PCE END) AS avg_pce_all_sno2_nip FROM devices"
+   },
+   "result": "{'columns': ['nip_all_etl', 'nip_sno2', 'nip_tio2', 'nip_other_etl', 'nip_sno2_papers', 'nip_tio2_papers', 'nip_sno2_with_pce', 'avg_pce_all_sno2_nip'], 'n_rows': 1, 'rows': [{'nip_all_etl': 29897, 'nip_sno2': 4422, 'nip_tio2': 22779, 'nip_other_etl': 3053, 'nip_sno2_papers': 794, 'nip_tio2_papers': 4207, 'nip_sno2_with_pce': 4299, 'avg_pce_all_sno2_nip': 15.303180534883722}]}",
+   "result_chars": 379,
+   "seconds": 0.047,
+   "t_offset_s": 659.9,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 13,
+ "n_model_calls": 17,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 17,
+  "prompt_chars": 262583,
+  "completion_chars": 7580,
+  "real_prompt_tokens": 1104321,
+  "real_completion_tokens": 40696,
+  "usage_reported_calls": 17,
+  "rate_limit_events": 0,
+  "provider_error_events": 6,
+  "pool_wait_s": 0,
+  "llm_latency_s": 879.3,
+  "infra_failed": true,
+  "infra_reason": "timeout: timed out",
+  "provider_events": [
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 13,
+    "opencode_tools_used": [
+     "todowrite",
+     "grep",
+     "glob",
+     "read",
+     "grep",
+     "todowrite",
+     "read",
+     "read",
+     "glob",
+     "todowrite",
+     "grep",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "invalid",
+     "invalid",
+     "read",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "todowrite",
+     "read",
+     "grep",
+     "glob"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 10,
+    "opencode_tools_used": [
+     "todowrite",
+     "glob",
+     "read",
+     "grep",
+     "read",
+     "read",
+     "read",
+     "todowrite",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "grep",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 2,
+    "opencode_tools_used": [
+     "todowrite"
+    ]
+   },
+   {
+    "type": "provider_error",
+    "detail": "empty text in serve response"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "provider_error",
+    "detail": "empty text in serve response"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 8,
+    "opencode_tools_used": [
+     "glob",
+     "grep",
+     "todowrite",
+     "grep",
+     "read",
+     "read",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "invalid",
+     "glob",
+     "read",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "grep",
+     "read",
+     "grep",
+     "glob",
+     "glob",
+     "read"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 5,
+    "opencode_tools_used": [
+     "invalid",
+     "invalid",
+     "glob",
+     "read",
+     "grep",
+     "invalid"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 9,
+    "opencode_tools_used": [
+     "todowrite",
+     "invalid",
+     "invalid",
+     "glob",
+     "glob",
+     "read",
+     "grep",
+     "grep",
+     "glob",
+     "read",
+     "read",
+     "read",
+     "grep"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 4,
+    "opencode_tools_used": [
+     "grep",
+     "glob",
+     "todowrite",
+     "todowrite",
+     "grep",
+     "read"
+    ]
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 19,
+    "opencode_tools_used": [
+     "todowrite",
+     "read",
+     "read",
+     "grep",
+     "grep",
+     "todowrite",
+     "glob",
+     "read",
+     "read",
+     "read",
+     "read",
+     "read",
+     "todowrite",
+     "grep",
+     "read",
+     "grep",
+     "read",
+     "glob",
+     "read",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 3,
+    "opencode_tools_used": [
+     "read",
+     "glob",
+     "todowrite"
+    ]
+   },
+   {
+    "type": "opencode_internal",
+    "assistant_steps": 1,
+    "opencode_tools_used": []
+   },
+   {
+    "type": "provider_error",
+    "detail": "empty text in serve response"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "timeout",
+    "detail": "timed out"
+   },
+   {
+    "type": "episode_abort",
+    "detail": "timeout: timed out"
+   }
+  ]
+ },
+ "infra_failure": true,
+ "harness_error": null,
+ "extra": {
+  "trace_file": "trace_20261021_192557_f4c0.jsonl",
+  "missing_agents": {},
+  "error": null,
+  "traceback": null,
+  "n_llm_retry_events": 0,
+  "n_asks": 2,
+  "escalations": 1
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

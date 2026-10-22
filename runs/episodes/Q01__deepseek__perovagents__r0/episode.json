@@ -1,0 +1,82 @@
+{
+ "episode_id": "Q01__deepseek__perovagents__r0",
+ "qid": "Q01",
+ "category": "pdb",
+ "set": "main",
+ "condition": "perovagents",
+ "backbone": "deepseek",
+ "model": "deepseek-r1-lite",
+ "route": "perovagents",
+ "rep": 0,
+ "started_at": "2026-10-22T09:21:06.230704",
+ "finished_at": "2026-10-22T09:21:34.430704",
+ "seconds": 28.2,
+ "termination": "answer",
+ "question": "What is the average reported PCE of n-i-p perovskite solar cells using SnO2 as the ETL?",
+ "final_answer": "The n-i-p subset with SnO2 in the ETL stack contains 4,300 devices with a non-null reported PCE. Mean reported PCE is 15.30% (range 0.02-35.9%). This is a stack-contains query, so composite SnO2 ETLs are included.",
+ "tool_calls": [
+  {
+   "agent": "pdb",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "PCE"
+   },
+   "result": "['JV_default_PCE', 'JV_reverse_scan_PCE', 'JV_forward_scan_PCE', 'Stabilised_performance_PCE']",
+   "result_chars": 94,
+   "seconds": 0.09,
+   "t_offset_s": 3.2,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) AS n_devices, AVG(JV_default_PCE) AS mean_pce, MIN(JV_default_PCE) AS min_pce, MAX(JV_default_PCE) AS max_pce FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL"
+   },
+   "result": "{'columns': ['n_devices', 'mean_pce', 'min_pce', 'max_pce'], 'n_rows': 1, 'rows': [{'n_devices': 4300, 'mean_pce': 15.303, 'min_pce': 0.02, 'max_pce': 35.9}]}",
+   "result_chars": 158,
+   "seconds": 0.21,
+   "t_offset_s": 7.4,
+   "error": false
+  },
+  {
+   "agent": "pdb",
+   "tool": "sql",
+   "args": {
+    "query": "SELECT COUNT(*) AS n_devices, AVG(JV_default_PCE) AS mean_pce, (SELECT AVG(p) FROM (SELECT JV_default_PCE p FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL ORDER BY p LIMIT 1 OFFSET 2149)) AS median_probe FROM devices WHERE Cell_architecture='nip' AND ETL_stack_sequence LIKE '%SnO2%' AND JV_default_PCE IS NOT NULL"
+   },
+   "result": "{'columns': ['n_devices', 'mean_pce', 'median_probe'], 'n_rows': 1, 'rows': [{'n_devices': 4300, 'mean_pce': 15.303, 'median_probe': 14.9}]}",
+   "result_chars": 140,
+   "seconds": 0.19,
+   "t_offset_s": 11.3,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 3,
+ "n_model_calls": 8,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 8,
+  "real_prompt_tokens": 8204,
+  "real_completion_tokens": 736,
+  "usage_reported_calls": 8,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "framework": "perovagents",
+  "handoffs": [
+   "pdb",
+   "pdb",
+   "pdb"
+  ]
+ }
+}

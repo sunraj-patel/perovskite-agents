@@ -1,0 +1,105 @@
+{
+ "episode_id": "Q07__gemini__direct__r0",
+ "qid": "Q07",
+ "category": "literature",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:51:07",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "Find a relevant paper reporting a quantitative performance improvement for an SnO2-based n-i-p perovskite solar cell. Report the baseline/result value, the intervention, the quantitative improvement, and the DOI.",
+ "finished_at": "2026-10-21T20:13:58",
+ "seconds": 1371.3,
+ "termination": "timeout",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "SnO2"
+   },
+   "result": "[]",
+   "result_chars": 2,
+   "seconds": 0.0,
+   "t_offset_s": 889.32,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 14,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 14,
+  "prompt_chars": 71936,
+  "completion_chars": 53,
+  "real_prompt_tokens": 1587,
+  "real_completion_tokens": 19,
+  "usage_reported_calls": 1,
+  "rate_limit_events": 0,
+  "provider_error_events": 4,
+  "pool_wait_s": 0,
+  "llm_latency_s": 1353.2,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": [
+   {
+    "type": "provider_error",
+    "slot": 18,
+    "detail": ""
+   },
+   {
+    "type": "provider_error",
+    "slot": 13,
+    "detail": ""
+   },
+   {
+    "type": "provider_error",
+    "slot": 12,
+    "detail": ""
+   },
+   {
+    "type": "provider_error",
+    "slot": 15,
+    "detail": ""
+   }
+  ]
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "find_columns({'keyword': 'SnO2'})",
+    "[]"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}

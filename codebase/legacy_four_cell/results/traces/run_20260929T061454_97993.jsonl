@@ -1,0 +1,4 @@
+{"t": 1790662494.335917, "event": "plan", "run_id": "20260929T061454_97993", "seed": 42, "tasks": [{"id": "t1", "cell": "scaps", "request": "Perform a sensitivity sweep of PCE with respect to the perovskite band gap (Eg).", "params": {"sweep_name": "pvk_Eg"}, "depends_on": []}]}
+{"t": 1790662494.335937, "event": "dispatch", "task": "t1", "cell": "scaps"}
+{"t": 1790662506.295664, "event": "failed", "task": "t1", "cell": "scaps", "reason": "sweep_found: sweep has no rows"}
+{"t": 1790662506.2964768, "event": "done", "run_id": "20260929T061454_97993", "summary": {"run_id": "20260929T061454_97993", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "sweep_found: sweep has no rows"}, "skipped": []}}

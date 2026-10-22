@@ -1,0 +1,4 @@
+{"t": 1790628525.53246, "event": "plan", "run_id": "20260928T204845_84672", "seed": 42, "tasks": [{"id": "t1", "cell": "literature", "request": "Find papers on buried interface passivation for p-i-n perovskite cells", "params": {"query": "buried interface passivation p-i-n perovskite solar cells", "k": 5, "question_ctx": "architecture: p-i-n perovskite cells; topic: buried interface passivation"}, "depends_on": []}]}
+{"t": 1790628525.532483, "event": "dispatch", "task": "t1", "cell": "literature"}
+{"t": 1790628535.44831, "event": "failed", "task": "t1", "cell": "literature", "reason": "'str' object has no attribute 'get'"}
+{"t": 1790628535.449569, "event": "done", "run_id": "20260928T204845_84672", "summary": {"run_id": "20260928T204845_84672", "status": {"t1": "failed"}, "validated": [], "failed": {"t1": "'str' object has no attribute 'get'"}, "skipped": []}}

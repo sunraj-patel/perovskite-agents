@@ -1,0 +1,20 @@
+plan: 18 cells, 0 done/exhausted, 18 to run (gemini, deepseek, minimax x direct, perovagents x reps 0..0)
+2026-10-21T18:18:55 Q01__gemini__direct__r0 -> completed/turn_budget 232.5s
+2026-10-21T18:19:00 Q01__gemini__perovagents__r0 -> completed/answer 237.9s
+2026-10-21T18:19:13 Q29__gemini__direct__r0 -> completed/answer 18.1s
+2026-10-21T18:19:25 Q33__gemini__direct__r0 -> completed/answer 12.6s
+2026-10-21T18:19:29 Q29__gemini__perovagents__r0 -> completed/answer 28.6s
+2026-10-21T18:20:08 Q01__minimax__direct__r0 -> infra_failed/turn_budget 305.9s
+2026-10-21T18:20:08 Q01__deepseek__direct__r0 -> infra_failed/turn_budget 305.9s
+2026-10-21T18:20:08 Q01__deepseek__perovagents__r0 -> infra_failed/answer 305.9s
+2026-10-21T18:20:17 Q01__minimax__perovagents__r0 -> infra_failed/answer 314.7s
+2026-10-21T18:20:38 Q33__gemini__perovagents__r0 -> completed/answer 72.4s
+2026-10-21T18:25:13 Q29__deepseek__direct__r0 -> infra_failed/turn_budget 305.1s
+2026-10-21T18:25:13 Q29__minimax__direct__r0 -> infra_failed/turn_budget 305.1s
+2026-10-21T18:25:13 Q29__deepseek__perovagents__r0 -> infra_failed/answer 305.1s
+[deepseek] stopped: 4 consecutive infrastructure failures; remaining cells left for a later --resume run
+2026-10-21T18:25:33 Q33__minimax__direct__r0 -> completed/answer 19.6s
+2026-10-21T18:25:33 Q29__minimax__perovagents__r0 -> infra_failed/answer 316.3s
+2026-10-21T18:30:18 Q33__deepseek__direct__r0 -> infra_failed/turn_budget 305.1s
+2026-10-21T18:30:59 Q33__minimax__perovagents__r0 -> infra_failed/answer 325.9s
+finished; 0 cells left. Resume with the same command.

@@ -1,0 +1,418 @@
+{
+ "n_runs": 8,
+ "table1_overall": [
+  {
+   "system": "gemini",
+   "n": 1,
+   "completion": 1.0,
+   "contract": 1.0,
+   "tool_f1": 1.0,
+   "scientific": 1.0,
+   "recovery_rate": null,
+   "repeat_rate": 0.0,
+   "mean_tool_calls": 6.0,
+   "mean_llm_calls": 9.0,
+   "mean_tokens": 15684.0,
+   "mean_seconds": 274.8
+  },
+  {
+   "system": "mrs",
+   "n": 7,
+   "completion": 0.286,
+   "contract": 0.167,
+   "tool_f1": 0.555,
+   "scientific": 0.167,
+   "recovery_rate": 0.0,
+   "repeat_rate": 0.166,
+   "mean_tool_calls": 6.857,
+   "mean_llm_calls": 13.714,
+   "mean_tokens": 33818.857,
+   "mean_seconds": 384.257
+  }
+ ],
+ "table2_category": [
+  {
+   "category": "literature",
+   "system": "mrs",
+   "n": 1,
+   "completion": 0.0,
+   "tool_f1": 0.667,
+   "scientific": 0.0
+  },
+  {
+   "category": "ml",
+   "system": "mrs",
+   "n": 1,
+   "completion": 1.0,
+   "tool_f1": 1.0,
+   "scientific": null
+  },
+  {
+   "category": "multi_tool",
+   "system": "mrs",
+   "n": 2,
+   "completion": 0.0,
+   "tool_f1": 0.191,
+   "scientific": 0.0
+  },
+  {
+   "category": "pdb",
+   "system": "gemini",
+   "n": 1,
+   "completion": 1.0,
+   "tool_f1": 1.0,
+   "scientific": 1.0
+  },
+  {
+   "category": "pdb",
+   "system": "mrs",
+   "n": 2,
+   "completion": 0.0,
+   "tool_f1": 0.584,
+   "scientific": 0.0
+  },
+  {
+   "category": "scaps",
+   "system": "mrs",
+   "n": 1,
+   "completion": 1.0,
+   "tool_f1": 0.667,
+   "scientific": 1.0
+  }
+ ],
+ "table3_recovery": [
+  {
+   "qid": "Q02",
+   "system": "mrs",
+   "failure": "incomplete_synthesis",
+   "recovered": false,
+   "final_correct": false,
+   "extra_tool_calls": 2
+  },
+  {
+   "qid": "Q06",
+   "system": "mrs",
+   "failure": "incomplete_synthesis",
+   "recovered": false,
+   "final_correct": false,
+   "extra_tool_calls": 7
+  },
+  {
+   "qid": "Q20",
+   "system": "mrs",
+   "failure": "incomplete_synthesis",
+   "recovered": false,
+   "final_correct": false,
+   "extra_tool_calls": 10
+  }
+ ],
+ "table4_efficiency": [
+  {
+   "system": "gemini",
+   "mean_tool_calls": 6.0,
+   "mean_llm_calls": 9.0,
+   "mean_tokens": 15684.0,
+   "mean_seconds": 274.8
+  },
+  {
+   "system": "mrs",
+   "mean_tool_calls": 6.857,
+   "mean_llm_calls": 13.714,
+   "mean_tokens": 33818.857,
+   "mean_seconds": 384.257
+  }
+ ],
+ "paired": {
+  "gemini_vs_mrs": {
+   "completion": {
+    "n_pairs": 1,
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "win_rate": 1.0,
+    "win_rate_ci95": [
+     0.207,
+     1.0
+    ]
+   },
+   "scientific": {
+    "n_pairs": 1,
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "win_rate": 1.0,
+    "win_rate_ci95": [
+     0.207,
+     1.0
+    ]
+   }
+  }
+ },
+ "scores": [
+  {
+   "qid": "Q01",
+   "system": "gemini",
+   "A_completion": 1,
+   "B_contract": 1,
+   "C_tool_precision": 1.0,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 1.0,
+   "D_scientific": 1.0,
+   "D_checks": {
+    "count": true,
+    "mean_pce": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": false,
+    "initial_failure_seen": false,
+    "recovered": false,
+    "final_correct": true,
+    "extra_tool_calls": 6
+   },
+   "G_repeat_rate": 0.0,
+   "H_tool_calls": 6,
+   "I_llm_calls": 9,
+   "J_prompt_tokens": 15501,
+   "K_completion_tokens": 183,
+   "L_cost_usd": null,
+   "M_quality_proxy": 1.0,
+   "termination": "answer",
+   "failure": "none",
+   "seconds": 274.8
+  },
+  {
+   "qid": "Q01",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.333,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 0.5,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "count": true,
+    "mean_pce": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": false,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 6
+   },
+   "G_repeat_rate": 0.0,
+   "H_tool_calls": 6,
+   "I_llm_calls": 14,
+   "J_prompt_tokens": 8954,
+   "K_completion_tokens": 218,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "answer",
+   "failure": "incomplete_synthesis",
+   "seconds": 571.6
+  },
+  {
+   "qid": "Q02",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.5,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 0.667,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "top_htl_recall": 0.0,
+    "has_counts": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": true,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 2
+   },
+   "G_repeat_rate": 0.0,
+   "H_tool_calls": 2,
+   "I_llm_calls": 9,
+   "J_prompt_tokens": 652,
+   "K_completion_tokens": 95,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "answer",
+   "failure": "incomplete_synthesis",
+   "seconds": 274.7
+  },
+  {
+   "qid": "Q06",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.5,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 0.667,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "gold_doi_cited": false
+   },
+   "E_citation_ok": false,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": true,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 7
+   },
+   "G_repeat_rate": 0.286,
+   "H_tool_calls": 7,
+   "I_llm_calls": 14,
+   "J_prompt_tokens": 37616,
+   "K_completion_tokens": 4231,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "answer",
+   "failure": "incomplete_synthesis",
+   "seconds": 247.8
+  },
+  {
+   "qid": "Q10",
+   "system": "mrs",
+   "A_completion": 1,
+   "B_contract": null,
+   "C_tool_precision": 1.0,
+   "C_tool_recall": 1.0,
+   "C_tool_f1": 1.0,
+   "D_scientific": null,
+   "D_checks": {
+    "feature_recall": 0.0
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": false,
+    "initial_failure_seen": false,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 1
+   },
+   "G_repeat_rate": 0.0,
+   "H_tool_calls": 1,
+   "I_llm_calls": 4,
+   "J_prompt_tokens": 5289,
+   "K_completion_tokens": 1808,
+   "L_cost_usd": null,
+   "M_quality_proxy": 1.0,
+   "termination": "answer",
+   "failure": "none",
+   "seconds": 123.7
+  },
+  {
+   "qid": "Q13",
+   "system": "mrs",
+   "A_completion": 1,
+   "B_contract": 1,
+   "C_tool_precision": 1.0,
+   "C_tool_recall": 0.5,
+   "C_tool_f1": 0.667,
+   "D_scientific": 1.0,
+   "D_checks": {
+    "pce": true,
+    "voc": true,
+    "converged_claim": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": false,
+    "initial_failure_seen": false,
+    "recovered": false,
+    "final_correct": true,
+    "extra_tool_calls": 1
+   },
+   "G_repeat_rate": 0.0,
+   "H_tool_calls": 1,
+   "I_llm_calls": 4,
+   "J_prompt_tokens": 10128,
+   "K_completion_tokens": 930,
+   "L_cost_usd": null,
+   "M_quality_proxy": 1.0,
+   "termination": "answer",
+   "failure": "none",
+   "seconds": 161.1
+  },
+  {
+   "qid": "Q17",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.167,
+   "C_tool_recall": 0.25,
+   "C_tool_f1": 0.2,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "has_model_part": true,
+    "has_db_or_sim_part": true,
+    "has_literature_part": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": false,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 21
+   },
+   "G_repeat_rate": 0.476,
+   "H_tool_calls": 21,
+   "I_llm_calls": 34,
+   "J_prompt_tokens": 101155,
+   "K_completion_tokens": 14478,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "answer",
+   "failure": "incomplete_synthesis",
+   "seconds": 958.9
+  },
+  {
+   "qid": "Q20",
+   "system": "mrs",
+   "A_completion": 0,
+   "B_contract": 0,
+   "C_tool_precision": 0.167,
+   "C_tool_recall": 0.2,
+   "C_tool_f1": 0.182,
+   "D_scientific": 0.0,
+   "D_checks": {
+    "has_model_part": true,
+    "has_db_or_sim_part": true,
+    "has_literature_part": true
+   },
+   "E_citation_ok": null,
+   "F_recovered": false,
+   "F_detail": {
+    "recovery_required": true,
+    "initial_failure_seen": true,
+    "recovered": false,
+    "final_correct": false,
+    "extra_tool_calls": 10
+   },
+   "G_repeat_rate": 0.4,
+   "H_tool_calls": 10,
+   "I_llm_calls": 17,
+   "J_prompt_tokens": 43278,
+   "K_completion_tokens": 7900,
+   "L_cost_usd": null,
+   "M_quality_proxy": 0.0,
+   "termination": "answer",
+   "failure": "incomplete_synthesis",
+   "seconds": 352.0
+  }
+ ]
+}

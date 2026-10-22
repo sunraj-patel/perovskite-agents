@@ -1,0 +1,84 @@
+{
+ "episode_id": "Q02__gemini__direct__r0",
+ "qid": "Q02",
+ "category": "pdb",
+ "condition": "direct",
+ "backbone": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "route": "google-genai direct (free-tier key pool)",
+ "rep": 0,
+ "started_at": "2026-10-21T19:19:51",
+ "budgets": {
+  "max_tool_calls": 12,
+  "max_model_turns": 12,
+  "timeout_s": 1200
+ },
+ "question": "What are the 10 most frequently reported HTL materials in n-i-p perovskite solar cells with PCE above 20%?",
+ "finished_at": "2026-10-21T19:42:41",
+ "seconds": 1370.3,
+ "termination": "timeout",
+ "final_answer": "",
+ "tool_calls": [
+  {
+   "agent": "direct",
+   "tool": "find_columns",
+   "args": {
+    "keyword": "HTL"
+   },
+   "result": "['HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step']",
+   "result_chars": 1203,
+   "seconds": 0.0,
+   "t_offset_s": 831.44,
+   "error": false
+  }
+ ],
+ "n_tool_calls": 1,
+ "n_model_calls": 23,
+ "repeated_tool_calls": 0,
+ "tool_errors": 0,
+ "retries": 0,
+ "provider": {
+  "model_calls": 23,
+  "prompt_chars": 125768,
+  "completion_chars": 53,
+  "real_prompt_tokens": 1617,
+  "real_completion_tokens": 19,
+  "usage_reported_calls": 1,
+  "rate_limit_events": 0,
+  "provider_error_events": 0,
+  "pool_wait_s": 0,
+  "llm_latency_s": 1339.4,
+  "infra_failed": false,
+  "infra_reason": null,
+  "provider_events": []
+ },
+ "infra_failure": false,
+ "harness_error": null,
+ "extra": {
+  "transcript_tail": [
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "find_columns({'keyword': 'HTL'})",
+    "['HTL_stack_sequence', 'HTL_thickness_list', 'HTL_additives_compounds', 'HTL_additives_concentrations', 'HTL_deposition_procedure', 'HTL_deposition_aggregation_state_of_reactants', 'HTL_deposition_synthesis_atmosphere', 'HTL_deposition_synthesis_atmosphere_pressure_total', 'HTL_deposition_synthesis_atmosphere_pressure_partial', 'HTL_deposition_synthesis_atmosphere_relative_humidity', 'HTL_deposition_solvents', 'HTL_deposition_solvents_mixing_ratios', 'HTL_deposition_solvents_supplier', 'HTL_deposition_solvents_purity', 'HTL_deposition_reaction_solutions_compounds', 'HTL_deposition_reaction_solutions_compounds_supplier', 'HTL_deposition_reaction_solutions_compounds_purity', 'HTL_deposition_reaction_solutions_concentrations', 'HTL_deposition_reaction_solutions_volumes', 'HTL_deposition_reaction_solutions_age', 'HTL_deposition_reaction_solutions_temperature', 'HTL_deposition_substrate_temperature', 'HTL_deposition_thermal_annealing_temperature', 'HTL_deposition_thermal_annealing_time', 'HTL_deposition_thermal_annealing_atmosphere', 'HTL_storage_time_until_next_deposition_step', 'HTL_storage_atmosphere', 'HTL_storage_relative_humidity', 'HTL_surface_treatment_before_next_deposition_step']"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ],
+   [
+    "(no valid tool call)",
+    "ERROR: unknown tool None; reply with JSON or FINAL ANSWER:"
+   ]
+  ]
+ },
+ "tool_versions": {
+  "pdb_sqlite": "/Users/sunraj/Desktop/College/S6/UGP/perovagents/results/sqlite/perovskite.db",
+  "corpus_dir": "/Users/sunraj/Desktop/College/S6/UGP/sandbox/markdown",
+  "scaps_results": "/Users/sunraj/Desktop/College/S6/UGP/opencode_sandbox/scaps/sweep_results.csv",
+  "live_scaps": false,
+  "ml_manifest_sha256": "38e92c2f46b0d55b"
+ }
+}
